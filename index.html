@@ -77,7 +77,7 @@
     border-radius: 9999px;
   }
 
-  /* ─────────────── CARD GLOW ANIMATION (ALPHA / BETA) ─────────────── */
+  /* ─────────────── CARD GLOW ANIMATION (ALPHA / BETA / PRICING) ─────────────── */
   @keyframes pulseGlow {
     0%, 100% {
       box-shadow:
@@ -104,7 +104,7 @@
   }
 
   .pulse-card:hover {
-    transform: scale(1.01);
+    transform: scale(1.02);
   }
 
   /* ─────────────── NAV BAR GLOW (Logo + Text) ─────────────── */
@@ -131,7 +131,28 @@
   .logo-glow:hover {
     filter: drop-shadow(0 0 18px rgba(0, 255, 255, 0.8));
   }
+
+  /* ─────────────── RADAR LOGO PULSE ─────────────── */
+@keyframes radarGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 4px rgba(0, 255, 255, 0.3))
+            drop-shadow(0 0 8px rgba(0, 255, 255, 0.2));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(0, 255, 255, 0.6))
+            drop-shadow(0 0 24px rgba(0, 255, 255, 0.4));
+    transform: scale(1.05);
+  }
+}
+
+.pulse-logo {
+  animation: radarGlow 3.5s ease-in-out infinite;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+  
 </style>
+
 
   
   
@@ -144,9 +165,11 @@
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
     <!-- Logo on Left (glow + margin) -->
-    <a href="/" class="flex items-center space-x-3 ml-4">
-      <img src="deltawavelogoradar.png" alt="Delta Wave Logo" class="h-10 w-auto logo-glow">
-    </a>
+  <!-- Radar Logo on Right -->
+<a href="/" class="flex items-center space-x-3 mr-4 ml-auto">
+  <img src="deltawavelogoradar.png" alt="Delta Wave Logo" class="h-10 w-auto logo-glow pulse-logo">
+</a>
+
 
     <!-- DESKTOP NAV -->
     <nav class="hidden lg:flex ml-auto font-semibold text-lg space-x-10 tracking-wide">
@@ -248,7 +271,7 @@
 
     <!-- Header -->
     <h2 class="text-3xl sm:text-4xl font-extrabold text-cyan-400">
-      What We Check — So You Don’t Have To
+      Tell us what you look for - Consider it done.
     </h2>
     <p class="text-lg text-gray-300 max-w-3xl mx-auto">
       We deep sweep full coverage.
@@ -385,17 +408,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Footer CTA -->
-<div class="pt-24 text-center">
-  <p class="text-base text-gray-400 pb-4 max-w-2xl mx-auto leading-relaxed">
-    All portals scanned with stealth-grade systems + human filtering.<br class="hidden sm:block">
-    You receive only clean, high-relevance intel.
-  </p>
-  <h2 class="text-3xl sm:text-4xl font-extrabold text-cyan-400">
-    Tell us what you look for — Consider it done.
-  </h2>
-</div>
 </section>
 
   
@@ -516,76 +528,100 @@
 
 
 
-  
   <!-- ▸▸ THETA  ◂◂ -->
 <section class="py-24 flex justify-center" id="theta">
   <div
-    class="card card-no-top card-cyan-sides max-w-3xl text-center"
     data-aos="fade-up"
+    class="w-full max-w-3xl text-center bg-black text-white rounded-xl border border-cyan-400 shadow-lg pulse-card"
   >
-   <h2 class="text-4xl font-bold text-cyan-400 tracking-widest mb-2">T H E T A</h2>
-    <p class="text-sm tracking-widest text-gray-400 mb-6">QUOTE / INVOICE AUDIT</p>
+    <div class="py-12 px-6">
+      
+      <!-- Title -->
+      <h2 class="text-4xl font-bold text-cyan-400 tracking-widest mb-2">T H E T A</h2>
+      <p class="text-sm tracking-widest text-gray-400 mb-6">ESTIMATING ASSISTANT</p>
 
-    <h3 class="card-hook mt-6">Legends typed… in five seconds.</h3>
-    <p class="card-body">
-      THETA reads blueprint legends, extracts quantities and drops a
-      paste-ready table into PlanSwift®&nbsp;or your estimating tool.
-      Grunt work → gone.
-    </p>
+      <!-- Hook -->
+      <h3 class="card-hook mt-6 text-xl sm:text-2xl font-bold text-white">
+        Legends typed… in five seconds.
+      </h3>
+      <p class="card-body text-base text-gray-300 mt-2">
+        THETA reads blueprint legends, extracts quantities and drops a
+        paste-ready table into PlanSwift®&nbsp;or your estimating tool.
+        Grunt work → gone.
+      </p>
 
-    <ul class="card-list mt-8 space-y-4 text-lg">
-      <li>📄 Auto-builds a clean legend</li>
-      <li>🧮 Counts symbols + quantities</li>
-      <li>🤖 Coming soon: full-sheet AI take-off</li>
-    </ul>
+      <!-- Features -->
+      <ul class="card-list mt-8 space-y-4 text-lg">
+        <li>📄 Auto-builds a clean legend</li>
+        <li>🧮 Counts symbols + quantities</li>
+        <li>🤖 Coming soon: full-sheet AI take-off</li>
+      </ul>
 
-    <p class="card-foot mt-8 text-sm text-gray-400">
-      <span class="text-primary font-semibold">* In private beta — ETA&nbsp;Q3</span>
-    </p>
+      <!-- Footnote -->
+      <p class="card-foot mt-8 text-sm text-gray-400">
+        <span class="text-primary font-semibold">* In private beta — ETA&nbsp;Q3</span>
+      </p>
 
-    <a
-      href="#contact"
-      class="btn-primary mt-6 inline-block"
-    >
-      Join the Wait-List
-    </a>
+      <!-- CTA -->
+      <a
+        href="#contact"
+        class="mt-6 inline-block bg-cyan-400 hover:bg-cyan-300 text-black font-semibold py-2 px-6 rounded-md transition"
+      >
+        Join the Wait-List
+      </a>
+
+    </div>
   </div>
 </section>
 
 <!-- ▸▸ DELTA  ◂◂ -->
 <section class="py-24 flex justify-center" id="delta">
   <div
-    class="card card-no-top card-cyan-sides max-w-3xl text-center"
     data-aos="fade-up"
+    class="w-full max-w-3xl text-center bg-black text-white rounded-xl border border-cyan-400 shadow-lg pulse-card"
   >
-   <h2 class="text-4xl font-bold text-cyan-400 tracking-widest mb-2">D E L T A</h2>
-    <p class="text-sm tracking-widest text-gray-400 mb-6">OPS AUDIT & CUSTOM BLUEPRINT</p>
+    <div class="py-12 px-6">
 
-    <h3 class="card-hook mt-6">Turn back-office drag into firepower.</h3>
-    <p class="card-body">
-      One-on-one, special-forces style audit. We map every quote,
-      invoice, dispatch and field app you touch—then deploy targeted
-      automations that save hours and dollars every week.
-    </p>
+      <!-- Title -->
+      <h2 class="text-4xl font-bold text-cyan-400 tracking-widest mb-2">D E L T A</h2>
+      <p class="text-sm tracking-widest text-gray-400 mb-6">OPS AUDIT & CUSTOM BLUEPRINT</p>
 
-    <ul class="card-list mt-8 space-y-4 text-lg">
-      <li>🗂️  Streamline repetitive tasks</li>
-      <li>🔍  Expose hidden process leaks</li>
-      <li>🛰️  Deploy stealth automations</li>
-    </ul>
+      <!-- Hook -->
+      <h3 class="card-hook mt-6 text-xl sm:text-2xl font-bold text-white">
+        Turn back-office drag into firepower.
+      </h3>
+      <p class="card-body text-base text-gray-300 mt-2">
+        One-on-one, special-forces style audit. We map every quote,
+        invoice, dispatch and field app you touch—then deploy targeted
+        automations that save hours and dollars every week.
+      </p>
 
-    <p class="card-foot mt-8 text-sm text-gray-400">
-      <span class="text-primary font-semibold">* Limited availability — invitation only</span>
-    </p>
+      <!-- Features -->
+      <ul class="card-list mt-8 space-y-4 text-lg">
+        <li>🗂️ Streamline repetitive tasks</li>
+        <li>🔍 Expose hidden process leaks</li>
+        <li>🛰️ Deploy stealth automations</li>
+      </ul>
 
-    <a
-      href="#contact"
-      class="btn-primary mt-6 inline-block"
-    >
-      Request an Ops Briefing
-    </a>
+      <!-- Footnote -->
+      <p class="card-foot mt-8 text-sm text-gray-400">
+        <span class="text-primary font-semibold">* Limited availability — invitation only</span>
+      </p>
+
+      <!-- CTA -->
+      <a
+        href="#contact"
+        class="mt-6 inline-block bg-cyan-400 hover:bg-cyan-300 text-black font-semibold py-2 px-6 rounded-md transition"
+      >
+        Request an Ops Briefing
+      </a>
+
+    </div>
   </div>
 </section>
+
+
+
 
 <!-- ▸▸ SAMPLE REPORT + HOW-IT-WORKS ◂◂ -->
 <section id="how" class="py-24 px-6">   <!-- ← id added here -->
@@ -794,8 +830,9 @@
 <!--  SOCIAL PROOF  / TESTIMONIALS -->
 <!-- ========================= -->
 <section id="testimonials" class="bg-[#0b0f13] text-white pt-32 pb-36 px-6">
-  <div class="max-w-6xl mx-auto text-center mb-24">
-    <h2 class="text-3xl md:text-4xl font-bold text-cyan-400">
+  <!-- Section Heading -->
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-cyan-400 mb-14">
       What Contractors Are Saying
     </h2>
   </div>
@@ -855,103 +892,88 @@
   </div><!-- /grid -->
 </section>
 
-
-
-<!-- ▸▸  PRICING  ◂◂ -->
-<section id="pricing" class="bg-[#0b0f13] py-24 text-white">
-  <!-- parent container now centers BOTH columns -->
-  <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row justify-center items-start gap-16">
-
-    <!--  LEFT COLUMN  -->
-    <div class="space-y-8 max-w-md text-balance text-center mx-auto">
+<!-- ▸▸ PRICING  ◂◂ -->
+<section id="pricing" class="bg-[#0b0f13] py-28 text-white">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row justify-center items-start gap-20">
+    
+    <!-- LEFT COLUMN -->
+    <div class="space-y-8 max-w-md text-center mx-auto">
       <h3 class="text-4xl md:text-5xl font-extrabold text-cyan-400">Why&nbsp;$500?</h3>
-
-    <ul class="text-lg md:text-xl text-gray-300 leading-relaxed space-y-3">
-  <li>➤ Less than the cost of a single missed job-walk</li>
-  <li>➤ Far cheaper than hiring even a part-time estimator</li>
-  <li><span class="text-white font-semibold">➤ Precision recon</span>, twice a week, hand-verified by humans</li>
-</ul>
-
-
-      <h4 class="text-cyan-300 font-semibold">Monthly value we replace</h4>
+      <ul class="text-lg md:text-xl text-gray-300 leading-relaxed space-y-3">
+        <li>➤ Less than the cost of a single missed job-walk</li>
+        <li>➤ Cheaper than even a part-time estimator</li>
+        <li><span class="text-white font-semibold">➤ Precision recon</span>, 3x/week, hand-verified</li>
+      </ul>
+      <h4 class="text-cyan-300 font-semibold pt-6">Monthly value we replace</h4>
       <ul class="text-base md:text-lg text-gray-300 space-y-3">
         <li>✅ <strong>$1,500+</strong> Estimator hours saved</li>
         <li>✅ <strong>$5,000+</strong> Missed-bid leaks plugged</li>
         <li>✅ Clean targets → higher win-rate</li>
-      
       </ul>
     </div>
 
-    <!--  RIGHT COLUMN: PLAN CARDS  -->
+    <!-- RIGHT COLUMN: PRICING PLANS -->
     <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-10">
 
-      <!-- STARTER -->
-      <div
-        class="bg-[#11151d] border border-cyan-500 rounded-2xl px-10 py-12 shadow-xl flex flex-col items-center text-center space-y-8 hover:scale-[1.02] hover:shadow-cyan-500/30 transition-all min-w-[300px]">
+      <!-- $500 PLAN -->
+      <div class="pulse-card bg-[#11151d] border border-cyan-400 rounded-2xl px-10 py-12 shadow-xl flex flex-col items-center text-center space-y-8 transition-all">
         <h5 class="text-2xl font-bold text-cyan-300">
-          Starter <span class="text-sm text-gray-400 font-normal">(Mon&nbsp;+&nbsp;Thu)</span>
+          Bids Only <span class="text-sm text-gray-400 font-normal">(Mon–Wed–Fri)</span>
         </h5>
         <div class="text-5xl font-extrabold text-white">
           $500 <span class="text-lg text-gray-400 font-medium">/ month</span>
         </div>
         <ul class="space-y-3 text-base text-gray-300">
-          <li>✓ 2× Weekly Recon PDFs</li>
-          <li>✓ Trade &amp; Spec Filters</li>
+          <li>✓ 3× Weekly Recon PDFs</li>
+          <li>✓ Trade & Spec Filters</li>
           <li>✓ Field-intel Notes</li>
           <li>✓ Human-verified bids</li>
         </ul>
-        <a href="#contact"
-           class="mt-6 w-full bg-cyan-400 hover:bg-cyan-300 text-black font-semibold py-3 rounded-xl transition">
+        <a href="#contact" class="mt-6 w-full bg-cyan-400 hover:bg-cyan-300 text-black font-semibold py-3 rounded-xl transition">
           Start Recon
         </a>
       </div>
 
-      <!-- PRO -->
-      <div
-        class="bg-[#11151d] border border-cyan-500 rounded-2xl px-10 py-12 shadow-xl flex flex-col items-center text-center space-y-8 hover:scale-[1.02] hover:shadow-cyan-500/30 transition-all min-w-[300px]">
+      <!-- $900 PLAN -->
+      <div class="pulse-card bg-[#11151d] border border-cyan-400 rounded-2xl px-10 py-12 shadow-xl flex flex-col items-center text-center space-y-8 transition-all">
         <h5 class="text-2xl font-bold text-cyan-300">
-          Pro <span class="text-sm text-gray-400 font-normal">(Mon-Wed-Fri)</span>
-        </h5>
-        <div class="text-5xl font-extrabold text-white">
-          $700 <span class="text-lg text-gray-400 font-medium">/ month</span>
-        </div>
-        <ul class="space-y-3 text-base text-gray-300">
-          <li>✓ 3× Weekly Recon PDFs</li>
-          <li>✓ Trade &amp; Spec Filters</li>
-          <li>✓ Field-intel Notes</li>
-          <li>✓ Human-verified bids</li>
-        </ul>
-        <a href="#contact"
-           class="mt-6 w-full bg-cyan-400 hover:bg-cyan-300 text-black font-semibold py-3 rounded-xl transition">
-          Upgrade to Pro
-        </a>
-      </div>
-
-      <!-- ELITE -->
-      <div
-        class="bg-[#11151d] border border-cyan-500 rounded-2xl px-10 py-12 shadow-xl flex flex-col items-center text-center space-y-8 hover:scale-[1.02] hover:shadow-cyan-500/30 transition-all min-w-[300px]">
-        <h5 class="text-2xl font-bold text-cyan-300">
-          Elite <span class="text-sm text-gray-400 font-normal">(Mon-Fri)</span>
+          Bids + Audit <span class="text-sm text-gray-400 font-normal">(Mon–Wed–Fri)</span>
         </h5>
         <div class="text-5xl font-extrabold text-white">
           $900 <span class="text-lg text-gray-400 font-medium">/ month</span>
         </div>
         <ul class="space-y-3 text-base text-gray-300">
-          <li>✓ Monday–Friday PDFs</li>
-        <li>✓ Trade &amp; Spec Filters</li>
-          <li>✓ Field-intel Notes</li>
-          <li>✓ Human-verified bids</li>
+          <li>✓ All Recon Features</li>
+          <li>✓ Supplier Quote & Invoice Comparison</li>
+          <li>✓ Weekly Cost Leak Reports</li>
+          <li>✓ Dedicated ops audit agent</li>
         </ul>
-        <a href="#contact"
-           class="mt-6 w-full bg-cyan-400 hover:bg-cyan-300 text-black font-semibold py-3 rounded-xl transition">
-          Go Elite
+        <a href="#contact" class="mt-6 w-full bg-cyan-400 hover:bg-cyan-300 text-black font-semibold py-3 rounded-xl transition">
+          Join Audit Tier
         </a>
       </div>
 
-    </div><!-- /plan cards -->
-  </div><!-- /flex container -->
+      <!-- FUTURE PLAN (or remove) -->
+      <div class="pulse-card bg-[#11151d] border border-cyan-400 rounded-2xl px-10 py-12 shadow-xl flex flex-col items-center text-center space-y-8 transition-all">
+        <h5 class="text-2xl font-bold text-cyan-300">
+          Custom Tier <span class="text-sm text-gray-400 font-normal">(By Inquiry)</span>
+        </h5>
+        <div class="text-5xl font-extrabold text-white">
+          TBD <span class="text-lg text-gray-400 font-medium">/ custom</span>
+        </div>
+        <ul class="space-y-3 text-base text-gray-300">
+          <li>✓ Recon + Audit + Estimating GPT + DELTA Analysis</li>
+          <li>✓ AI-assisted Takeoffs</li>
+          <li>✓ Custom Built Program Design & APP</li>
+          <li>✓ Private New Tech Testing Priority Advantage</li>
+        </ul>
+        <a href="#contact" class="mt-6 w-full bg-cyan-400 hover:bg-cyan-300 text-black font-semibold py-3 rounded-xl transition">
+          Request Access
+        </a>
+      </div>
 
- </div>
+    </div>
+  </div>
 </section>
 
 
@@ -959,48 +981,57 @@
 <!-- ========================== -->
 <!--  NEW SECTION: Trust + Value -->
 <!-- ========================== -->
-<section class="py-28 bg-[#0b0f13]">
+<section class="py-32 bg-[#0b0f13]">
 
-  <!-- Trust Recommendation -->
-  <p class="text-base text-gray-400 italic text-center mb-24">
-    We recommend starting with the <strong>Starter</strong> plan —
-    so we can prove our value, earn your trust, and eliminate wasted hours from day one.
-  </p>
-
-  <!-- Contractors Do the Math -->
-  <div class="text-center space-y-8 max-w-3xl mx-auto mb-32">
-    <h3 class="text-3xl font-extrabold text-white">Contractors do the math.</h3>
-    <p class="text-lg text-gray-300 leading-relaxed">
-      Most lose <span class="text-white font-semibold">$1,000s</span> in labor chasing portals, missing job walks,
-      or relying on overwhelmed staff. Delta&nbsp;Wave eliminates all of that — for a flat monthly rate.
+  <!-- Trust Intro -->
+  <div class="text-center mb-20 px-6">
+    <p class="text-gray-400 italic text-lg max-w-3xl mx-auto">
+      We recommend starting with the <strong>Starter</strong> plan —
+      so we can prove our value, earn your trust, and eliminate wasted hours from day one.
     </p>
   </div>
 
-<!-- GC Offer Box -->
-<div class="bg-[#11151d] border border-gray-700 rounded-2xl py-16 px-10 shadow-md max-w-4xl mx-auto mb-32 text-center">
-  <p class="text-lg font-bold mb-4 text-white">
-    If you're a <span class="text-cyan-400">General&nbsp;Contractor</span> covering multiple scopes — we’ve got you.
-  </p>
-  <p class="text-gray-300 text-md sm:text-lg leading-relaxed mb-8">
-    Get coverage across up to <span class="text-white font-semibold">5+ industries<br> You tell us the trades — we sweep the intel.
-  </p>
-  <a href="#contact"
-     class="inline-block bg-cyan-400 hover:bg-cyan-300 text-black font-semibold py-3 px-7 rounded-xl transition">
-    Request an Ops Briefing
-  </a>
-</div>
-
-
-  <!-- Free-Trial Offer -->
-  <div class="max-w-3xl mx-auto text-center mb-24 text-gray-300 text-base sm:text-lg leading-relaxed">
-    <p class="mb-6">Not ready to commit? No problem.</p>
-    <p>
-      Request a <span class="text-cyan-400 font-semibold">14-Day Free Recon Trial</span> — no credit card required.
-      You’ll get real field intel, real bid results. If you feel your estimators already have it covered, we’ll
-      go our separate ways — no hard feelings.
+  <!-- "Contractors do the math" -->
+  <div class="text-center mb-24 px-6">
+    <h3 class="text-4xl font-extrabold text-white mb-6">Contractors do the math.</h3>
+    <p class="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+      Most lose <span class="text-white font-semibold">$1,000s</span> in labor chasing portals,
+      missing job walks, or relying on overwhelmed staff. Delta&nbsp;Wave eliminates all of that —
+      for a flat monthly rate.
     </p>
   </div>
 
+  <!-- GC Offer Card -->
+  <div class="pulse-card bg-[#11151d] border border-cyan-500/50 rounded-2xl py-14 px-10 max-w-4xl mx-auto mb-20 text-center shadow-xl">
+    <p class="text-xl font-bold text-white mb-4">
+      If you're a <span class="text-cyan-400">General Contractor</span> covering multiple scopes — we’ve got you.
+    </p>
+    <p class="text-gray-300 text-lg leading-relaxed mb-8">
+      Get coverage across up to <span class="text-white font-semibold">5+ industries</span><br>
+      <span class="text-white font-semibold">You tell us the trades — we sweep the intel.</span>
+    </p>
+    <a href="#contact"
+       class="bg-cyan-400 hover:bg-cyan-300 text-black font-bold py-3 px-8 rounded-xl transition">
+      Request an Ops Briefing
+    </a>
+  </div>
+
+  <!-- Divider -->
+  <div class="text-center mb-20">
+    <p class="text-sm text-gray-500 tracking-widest uppercase">or</p>
+  </div>
+
+  <!-- Free Trial Section -->
+  <div class="text-center max-w-3xl mx-auto px-6 mb-12">
+    <h4 class="text-lg text-white font-semibold mb-4">Not ready to commit? No problem.</h4>
+    <p class="text-gray-300 text-base sm:text-lg leading-relaxed">
+      Request a <span class="text-cyan-400 font-semibold">14-Day Free Recon Trial</span> —
+      no credit card required. You’ll get real field intel, real bid results.
+      If your estimators already have it covered, we’ll go our separate ways — no hard feelings.
+    </p>
+  </div>
+
+  <!-- Trial Button -->
   <div class="flex justify-center">
     <a href="#contact"
        class="bg-cyan-400 hover:bg-cyan-300 text-black font-bold py-3 px-10 rounded-xl transition">
@@ -1010,80 +1041,6 @@
 
 </section>
 
-
-<section class="bg-[#0b0f17] text-white py-24 px-6">
-  <div class="max-w-6xl mx-auto">
-    
-    <div class="mb-12">
-  <h2 class="text-3xl md:text-4xl font-bold text-center text-cyan-400">
-    Who This Is Built For
-  </h2>
-</div>
-
-    <div class="grid md:grid-cols-2 gap-12 items-start">
-      <!-- LEFT: Audience List -->
-      <div class="space-y-6">
-        <div class="flex items-start gap-3">
-          <span class="text-2xl">👷‍♂️</span>
-          <div>
-            <h3 class="font-semibold text-lg text-white">Solo Contractor</h3>
-            <p class="text-gray-300">Running installs, quotes, deadlines? We hunt the bids while you run the crew.</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-3">
-          <span class="text-2xl">🧰</span>
-          <div>
-            <h3 class="font-semibold text-lg text-white">Office Manager</h3>
-            <p class="text-gray-300">Keeping the business humming? We automate recon and audits so you can focus on ops.</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-3">
-          <span class="text-2xl">📐</span>
-          <div>
-            <h3 class="font-semibold text-lg text-white">Estimator</h3>
-            <p class="text-gray-300">Bids stacking up? We scan, sort, and pre-filter — so you bid faster.</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-3">
-          <span class="text-2xl">🧠</span>
-          <div>
-            <h3 class="font-semibold text-lg text-white">Owner-Operator</h3>
-            <p class="text-gray-300">Done with last-minute surprises? Nightly intel keeps you ahead of deadlines.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- RIGHT: Offer + Testimonial -->
-      <div class="space-y-6">
-        <!-- Offer Box -->
-        <div class="rounded-xl border border-cyan-500 bg-[#0f131b] p-8 text-center shadow-md">
-          <h3 class="text-xl md:text-2xl font-semibold text-cyan-400 mb-4">
-            Start Getting More Bids — While You Sleep
-          </h3>
-          <p class="text-gray-300 mb-2">
-            We sweep <span class="font-semibold text-cyan-300">450+ portals</span> every night.
-          </p>
-          <p class="text-gray-400 mb-6">You check your inbox in the morning. That’s it.</p>
-          
-        </div>
-
-        <!-- Testimonial -->
-        <figure class="rounded-xl border border-gray-700 bg-[#0f131b] p-6 text-gray-300 shadow-md">
-          <blockquote class="italic text-sm leading-relaxed mb-4">
-            “Wasn’t sure at first. Most software just adds more work for us. But this? This saved hours. We don’t log in, we don’t dig — it just lands in our inbox. Actually useful.”
-          </blockquote>
-          <figcaption class="flex items-center gap-4">
-            <img src="./img/HVAC-icon.png" alt="HVAC Contractor" class="h-10 w-10 rounded-full border border-cyan-500 object-cover">
-            <div>
-              <p class="font-semibold text-white text-sm">Marcus G.</p>
-              <p class="text-xs text-gray-400">HVAC Contractor • Orange County, CA</p>
-            </div>
-          </figcaption>
-        </figure>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section id="faq" class="bg-[#0b0f17] text-white py-24 px-6">
   <div class="max-w-3xl mx-auto text-center">
