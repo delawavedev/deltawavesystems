@@ -15,6 +15,30 @@
   <!-- AOS fade-in (optional; remove if unused) -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+<style>
+  /* Ensure body stays as-is */
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Clean, smooth glow for vendor logos only */
+  @keyframes vendorFlicker {
+    0%, 100% {
+      box-shadow: 0 0 18px rgba(255, 255, 255, 0.9);
+      background-color: rgba(255, 255, 255, 1);
+    }
+    50% {
+      box-shadow: 0 0 4px rgba(255, 255, 255, 0.1);
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+  }
+
+  .vendor-glow {
+    animation: vendorFlicker 3.5s ease-in-out infinite;
+  }
+</style>
+  
 </head>
 
 <body class="bg-surface0 text-white antialiased font-body">
@@ -123,45 +147,133 @@
 </section>
 <!-- ▸▸ END HERO ◂◂ -->
 
+
+  <!-- ▸▸ VENDOR PLATFORMS LOGO GRID ◂◂ -->
 <section class="bg-[#0b0f13] py-20 text-white">
   <div class="max-w-6xl mx-auto px-6 text-center space-y-10">
 
+    <!-- Header -->
     <h2 class="text-3xl sm:text-4xl font-extrabold text-cyan-400">
-      What We Check - So You Don’t Have To
+      What We Check — So You Don’t Have To
     </h2>
     <p class="text-lg text-gray-300 max-w-3xl mx-auto">
-      We deep sweep full coverage. 
+      We deep sweep full coverage.
     </p>
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-base text-gray-100 font-semibold leading-relaxed">
-      <div>✔️ PlanetBids</div>
-      <div>✔️ OpenGov</div>
-      <div>✔️ Colbi SecureBids</div>
-      <div>✔️ BidNet Direct</div>
-      <div>✔️ Bonfire</div>
-      <div>✔️ Vendor Registry</div>
-      <div>✔️ Cities</div>
-      <div>✔️ Colleges</div>
-      <div>✔️ Public Purchase</div>
-      <div>✔️ County Portals</div>
-      <div>✔️ School Districts</div>
-      <div>✔️ Sam.Gov</div>
-      <div>✔️ California Bids</div>
-      <div>✔️ Quality Bidders</div>
-      <div>✔️ Dodge</div>
-      <div>✔️ + Many More</div>
+    <!-- Logo Grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 items-center justify-center max-w-6xl mx-auto pt-6">
+
+      <!-- Vendor Logos 1–16 -->
+      <div class="flex items-center justify-center">
+        <div class="p-6 rounded-full bg-white glow-animate hover:scale-105 transition-transform duration-300">
+          <img src="vendor1.png" alt="PlanetBids Logo" class="h-20 w-20 object-contain rounded-full" />
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center">
+        <div class="p-6 rounded-full bg-white glow-animate hover:scale-105 transition-transform duration-300">
+          <img src="vendor2.png" alt="OpenGov Logo" class="h-20 w-20 object-contain rounded-full" />
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center">
+        <div class="p-6 rounded-full bg-white glow-animate hover:scale-105 transition-transform duration-300">
+          <img src="vendor3.png" alt="Colbi SecureBids Logo" class="h-20 w-20 object-contain rounded-full" />
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center">
+        <div class="p-6 rounded-full bg-white glow-animate hover:scale-105 transition-transform duration-300">
+          <img src="vendor4.png" alt="BidNet Direct Logo" class="h-20 w-20 object-contain rounded-full" />
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center">
+        <div class="p-6 rounded-full bg-white glow-animate hover:scale-105 transition-transform duration-300">
+          <img src="vendor5.png" alt="Bonfire Logo" class="h-20 w-20 object-contain rounded-full" />
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center">
+        <div class="p-6 rounded-full bg-white glow-animate hover:scale-105 transition-transform duration-300">
+          <img src="vendor6.png" alt="Vendor Registry Logo" class="h-20 w-20 object-contain rounded-full" />
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center">
+        <div class="p-6 rounded-full bg-white glow-animate hover:scale-105 transition-transform duration-300">
+          <img src="vendor7.png" alt="Cities Logo" class="h-20 w-20 object-contain rounded-full" />
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center">
+        <div class="p-6 rounded-full bg-white glow-animate hover:scale-105 transition-transform duration-300">
+          <img src="vendor8.png" alt="Colleges Logo" class="h-20 w-20 object-contain rounded-full" />
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center">
+        <div class="p-6 rounded-full bg-white glow-animate hover:scale-105 transition-transform duration-300">
+          <img src="vendor9.png" alt="Public Purchase Logo" class="h-20 w-20 object-contain rounded-full" />
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center">
+        <div class="p-6 rounded-full bg-white glow-animate hover:scale-105 transition-transform duration-300">
+          <img src="vendor10.png" alt="County Portals Logo" class="h-20 w-20 object-contain rounded-full" />
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center">
+        <div class="p-6 rounded-full bg-white glow-animate hover:scale-105 transition-transform duration-300">
+          <img src="vendor11.png" alt="School Districts Logo" class="h-20 w-20 object-contain rounded-full" />
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center">
+        <div class="p-6 rounded-full bg-white glow-animate hover:scale-105 transition-transform duration-300">
+          <img src="vendor12.png" alt="Sam.Gov Logo" class="h-20 w-20 object-contain rounded-full" />
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center">
+        <div class="p-6 rounded-full bg-white glow-animate hover:scale-105 transition-transform duration-300">
+          <img src="vendor13.png" alt="California Bids Logo" class="h-20 w-20 object-contain rounded-full" />
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center">
+        <div class="p-6 rounded-full bg-white glow-animate hover:scale-105 transition-transform duration-300">
+          <img src="vendor14.png" alt="Quality Bidders Logo" class="h-20 w-20 object-contain rounded-full" />
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center">
+        <div class="p-6 rounded-full bg-white glow-animate hover:scale-105 transition-transform duration-300">
+          <img src="vendor15.png" alt="Dodge Logo" class="h-20 w-20 object-contain rounded-full" />
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center">
+        <div class="p-6 rounded-full bg-white glow-animate hover:scale-105 transition-transform duration-300">
+          <img src="vendor16.png" alt="Many More Logo" class="h-20 w-20 object-contain rounded-full" />
+        </div>
+      </div>
 
     </div>
 
-  <h2 class="text-3xl sm:text-4xl font-extrabold text-cyan-400">
-      Tell us what you look for - Consider it done.
-
-    <p class="text-sm text-gray-500 pt-6">
+    <!-- Footer Copy -->
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-cyan-400 pt-12">
+      Tell us what you look for — Consider it done.
+    </h2>
+    <p class="text-sm text-gray-500 pt-6 max-w-2xl mx-auto">
       All portals scanned with stealth-grade systems + human filtering.<br class="hidden sm:block">
-      You receive only clean, high-relevance intel. 
+      You receive only clean, high-relevance intel.
     </p>
+
   </div>
 </section>
+
 
 
 <!-- ============  ALPHA – BID RECON SECTION  ============ -->
