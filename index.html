@@ -17,12 +17,10 @@
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
 <style>
-  /* Global font */
   body {
     font-family: 'Inter', sans-serif;
   }
 
-  /* Glowing cyan ring pulse animation */
   @keyframes vendorPulse {
     0%, 100% {
       box-shadow:
@@ -60,15 +58,17 @@
   .inner-white-circle {
     background-color: white;
     border-radius: 9999px;
-    padding: 24px;
+    /* Removed padding completely */
+    width: 10rem;
+    height: 10rem;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
   img.rounded-full {
-    height: 8rem;  /* 128px */
-    width: 8rem;
+    height: 9rem;  /* make it nearly fill the white circle */
+    width: 9rem;
     object-fit: contain;
     border-radius: 9999px;
   }
