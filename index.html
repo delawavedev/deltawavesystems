@@ -22,22 +22,33 @@
     font-family: 'Inter', sans-serif;
   }
 
-  /* Clean, smooth glow for vendor logos only */
+  /* Cyan blue glow pulse for vendor logos */
   @keyframes vendorFlicker {
     0%, 100% {
-      box-shadow: 0 0 18px rgba(255, 255, 255, 0.9);
-      background-color: rgba(255, 255, 255, 1);
+      box-shadow:
+        0 0 0px rgba(0, 255, 255, 0),
+        0 0 12px rgba(0, 255, 255, 0.4),
+        0 0 24px rgba(0, 255, 255, 0.3),
+        0 0 36px rgba(0, 255, 255, 0.2);
+      background-color: white;
     }
     50% {
-      box-shadow: 0 0 4px rgba(255, 255, 255, 0.1);
-      background-color: rgba(255, 255, 255, 0.05);
+      box-shadow:
+        0 0 8px rgba(0, 255, 255, 0.2),
+        0 0 18px rgba(0, 255, 255, 0.3),
+        0 0 30px rgba(0, 255, 255, 0.5),
+        0 0 42px rgba(0, 255, 255, 0.6);
+      background-color: white;
     }
   }
 
   .vendor-glow {
-    animation: vendorFlicker 3.5s ease-in-out infinite;
+    animation: vendorFlicker 3.6s ease-in-out infinite;
+    border-radius: 9999px;
+    background-color: white;
   }
 </style>
+
   
 </head>
 
@@ -162,102 +173,100 @@
     <!-- Logo Grid -->
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 items-center justify-center max-w-6xl mx-auto pt-6">
 
-      <!-- Vendor Logos 1–16 -->
-      <!-- Repeat pattern with vendor-glow and glow circle -->
-      <!-- Each logo gets the animation and rounded glow -->
+      <!-- VENDOR LOGOS 1–16 -->
       <div class="flex items-center justify-center">
-        <div class="p-6 rounded-full bg-white vendor-glow hover:scale-105 transition-transform duration-300">
-          <img src="vendor1.png" alt="PlanetBids Logo" class="h-20 w-20 object-contain rounded-full" />
+        <div class="p-6 vendor-glow hover:scale-105 transition-transform duration-300">
+          <img src="vendor1.png" alt="PlanetBids Logo" class="h-28 w-28 object-contain rounded-full" />
         </div>
       </div>
 
       <div class="flex items-center justify-center">
-        <div class="p-6 rounded-full bg-white vendor-glow hover:scale-105 transition-transform duration-300">
-          <img src="vendor2.png" alt="OpenGov Logo" class="h-20 w-20 object-contain rounded-full" />
+        <div class="p-6 vendor-glow hover:scale-105 transition-transform duration-300">
+          <img src="vendor2.png" alt="OpenGov Logo" class="h-28 w-28 object-contain rounded-full" />
         </div>
       </div>
 
       <div class="flex items-center justify-center">
-        <div class="p-6 rounded-full bg-white vendor-glow hover:scale-105 transition-transform duration-300">
-          <img src="vendor3.png" alt="Colbi SecureBids Logo" class="h-20 w-20 object-contain rounded-full" />
+        <div class="p-6 vendor-glow hover:scale-105 transition-transform duration-300">
+          <img src="vendor3.png" alt="Colbi SecureBids Logo" class="h-28 w-28 object-contain rounded-full" />
         </div>
       </div>
 
       <div class="flex items-center justify-center">
-        <div class="p-6 rounded-full bg-white vendor-glow hover:scale-105 transition-transform duration-300">
-          <img src="vendor4.png" alt="BidNet Direct Logo" class="h-20 w-20 object-contain rounded-full" />
+        <div class="p-6 vendor-glow hover:scale-105 transition-transform duration-300">
+          <img src="vendor4.png" alt="BidNet Direct Logo" class="h-28 w-28 object-contain rounded-full" />
         </div>
       </div>
 
       <div class="flex items-center justify-center">
-        <div class="p-6 rounded-full bg-white vendor-glow hover:scale-105 transition-transform duration-300">
-          <img src="vendor5.png" alt="Bonfire Logo" class="h-20 w-20 object-contain rounded-full" />
+        <div class="p-6 vendor-glow hover:scale-105 transition-transform duration-300">
+          <img src="vendor5.png" alt="Bonfire Logo" class="h-28 w-28 object-contain rounded-full" />
         </div>
       </div>
 
       <div class="flex items-center justify-center">
-        <div class="p-6 rounded-full bg-white vendor-glow hover:scale-105 transition-transform duration-300">
-          <img src="vendor6.png" alt="Vendor Registry Logo" class="h-20 w-20 object-contain rounded-full" />
+        <div class="p-6 vendor-glow hover:scale-105 transition-transform duration-300">
+          <img src="vendor6.png" alt="Vendor Registry Logo" class="h-28 w-28 object-contain rounded-full" />
         </div>
       </div>
 
       <div class="flex items-center justify-center">
-        <div class="p-6 rounded-full bg-white vendor-glow hover:scale-105 transition-transform duration-300">
-          <img src="vendor7.png" alt="Cities Logo" class="h-20 w-20 object-contain rounded-full" />
+        <div class="p-6 vendor-glow hover:scale-105 transition-transform duration-300">
+          <img src="vendor7.png" alt="Cities Logo" class="h-28 w-28 object-contain rounded-full" />
         </div>
       </div>
 
       <div class="flex items-center justify-center">
-        <div class="p-6 rounded-full bg-white vendor-glow hover:scale-105 transition-transform duration-300">
-          <img src="vendor8.png" alt="Colleges Logo" class="h-20 w-20 object-contain rounded-full" />
+        <div class="p-6 vendor-glow hover:scale-105 transition-transform duration-300">
+          <img src="vendor8.png" alt="Colleges Logo" class="h-28 w-28 object-contain rounded-full" />
         </div>
       </div>
 
       <div class="flex items-center justify-center">
-        <div class="p-6 rounded-full bg-white vendor-glow hover:scale-105 transition-transform duration-300">
-          <img src="vendor9.png" alt="Public Purchase Logo" class="h-20 w-20 object-contain rounded-full" />
+        <div class="p-6 vendor-glow hover:scale-105 transition-transform duration-300">
+          <img src="vendor9.png" alt="Public Purchase Logo" class="h-28 w-28 object-contain rounded-full" />
         </div>
       </div>
 
       <div class="flex items-center justify-center">
-        <div class="p-6 rounded-full bg-white vendor-glow hover:scale-105 transition-transform duration-300">
-          <img src="vendor10.png" alt="County Portals Logo" class="h-20 w-20 object-contain rounded-full" />
+        <div class="p-6 vendor-glow hover:scale-105 transition-transform duration-300">
+          <img src="vendor10.png" alt="County Portals Logo" class="h-28 w-28 object-contain rounded-full" />
         </div>
       </div>
 
       <div class="flex items-center justify-center">
-        <div class="p-6 rounded-full bg-white vendor-glow hover:scale-105 transition-transform duration-300">
-          <img src="vendor11.png" alt="School Districts Logo" class="h-20 w-20 object-contain rounded-full" />
+        <div class="p-6 vendor-glow hover:scale-105 transition-transform duration-300">
+          <img src="vendor11.png" alt="School Districts Logo" class="h-28 w-28 object-contain rounded-full" />
         </div>
       </div>
 
       <div class="flex items-center justify-center">
-        <div class="p-6 rounded-full bg-white vendor-glow hover:scale-105 transition-transform duration-300">
-          <img src="vendor12.png" alt="Sam.Gov Logo" class="h-20 w-20 object-contain rounded-full" />
+        <div class="p-6 vendor-glow hover:scale-105 transition-transform duration-300">
+          <img src="vendor12.png" alt="Sam.Gov Logo" class="h-28 w-28 object-contain rounded-full" />
         </div>
       </div>
 
       <div class="flex items-center justify-center">
-        <div class="p-6 rounded-full bg-white vendor-glow hover:scale-105 transition-transform duration-300">
-          <img src="vendor13.png" alt="California Bids Logo" class="h-20 w-20 object-contain rounded-full" />
+        <div class="p-6 vendor-glow hover:scale-105 transition-transform duration-300">
+          <img src="vendor13.png" alt="California Bids Logo" class="h-28 w-28 object-contain rounded-full" />
         </div>
       </div>
 
       <div class="flex items-center justify-center">
-        <div class="p-6 rounded-full bg-white vendor-glow hover:scale-105 transition-transform duration-300">
-          <img src="vendor14.png" alt="Quality Bidders Logo" class="h-20 w-20 object-contain rounded-full" />
+        <div class="p-6 vendor-glow hover:scale-105 transition-transform duration-300">
+          <img src="vendor14.png" alt="Quality Bidders Logo" class="h-28 w-28 object-contain rounded-full" />
         </div>
       </div>
 
       <div class="flex items-center justify-center">
-        <div class="p-6 rounded-full bg-white vendor-glow hover:scale-105 transition-transform duration-300">
-          <img src="vendor15.png" alt="Dodge Logo" class="h-20 w-20 object-contain rounded-full" />
+        <div class="p-6 vendor-glow hover:scale-105 transition-transform duration-300">
+          <img src="vendor15.png" alt="Dodge Logo" class="h-28 w-28 object-contain rounded-full" />
         </div>
       </div>
 
       <div class="flex items-center justify-center">
-        <div class="p-6 rounded-full bg-white vendor-glow hover:scale-105 transition-transform duration-300">
-          <img src="vendor16.png" alt="Many More Logo" class="h-20 w-20 object-contain rounded-full" />
+        <div class="p-6 vendor-glow hover:scale-105 transition-transform duration-300">
+          <img src="vendor16.png" alt="Many More Logo" class="h-28 w-28 object-contain rounded-full" />
         </div>
       </div>
 
@@ -274,6 +283,7 @@
 
   </div>
 </section>
+
 
  
 <!-- ============  ALPHA – BID RECON SECTION  ============ -->
