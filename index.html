@@ -20,8 +20,11 @@
 <style>
   body {
     font-family: 'Inter', sans-serif;
+    background-color: #0a0e17;
+    color: white;
   }
 
+  /* ─────────────── VENDOR GLOW ANIMATION ─────────────── */
   @keyframes vendorPulse {
     0%, 100% {
       box-shadow:
@@ -57,9 +60,9 @@
   }
 
   .inner-white-circle {
-    background-color: transparent; /* No white fill */
+    background-color: transparent;
     border-radius: 9999px;
-    border: 2px solid cyan; /* thin cyan ring */
+    border: 2px solid cyan;
     width: 11rem;
     height: 11rem;
     display: flex;
@@ -73,6 +76,61 @@
     object-fit: contain;
     border-radius: 9999px;
   }
+
+  /* ─────────────── CARD GLOW ANIMATION (ALPHA / BETA) ─────────────── */
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow:
+        0 0 0px rgba(0, 255, 255, 0),
+        0 0 8px rgba(0, 255, 255, 0.15),
+        0 0 12px rgba(0, 255, 255, 0.1),
+        0 0 18px rgba(0, 255, 255, 0.05);
+      border: 1px solid rgba(0, 255, 255, 0.35);
+    }
+    50% {
+      box-shadow:
+        0 0 12px rgba(0, 255, 255, 0.25),
+        0 0 24px rgba(0, 255, 255, 0.35),
+        0 0 36px rgba(0, 255, 255, 0.45),
+        0 0 48px rgba(0, 255, 255, 0.6);
+      border: 1px solid rgba(0, 255, 255, 0.5);
+    }
+  }
+
+  .pulse-card {
+    animation: pulseGlow 4.2s ease-in-out infinite;
+    transition: transform 0.3s ease;
+    border-radius: 1rem;
+  }
+
+  .pulse-card:hover {
+    transform: scale(1.01);
+  }
+
+  /* ─────────────── NAV BAR GLOW (Logo + Text) ─────────────── */
+  .nav-glow {
+    text-shadow:
+      0 0 6px rgba(0, 255, 255, 0.8),
+      0 0 10px rgba(0, 255, 255, 0.6),
+      0 0 14px rgba(0, 255, 255, 0.4);
+    transition: text-shadow 0.3s ease;
+  }
+
+  .nav-glow:hover {
+    text-shadow:
+      0 0 10px rgba(0, 255, 255, 0.9),
+      0 0 20px rgba(0, 255, 255, 0.6),
+      0 0 30px rgba(0, 255, 255, 0.4);
+  }
+
+  .logo-glow {
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.4));
+    transition: filter 0.3s ease;
+  }
+
+  .logo-glow:hover {
+    filter: drop-shadow(0 0 18px rgba(0, 255, 255, 0.8));
+  }
 </style>
 
   
@@ -81,27 +139,25 @@
 
 <body class="bg-surface0 text-white antialiased font-body">
 
- <!-- =========  NAVIGATION BAR  ========= -->
+<!-- =========  NAVIGATION BAR  ========= -->
 <header x-data="{ open: false }" class="fixed top-0 left-0 w-full bg-[#0b0f13] z-50 shadow-md">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
-    <!-- Logo on Left -->
-    <a href="/" class="flex items-center space-x-3">
-      <img src="delta-wave-nav-bar.png" alt="Delta Wave Logo" class="h-10 w-auto">
+    <!-- Logo on Left (glow + margin) -->
+    <a href="/" class="flex items-center space-x-3 ml-4">
+      <img src="delta-wave-nav-glow.png" alt="Delta Wave Logo" class="h-10 w-auto logo-glow">
     </a>
 
-<!-- DESKTOP NAV (Final Fix) -->
-<nav class="hidden lg:flex ml-auto font-semibold text-lg space-x-10 tracking-wide">
-  <a href="#solutions"    class="hover:text-cyan-400">Solutions</a>
-  <a href="#how"          class="hover:text-cyan-400">How It Works</a>
-  <a href="#why"          class="hover:text-cyan-400">Why Delta Wave</a>
-  <a href="#testimonials" class="hover:text-cyan-400">Testimonials</a>
-  <a href="#pricing"      class="hover:text-cyan-400">Pricing</a>
-  <a href="#faq"          class="hover:text-cyan-400">FAQ</a>
-  <a href="#contact"      class="hover:text-cyan-400">Contact</a>
-</nav>
-
-
+    <!-- DESKTOP NAV -->
+    <nav class="hidden lg:flex ml-auto font-semibold text-lg space-x-10 tracking-wide">
+      <a href="#solutions"    class="hover:text-cyan-400">Solutions</a>
+      <a href="#how"          class="hover:text-cyan-400">How It Works</a>
+      <a href="#why"          class="hover:text-cyan-400">Why Delta Wave</a>
+      <a href="#testimonials" class="hover:text-cyan-400">Testimonials</a>
+      <a href="#pricing"      class="hover:text-cyan-400">Pricing</a>
+      <a href="#faq"          class="hover:text-cyan-400">FAQ</a>
+      <a href="#contact"      class="hover:text-cyan-400">Contact</a>
+    </nav>
 
 
     <!-- Burger Button (top-right) -->
@@ -329,14 +385,17 @@
         </div>
       </div>
     </div>
-<!-- Footer CTA -->
-<h2 class="text-3xl sm:text-4xl font-extrabold text-cyan-400 pt-24">
-  Tell us what you look for — Consider it done.
-</h2>
-<p class="text-base text-gray-400 pt-6 max-w-2xl mx-auto leading-relaxed">
-  All portals scanned with stealth-grade systems + human filtering.<br class="hidden sm:block">
-  You receive only clean, high-relevance intel.
-</p>
+
+    <!-- Footer CTA -->
+<div class="pt-24 text-center">
+  <p class="text-base text-gray-400 pb-4 max-w-2xl mx-auto leading-relaxed">
+    All portals scanned with stealth-grade systems + human filtering.<br class="hidden sm:block">
+    You receive only clean, high-relevance intel.
+  </p>
+  <h2 class="text-3xl sm:text-4xl font-extrabold text-cyan-400">
+    Tell us what you look for — Consider it done.
+  </h2>
+</div>
 </section>
 
   
@@ -344,16 +403,15 @@
 
  
 <!-- ============  ALPHA – BID RECON SECTION  ============ -->
-<!-- ALPHA CARD -->
 <!-- AOS Animate on Scroll CSS -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <!-- ALPHA Recon Card Section -->
-<section id ="solutions" class="flex flex-col items-center justify-center px-4 py-16 bg-[#0a0e17] text-white" id="alpha">
+<section id="solutions" class="flex flex-col items-center justify-center px-4 py-16 bg-[#0a0e17] text-white">
   <div 
     data-aos="fade-up" 
     data-aos-duration="1000" 
-    class="w-full max-w-3xl rounded-xl border border-cyan-400 bg-black shadow-lg text-center relative"
+    class="w-full max-w-3xl rounded-xl bg-black shadow-lg text-center relative pulse-card"
   >
     <div class="py-12 px-6">
 
@@ -394,20 +452,20 @@
 </section>
 
 
+
 <!-- AOS Animate on Scroll JS -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init();</script>
-<!-- ============  /ALPHA SECTION  ============ -->
+  
 
 
 <!-- ▸▸ BETA – QUOTE / INVOICE AUDIT ◂◂ -->
-<section class="flex flex-col items-center justify-center px-4 py-16 bg-[#0a0e17] text-white" id="beta">
+<section id="beta" class="flex flex-col items-center justify-center px-4 py-16 bg-[#0a0e17] text-white">
   <div 
     data-aos="fade-up" 
     data-aos-duration="1000" 
-    class="w-full max-w-3xl rounded-xl border border-cyan-400 bg-black shadow-lg text-center relative"
+    class="w-full max-w-3xl rounded-xl bg-black shadow-lg text-center relative pulse-card"
   >
-
     <div class="py-12 px-6">
 
       <!-- Title -->
@@ -415,33 +473,30 @@
       <p class="text-sm tracking-widest text-gray-400 mb-6">QUOTE / INVOICE AUDIT</p>
 
       <!-- Hook -->
-<h3 class="card-hook text-center">Price hikes hiding in plain sight?</h3>
-<p class="card-body text-center">
-      <!-- Hook -->
       <h3 class="leading-tight text-xl sm:text-2xl font-bold text-white mb-2">
-  Suppliers can slip <span class="font-semibold">1–3&nbsp;%</span> onto every order.<br />
-  Nobody notices until end of the quarter.<br />
-  That's profit you never see again.
-</p>
+        Price hikes hiding in plain sight?
+      </h3>
+      <p class="text-base text-gray-200">
+        Suppliers can slip <span class="font-semibold">1–3&nbsp;%</span> onto every order.<br />
+        Nobody notices until end of the quarter.<br />
+        That's profit you never see again.
+      </p>
 
-<!-- Feature bullets -->
-<ul class="mt-8 space-y-4 text-base">
-  <li class="flex items-start justify-center gap-2 leading-snug">
-    <span class="text-lg">📥</span>
-    <span class="text-center">Uploads supplier quotes & invoices</span>
-  </li>
-  <li class="flex items-start justify-center gap-2 leading-snug">
-    <span class="text-lg">🎯</span>
-    <span class="text-center">Flags every line item/unit discrepancy</span>
-  </li>
-  <li class="flex items-start justify-center gap-2 leading-snug">
-    <span class="text-lg">📉</span>
-    <span class="text-center">Recovers <span class="font-semibold">$2–10k /month</span> on average</span>
-  </li>
-</ul>
-
-
-
+      <!-- Features -->
+      <ul class="mt-8 space-y-4 text-base sm:text-lg">
+        <li class="flex items-start justify-center gap-2 leading-snug">
+          <span class="text-lg">📥</span>
+          <span class="text-center">Uploads supplier quotes & invoices</span>
+        </li>
+        <li class="flex items-start justify-center gap-2 leading-snug">
+          <span class="text-lg">🎯</span>
+          <span class="text-center">Flags every line item/unit discrepancy</span>
+        </li>
+        <li class="flex items-start justify-center gap-2 leading-snug">
+          <span class="text-lg">📉</span>
+          <span class="text-center">Recovers <span class="font-semibold">$2–10k /month</span> on average</span>
+        </li>
+      </ul>
 
       <!-- Sample Note -->
       <p class="text-sm text-gray-400 mt-8 text-center">
@@ -451,14 +506,14 @@
       <!-- CTA -->
       <a
         href="#contact"
-        class="mt-4 inline-block bg-cyan-400 hover:bg-cyan-300 text-black font-semibold py-2 px-6 rounded-md transition"
+        class="mt-6 inline-block bg-cyan-400 hover:bg-cyan-300 text-black font-semibold py-3 px-6 rounded-md transition text-sm sm:text-base"
       >
         Download a Free Cost-Leak Report
       </a>
-
     </div>
   </div>
 </section>
+
 
 
   
@@ -738,15 +793,15 @@
 <!-- ========================= -->
 <!--  SOCIAL PROOF  / TESTIMONIALS -->
 <!-- ========================= -->
-<section id="testimonials" class="bg-[#0b0f13] text-white py-24 px-6">
-  <div class="max-w-6xl mx-auto text-center mb-14">
+<section id="testimonials" class="bg-[#0b0f13] text-white py-28 px-6">
+  <div class="max-w-6xl mx-auto text-center mb-20">
     <h2 class="text-3xl md:text-4xl font-bold text-cyan-400">
       What Contractors Are Saying
     </h2>
   </div>
 
   <!-- Testimonial Grid -->
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-12">
 
     <!-- Testimonial Card -->
     <div class="bg-[#11151d] border border-gray-700 rounded-xl p-8 shadow-md space-y-4">
