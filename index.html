@@ -1446,162 +1446,66 @@
 </script>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const lines = document.querySelectorAll(".typed-line");
-    let delay = 0;
-
-    lines.forEach((line, index) => {
-      const text = line.getAttribute("data-text");
-      line.textContent = "";
-      line.style.borderRight = "2px solid lime";
-      line.style.paddingRight = "5px";
-
-      setTimeout(() => {
-        let i = 0;
-        const typer = setInterval(() => {
-          if (i < text.length) {
-            line.textContent += text[i];
-            i++;
-          } else {
-            clearInterval(typer);
-            line.style.borderRight = "none";
-          }
-        }, 35); // Typing speed per char
-      }, delay);
-
-      delay += text.length * 35 + 500; // Add buffer before next line
-    });
-  });
-</script>
-
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const lines = document.querySelectorAll(".typed-line");
-    let delay = 0;
-    lines.forEach((line, i) => {
-      const text = line.getAttribute("data-text");
-      line.textContent = "";
-      setTimeout(() => {
-        let j = 0;
-        const interval = setInterval(() => {
-          line.textContent = text.substring(0, j);
-          j++;
-          if (j > text.length) clearInterval(interval);
-        }, 30);
-      }, delay);
-      delay += text.length * 30 + 300;
-    });
-  });
-</script>
-
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   const lines = document.querySelectorAll(".typed-line");
-  let isTyping = false; // Prevent overlap
-  let hasTypedOnce = false;
+  let hasTyped = false;
 
   function startTyping() {
-    if (isTyping) return;
-    isTyping = true;
+    if (hasTyped) return;
+    hasTyped = true;
 
     lines.forEach((el, i) => {
       const text = el.dataset.text;
-      el.textContent = ""; // Reset
+      el.textContent = "";
       let index = 0;
+      const delay = 25 + Math.random() * 20;
 
       setTimeout(function typeChar() {
         if (index < text.length) {
-          el.textContent += text.charAt(index++);
-          setTimeout(typeChar, 25 + Math.random() * 25); // randomize for realism
-        } else if (i === lines.length - 1) {
-          // Once last line is done
-          isTyping = false;
-          hasTypedOnce = true;
+          el.textContent += text.charAt(index);
+          index++;
+          setTimeout(typeChar, delay);
         }
       }, i * 1000);
     });
   }
 
-  // Observer to trigger typing when in view
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting && !isTyping) {
-        startTyping();
-      }
-    });
-  }, {
-    threshold: 0.6 // trigger when 60% in view
-  });
-
-  const terminalSection = document.querySelector("#terminal-section");
-  if (terminalSection) observer.observe(terminalSection);
-});
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const lines = document.querySelectorAll(".typed-line");
-  const terminal = document.querySelector("#terminal-text");
-  let hasRun = false;
-
-  function startTyping() {
-    if (hasRun) return;
-    hasRun = true;
-
-    lines.forEach((el, i) => {
-      const text = el.dataset.text;
-      el.textContent = ""; // Clear before typing
-
-      let index = 0;
-      const delay = 25 + Math.random() * 25; // Smoother, faster pulse
-      setTimeout(function typeChar() {
-        if (index < text.length) {
-          el.textContent += text[index++];
-          setTimeout(typeChar, delay);
-        }
-      }, i * 1000); // Line-by-line delay
-    });
-  }
-
-  // Start typing only once when 60% of the terminal is in view
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !hasRun) {
+      if (entry.isIntersecting) {
         startTyping();
       }
     });
   }, { threshold: 0.6 });
 
-  const target = document.querySelector("#terminal-section");
-  if (target) observer.observe(target);
+  const terminal = document.querySelector("#terminal-section");
+  if (terminal) observer.observe(terminal);
 
-  // Easter Egg Terminal Command
+  // Easter egg input logic
   const form = document.getElementById("terminal-form");
   const input = document.getElementById("terminal-input");
   const output = document.getElementById("terminal-response");
 
-  if (form && input && output) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const command = input.value.trim().toLowerCase();
-      output.innerHTML = ""; // Clear old output
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const command = input.value.trim().toLowerCase();
+    output.innerHTML = "";
 
-      if (command === "bid") {
-        output.innerHTML = `
-          <p>&gt; bid</p>
-          <p>&gt; Deploying Recon Sample...</p>
-          <p>&gt; Transmission confirmed. 📤 PDF recon dispatched.</p>
-        `;
-        // Optional auto-download
-        // window.location.href = "/sample-bid-report.pdf";
-      } else {
-        output.innerHTML = `<p>&gt; Unknown command: '<span class="text-red-400">${command}</span>'</p>`;
-      }
+    if (command === "bid") {
+      output.innerHTML = `
+        <p>&gt; bid</p>
+        <p>&gt; Deploying Recon Sample...</p>
+        <p>&gt; Transmission confirmed. 📤 PDF recon dispatched.</p>
+      `;
+      setTimeout(() => {
+        window.open("/sample-bid-report.pdf", "_blank");
+      }, 1500);
+    } else {
+      output.innerHTML = `<p>&gt; Unknown command: '${command}'</p>`;
+    }
 
-      input.value = "";
-    });
-  }
+    input.value = "";
+  });
 });
 </script>
 
