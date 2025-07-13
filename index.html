@@ -235,6 +235,33 @@
     }
   }
 
+  /* Terminal scanlines background */
+.scanlines::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 255, 0, 0.03),
+    rgba(0, 255, 0, 0.03) 1px,
+    transparent 2px,
+    transparent 4px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Blinking cursor */
+.blinking-cursor {
+  animation: blink 1.1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+
 </style>
 
 
