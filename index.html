@@ -222,6 +222,18 @@
     0%, 50% { opacity: 1; }
     51%, 100% { opacity: 0; }
   }
+
+#terminal-text::after {
+    content: '█';
+    animation: blink 1s steps(2, start) infinite;
+    margin-left: 6px;
+  }
+
+  @keyframes blink {
+    to {
+      visibility: hidden;
+    }
+  }
   
 </style>
 
@@ -542,20 +554,24 @@
 </section>
 
 
-  <!-- ========== TERMINAL STATUS SECTION ========== -->
-<section class="relative bg-black py-24 px-6">
+<section class="relative bg-black py-28 px-6 z-10">
   <div 
-    class="terminal max-w-3xl mx-auto px-6 py-8 text-green-400 text-xl leading-loose z-10"
+    class="terminal max-w-3xl mx-auto px-6 py-10 rounded-xl text-green-400 text-lg leading-loose font-mono shadow-xl border border-green-500 bg-[#0d1117]/80 backdrop-blur-md"
     data-aos="fade-up"
   >
-    <div id="terminal-text" class="relative z-20">
-      <p>&gt; <span class="typed-line" data-text="Initializing Delta_Wave.Recon()"></span></p>
-      <p>&gt; <span class="typed-line" data-text="Connection established... 🛰️"></span></p>
-      <p>&gt; <span class="typed-line" data-text="Retrieving job walk intelligence from 462 portals"></span></p>
-      <p>&gt; <span class="typed-line" data-text="Generating PDF... complete ✅"></span></p>
+    <div id="terminal-text" class="relative z-20 space-y-1">
+      <p>&gt; <span class="typed-line" data-text="Accessing encrypted bid network..."></span></p>
+      <p>&gt; <span class="typed-line" data-text="Handshake successful — Public Works Gateway active"></span></p>
+      <p>&gt; <span class="typed-line" data-text="Fetching sector intel from SoCal grid..."></span></p>
+      <p>&gt; <span class="typed-line" data-text="Detecting bid-walk anomalies..."></span></p>
+      <p>&gt; <span class="typed-line" data-text="Fallback protocol triggered → CustomLLM_Ω engaged"></span></p>
+      <p>&gt; <span class="typed-line" data-text="Recon stream stabilized ✔️"></span></p>
+      <p>&gt; <span class="typed-line" data-text="Generating clean PDF intelligence file... ✅"></span></p>
+      <p>&gt; <span class="typed-line" data-text="Transmission complete. Standing by for next command."></span></p>
     </div>
   </div>
 </section>
+
 
 
 
@@ -1042,37 +1058,6 @@
     <!-- SPACER BLOCK -->
 <section class="bg-[#0b0f13] h-20 sm:h-28 md:h-36"></section>
 
-
-    <!-- SPACER BLOCK -->
-<section class="bg-[#0b0f13] h-20 sm:h-28 md:h-36"></section>
-
-<section class="mt-32 px-6">
-  <div class="bg-[#0d1117] border border-cyan-500/20 rounded-3xl max-w-4xl mx-auto text-white p-10 shadow-2xl relative overflow-hidden">
-    <div class="absolute top-0 left-0 w-full h-full rounded-3xl pointer-events-none"
-         style="box-shadow: 0 0 60px rgba(0,255,255,0.2), inset 0 0 40px rgba(0,255,255,0.1);">
-    </div>
-
-    <h2 class="text-3xl md:text-4xl font-bold text-cyan-400 text-center mb-10 relative z-10">Why $500?</h2>
-
-    <ul class="space-y-4 text-lg relative z-10">
-      <li>➤ Less than the cost of a single missed job-walk</li>
-      <li>➤ Far cheaper than hiring even a part-time estimator</li>
-      <li><strong>➤ Precision recon</strong>, 3x/week, hand-verified by humans</li>
-    </ul>
-
-    <div class="mt-10 text-cyan-300 font-semibold text-xl text-center">Monthly value we replace</div>
-
-    <ul class="mt-4 space-y-3 text-left relative z-10">
-      <li>✅ <strong>$1,500+</strong> Estimator hours saved</li>
-      <li>✅ <strong>$5,000+</strong> Missed-bid leaks plugged</li>
-      <li>✅ Clean targets → higher win-rate</li>
-    </ul>
-  </div>
-</section>
-
-
-    <!-- SPACER BLOCK -->
-<section class="bg-[#0b0f13] h-20 sm:h-28 md:h-36"></section>
   
 <!-- ============================== -->
 <!--  PRICING PLANS (Standalone Section) -->
@@ -1455,6 +1440,20 @@
     });
   });
 </script>
+
+<style>
+  #terminal-text::after {
+    content: '█';
+    animation: blink 1s steps(2, start) infinite;
+    margin-left: 6px;
+  }
+
+  @keyframes blink {
+    to {
+      visibility: hidden;
+    }
+  }
+</style>
 
 
 </body>
