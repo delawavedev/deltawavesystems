@@ -1779,19 +1779,19 @@ document.addEventListener("DOMContentLoaded", () => {
   }, { threshold: 0.4 });
   observer.observe(document.getElementById("beta-terminal"));
 
-  // Easter Egg Trigger
+  // Command Trigger (Easter Egg)
   const input = document.getElementById("terminal-input");
   const status = document.getElementById("cmd-status");
 
   input.addEventListener("keydown", e => {
     if (e.key === "Enter") {
       const cmd = input.value.trim().toLowerCase();
-      if (cmd === "audit" || cmd === "report") {
+      if (cmd === "report") {
         status.classList.remove("hidden");
-        status.textContent = "> Downloading classified report...";
+        status.textContent = "> Dispatching classified report...";
         setTimeout(() => {
-          window.open("/mnt/data/BETA_Audit_Report.pdf", "_blank");
-          status.innerHTML = "> Report dispatched in secure channel.";
+          window.open("/mnt/data/beta-comparison.pdf", "_blank");
+          status.innerHTML = "> Download complete. Terminal locked.";
         }, 1200);
       } else {
         status.classList.remove("hidden");
@@ -1801,6 +1801,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+
 
 
 
