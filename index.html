@@ -265,7 +265,39 @@
   background-image: repeating-linear-gradient(to bottom, transparent, transparent 3px, rgba(0,255,0,0.03) 4px);
 }
 
+/* Scanline Background Effect */
+.scanlines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 255, 0, 0.06),
+    rgba(0, 255, 0, 0.06) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  background-size: 100% 3px;
+}
 
+/* Blinking Cursor */
+.blinking-cursor {
+  animation: blink 1.1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Optional HUD slow pulse */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.03); }
+}
+.animate-pulse-slow {
+  animation: pulse-slow 3.5s ease-in-out infinite;
+}
+
+  
 </style>
 
 
@@ -595,12 +627,15 @@
 
 
 <section id="terminal-section" class="relative bg-black py-24 px-6 overflow-hidden">
-  <div class="relative max-w-3xl mx-auto px-6 py-8 text-green-400 text-lg md:text-xl leading-loose font-mono z-10 rounded-lg border border-green-500 shadow-xl bg-[#0b0f13]/90 backdrop-blur-sm scanlines">
 
-    <!-- Neon glow pulse ring -->
+  <!-- Main Terminal Container -->
+  <div class="relative max-w-4xl mx-auto px-6 py-8 text-green-400 text-lg md:text-xl leading-loose font-mono z-10 
+              rounded-lg border border-green-500 shadow-2xl bg-[#0b0f13]/90 backdrop-blur-sm scanlines">
+
+    <!-- Neon Glow Ring (outside) -->
     <div class="absolute -inset-1 rounded-lg border border-green-400 opacity-30 blur-md pointer-events-none animate-pulse"></div>
 
-    <!-- Terminal text output -->
+    <!-- Terminal Output -->
     <div id="terminal-text" class="relative z-20 space-y-1">
       <p>&gt; <span class="typed-line" data-text="Initializing Delta_Wave.ALPHA_Recon()"></span></p>
       <p>&gt; <span class="typed-line" data-text="Connection established... 📡"></span></p>
@@ -609,33 +644,32 @@
       <p>&gt; <span class="typed-line" data-text="Retrieving job walk intelligence from target portals 📟"></span></p>
       <p>&gt; <span class="typed-line" data-text="Generating PDF... complete 🧾✅"></span></p>
       <p>&gt; <span class="typed-line" data-text="Waiting for human verification key... 🔐"></span></p>
-
-      <!-- Blinking cursor -->
+      <!-- Cursor -->
       <p><span class="text-green-400 font-bold">&gt; <span class="blinking-cursor">█</span></span></p>
     </div>
 
-    <!-- Easter Egg Input Field -->
-    <form id="terminal-form" class="pt-6">
-      <div class="flex items-center space-x-2">
-        <span class="text-green-400 font-bold">&gt;</span>
-        <input 
-          id="terminal-input" 
-          type="text" 
-          autocomplete="off"
-          placeholder="type command..."
-          class="bg-transparent text-green-400 placeholder-green-600 focus:outline-none w-full font-mono text-base md:text-lg"
-        />
-      </div>
+    <!-- Command Input (Easter Egg) -->
+    <form id="terminal-form" class="mt-6">
+      <label for="terminal-input" class="sr-only">Terminal Command</label>
+      <input id="terminal-input" type="text"
+             placeholder="type command..."
+             class="w-full px-4 py-2 mt-2 bg-transparent border border-green-400 text-green-300 font-mono focus:outline-none focus:ring-2 focus:ring-cyan-400 placeholder-green-600"/>
     </form>
 
-    <!-- Command Response Output -->
-    <div id="terminal-response" class="pt-4 space-y-1 text-green-300 font-mono text-base md:text-lg"></div>
+    <!-- Command Output -->
+    <div id="terminal-response" class="mt-4 space-y-1 text-green-300 font-mono text-base"></div>
 
-    <!-- Subtext -->
+    <!-- Prompt Note -->
     <div class="mt-6 pt-4 border-t border-green-700 text-sm md:text-base text-green-500 font-semibold tracking-wider">
       Type <span class="text-cyan-300 font-bold">'bid'</span> and press <span class="text-cyan-300 font-bold">Enter</span> to receive a free recon sample.
     </div>
   </div>
+
+  <!-- Tactical HUD Side Panel (Right) -->
+  <div class="hidden lg:block absolute right-12 top-1/2 -translate-y-1/2 w-[300px] h-[300px] z-0">
+    <img src="/hud-graphic.png" alt="Recon HUD" class="w-full h-full object-contain opacity-60 pointer-events-none animate-pulse-slow" />
+  </div>
+
 </section>
 
 
@@ -1508,26 +1542,32 @@ document.addEventListener("DOMContentLoaded", function () {
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const lines = document.querySelectorAll(".typed-line");
+  const terminal = document.querySelector("#terminal-text");
+  let hasRun = false;
 
   function startTyping() {
+    if (hasRun) return;
+    hasRun = true;
+
     lines.forEach((el, i) => {
       const text = el.dataset.text;
-      el.textContent = "";
+      el.textContent = ""; // Clear before typing
+
       let index = 0;
-      const delay = 30 + Math.random() * 30;
+      const delay = 25 + Math.random() * 25; // Smoother, faster pulse
       setTimeout(function typeChar() {
         if (index < text.length) {
           el.textContent += text[index++];
           setTimeout(typeChar, delay);
         }
-      }, i * 1100);
+      }, i * 1000); // Line-by-line delay
     });
   }
 
-  // Observer: start typing when terminal enters viewport
+  // Start typing only once when 60% of the terminal is in view
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
+      if (entry.isIntersecting && !hasRun) {
         startTyping();
       }
     });
@@ -1536,32 +1576,35 @@ document.addEventListener("DOMContentLoaded", function () {
   const target = document.querySelector("#terminal-section");
   if (target) observer.observe(target);
 
-  // Easter egg input logic
+  // Easter Egg Terminal Command
   const form = document.getElementById("terminal-form");
   const input = document.getElementById("terminal-input");
   const output = document.getElementById("terminal-response");
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    const command = input.value.trim().toLowerCase();
-    output.innerHTML = "";
+  if (form && input && output) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const command = input.value.trim().toLowerCase();
+      output.innerHTML = ""; // Clear old output
 
-    if (command === "bid") {
-      output.innerHTML = `
-        <p>&gt; bid</p>
-        <p>&gt; Deploying Recon Sample...</p>
-        <p>&gt; Transmission confirmed. 📤 PDF recon dispatched.</p>
-      `;
-      // Optional: trigger download
-      // window.location.href = "/sample-bid-report.pdf";
-    } else {
-      output.innerHTML = `<p>&gt; Unknown command: '${command}'</p>`;
-    }
+      if (command === "bid") {
+        output.innerHTML = `
+          <p>&gt; bid</p>
+          <p>&gt; Deploying Recon Sample...</p>
+          <p>&gt; Transmission confirmed. 📤 PDF recon dispatched.</p>
+        `;
+        // Optional auto-download
+        // window.location.href = "/sample-bid-report.pdf";
+      } else {
+        output.innerHTML = `<p>&gt; Unknown command: '<span class="text-red-400">${command}</span>'</p>`;
+      }
 
-    input.value = "";
-  });
+      input.value = "";
+    });
+  }
 });
 </script>
+
 
 
 </body>
