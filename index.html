@@ -373,7 +373,40 @@
   50% { opacity: 0; }
 }
 
+.scanlines {
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+}
 
+.terminal-box {
+  @apply bg-[#0b0f13]/90 backdrop-blur-sm border border-green-500 rounded-lg p-4 shadow-inner shadow-green-500/20 relative;
+  min-height: 320px;
+  overflow: hidden;
+  box-shadow: 0 0 30px #00ffb3aa;
+}
+
+.terminal-title {
+  @apply text-xl text-green-300 mb-2 tracking-wide;
+}
+
+.animate-cursor::after {
+  content: "▌";
+  animation: blink 1s infinite step-end;
+  color: #00ff00;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+  
 </style>
 
 
@@ -823,8 +856,8 @@
   <!-- Glowing Outer Frame -->
   <div class="absolute -inset-2 border border-cyan-400 rounded-xl opacity-20 blur-md pointer-events-none z-0 animate-pulse"></div>
 
-  <!-- Grid Layout -->
-  <div id="terminal-wrapper" class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6 items-start justify-center opacity-0 transition-opacity duration-700">
+  <!-- Grid -->
+  <div id="terminal-wrapper" class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 opacity-0 transition-opacity duration-700">
     
     <!-- Supplier Quote Feed -->
     <div class="terminal-box scanlines">
@@ -845,13 +878,16 @@
     </div>
   </div>
 
-  <!-- Command Line -->
-  <div class="relative z-10 mt-12 bg-black/80 border-t border-green-700 pt-4 px-2 text-sm">
-    <label for="terminal-input" class="text-green-300">&gt; </label>
-    <input id="terminal-input" type="text" autocomplete="off"
-      class="w-64 bg-transparent text-green-400 outline-none border-none placeholder-green-700 animate-cursor"
-      placeholder="Type command...">
-    <p id="cmd-status" class="text-yellow-400 mt-2 text-xs hidden"></p>
+  <!-- Command Input Block -->
+  <div class="relative z-10 mt-12 bg-black/80 border-t border-green-700 pt-6 px-2 text-sm">
+    <p class="text-green-300 mb-2">Please type <code class="text-cyan-400 font-bold">audit</code> or <code class="text-cyan-400 font-bold">report</code> to receive a classified BETA audit comparison.</p>
+    <div class="flex items-center gap-2">
+      <label for="terminal-input" class="text-green-300 text-lg">&gt;</label>
+      <input id="terminal-input" type="text" autocomplete="off"
+        class="w-full max-w-md bg-green-900/20 text-green-200 placeholder-green-400 border border-green-400 rounded-md px-4 py-1 focus:outline-none focus:ring-2 focus:ring-cyan-400 animate-cursor placeholder:italic"
+        placeholder="Type command...">
+    </div>
+    <p id="cmd-status" class="text-yellow-400 mt-3 text-xs hidden"></p>
   </div>
 </section>
 
@@ -1629,29 +1665,34 @@ document.addEventListener("DOMContentLoaded", () => {
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const quoteLines = [
-    "> Copper Wire - 500ft - $120.00",
-    "> PVC Conduit - 100ft - $80.00",
-    "> Ground Rod - 8ft - $22.50",
-    "> Heat Shrink Tubing - 50pcs - $15.00",
-    "> Breaker Box 200A - $250.00",
+    "> EMT Conduit - 1\" - $4.50/ft",
+    "> Pull Box - 12x12 - $65.00",
+    "> MC Cable - 250ft - $210.00",
+    "> Coupling Connectors - 10pcs - $14.00",
+    "> LED High Bay - $120.00",
+    "> Load Center 200A - $240.00",
+    "> Copper Wire #8 - 500ft - $180.00",
     "> ✓ Quote parsed"
   ];
 
   const invoiceLines = [
-    "> Copper Wire - 500ft - $149.99 ⚠️",
-    "> PVC Conduit - 100ft - $80.00",
-    "> Ground Rod - 8ft - $30.00 ⚠️",
-    "> Heat Shrink Tubing - 50pcs - $15.00",
-    "> Breaker Box 200A - $285.00 ⚠️",
+    "> EMT Conduit - 1\" - $6.30/ft ⚠️",
+    "> Pull Box - 12x12 - $65.00",
+    "> MC Cable - 250ft - $210.00",
+    "> Coupling Connectors - 10pcs - $22.00 ⚠️",
+    "> LED High Bay - $149.99 ⚠️",
+    "> Load Center 200A - $240.00",
+    "> Copper Wire #8 - 500ft - $180.00",
     "> ✓ Invoice parsed"
   ];
 
   const summaryLines = [
-    "> Detected 3 item overcharges",
-    "> Total overbilled: $82.49",
-    "> Anomaly Threshold: Exceeded",
-    "> Report integrity: VERIFIED ✅",
-    "> ✓ Audit ready"
+    "> Discrepancies detected: 3",
+    "> Overbilled total: $63.29",
+    "> Status: VIOLATION FLAGGED 🚩",
+    "> Audit Trail: Secured 🔒",
+    "> Integrity: VERIFIED ✅",
+    "> ✓ Audit Ready"
   ];
 
   const quoteFeed = document.getElementById("quote-feed");
@@ -1672,7 +1713,7 @@ document.addEventListener("DOMContentLoaded", () => {
     next();
   }
 
-  // Scroll trigger
+  // Scroll Observer
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -1686,7 +1727,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }, { threshold: 0.4 });
   observer.observe(document.getElementById("beta-terminal"));
 
-  // Command input
+  // Command Handler
   const input = document.getElementById("terminal-input");
   const status = document.getElementById("cmd-status");
 
@@ -1695,7 +1736,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const cmd = input.value.trim().toLowerCase();
       if (cmd === "audit" || cmd === "report") {
         status.classList.remove("hidden");
-        status.textContent = "> Generating report...";
+        status.textContent = "> Generating classified report...";
         setTimeout(() => {
           status.innerHTML = `> <a href="/mnt/data/BETA_Audit_Report.pdf" target="_blank" class="underline text-cyan-400 hover:text-white">Download BETA_Audit_Report.pdf</a>`;
         }, 1500);
@@ -1707,6 +1748,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+
 
 
 
