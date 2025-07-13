@@ -234,7 +234,7 @@
       visibility: hidden;
     }
   }
-  
+
 </style>
 
 
@@ -563,9 +563,14 @@
 </section>
 
 
-<section id="terminal-section" class="relative bg-black py-24 px-6">
-  <div class="terminal max-w-3xl mx-auto px-6 py-8 text-green-400 text-xl leading-loose z-10" data-aos="fade-up">
-    <div id="terminal-text" class="relative z-20">
+<section id="terminal-section" class="relative bg-black py-24 px-6 overflow-hidden">
+  <div class="relative max-w-3xl mx-auto px-6 py-8 text-green-400 text-lg md:text-xl leading-loose font-mono z-10 rounded-lg border border-green-500 shadow-lg bg-[#0b0f13]/90 backdrop-blur-sm scanlines">
+
+    <!-- Neon glow ring -->
+    <div class="absolute -inset-1 rounded-lg border border-green-400 opacity-30 blur-md pointer-events-none animate-pulse"></div>
+
+    <!-- Terminal Text -->
+    <div id="terminal-text" class="relative z-20 space-y-1">
       <p>&gt; <span class="typed-line" data-text="Initializing Delta_Wave.ALPHA_Recon()"></span></p>
       <p>&gt; <span class="typed-line" data-text="Connection established... 📡"></span></p>
       <p>&gt; <span class="typed-line" data-text="Surfing portals... 🏄"></span></p>
@@ -573,9 +578,18 @@
       <p>&gt; <span class="typed-line" data-text="Retrieving job walk intelligence from target portals 📟"></span></p>
       <p>&gt; <span class="typed-line" data-text="Generating PDF... complete 🧾✅"></span></p>
       <p>&gt; <span class="typed-line" data-text="Waiting for human verification key... 🔐"></span></p>
+
+      <!-- Blinking Cursor -->
+      <p><span class="text-green-400 font-bold">&gt; <span class="blinking-cursor">█</span></span></p>
+    </div>
+
+    <!-- Fake Input Prompt -->
+    <div class="mt-6 pt-4 border-t border-green-700 text-sm md:text-base text-green-500 font-semibold tracking-wider">
+      Type <span class="text-cyan-300 font-bold">'bid'</span> and press <span class="text-cyan-300 font-bold">Enter</span> to receive a free recon sample.
     </div>
   </div>
 </section>
+
 
 
 
@@ -1398,55 +1412,51 @@
   });
 </script>
 
-<style>
-  #terminal-text::after {
-    content: '█';
-    animation: blink 1s steps(2, start) infinite;
-    margin-left: 6px;
-  }
-
-  @keyframes blink {
-    to {
-      visibility: hidden;
-    }
-  }
-</style>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const lines = document.querySelectorAll(".typed-line");
+  let isTyping = false; // Prevent overlap
+  let hasTypedOnce = false;
 
   function startTyping() {
+    if (isTyping) return;
+    isTyping = true;
+
     lines.forEach((el, i) => {
       const text = el.dataset.text;
       el.textContent = ""; // Reset
-
       let index = 0;
-      const delay = 30 + Math.random() * 30;
+
       setTimeout(function typeChar() {
         if (index < text.length) {
-          el.textContent += text[index++];
-          setTimeout(typeChar, delay);
+          el.textContent += text.charAt(index++);
+          setTimeout(typeChar, 25 + Math.random() * 25); // randomize for realism
+        } else if (i === lines.length - 1) {
+          // Once last line is done
+          isTyping = false;
+          hasTypedOnce = true;
         }
-      }, i * 1200); // Delay per line
+      }, i * 1000);
     });
   }
 
-  // Intersection Observer
+  // Observer to trigger typing when in view
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
+      if (entry.isIntersecting && !isTyping) {
         startTyping();
       }
     });
   }, {
-    threshold: 0.6 // 60% of section visible
+    threshold: 0.6 // trigger when 60% in view
   });
 
-  const target = document.querySelector("#terminal-section");
-  if (target) observer.observe(target);
+  const terminalSection = document.querySelector("#terminal-section");
+  if (terminalSection) observer.observe(terminalSection);
 });
 </script>
+
 
 
 </body>
