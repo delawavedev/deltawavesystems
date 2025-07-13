@@ -1411,15 +1411,8 @@
 <div id="cursor" style="position: fixed; top: 0; left: 0; width: 20px; height: 20px; border: 2px solid cyan; border-radius: 50%; pointer-events: none; z-index: 9999; transition: transform 0.1s ease;"></div>
 
 <script>
-  const cursor = document.getElementById('cursor');
-  document.addEventListener('mousemove', e => {
-    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-  });
-</script>
-
-<script>
 document.addEventListener("DOMContentLoaded", () => {
-  const lines = document.querySelectorAll(".typed-line");
+  const lines = document.querySelectorAll("#alpha-terminal-text .typed-line");
   let hasTyped = false;
 
   function startTyping() {
@@ -1453,6 +1446,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const terminal = document.querySelector("#alpha-terminal-section");
   if (terminal) observer.observe(terminal);
 
+  // Easter Egg Command
   const form = document.getElementById("alpha-terminal-form");
   const input = document.getElementById("alpha-terminal-input");
   const output = document.getElementById("alpha-terminal-response");
@@ -1470,7 +1464,7 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
       setTimeout(() => {
         window.open("/sample-bid-report.pdf", "_blank");
-      }, 1500);
+      }, 1200);
     } else {
       output.innerHTML = `<p>&gt; Unknown command: '${command}'</p>`;
     }
@@ -1576,7 +1570,15 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 
-
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const cursor = document.getElementById('cursor');
+  if (!cursor) return;
+  document.addEventListener('mousemove', e => {
+    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+  });
+});
+</script>
 
 
 
