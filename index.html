@@ -162,13 +162,27 @@
 
 <!-- =========  NAVIGATION BAR  ========= -->
 <header x-data="{ open: false }" class="fixed top-0 left-0 w-full bg-[#0b0f13] z-50 shadow-md">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center relative">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
-    <!-- LEFT (can be blank or use for future logo) -->
-    <div></div>
+    <!-- LEFT EMPTY FOR NOW -->
 
-    <!-- DESKTOP NAVIGATION (centered between left and right) -->
-    <nav class="hidden lg:flex font-semibold text-lg space-x-10 tracking-wide">
+    <!-- BURGER BUTTON (Mobile Only) -->
+    <button @click="open = !open"
+            aria-label="Toggle navigation"
+            class="lg:hidden text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded ml-auto z-50 relative">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2">
+        <path x-show="!open" d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"/>
+        <path x-show="open" d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <!-- RADAR LOGO - NO PULSE -->
+    <a href="/" class="ml-auto mr-6">
+      <img src="deltawavelogoradar.png" alt="Delta Wave Logo" class="h-10 w-auto">
+    </a>
+
+    <!-- DESKTOP NAV -->
+    <nav class="hidden lg:flex font-semibold text-lg space-x-10 tracking-wide ml-auto">
       <a href="#solutions"    class="hover:text-cyan-400">Solutions</a>
       <a href="#how"          class="hover:text-cyan-400">How It Works</a>
       <a href="#why"          class="hover:text-cyan-400">Why Delta Wave</a>
@@ -177,27 +191,12 @@
       <a href="#faq"          class="hover:text-cyan-400">FAQ</a>
       <a href="#contact"      class="hover:text-cyan-400">Contact</a>
     </nav>
-
-    <!-- BURGER BUTTON -->
-    <button @click="open = !open"
-            aria-label="Toggle navigation"
-            class="lg:hidden text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded z-50 relative">
-      <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2">
-        <path x-show="!open" d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"/>
-        <path x-show="open" d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
-
-    <!-- ABSOLUTE LOGO (top-right, bigger, no pulse) -->
-    <a href="/" class="absolute top-4 right-6">
-      <img src="deltawavelogoradar.png" alt="Delta Wave Logo" class="h-14 w-auto logo-glow">
-    </a>
   </div>
 
-  <!-- MOBILE DROPDOWN (aligned under hamburger) -->
+  <!-- MOBILE DROPDOWN - POSITIONED RIGHT UNDER BURGER -->
   <div x-show="open"
        x-transition
-       class="absolute right-6 top-[72px] bg-[#0b0f13] border border-gray-700 rounded-xl px-6 py-4 space-y-2 text-right shadow-xl lg:hidden z-40">
+       class="absolute right-6 top-[70px] bg-[#0b0f13] border border-cyan-400/30 rounded-xl px-6 py-4 space-y-2 text-right shadow-xl lg:hidden z-40">
     <a href="#solutions"    class="block py-2 hover:text-cyan-400 text-white font-semibold">Solutions</a>
     <a href="#how"          class="block py-2 hover:text-cyan-400 text-white font-semibold">How It Works</a>
     <a href="#why"          class="block py-2 hover:text-cyan-400 text-white font-semibold">Why Delta Wave</a>
