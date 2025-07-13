@@ -340,7 +340,40 @@
   overflow: hidden;
 }
 
-  
+
+.scanlines {
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+}
+
+.terminal-box {
+  @apply bg-[#0b0f13]/90 backdrop-blur-sm border border-green-500 rounded-lg p-4 shadow-inner shadow-green-500/20 relative;
+  min-height: 280px;
+  overflow: hidden;
+}
+
+.terminal-title {
+  @apply text-xl text-green-300 mb-2 tracking-wide;
+}
+
+.animate-cursor::after {
+  content: "▌";
+  animation: blink 1s infinite step-end;
+  color: #00ff00;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+
 </style>
 
 
@@ -785,47 +818,44 @@
   </div>
 </section>
 
-  
-<section id="beta-terminal" class="relative bg-black text-green-400 font-mono py-12 px-4 md:px-16 overflow-hidden">
-  <!-- Neon Outer Glow -->
+
+  <section id="beta-terminal" class="relative bg-black text-green-400 font-mono py-20 px-4 md:px-16 overflow-hidden">
+  <!-- Glowing Outer Frame -->
   <div class="absolute -inset-2 border border-cyan-400 rounded-xl opacity-20 blur-md pointer-events-none z-0 animate-pulse"></div>
 
-  <!-- Terminal Grid -->
-  <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
+  <!-- Grid Layout -->
+  <div id="terminal-wrapper" class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6 items-start justify-center opacity-0 transition-opacity duration-700">
     
-    <!-- LEFT TERMINAL -->
-    <div class="terminal-box scanlines bg-[#0b0f13]/90 backdrop-blur-sm border border-green-500 rounded-lg p-4 md:p-6 shadow-inner shadow-green-500/20">
-      <h2 class="text-xl text-green-300 mb-2">[ Supplier Quote ]</h2>
+    <!-- Supplier Quote Feed -->
+    <div class="terminal-box scanlines">
+      <h2 class="terminal-title">[ Supplier Quote ]</h2>
       <div id="quote-feed" class="typed-feed text-sm space-y-1"></div>
     </div>
 
-    <!-- CENTER ALERT COLUMN -->
-    <div class="relative hidden md:flex flex-col justify-center items-center space-y-4">
-      <div class="w-px h-full bg-green-500/30 animate-pulse"></div>
-      <div id="alert-box" class="bg-black border border-red-600 text-red-400 px-4 py-3 rounded-lg shadow-lg text-center text-sm glitch">
-        <p class="font-bold uppercase tracking-widest">Discrepancy Detected</p>
-        <p class="text-yellow-300 text-xs mt-1">Invoice total exceeds quote by 18.3%</p>
-      </div>
-      <div class="text-green-300 text-xs mt-2">&gt; Logged in BETA_AUDIT.LOG</div>
+    <!-- Audit Summary -->
+    <div class="terminal-box scanlines">
+      <h2 class="terminal-title">[ Audit Summary ]</h2>
+      <div id="summary-feed" class="typed-feed text-sm space-y-1"></div>
     </div>
 
-    <!-- RIGHT TERMINAL -->
-    <div class="terminal-box scanlines bg-[#0b0f13]/90 backdrop-blur-sm border border-green-500 rounded-lg p-4 md:p-6 shadow-inner shadow-green-500/20">
-      <h2 class="text-xl text-green-300 mb-2">[ Invoice Feed ]</h2>
+    <!-- Invoice Feed -->
+    <div class="terminal-box scanlines">
+      <h2 class="terminal-title">[ Invoice Feed ]</h2>
       <div id="invoice-feed" class="typed-feed text-sm space-y-1"></div>
     </div>
   </div>
 
-  <!-- COMMAND INPUT -->
-  <div class="relative z-10 mt-8 bg-black/80 border-t border-green-700 pt-4 px-2 text-sm">
-    <p class="text-green-300">&gt; run BETA_AUDIT --pdf --alert --auto-correct</p>
-    <p id="final-status" class="text-cyan-300 animate-pulse">&gt; Initializing scan...</p>
+  <!-- Command Line -->
+  <div class="relative z-10 mt-12 bg-black/80 border-t border-green-700 pt-4 px-2 text-sm">
+    <label for="terminal-input" class="text-green-300">&gt; </label>
+    <input id="terminal-input" type="text" autocomplete="off"
+      class="w-64 bg-transparent text-green-400 outline-none border-none placeholder-green-700 animate-cursor"
+      placeholder="Type command...">
+    <p id="cmd-status" class="text-yellow-400 mt-2 text-xs hidden"></p>
   </div>
 </section>
 
-
-
-
+  
 
   <!-- ▸▸ THETA  ◂◂ -->
 <section class="py-24 flex justify-center" id="theta">
@@ -1603,7 +1633,8 @@ document.addEventListener("DOMContentLoaded", () => {
     "> PVC Conduit - 100ft - $80.00",
     "> Ground Rod - 8ft - $22.50",
     "> Heat Shrink Tubing - 50pcs - $15.00",
-    "> ✓ Quote loaded"
+    "> Breaker Box 200A - $250.00",
+    "> ✓ Quote parsed"
   ];
 
   const invoiceLines = [
@@ -1611,35 +1642,72 @@ document.addEventListener("DOMContentLoaded", () => {
     "> PVC Conduit - 100ft - $80.00",
     "> Ground Rod - 8ft - $30.00 ⚠️",
     "> Heat Shrink Tubing - 50pcs - $15.00",
+    "> Breaker Box 200A - $285.00 ⚠️",
     "> ✓ Invoice parsed"
+  ];
+
+  const summaryLines = [
+    "> Detected 3 item overcharges",
+    "> Total overbilled: $82.49",
+    "> Anomaly Threshold: Exceeded",
+    "> Report integrity: VERIFIED ✅",
+    "> ✓ Audit ready"
   ];
 
   const quoteFeed = document.getElementById("quote-feed");
   const invoiceFeed = document.getElementById("invoice-feed");
-  const finalStatus = document.getElementById("final-status");
+  const summaryFeed = document.getElementById("summary-feed");
 
   function typeLines(lines, container, delay = 600, onDone = () => {}) {
     let i = 0;
-    function typeNext() {
+    function next() {
       if (i >= lines.length) return onDone();
       const p = document.createElement("p");
+      p.innerHTML = lines[i].replace(/^> /, '') + ' <span class="animate-cursor"></span>';
       p.className = lines[i].includes("⚠️") ? "text-red-400" : "text-green-400";
-      p.innerHTML = "&gt; " + lines[i].replace(/^> /, "");
       container.appendChild(p);
       i++;
-      setTimeout(typeNext, delay);
+      setTimeout(next, delay);
     }
-    typeNext();
+    next();
   }
 
-  typeLines(quoteLines, quoteFeed, 500);
-  setTimeout(() => typeLines(invoiceLines, invoiceFeed, 500, () => {
-    finalStatus.innerHTML = "&gt; PDF generated and dispatched to client.";
-    finalStatus.classList.remove("animate-pulse");
-    finalStatus.classList.add("text-green-400");
-  }), 1000);
+  // Scroll trigger
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        document.getElementById("terminal-wrapper").classList.remove("opacity-0");
+        typeLines(quoteLines, quoteFeed);
+        typeLines(invoiceLines, invoiceFeed);
+        typeLines(summaryLines, summaryFeed);
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  observer.observe(document.getElementById("beta-terminal"));
+
+  // Command input
+  const input = document.getElementById("terminal-input");
+  const status = document.getElementById("cmd-status");
+
+  input.addEventListener("keydown", e => {
+    if (e.key === "Enter") {
+      const cmd = input.value.trim().toLowerCase();
+      if (cmd === "audit" || cmd === "report") {
+        status.classList.remove("hidden");
+        status.textContent = "> Generating report...";
+        setTimeout(() => {
+          status.innerHTML = `> <a href="/mnt/data/BETA_Audit_Report.pdf" target="_blank" class="underline text-cyan-400 hover:text-white">Download BETA_Audit_Report.pdf</a>`;
+        }, 1500);
+      } else {
+        status.classList.remove("hidden");
+        status.textContent = "> Unknown command.";
+      }
+    }
+  });
 });
 </script>
+
 
 
 </body>
