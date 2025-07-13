@@ -160,19 +160,19 @@
 
 <body class="bg-surface0 text-white antialiased font-body">
 
-<!-- =========  NAVIGATION BAR  ========= -->
+  <!-- =========  NAVIGATION BAR  ========= -->
 <header x-data="{ open: false }" class="fixed top-0 left-0 w-full bg-[#0b0f13] z-50 shadow-md">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
-    <!-- Logo on Left (glow + margin) -->
-  <!-- Radar Logo on Right -->
-<a href="/" class="flex items-center space-x-3 mr-4 ml-auto">
-  <img src="deltawavelogoradar.png" alt="Delta Wave Logo" class="h-10 w-auto logo-glow pulse-logo">
-</a>
+    <!-- LEFT: (Optional site logo / title space if desired) -->
 
+    <!-- RIGHT: Radar Logo pushed far right (no pulse) -->
+    <a href="/" class="ml-auto mr-10">
+      <img src="deltawavelogoradar.png" alt="Delta Wave Logo" class="h-10 w-auto logo-glow">
+    </a>
 
-    <!-- DESKTOP NAV -->
-    <nav class="hidden lg:flex ml-auto font-semibold text-lg space-x-10 tracking-wide">
+    <!-- DESKTOP NAVIGATION -->
+    <nav class="hidden lg:flex font-semibold text-lg space-x-10 tracking-wide">
       <a href="#solutions"    class="hover:text-cyan-400">Solutions</a>
       <a href="#how"          class="hover:text-cyan-400">How It Works</a>
       <a href="#why"          class="hover:text-cyan-400">Why Delta Wave</a>
@@ -182,11 +182,10 @@
       <a href="#contact"      class="hover:text-cyan-400">Contact</a>
     </nav>
 
-
-    <!-- Burger Button (top-right) -->
+    <!-- BURGER BUTTON (Mobile Only) -->
     <button @click="open = !open"
             aria-label="Toggle navigation"
-            class="lg:hidden text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded">
+            class="lg:hidden text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded ml-4">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2">
         <path x-show="!open" d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"/>
         <path x-show="open" d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
@@ -194,19 +193,19 @@
     </button>
   </div>
 
-  <!-- Mobile Dropdown -->
+  <!-- MOBILE DROPDOWN MENU (drops directly below burger, top-right) -->
   <div x-show="open"
-       class="lg:hidden px-6 pt-2 pb-4 space-y-2 bg-[#0b0f13] border-t border-gray-700 text-white font-semibold text-center">
-    <a href="#solutions" class="block py-2 hover:text-cyan-400">Solutions</a>
-    <a href="#how" class="block py-2 hover:text-cyan-400">How It Works</a>
-    <a href="#why" class="block py-2 hover:text-cyan-400">Why Delta Wave</a>
-    <a href="#testimonials" class="block py-2 hover:text-cyan-400">Testimonials</a>
-    <a href="#pricing" class="block py-2 hover:text-cyan-400">Pricing</a>
-    <a href="#faq" class="block py-2 hover:text-cyan-400">FAQ</a>
-    <a href="#contact" class="block py-2 hover:text-cyan-400">Contact</a>
+       x-transition
+       class="absolute right-6 top-[72px] bg-[#0b0f13] border border-gray-700 rounded-xl px-6 py-4 space-y-2 text-right shadow-xl lg:hidden z-50">
+    <a href="#solutions"    class="block py-2 hover:text-cyan-400 text-white font-semibold">Solutions</a>
+    <a href="#how"          class="block py-2 hover:text-cyan-400 text-white font-semibold">How It Works</a>
+    <a href="#why"          class="block py-2 hover:text-cyan-400 text-white font-semibold">Why Delta Wave</a>
+    <a href="#testimonials" class="block py-2 hover:text-cyan-400 text-white font-semibold">Testimonials</a>
+    <a href="#pricing"      class="block py-2 hover:text-cyan-400 text-white font-semibold">Pricing</a>
+    <a href="#faq"          class="block py-2 hover:text-cyan-400 text-white font-semibold">FAQ</a>
+    <a href="#contact"      class="block py-2 hover:text-cyan-400 text-white font-semibold">Contact</a>
   </div>
 </header>
-
 
 
 <!-- －－－－－－ Your hero section starts right below this line －－－－－－ -->
@@ -815,7 +814,7 @@
       🪖 Every Plan Comes With <br>Direct Mission Support 📡
     </h2>
     <p class="text-gray-300 text-lg sm:text-xl leading-relaxed mb-6">
-      Whether you’re on the <span class="text-white font-semibold">Starter</span> or <span class="text-white font-semibold">Elite</span> plan, you get full access to our ops team — Monday through Sunday.
+      Whether you’re on the <span class="text-white font-semibold">Bids Only (Alpha) Plan</span> or <span class="text-white font-semibold">the Custom Tier Plan</span> plan, you get full access to our ops team — Monday through Sunday.
     </p>
     <p class="text-gray-300 text-base sm:text-lg leading-relaxed">
       Ask for tweaks to your intel search. Tell us what phrases to hunt in plans or specs. Need a specific scope scanned? 
@@ -826,21 +825,32 @@
   </div>
 </section>
 
-<!-- ========================= -->
+  <!-- SPACER BLOCK -->
+<section class="bg-[#0b0f13] h-20 sm:h-28 md:h-36"></section>
+
+
+  <!-- ============================ -->
+<!--  TESTIMONIAL SECTION HEADER -->
+<!-- ============================ -->
+<section id="testimonial-header" class="bg-[#0b0f13] py-32 px-6 text-white">
+  <div class="max-w-4xl mx-auto">
+    <div class="bg-[#10151d] border border-gray-700 rounded-2xl py-14 px-10 text-center shadow-md">
+      <h2 class="text-3xl md:text-4xl font-bold text-cyan-400 mb-0">
+        What Contractors Are Saying
+      </h2>
+    </div>
+  </div>
+</section>
+
+    <!-- SPACER BLOCK -->
+<section class="bg-[#0b0f13] h-20 sm:h-28 md:h-36"></section>
+
+  
+  <!-- ========================= -->
 <!--  SOCIAL PROOF  / TESTIMONIALS -->
 <!-- ========================= -->
 <section id="testimonials" class="bg-[#0b0f13] text-white pt-32 pb-36 px-6">
   <!-- Section Heading -->
-<!-- Glowing Synth Testimonial Header Card -->
-<div class="max-w-4xl mx-auto px-6 mb-24">
-  <div class="pulse-card bg-[#10151d] border border-cyan-500/50 rounded-2xl py-14 px-10 text-center shadow-xl">
-    <h2 class="text-3xl md:text-4xl font-bold text-cyan-400 mb-0">
-      What Contractors Are Saying
-    </h2>
-  </div>
-</div>
-
-
   <!-- Testimonial Grid -->
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
@@ -920,10 +930,17 @@
 
   </div>
 </section>
-  
 
-    <!-- RIGHT COLUMN: PRICING PLANS -->
+    <!-- SPACER BLOCK -->
+<section class="bg-[#0b0f13] h-20 sm:h-28 md:h-36"></section>
+  
+<!-- ============================== -->
+<!--  PRICING PLANS (Standalone Section) -->
+<!-- ============================== -->
+<section id="plans" class="bg-[#0b0f13] py-24 px-6 text-white">
+  <div class="max-w-7xl mx-auto">
     <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-10">
+
 
       <!-- $500 PLAN -->
       <div class="pulse-card bg-[#11151d] border border-cyan-400 rounded-2xl px-10 py-12 shadow-xl flex flex-col items-center text-center space-y-8 transition-all">
@@ -961,7 +978,11 @@
         <a href="#contact" class="mt-6 w-full bg-cyan-400 hover:bg-cyan-300 text-black font-semibold py-3 rounded-xl transition">
           Join Audit Tier
         </a>
-      </div>
+      </div>🧪 A/B Variables to Monitor This Week
+Metric	What to Adjust
+Open Rate < 30%	Subject line, sender name (“Chris @ DWS”)
+CTR < 10%	Email copy CTA placement + landing page preview
+Replies low	Add personalization (e.g., company name) and ask “Which regions do you usually bid?”
 
       <!-- FUTURE PLAN (or remove) -->
       <div class="pulse-card bg-[#11151d] border border-cyan-400 rounded-2xl px-10 py-12 shadow-xl flex flex-col items-center text-center space-y-8 transition-all">
@@ -986,6 +1007,11 @@
   </div>
 </section>
 
+<!-- SPACER BLOCK -->
+<section class="bg-[#0b0f13] h-20 sm:h-28 md:h-36"></section>
+
+    <!-- SPACER BLOCK -->
+<section class="bg-[#0b0f13] h-20 sm:h-28 md:h-36"></section>
 
 
 <!-- ========================== -->
