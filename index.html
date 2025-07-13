@@ -563,17 +563,12 @@
 </section>
 
 
-<section id="terminal-section" class="relative bg-black py-24 px-6 overflow-hidden">
-
-  <!-- Main Terminal Container -->
+<section id="alpha-terminal-section" class="relative bg-black py-24 px-6 overflow-hidden">
   <div class="relative max-w-4xl mx-auto px-6 py-8 text-green-400 text-lg md:text-xl leading-loose font-mono z-10 
               rounded-lg border border-green-500 shadow-2xl bg-[#0b0f13]/90 backdrop-blur-sm scanlines">
-
-    <!-- Neon Glow Ring (outside) -->
     <div class="absolute -inset-1 rounded-lg border border-green-400 opacity-30 blur-md pointer-events-none animate-pulse"></div>
 
-    <!-- Terminal Output -->
-    <div id="terminal-text" class="relative z-20 space-y-1">
+    <div id="alpha-terminal-text" class="relative z-20 space-y-1">
       <p>&gt; <span class="typed-line" data-text="Initializing Delta_Wave.ALPHA_Recon()"></span></p>
       <p>&gt; <span class="typed-line" data-text="Connection established... 📡"></span></p>
       <p>&gt; <span class="typed-line" data-text="Surfing portals... 🏄"></span></p>
@@ -581,15 +576,13 @@
       <p>&gt; <span class="typed-line" data-text="Retrieving job walk intelligence from target portals 📟"></span></p>
       <p>&gt; <span class="typed-line" data-text="Generating PDF... complete 🧾✅"></span></p>
       <p>&gt; <span class="typed-line" data-text="Waiting for human verification key... 🔐"></span></p>
-      <!-- Blinking Cursor -->
       <p><span class="text-green-400 font-bold">&gt; <span class="blinking-cursor">█</span></span></p>
     </div>
 
-    <!-- Command Input (Easter Egg) -->
-    <form id="terminal-form" class="mt-6">
-      <label for="terminal-input" class="sr-only">Terminal Command</label>
+    <form id="alpha-terminal-form" class="mt-6">
+      <label for="alpha-terminal-input" class="sr-only">Terminal Command</label>
       <input
-        id="terminal-input"
+        id="alpha-terminal-input"
         type="text"
         placeholder="type command..."
         class="w-full bg-black text-green-400 placeholder-green-600 font-mono border border-green-500 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
@@ -597,21 +590,18 @@
       />
     </form>
 
-    <!-- Command Output -->
-    <div id="terminal-response" class="mt-4 space-y-1 text-green-300 font-mono text-base"></div>
+    <div id="alpha-terminal-response" class="mt-4 space-y-1 text-green-300 font-mono text-base"></div>
 
-    <!-- Prompt Note -->
     <div class="mt-6 pt-4 border-t border-green-700 text-sm md:text-base text-green-500 font-semibold tracking-wider">
       Type <span class="text-cyan-300 font-bold">'bid'</span> and press <span class="text-cyan-300 font-bold">Enter</span> to receive a free recon sample.
     </div>
   </div>
 
-  <!-- Tactical HUD Side Panel (Right) -->
   <div class="hidden lg:block absolute right-12 top-1/2 -translate-y-1/2 w-[300px] h-[300px] z-0">
     <img src="/hud-graphic.png" alt="Recon HUD" class="w-full h-full object-contain opacity-60 pointer-events-none animate-pulse-slow" />
   </div>
-
 </section>
+
 
 
 
@@ -1460,13 +1450,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, { threshold: 0.6 });
 
-  const terminal = document.querySelector("#terminal-section");
+  const terminal = document.querySelector("#alpha-terminal-section");
   if (terminal) observer.observe(terminal);
 
-  // Easter egg input logic
-  const form = document.getElementById("terminal-form");
-  const input = document.getElementById("terminal-input");
-  const output = document.getElementById("terminal-response");
+  const form = document.getElementById("alpha-terminal-form");
+  const input = document.getElementById("alpha-terminal-input");
+  const output = document.getElementById("alpha-terminal-response");
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -1490,6 +1479,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
