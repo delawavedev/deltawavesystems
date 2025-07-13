@@ -742,6 +742,51 @@
   </div>
 </section>
 
+  
+<section id="beta-terminal" class="relative bg-black text-green-400 font-mono py-12 px-4 md:px-16 overflow-hidden">
+  <!-- Neon Outer Glow -->
+  <div class="absolute -inset-2 border border-cyan-400 rounded-xl opacity-20 blur-md pointer-events-none z-0 animate-pulse"></div>
+
+  <!-- Terminal Grid -->
+  <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
+    
+    <!-- Left Terminal (Quote Feed) -->
+    <div class="bg-[#0b0f13]/90 backdrop-blur-sm border border-green-500 rounded-lg p-4 md:p-6 shadow-inner shadow-green-500/20 scanlines space-y-2">
+      <h2 class="text-xl text-green-300 mb-2">[ Supplier Quote ]</h2>
+      <p>&gt; Copper Wire - 500ft - <span class="text-green-400">$120.00</span></p>
+      <p>&gt; PVC Conduit - 100ft - <span class="text-green-400">$80.00</span></p>
+      <p>&gt; Ground Rod - 8ft - <span class="text-green-400">$22.50</span></p>
+      <p class="animate-pulse text-yellow-300">&gt; Analyzing...</p>
+    </div>
+
+    <!-- Center Discrepancy Column -->
+    <div class="relative hidden md:flex flex-col justify-center items-center space-y-4">
+      <div class="w-px h-full bg-green-500/30 animate-pulse"></div>
+      <div class="bg-black border border-red-600 text-red-400 px-4 py-2 rounded-lg shadow-lg text-center text-sm">
+        <p class="font-bold uppercase tracking-wide">Discrepancy Detected</p>
+        <p class="text-yellow-300 text-xs">Invoice total exceeds quote by 18.3%</p>
+      </div>
+      <div class="text-green-300 text-xs mt-2">&gt; Flag logged in BETA_AUDIT.LOG</div>
+    </div>
+
+    <!-- Right Terminal (Invoice Feed) -->
+    <div class="bg-[#0b0f13]/90 backdrop-blur-sm border border-green-500 rounded-lg p-4 md:p-6 shadow-inner shadow-green-500/20 scanlines space-y-2">
+      <h2 class="text-xl text-green-300 mb-2">[ Invoice Feed ]</h2>
+      <p>&gt; Copper Wire - 500ft - <span class="text-red-400">$149.99</span></p>
+      <p>&gt; PVC Conduit - 100ft - <span class="text-green-400">$80.00</span></p>
+      <p>&gt; Ground Rod - 8ft - <span class="text-red-400">$30.00</span></p>
+      <p class="animate-pulse text-yellow-300">&gt; Cross-checking...</p>
+    </div>
+  </div>
+
+  <!-- Optional Command Line -->
+  <div class="relative z-10 mt-8 bg-black/80 border-t border-green-700 pt-4 px-2 text-sm">
+    <p class="text-green-300">&gt; run BETA_AUDIT --pdf --alert --auto-correct</p>
+    <p class="text-cyan-300 animate-pulse">&gt; Generating Report...</p>
+  </div>
+</section>
+
+
 
 
   <!-- ▸▸ THETA  ◂◂ -->
