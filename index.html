@@ -261,6 +261,10 @@
   50% { opacity: 1; }
 }
 
+.scanlines {
+  background-image: repeating-linear-gradient(to bottom, transparent, transparent 3px, rgba(0,255,0,0.03) 4px);
+}
+
 
 </style>
 
@@ -591,12 +595,12 @@
 
 
 <section id="terminal-section" class="relative bg-black py-24 px-6 overflow-hidden">
-  <div class="relative max-w-3xl mx-auto px-6 py-8 text-green-400 text-lg md:text-xl leading-loose font-mono z-10 rounded-lg border border-green-500 shadow-lg bg-[#0b0f13]/90 backdrop-blur-sm scanlines">
+  <div class="relative max-w-3xl mx-auto px-6 py-8 text-green-400 text-lg md:text-xl leading-loose font-mono z-10 rounded-lg border border-green-500 shadow-xl bg-[#0b0f13]/90 backdrop-blur-sm scanlines">
 
-    <!-- Neon glow ring -->
+    <!-- Neon glow pulse ring -->
     <div class="absolute -inset-1 rounded-lg border border-green-400 opacity-30 blur-md pointer-events-none animate-pulse"></div>
 
-    <!-- Terminal Text -->
+    <!-- Terminal text output -->
     <div id="terminal-text" class="relative z-20 space-y-1">
       <p>&gt; <span class="typed-line" data-text="Initializing Delta_Wave.ALPHA_Recon()"></span></p>
       <p>&gt; <span class="typed-line" data-text="Connection established... 📡"></span></p>
@@ -606,11 +610,28 @@
       <p>&gt; <span class="typed-line" data-text="Generating PDF... complete 🧾✅"></span></p>
       <p>&gt; <span class="typed-line" data-text="Waiting for human verification key... 🔐"></span></p>
 
-      <!-- Blinking Cursor -->
+      <!-- Blinking cursor -->
       <p><span class="text-green-400 font-bold">&gt; <span class="blinking-cursor">█</span></span></p>
     </div>
 
-    <!-- Fake Input Prompt -->
+    <!-- Easter Egg Input Field -->
+    <form id="terminal-form" class="pt-6">
+      <div class="flex items-center space-x-2">
+        <span class="text-green-400 font-bold">&gt;</span>
+        <input 
+          id="terminal-input" 
+          type="text" 
+          autocomplete="off"
+          placeholder="type command..."
+          class="bg-transparent text-green-400 placeholder-green-600 focus:outline-none w-full font-mono text-base md:text-lg"
+        />
+      </div>
+    </form>
+
+    <!-- Command Response Output -->
+    <div id="terminal-response" class="pt-4 space-y-1 text-green-300 font-mono text-base md:text-lg"></div>
+
+    <!-- Subtext -->
     <div class="mt-6 pt-4 border-t border-green-700 text-sm md:text-base text-green-500 font-semibold tracking-wider">
       Type <span class="text-cyan-300 font-bold">'bid'</span> and press <span class="text-cyan-300 font-bold">Enter</span> to receive a free recon sample.
     </div>
@@ -1484,6 +1505,63 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const lines = document.querySelectorAll(".typed-line");
+
+  function startTyping() {
+    lines.forEach((el, i) => {
+      const text = el.dataset.text;
+      el.textContent = "";
+      let index = 0;
+      const delay = 30 + Math.random() * 30;
+      setTimeout(function typeChar() {
+        if (index < text.length) {
+          el.textContent += text[index++];
+          setTimeout(typeChar, delay);
+        }
+      }, i * 1100);
+    });
+  }
+
+  // Observer: start typing when terminal enters viewport
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        startTyping();
+      }
+    });
+  }, { threshold: 0.6 });
+
+  const target = document.querySelector("#terminal-section");
+  if (target) observer.observe(target);
+
+  // Easter egg input logic
+  const form = document.getElementById("terminal-form");
+  const input = document.getElementById("terminal-input");
+  const output = document.getElementById("terminal-response");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const command = input.value.trim().toLowerCase();
+    output.innerHTML = "";
+
+    if (command === "bid") {
+      output.innerHTML = `
+        <p>&gt; bid</p>
+        <p>&gt; Deploying Recon Sample...</p>
+        <p>&gt; Transmission confirmed. 📤 PDF recon dispatched.</p>
+      `;
+      // Optional: trigger download
+      // window.location.href = "/sample-bid-report.pdf";
+    } else {
+      output.innerHTML = `<p>&gt; Unknown command: '${command}'</p>`;
+    }
+
+    input.value = "";
+  });
+});
+</script>
 
 
 </body>
