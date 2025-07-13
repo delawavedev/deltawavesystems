@@ -297,6 +297,49 @@
   animation: pulse-slow 3.5s ease-in-out infinite;
 }
 
+.scanlines {
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+}
+
+.glitch {
+  animation: glitch 1.2s infinite;
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 2px 0 red, -2px 0 cyan;
+  }
+  20% {
+    text-shadow: -2px 0 red, 2px 0 cyan;
+  }
+  40% {
+    text-shadow: 2px 0 red, -2px 0 cyan;
+  }
+  60% {
+    text-shadow: -1px 0 red, 1px 0 cyan;
+  }
+  80% {
+    text-shadow: 2px 0 red, -2px 0 cyan;
+  }
+  100% {
+    text-shadow: -2px 0 red, 2px 0 cyan;
+  }
+}
+
+.terminal-box {
+  min-height: 240px;
+  position: relative;
+  overflow: hidden;
+}
+
   
 </style>
 
@@ -750,41 +793,36 @@
   <!-- Terminal Grid -->
   <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
     
-    <!-- Left Terminal (Quote Feed) -->
-    <div class="bg-[#0b0f13]/90 backdrop-blur-sm border border-green-500 rounded-lg p-4 md:p-6 shadow-inner shadow-green-500/20 scanlines space-y-2">
+    <!-- LEFT TERMINAL -->
+    <div class="terminal-box scanlines bg-[#0b0f13]/90 backdrop-blur-sm border border-green-500 rounded-lg p-4 md:p-6 shadow-inner shadow-green-500/20">
       <h2 class="text-xl text-green-300 mb-2">[ Supplier Quote ]</h2>
-      <p>&gt; Copper Wire - 500ft - <span class="text-green-400">$120.00</span></p>
-      <p>&gt; PVC Conduit - 100ft - <span class="text-green-400">$80.00</span></p>
-      <p>&gt; Ground Rod - 8ft - <span class="text-green-400">$22.50</span></p>
-      <p class="animate-pulse text-yellow-300">&gt; Analyzing...</p>
+      <div id="quote-feed" class="typed-feed text-sm space-y-1"></div>
     </div>
 
-    <!-- Center Discrepancy Column -->
+    <!-- CENTER ALERT COLUMN -->
     <div class="relative hidden md:flex flex-col justify-center items-center space-y-4">
       <div class="w-px h-full bg-green-500/30 animate-pulse"></div>
-      <div class="bg-black border border-red-600 text-red-400 px-4 py-2 rounded-lg shadow-lg text-center text-sm">
-        <p class="font-bold uppercase tracking-wide">Discrepancy Detected</p>
-        <p class="text-yellow-300 text-xs">Invoice total exceeds quote by 18.3%</p>
+      <div id="alert-box" class="bg-black border border-red-600 text-red-400 px-4 py-3 rounded-lg shadow-lg text-center text-sm glitch">
+        <p class="font-bold uppercase tracking-widest">Discrepancy Detected</p>
+        <p class="text-yellow-300 text-xs mt-1">Invoice total exceeds quote by 18.3%</p>
       </div>
-      <div class="text-green-300 text-xs mt-2">&gt; Flag logged in BETA_AUDIT.LOG</div>
+      <div class="text-green-300 text-xs mt-2">&gt; Logged in BETA_AUDIT.LOG</div>
     </div>
 
-    <!-- Right Terminal (Invoice Feed) -->
-    <div class="bg-[#0b0f13]/90 backdrop-blur-sm border border-green-500 rounded-lg p-4 md:p-6 shadow-inner shadow-green-500/20 scanlines space-y-2">
+    <!-- RIGHT TERMINAL -->
+    <div class="terminal-box scanlines bg-[#0b0f13]/90 backdrop-blur-sm border border-green-500 rounded-lg p-4 md:p-6 shadow-inner shadow-green-500/20">
       <h2 class="text-xl text-green-300 mb-2">[ Invoice Feed ]</h2>
-      <p>&gt; Copper Wire - 500ft - <span class="text-red-400">$149.99</span></p>
-      <p>&gt; PVC Conduit - 100ft - <span class="text-green-400">$80.00</span></p>
-      <p>&gt; Ground Rod - 8ft - <span class="text-red-400">$30.00</span></p>
-      <p class="animate-pulse text-yellow-300">&gt; Cross-checking...</p>
+      <div id="invoice-feed" class="typed-feed text-sm space-y-1"></div>
     </div>
   </div>
 
-  <!-- Optional Command Line -->
+  <!-- COMMAND INPUT -->
   <div class="relative z-10 mt-8 bg-black/80 border-t border-green-700 pt-4 px-2 text-sm">
     <p class="text-green-300">&gt; run BETA_AUDIT --pdf --alert --auto-correct</p>
-    <p class="text-cyan-300 animate-pulse">&gt; Generating Report...</p>
+    <p id="final-status" class="text-cyan-300 animate-pulse">&gt; Initializing scan...</p>
   </div>
 </section>
+
 
 
 
@@ -1558,6 +1596,50 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const quoteLines = [
+    "> Copper Wire - 500ft - $120.00",
+    "> PVC Conduit - 100ft - $80.00",
+    "> Ground Rod - 8ft - $22.50",
+    "> Heat Shrink Tubing - 50pcs - $15.00",
+    "> ✓ Quote loaded"
+  ];
+
+  const invoiceLines = [
+    "> Copper Wire - 500ft - $149.99 ⚠️",
+    "> PVC Conduit - 100ft - $80.00",
+    "> Ground Rod - 8ft - $30.00 ⚠️",
+    "> Heat Shrink Tubing - 50pcs - $15.00",
+    "> ✓ Invoice parsed"
+  ];
+
+  const quoteFeed = document.getElementById("quote-feed");
+  const invoiceFeed = document.getElementById("invoice-feed");
+  const finalStatus = document.getElementById("final-status");
+
+  function typeLines(lines, container, delay = 600, onDone = () => {}) {
+    let i = 0;
+    function typeNext() {
+      if (i >= lines.length) return onDone();
+      const p = document.createElement("p");
+      p.className = lines[i].includes("⚠️") ? "text-red-400" : "text-green-400";
+      p.innerHTML = "&gt; " + lines[i].replace(/^> /, "");
+      container.appendChild(p);
+      i++;
+      setTimeout(typeNext, delay);
+    }
+    typeNext();
+  }
+
+  typeLines(quoteLines, quoteFeed, 500);
+  setTimeout(() => typeLines(invoiceLines, invoiceFeed, 500, () => {
+    finalStatus.innerHTML = "&gt; PDF generated and dispatched to client.";
+    finalStatus.classList.remove("animate-pulse");
+    finalStatus.classList.add("text-green-400");
+  }), 1000);
+});
+</script>
 
 
 </body>
