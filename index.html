@@ -1133,13 +1133,20 @@ html, body {
 
 
       <!-- $500 PLAN -->
-      <div class="pulse-card bg-[#11151d] border border-cyan-400 rounded-2xl px-10 py-12 shadow-xl flex flex-col items-center text-center space-y-8 transition-all">
-        <h5 class="text-2xl font-bold text-cyan-300">
-          Alpha <span class="text-sm text-gray-400 font-normal">(Mon–Wed–Fri)</span>
-        </h5>
-        <div class="text-5xl font-extrabold text-white">
-          $500 <span class="text-lg text-gray-400 font-medium">/ month</span>
-        </div>
+      <div class="relative pulse-card bg-[#11151d] border border-cyan-400 rounded-2xl px-10 py-12 shadow-xl flex flex-col items-center text-center space-y-8 transition-all">
+
+  <!-- LIMITED TIME ONLY Badge -->
+  <div class="absolute -top-4 -right-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg animate-pulse z-10">
+    LIMITED TIME ONLY
+  </div>
+
+  <h5 class="text-2xl font-bold text-cyan-300">
+    Alpha <span class="text-sm text-gray-400 font-normal">(Mon–Wed–Fri)</span>
+  </h5>
+  <div class="text-5xl font-extrabold text-white">
+    $500 <span class="text-lg text-gray-400 font-medium">/ month</span>
+  </div>
+
         <ul class="space-y-3 text-base text-gray-300">
           <li>✓ 3× Weekly Recon PDFs</li>
           <li>✓ Trade & Spec Filters</li>
@@ -1152,23 +1159,30 @@ html, body {
       </div>
 
       <!-- $900 PLAN -->
-      <div class="pulse-card bg-[#11151d] border border-cyan-400 rounded-2xl px-10 py-12 shadow-xl flex flex-col items-center text-center space-y-8 transition-all">
-        <h5 class="text-2xl font-bold text-cyan-300">
-          Alpha + Beta <span class="text-sm text-gray-400 font-normal">(Mon–Wed–Fri)</span>
-        </h5>
-        <div class="text-5xl font-extrabold text-white">
-          $900 <span class="text-lg text-gray-400 font-medium">/ month</span>
-        </div>
-        <ul class="space-y-3 text-base text-gray-300">
-          <li>✓ All Recon Features</li>
-          <li>✓ Supplier Quote & Invoice Comparison</li>
-          <li>✓ Weekly Cost Leak Reports</li>
-          <li>✓ Dedicated ops audit agent</li>
-        </ul>
-        <a href="#contact" class="mt-6 w-full bg-cyan-400 hover:bg-cyan-300 text-black font-semibold py-3 rounded-xl transition">
-          Join Audit Tier
-        </a>
-      </div>
+<div class="relative pulse-card bg-[#11151d] border border-cyan-400 rounded-2xl px-10 py-12 shadow-xl flex flex-col items-center text-center space-y-8 transition-all">
+  <!-- Limited Time Banner -->
+  <div class="absolute top-0 right-0 bg-gradient-to-r from-green-500 to-cyan-400 text-black text-xs font-bold px-3 py-1 rounded-bl-xl shadow-md tracking-wide animate-pulse">
+    LIMITED TIME ONLY
+  </div>
+
+  <h5 class="text-2xl font-bold text-cyan-300">
+    Alpha + Beta <span class="text-sm text-gray-400 font-normal">(Mon–Wed–Fri)</span>
+  </h5>
+  <div class="text-5xl font-extrabold text-white">
+    $900 <span class="text-lg text-gray-400 font-medium">/ month</span>
+  </div>
+  <ul class="space-y-3 text-base text-gray-300">
+    <li>✓ All Recon Features</li>
+    <li>✓ Supplier Quote & Invoice Comparison</li>
+    <li>✓ Weekly Cost Leak Reports</li>
+    <li>✓ Dedicated ops audit agent</li>
+  </ul>
+  <a href="#contact" class="mt-6 w-full bg-cyan-400 hover:bg-cyan-300 text-black font-semibold py-3 rounded-xl transition">
+    Join Audit Tier
+  </a>
+</div>
+
+      
       <!-- FUTURE PLAN (or remove) -->
       <div class="pulse-card bg-[#11151d] border border-cyan-400 rounded-2xl px-10 py-12 shadow-xl flex flex-col items-center text-center space-y-8 transition-all">
         <h5 class="text-2xl font-bold text-cyan-300">
@@ -1616,7 +1630,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const faqFeed = document.getElementById("terminal-faq-feed");
   const faqs = [
     { q: "📅 How often do I get reports?", a: "You’ll receive recon briefs 3x a week - Monday, Wednesday, Friday (You can request for more frequency). No fluff — just filtered, verified bid intel. Tell us what you look for and we'll acquire the targets at a cheaper cost for you." },
-    { q: "🚫 Can I cancel or pause anytime?", a: "Yes. Although it is extremely rare, You can cancel or pause any time — no lock-in. One of our team members can go more in depth about particulars of different cancelling or pausing situations." },
+    { q: "🚫 Can I cancel or pause anytime?", a: "Yes. Although it is extremely rare, you can cancel or pause any time — no lock-in. One of our team members can go more in depth about particulars of different cancelling or pausing situations." },
     { q: "🔐 Do I need to log into bid portals?", a: "We handle all the searching. Some plans/specs require login depending on the portal, but we’ll guide you." },
     { q: "🛠️ What trades do you support?", a: "Landscape, electrical, plumbing, HVAC, and more — if it's public, we can get it - just reach out and tell us what you look for and consider it done." },
     { q: "💰 What's the price?", a: "Alpha: $500/mo | Alpha + Beta: $900 | Custom: $TBD — all flat rate. Start with a free trial." },
