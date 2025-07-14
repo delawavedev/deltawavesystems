@@ -262,6 +262,11 @@
   animation: blink 1s steps(2, start) infinite;
 }
 
+html, body {
+  overflow-x: visible !important;
+}
+
+
 </style>
 
 
@@ -969,23 +974,21 @@
 
 <section id="why-terminal" class="relative bg-black py-24 px-6 overflow-visible text-green-300 font-mono">
 
- <!-- LEFT: Radar HUD Video -->
-<video autoplay loop muted playsinline
-  class="fixed top-10 left-10 w-[240px] z-50 opacity-80 animate-pulse-slow brightness-125 contrast-125 saturate-150 rounded-xl shadow-xl border border-cyan-500"
->
-  <source src="radar-hud.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
+  <!-- LEFT: Radar HUD Video -->
+  <video autoplay loop muted playsinline
+    class="fixed top-10 left-10 w-[240px] z-50 opacity-80 animate-pulse-slow brightness-125 contrast-125 saturate-150 rounded-xl shadow-xl border border-cyan-500 pointer-events-none"
+  >
+    <source src="radar-hud.mp4" type="video/mp4" />
+  </video>
 
-<!-- RIGHT: Waveform HUD Video -->
-<video autoplay loop muted playsinline
-  class="fixed bottom-10 right-10 w-[240px] z-50 opacity-80 animate-pulse-slow brightness-125 contrast-125 saturate-150 rounded-xl shadow-xl border border-green-400"
->
-  <source src="waveform-hud.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
+  <!-- RIGHT: Waveform HUD Video -->
+  <video autoplay loop muted playsinline
+    class="fixed bottom-10 right-10 w-[240px] z-50 opacity-80 animate-pulse-slow brightness-125 contrast-125 saturate-150 rounded-xl shadow-xl border border-green-400 pointer-events-none"
+  >
+    <source src="waveform-hud.mp4" type="video/mp4" />
+  </video>
 
-  <!-- Vertical Divider -->
+  <!-- Divider -->
   <div class="hidden md:block absolute top-0 bottom-0 left-1/2 w-[2px] bg-cyan-400 opacity-30 blur-md animate-pulse z-0"></div>
 
   <!-- Terminal Grid -->
@@ -1364,8 +1367,20 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
+  const terminalSection = document.querySelector("#alpha-terminal-section");
   const lines = document.querySelectorAll("#alpha-terminal-text .typed-line");
   let hasTyped = false;
+
+  // Prevent jitter/autoscroll by ensuring layout and font is loaded
+  function waitForFontsThenObserve() {
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        setTimeout(startObserver, 300); // buffer for layout shift
+      });
+    } else {
+      setTimeout(startObserver, 600);
+    }
+  }
 
   function startTyping() {
     if (hasTyped) return;
@@ -1375,7 +1390,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const text = el.dataset.text;
       el.textContent = "";
       let index = 0;
-      const delay = 25 + Math.random() * 20;
+      const delay = 20 + Math.random() * 15;
 
       setTimeout(function typeChar() {
         if (index < text.length) {
@@ -1383,37 +1398,32 @@ document.addEventListener("DOMContentLoaded", () => {
           index++;
           setTimeout(typeChar, delay);
         }
-      }, i * 1000);
+      }, i * 800); // per-line stagger
     });
   }
 
-  function observeTerminal() {
-    const terminal = document.querySelector("#alpha-terminal-section");
-    if (!terminal || hasTyped) return;
+  function startObserver() {
+    if (!terminalSection) return;
 
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !hasTyped) {
           startTyping();
           obs.disconnect();
         }
       });
     }, {
-      threshold: 0.7,
-      rootMargin: "0px 0px -200px 0px"
+      threshold: 0.6,
+      rootMargin: "0px 0px -100px 0px"
     });
 
-    observer.observe(terminal);
+    observer.observe(terminalSection);
   }
 
-  // Delay triggering terminal observer until layout is stable
-  if ('requestIdleCallback' in window) {
-    requestIdleCallback(observeTerminal, { timeout: 1200 });
-  } else {
-    setTimeout(observeTerminal, 1000); // fallback
-  }
+  // Initialize typing observer safely
+  waitForFontsThenObserve();
 
-  // Terminal command listener
+  // Terminal command logic
   const form = document.getElementById("alpha-terminal-form");
   const input = document.getElementById("alpha-terminal-input");
   const output = document.getElementById("alpha-terminal-response");
@@ -1440,6 +1450,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+
 
 
   
