@@ -991,75 +991,35 @@ video {
   </div>
 </section>
 
-<!-- === VIDEO SHOWCASE SECTION === -->
-<section id="video-showcase" class="relative bg-black py-32 px-6 overflow-hidden z-30">
-  <div class="max-w-6xl mx-auto text-center mb-12">
-    <!-- Mini Terminal Heading -->
-    <div class="inline-block bg-[#0b0f13]/90 border border-cyan-500 px-6 py-4 rounded-lg shadow-2xl font-mono text-cyan-300 text-xl md:text-2xl tracking-wide scanlines">
-      <span id="video-terminal-typewriter"></span><span class="blinking-cursor">█</span>
-    </div>
-  </div>
-
-  <!-- Videos Row -->
-  <div class="flex flex-col md:flex-row justify-center items-center gap-10">
-    <!-- Radar HUD -->
-    <video autoplay loop muted playsinline
-      class="w-[280px] md:w-[340px] rounded-xl shadow-xl border border-cyan-400 brightness-125 contrast-125 saturate-150 animate-pulse-slow pointer-events-none"
-    >
-      <source src="radar-hud.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-
-    <!-- Waveform HUD -->
-    <video autoplay loop muted playsinline
-      class="w-[280px] md:w-[340px] rounded-xl shadow-xl border border-green-400 brightness-125 contrast-125 saturate-150 animate-pulse-slow pointer-events-none"
-    >
-      <source src="waveform-hud.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-  </div>
-</section>
 
 
 
   
-<section id="why-terminal" class="relative bg-black py-24 px-6 overflow-visible text-green-300 font-mono z-10">
+<section id="why-terminal" class="relative bg-black py-32 px-6 overflow-visible z-20 font-mono text-green-300">
 
-  <!-- LEFT: Radar HUD Video -->
-  <video autoplay loop muted playsinline preload="auto"
-    class="fixed top-10 left-10 w-[240px] md:w-[300px] z-[9999] opacity-100 brightness-125 contrast-125 saturate-150 rounded-xl shadow-xl border border-cyan-500 pointer-events-none"
-  >
-    <source src="radar-hud.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+  <div class="max-w-6xl mx-auto text-center mb-16">
+    <div class="inline-block border border-cyan-400 bg-[#0b0f13]/90 px-8 py-6 rounded-lg shadow-2xl scanlines text-2xl md:text-3xl font-bold text-cyan-300 tracking-wider uppercase animate-pulse-slow">
+      // Delta_Wave_Special_Access_Terminal 🔐
+    </div>
+  </div>
 
-  <!-- RIGHT: Waveform HUD Video -->
-  <video autoplay loop muted playsinline preload="auto"
-    class="fixed bottom-10 right-10 w-[240px] md:w-[300px] z-[9999] opacity-100 brightness-125 contrast-125 saturate-150 rounded-xl shadow-xl border border-green-400 pointer-events-none"
-  >
-    <source src="waveform-hud.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-
-  <!-- Debug tip: Remove these AOS and scanline classes if needed -->
-  <div class="relative z-30 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto z-30 relative">
 
     <!-- Office Terminal -->
-    <div class="terminal-box bg-[#0b0f13]/80 border border-red-500 p-6 rounded-lg shadow-2xl"
-      id="office-terminal-box" data-aos="fade-right">
-      <h3 class="text-red-400 font-bold text-xl md:text-2xl mb-4">[ Your Office ]</h3>
-      <div id="office-terminal" class="space-y-1 text-red-300 text-base md:text-lg leading-relaxed"></div>
+    <div class="bg-[#0b0f13]/90 backdrop-blur-md border-2 border-red-500 rounded-xl shadow-xl p-8 scanlines" id="office-terminal-box">
+      <h3 class="text-red-400 font-bold text-2xl md:text-3xl mb-4 tracking-wide uppercase">[ Your Office Terminal ]</h3>
+      <div id="office-terminal" class="space-y-2 text-red-300 text-[1.1rem] md:text-[1.25rem] leading-relaxed"></div>
     </div>
 
-    <!-- Delta Terminal -->
-    <div class="terminal-box bg-[#0b0f13]/80 border border-green-500 p-6 rounded-lg shadow-2xl"
-      id="delta-terminal-box" data-aos="fade-left">
-      <h3 class="text-green-400 font-bold text-xl md:text-2xl mb-4">[ Delta Wave Advantage ]</h3>
-      <div id="delta-terminal" class="space-y-1 text-green-300 text-base md:text-lg leading-relaxed"></div>
+    <!-- Delta Wave Terminal -->
+    <div class="bg-[#0b0f13]/90 backdrop-blur-md border-2 border-green-400 rounded-xl shadow-xl p-8 scanlines" id="delta-terminal-box">
+      <h3 class="text-green-300 font-bold text-2xl md:text-3xl mb-4 tracking-wide uppercase">[ Delta Wave Advantage Terminal ]</h3>
+      <div id="delta-terminal" class="space-y-2 text-green-300 text-[1.1rem] md:text-[1.25rem] leading-relaxed"></div>
     </div>
 
   </div>
 </section>
+
 
 
 
@@ -1231,72 +1191,9 @@ video {
 <section class="bg-[#0b0f13] h-20 sm:h-28 md:h-36"></section>
 
 
-<!-- ========================== -->
-<!--  FINAL CTA SECTION (UPGRADED GLOW CARD) -->
-<!-- ========================== -->
-<section class="bg-[#0b0f13] pt-40 pb-80 px-6">
-  <div class="max-w-5xl mx-auto">
-
-    <!-- Glowing Bottom Card -->
-    <div class="pulse-card bg-[#10151d] border border-cyan-400/60 rounded-2xl px-10 py-20 text-center shadow-xl">
-      <!-- Trust Setup -->
-      <p class="text-gray-400 italic text-lg max-w-3xl mx-auto mb-10">
-        We recommend starting with the <strong>ALPHA</strong> plan —
-        so we can prove our value, earn your trust, and eliminate wasted hours from day one.
-      </p>
-
-      <!-- Contractors do the math -->
-      <h3 class="text-3xl md:text-4xl font-extrabold text-white mb-6">
-        Contractors do the math.
-      </h3>
-      <p class="text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto mb-14">
-        Most lose <span class="text-white font-semibold">$1,000s</span> in labor chasing portals,
-        missing job walks, or relying on overwhelmed staff.
-        Delta&nbsp;Wave eliminates all of that — for a flat monthly rate.
-      </p>
-
-      <!-- GC Offer -->
-      <p class="text-xl font-bold text-white mb-4">
-        If you're a <span class="text-cyan-400">General Contractor</span> covering multiple scopes — we’ve got you.
-      </p>
-      <p class="text-gray-300 text-lg leading-relaxed mb-10">
-        Get coverage across up to <span class="text-white font-semibold">5+ industries</span><br>
-        <span class="text-white font-semibold">You tell us the trades — we sweep the intel.</span>
-      </p>
-      <a href="#contact"
-         class="bg-cyan-400 hover:bg-cyan-300 text-black font-bold py-3 px-8 rounded-xl transition mb-6 inline-block">
-        Request an Ops Briefing
-      </a>
-
-      <!-- Divider -->
-      <div class="text-center text-gray-500 text-sm uppercase tracking-widest mb-8">or</div>
-
-      <!-- Free Trial Offer -->
-      <h4 class="text-lg text-white font-semibold mb-4">Not ready to commit? No problem.</h4>
-      <p class="text-gray-300 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto mb-8">
-        Request a <span class="text-cyan-400 font-semibold">14-Day Free Recon Trial</span> —
-        no credit card required. You’ll get real field intel, real bid results.
-        If your estimators already have it covered, we’ll go our separate ways — no hard feelings.
-      </p>
-
-      <!-- Trial Button -->
-      <a href="#contact"
-         class="bg-cyan-400 hover:bg-cyan-300 text-black font-bold py-3 px-10 rounded-xl transition">
-        Request Free Trial
-      </a>
-    </div>
-
-  </div>
-</section>
-
 
 <section id="faq-terminal" class="relative bg-[#0b0f17] pt-36 pb-48 px-6 text-green-400 font-mono overflow-visible z-30 scroll-mt-36">
   <div class="max-w-4xl mx-auto text-center">
-
-    <!-- Section Title -->
-    <h2 class="text-4xl md:text-5xl font-extrabold text-cyan-400 mb-20 tracking-wide">
-      TERMINAL // FREQUENTLY ASKED QUESTIONS
-    </h2>
 
     <!-- FAQ Terminal Container -->
     <div class="border border-green-500 rounded-lg p-8 md:p-10 backdrop-blur-md bg-black/80 shadow-2xl scanlines">
@@ -1649,27 +1546,23 @@ document.addEventListener("DOMContentLoaded", () => {
     "> Intelligence Recon verified by humans 👁️",
     "> Daily Intel & bid targets delivered 🛰️",
     "> 432+ hrs/year gained productivity 🚀",
-    "> The math is clear. <a href='#contact' class='underline text-cyan-300 hover:text-cyan-200'>See the proof.</a>"
+    "> The math is clear. <a href='#contact' class='underline text-cyan-300 hover:text-cyan-100'>See the proof.</a>"
   ];
 
   function typeLines(lines, container, cursorClass, callback) {
     let i = 0;
     function next() {
       if (i >= lines.length) {
-        // Remove all blinking cursors
         setTimeout(() => {
           container.querySelectorAll(`.${cursorClass}`).forEach(c => c.remove());
-          // Grow font size
-          container.classList.add("text-lg", "md:text-xl");
         }, 100);
-        if (callback) callback();
         return;
       }
       const p = document.createElement("p");
       p.innerHTML = lines[i] + ` <span class="${cursorClass} animate-cursor">█</span>`;
       container.appendChild(p);
       i++;
-      setTimeout(next, 400);
+      setTimeout(next, 500);
     }
     next();
   }
@@ -1731,25 +1624,6 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <script src="main.js?version=5432"></script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const terminalLine = "Why Contractors, Estimators, and Offices Trust Delta Wave";
-    const typeTarget = document.getElementById("video-terminal-typewriter");
-
-    if (typeTarget) {
-      let index = 0;
-      function typeChar() {
-        if (index < terminalLine.length) {
-          typeTarget.textContent += terminalLine.charAt(index);
-          index++;
-          setTimeout(typeChar, 50);
-        }
-      }
-      setTimeout(typeChar, 300);
-    }
-  });
-</script>
 
 
 </body>
