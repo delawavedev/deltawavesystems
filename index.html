@@ -996,22 +996,19 @@ video {
 
 <section id="why-terminal" class="relative bg-black py-24 px-6 overflow-visible text-green-300 font-mono">
 
- <!-- LEFT: Radar HUD Video -->
+<!-- LEFT: Radar HUD Video -->
 <video autoplay loop muted playsinline
-  class="fixed top-10 left-10 w-[240px] md:w-[300px] z-[90] opacity-80 animate-pulse-slow brightness-125 contrast-125 saturate-150 rounded-xl shadow-xl border border-cyan-500 pointer-events-none"
+  class="absolute top-10 left-10 w-[240px] md:w-[300px] z-40 opacity-80 animate-pulse-slow brightness-125 contrast-125 saturate-150 rounded-xl shadow-xl border border-cyan-500"
 >
   <source src="radar-hud.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
 </video>
 
 <!-- RIGHT: Waveform HUD Video -->
 <video autoplay loop muted playsinline
-  class="fixed bottom-10 right-10 w-[240px] md:w-[300px] z-[90] opacity-80 animate-pulse-slow brightness-125 contrast-125 saturate-150 rounded-xl shadow-xl border border-green-400 pointer-events-none"
+  class="absolute bottom-10 right-10 w-[240px] md:w-[300px] z-40 opacity-80 animate-pulse-slow brightness-125 contrast-125 saturate-150 rounded-xl shadow-xl border border-green-400"
 >
   <source src="waveform-hud.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
 </video>
-
 
   <!-- Divider -->
   <div class="hidden md:block absolute top-0 bottom-0 left-1/2 w-[2px] bg-cyan-400 opacity-30 blur-md animate-pulse z-10"></div>
@@ -1209,12 +1206,11 @@ video {
 <!-- ========================== -->
 <!--  FINAL CTA SECTION (UPGRADED GLOW CARD) -->
 <!-- ========================== -->
-<section class="bg-[#0b0f13] py-36 px-6">
+<section class="bg-[#0b0f13] pt-36 pb-48 px-6">
   <div class="max-w-5xl mx-auto">
 
     <!-- Glowing Bottom Card -->
     <div class="pulse-card bg-[#10151d] border border-cyan-400/60 rounded-2xl px-10 py-16 text-center shadow-xl">
-
       <!-- Trust Setup -->
       <p class="text-gray-400 italic text-lg max-w-3xl mx-auto mb-10">
         We recommend starting with the <strong>ALPHA</strong> plan —
@@ -1266,7 +1262,7 @@ video {
 </section>
 
 
-<section id="faq-terminal" class="relative bg-[#0b0f17] py-24 px-6 text-green-400 font-mono overflow-hidden">
+<section id="faq-terminal" class="relative bg-[#0b0f17] py-32 px-6 text-green-400 font-mono overflow-visible z-10">
   <div class="max-w-4xl mx-auto text-center">
     <h2 class="text-3xl md:text-4xl font-bold text-cyan-400 mb-12 tracking-wide">TERMINAL // FREQUENTLY ASKED QUESTIONS</h2>
 
@@ -1413,6 +1409,9 @@ document.addEventListener("DOMContentLoaded", () => {
           el.textContent += text.charAt(index);
           index++;
           setTimeout(typeChar, delay);
+        } else if (i === lines.length - 1) {
+          // Focus input after final line types
+          setTimeout(() => input.focus(), 300);
         }
       }, i * 700);
     });
@@ -1449,6 +1448,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const command = input.value.trim().toLowerCase();
     output.innerHTML = "";
 
+    console.log("[ALPHA] Command submitted:", command);
+
     if (command === "bid") {
       output.innerHTML = `
         <p>&gt; bid</p>
@@ -1463,7 +1464,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     input.value = "";
+    input.focus(); // Refocus to allow immediate retyping
   });
+
+  // Refocus input if user clicks elsewhere and comes back
+  input.addEventListener("blur", () => {
+    setTimeout(() => input.focus(), 500);
+  });
+
+  // Force early focus in case of weird browser behavior
+  setTimeout(() => input.focus(), 1000);
 
   // Init
   scrollLock();
@@ -1476,6 +1486,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 300);
 });
 </script>
+
 
 
 <script>
