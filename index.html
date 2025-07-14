@@ -994,37 +994,37 @@ video {
   </div>
 </section>
 
-<section id="why-terminal" class="relative bg-black py-24 px-6 overflow-visible text-green-300 font-mono">
 
-<!-- LEFT: Radar HUD Video -->
-<video autoplay loop muted playsinline
-  class="absolute top-10 left-10 w-[240px] md:w-[300px] z-40 opacity-80 animate-pulse-slow brightness-125 contrast-125 saturate-150 rounded-xl shadow-xl border border-cyan-500"
->
-  <source src="radar-hud.mp4" type="video/mp4" />
-</video>
+<section id="why-terminal" class="relative bg-black py-24 px-6 overflow-visible text-green-300 font-mono z-10">
 
-<!-- RIGHT: Waveform HUD Video -->
-<video autoplay loop muted playsinline
-  class="absolute bottom-10 right-10 w-[240px] md:w-[300px] z-40 opacity-80 animate-pulse-slow brightness-125 contrast-125 saturate-150 rounded-xl shadow-xl border border-green-400"
->
-  <source src="waveform-hud.mp4" type="video/mp4" />
-</video>
+  <!-- LEFT: Radar HUD Video -->
+  <video autoplay loop muted playsinline preload="auto"
+    class="fixed top-10 left-10 w-[240px] md:w-[300px] z-[9999] opacity-100 brightness-125 contrast-125 saturate-150 rounded-xl shadow-xl border border-cyan-500 pointer-events-none"
+  >
+    <source src="radar-hud.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
 
-  <!-- Divider -->
-  <div class="hidden md:block absolute top-0 bottom-0 left-1/2 w-[2px] bg-cyan-400 opacity-30 blur-md animate-pulse z-10"></div>
+  <!-- RIGHT: Waveform HUD Video -->
+  <video autoplay loop muted playsinline preload="auto"
+    class="fixed bottom-10 right-10 w-[240px] md:w-[300px] z-[9999] opacity-100 brightness-125 contrast-125 saturate-150 rounded-xl shadow-xl border border-green-400 pointer-events-none"
+  >
+    <source src="waveform-hud.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
 
-  <!-- Terminal Grid -->
+  <!-- Debug tip: Remove these AOS and scanline classes if needed -->
   <div class="relative z-30 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
 
     <!-- Office Terminal -->
-    <div class="terminal-box bg-[#0b0f13]/90 border border-red-500 scanlines backdrop-blur-sm p-6 rounded-lg shadow-2xl aos-init transition-all duration-700"
+    <div class="terminal-box bg-[#0b0f13]/80 border border-red-500 p-6 rounded-lg shadow-2xl"
       id="office-terminal-box" data-aos="fade-right">
       <h3 class="text-red-400 font-bold text-xl md:text-2xl mb-4">[ Your Office ]</h3>
       <div id="office-terminal" class="space-y-1 text-red-300 text-base md:text-lg leading-relaxed"></div>
     </div>
 
     <!-- Delta Terminal -->
-    <div class="terminal-box bg-[#0b0f13]/90 border border-green-500 scanlines backdrop-blur-sm p-6 rounded-lg shadow-2xl aos-init transition-all duration-700"
+    <div class="terminal-box bg-[#0b0f13]/80 border border-green-500 p-6 rounded-lg shadow-2xl"
       id="delta-terminal-box" data-aos="fade-left">
       <h3 class="text-green-400 font-bold text-xl md:text-2xl mb-4">[ Delta Wave Advantage ]</h3>
       <div id="delta-terminal" class="space-y-1 text-green-300 text-base md:text-lg leading-relaxed"></div>
@@ -1262,7 +1262,7 @@ video {
 </section>
 
 
-<section id="faq-terminal" class="relative bg-[#0b0f17] py-32 px-6 text-green-400 font-mono overflow-visible z-10">
+<section id="faq-terminal" class="relative bg-[#0b0f17] py-60 md:py-72 px-6 text-green-400 font-mono overflow-visible z-30 scroll-mt-24">
   <div class="max-w-4xl mx-auto text-center">
     <h2 class="text-3xl md:text-4xl font-bold text-cyan-400 mb-12 tracking-wide">TERMINAL // FREQUENTLY ASKED QUESTIONS</h2>
 
@@ -1485,6 +1485,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }, 300);
 });
+
+  document.addEventListener("DOMContentLoaded", () => {
+  if (window.location.hash) {
+    history.replaceState(null, null, ' ');
+    window.scrollTo(0, 0);
+  }
+});
+  
 </script>
 
 
