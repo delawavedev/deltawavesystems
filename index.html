@@ -612,7 +612,7 @@ video {
 </section>
 
 
-<section id="alpha-terminal-section" class="relative bg-black py-24 px-6 overflow-hidden">
+<section id="alpha-terminal-section" class="relative bg-black py-24 px-6 overflow-hidden scroll-mt-32">
   <!-- Terminal Container -->
   <div class="relative max-w-4xl mx-auto px-6 py-8 text-green-400 text-lg md:text-xl leading-loose font-mono z-10 rounded-lg border border-green-500 shadow-2xl bg-[#0b0f13]/90 backdrop-blur-sm scanlines">
     
@@ -657,9 +657,6 @@ video {
     <img src="/hud-graphic.png" alt="Recon HUD" class="w-full h-full object-contain opacity-60 pointer-events-none animate-pulse-slow" />
   </div>
 </section>
-
-
-
 
 
 
@@ -994,7 +991,38 @@ video {
   </div>
 </section>
 
+<!-- === VIDEO SHOWCASE SECTION === -->
+<section id="video-showcase" class="relative bg-black py-32 px-6 overflow-hidden z-30">
+  <div class="max-w-6xl mx-auto text-center mb-12">
+    <!-- Mini Terminal Heading -->
+    <div class="inline-block bg-[#0b0f13]/90 border border-cyan-500 px-6 py-4 rounded-lg shadow-2xl font-mono text-cyan-300 text-xl md:text-2xl tracking-wide scanlines">
+      <span id="video-terminal-typewriter"></span><span class="blinking-cursor">█</span>
+    </div>
+  </div>
 
+  <!-- Videos Row -->
+  <div class="flex flex-col md:flex-row justify-center items-center gap-10">
+    <!-- Radar HUD -->
+    <video autoplay loop muted playsinline
+      class="w-[280px] md:w-[340px] rounded-xl shadow-xl border border-cyan-400 brightness-125 contrast-125 saturate-150 animate-pulse-slow pointer-events-none"
+    >
+      <source src="radar-hud.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Waveform HUD -->
+    <video autoplay loop muted playsinline
+      class="w-[280px] md:w-[340px] rounded-xl shadow-xl border border-green-400 brightness-125 contrast-125 saturate-150 animate-pulse-slow pointer-events-none"
+    >
+      <source src="waveform-hud.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
+
+
+
+  
 <section id="why-terminal" class="relative bg-black py-24 px-6 overflow-visible text-green-300 font-mono z-10">
 
   <!-- LEFT: Radar HUD Video -->
@@ -1206,11 +1234,11 @@ video {
 <!-- ========================== -->
 <!--  FINAL CTA SECTION (UPGRADED GLOW CARD) -->
 <!-- ========================== -->
-<section class="bg-[#0b0f13] pt-36 pb-48 px-6">
+<section class="bg-[#0b0f13] pt-40 pb-80 px-6">
   <div class="max-w-5xl mx-auto">
 
     <!-- Glowing Bottom Card -->
-    <div class="pulse-card bg-[#10151d] border border-cyan-400/60 rounded-2xl px-10 py-16 text-center shadow-xl">
+    <div class="pulse-card bg-[#10151d] border border-cyan-400/60 rounded-2xl px-10 py-20 text-center shadow-xl">
       <!-- Trust Setup -->
       <p class="text-gray-400 italic text-lg max-w-3xl mx-auto mb-10">
         We recommend starting with the <strong>ALPHA</strong> plan —
@@ -1262,17 +1290,24 @@ video {
 </section>
 
 
-<section id="faq-terminal" class="relative bg-[#0b0f17] py-60 md:py-72 px-6 text-green-400 font-mono overflow-visible z-30 scroll-mt-24">
+<section id="faq-terminal" class="relative bg-[#0b0f17] pt-36 pb-48 px-6 text-green-400 font-mono overflow-visible z-30 scroll-mt-36">
   <div class="max-w-4xl mx-auto text-center">
-    <h2 class="text-3xl md:text-4xl font-bold text-cyan-400 mb-12 tracking-wide">TERMINAL // FREQUENTLY ASKED QUESTIONS</h2>
 
-    <div class="border border-green-500 rounded-lg p-6 backdrop-blur-md bg-black/80 shadow-2xl scanlines">
+    <!-- Section Title -->
+    <h2 class="text-4xl md:text-5xl font-extrabold text-cyan-400 mb-20 tracking-wide">
+      TERMINAL // FREQUENTLY ASKED QUESTIONS
+    </h2>
+
+    <!-- FAQ Terminal Container -->
+    <div class="border border-green-500 rounded-lg p-8 md:p-10 backdrop-blur-md bg-black/80 shadow-2xl scanlines">
       <div id="terminal-faq-feed" class="space-y-4 text-left text-green-300 text-sm md:text-base min-h-[300px]"></div>
 
+      <!-- Blinking Cursor Line -->
       <div class="mt-6 text-left">
         <span class="text-green-400">&gt; <span class="blinking-cursor">█</span></span>
       </div>
     </div>
+    
   </div>
 </section>
 
@@ -1384,6 +1419,7 @@ video {
 
 <div id="cursor" style="position: fixed; top: 0; left: 0; width: 20px; height: 20px; border: 2px solid cyan; border-radius: 50%; pointer-events: none; z-index: 9999; transition: transform 0.1s ease;"></div>
 
+<!-- Alpha Terminal Script -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const section = document.querySelector("#alpha-terminal-section");
@@ -1410,15 +1446,15 @@ document.addEventListener("DOMContentLoaded", () => {
           index++;
           setTimeout(typeChar, delay);
         } else if (i === lines.length - 1) {
-          // Focus input after final line types
-          setTimeout(() => input.focus(), 300);
+          setTimeout(() => {
+            input.focus({ preventScroll: true });
+          }, 300);
         }
       }, i * 700);
     });
   }
 
   function scrollLock() {
-    // Prevent auto scroll into view
     if ("scrollRestoration" in history) {
       history.scrollRestoration = "manual";
     }
@@ -1464,19 +1500,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     input.value = "";
-    input.focus(); // Refocus to allow immediate retyping
+    input.focus({ preventScroll: true });
   });
 
-  // Refocus input if user clicks elsewhere and comes back
   input.addEventListener("blur", () => {
-    setTimeout(() => input.focus(), 500);
+    setTimeout(() => input.focus({ preventScroll: true }), 500);
   });
 
-  // Force early focus in case of weird browser behavior
-  setTimeout(() => input.focus(), 1000);
+  // Prevent hash scroll
+  if (window.location.hash) {
+    history.replaceState(null, null, ' ');
+    window.scrollTo(0, 0);
+  }
 
-  // Init
   scrollLock();
+
   setTimeout(() => {
     if (document.fonts?.ready) {
       document.fonts.ready.then(observeAndTrigger);
@@ -1485,17 +1523,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }, 300);
 });
-
-  document.addEventListener("DOMContentLoaded", () => {
-  if (window.location.hash) {
-    history.replaceState(null, null, ' ');
-    window.scrollTo(0, 0);
-  }
-});
-  
 </script>
-
-
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -1703,6 +1731,25 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <script src="main.js?version=5432"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const terminalLine = "Why Contractors, Estimators, and Offices Trust Delta Wave";
+    const typeTarget = document.getElementById("video-terminal-typewriter");
+
+    if (typeTarget) {
+      let index = 0;
+      function typeChar() {
+        if (index < terminalLine.length) {
+          typeTarget.textContent += terminalLine.charAt(index);
+          index++;
+          setTimeout(typeChar, 50);
+        }
+      }
+      setTimeout(typeChar, 300);
+    }
+  });
+</script>
 
 
 </body>
