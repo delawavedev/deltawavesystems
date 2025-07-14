@@ -969,14 +969,20 @@
 
 <section id="why-terminal" class="relative bg-black py-24 px-6 overflow-hidden text-green-300 font-mono">
 
-  <!-- MP4 HUD Overlays -->
-  <video autoplay loop muted playsinline class="absolute top-12 left-0 w-[250px] opacity-20 blur-sm hidden lg:block z-0 pointer-events-none">
-    <source src="/radar-hud.mp4" type="video/mp4" />
-  </video>
+<!-- LEFT: Radar HUD -->
+<video autoplay loop muted playsinline 
+  class="hidden lg:block absolute top-1/2 left-0 -translate-y-1/2 w-[220px] z-0 opacity-50 pointer-events-none animate-pulse-slow brightness-110 contrast-125 blur-[1px] saturate-150"
+>
+  <source src="radar-hud.mp4" type="video/mp4" />
+</video>
 
-  <video autoplay loop muted playsinline class="absolute bottom-12 right-0 w-[250px] opacity-20 blur-sm hidden lg:block z-0 pointer-events-none">
-    <source src="/waveform-hud.mp4" type="video/mp4" />
-  </video>
+<!-- RIGHT: Waveform HUD -->
+<video autoplay loop muted playsinline 
+  class="hidden lg:block absolute top-1/2 right-0 -translate-y-1/2 w-[220px] z-0 opacity-50 pointer-events-none animate-pulse-slow brightness-110 contrast-125 blur-[1px] saturate-150"
+>
+  <source src="waveform-hud.mp4" type="video/mp4" />
+</video>
+
 
   <!-- Vertical Divider -->
   <div class="hidden md:block absolute top-0 bottom-0 left-1/2 w-[2px] bg-cyan-400 opacity-30 blur-md animate-pulse z-0"></div>
