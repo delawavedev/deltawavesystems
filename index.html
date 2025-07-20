@@ -437,28 +437,22 @@ html, body {
 
 
 <!-- Terminal Section -->
-<section id="why-terminal" class="relative isolate overflow-visible bg-black pt-0 pb-32 px-6 font-mono text-green-300 z-20">
+<section id="why-terminal" class="relative isolate bg-black px-6 pb-32 pt-[200px] font-mono text-green-300 z-20 overflow-hidden">
 
-<!-- Smaller & Force-Centered HUD Radar -->
-<div class="absolute top-[35%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[180px] h-[180px] md:w-[220px] md:h-[220px] z-10 pointer-events-none">
-  <video
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="auto"
-    class="w-full h-full object-contain object-center opacity-25 brightness-[1.2] contrast-[1.3] scale-100">
-    <source src="hud-radar-loop.mp4" type="video/mp4" />
-  </video>
-</div>
+  <!-- Centered HUD Radar Video (Smaller) -->
+  <div class="absolute top-[48%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[140px] h-[140px] md:w-[180px] md:h-[180px] z-10 pointer-events-none">
+    <video autoplay muted loop playsinline preload="auto"
+      class="w-full h-full object-contain object-center opacity-20 brightness-[1.15] contrast-[1.25]">
+      <source src="hud-radar-loop.mp4" type="video/mp4" />
+    </video>
+  </div>
 
-
-  <!-- Optional Grid Overlay -->
+  <!-- HUD Scanline Overlay -->
   <div class="absolute inset-0 z-10 pointer-events-none bg-[url('/images/hud-grid-overlay.png')] opacity-10 mix-blend-soft-light"></div>
 
-  <!-- Section Title -->
-  <div class="relative z-20 max-w-6xl mx-auto text-center mb-20 pt-[240px]" data-aos="zoom-in-up" data-aos-delay="250">
-    <div class="inline-block border border-cyan-400 bg-[#0b0f13]/90 px-12 py-8 rounded-lg shadow-2xl scanlines text-4xl md:text-5xl font-bold text-cyan-300 tracking-wider uppercase animate-pulse-slow">
+  <!-- Terminal Section Title -->
+  <div class="relative z-20 max-w-6xl mx-auto text-center mb-16" data-aos="zoom-in-up" data-aos-delay="250">
+    <div class="inline-block border border-cyan-400 bg-[#0b0f13]/90 px-12 py-6 rounded-lg shadow-2xl scanlines text-4xl md:text-5xl font-bold text-cyan-300 tracking-wider uppercase animate-pulse-slow">
       // DELTA_WAVE_SPECIAL_ACCESS_TERMINAL 🔐
     </div>
   </div>
@@ -469,7 +463,7 @@ html, body {
     <!-- LEFT: Office Terminal -->
     <div class="bg-[#0b0f13]/85 backdrop-blur-md border-2 border-red-600 rounded-xl shadow-red-500/40 shadow-xl px-10 py-12 scanlines hover:shadow-red-400 transition duration-300 ease-in-out">
       <h3 class="text-red-400 font-bold text-4xl md:text-5xl mb-8 tracking-wide uppercase text-center">[ YOUR OFFICE ]</h3>
-      <div class="space-y-6 text-[2rem] md:text-[2.5rem] font-semibold leading-snug text-left mx-auto w-fit">
+      <div class="space-y-6 text-[1.9rem] md:text-[2.3rem] font-semibold leading-snug text-left mx-auto w-fit">
         <div><span class="text-cyan-300">&gt;</span> <span class="terminal-orange">$2,000+/mo overhead ⚠️</span></div>
         <div><span class="text-cyan-300">&gt;</span> <span class="terminal-cyan">40+ hrs/month chasing portals ⏳</span></div>
         <div><span class="text-cyan-300">&gt;</span> <span class="terminal-red">Human error</span>, fatigue, missed details 😩</div>
@@ -482,7 +476,7 @@ html, body {
     <!-- RIGHT: Delta Wave Terminal -->
     <div class="bg-[#0b0f13]/85 backdrop-blur-md border-2 border-green-400 rounded-xl shadow-green-500/40 shadow-xl px-10 py-12 scanlines hover:shadow-green-300 transition duration-300 ease-in-out">
       <h3 class="text-green-300 font-bold text-4xl md:text-5xl mb-8 tracking-wide uppercase text-center">[ DELTA WAVE ]</h3>
-      <div class="space-y-6 text-[2rem] md:text-[2.5rem] font-semibold leading-snug text-left mx-auto w-fit">
+      <div class="space-y-6 text-[1.9rem] md:text-[2.3rem] font-semibold leading-snug text-left mx-auto w-fit">
         <div><span class="text-cyan-300">&gt;</span> <span class="terminal-green">$500/mo flat rate ✅</span></div>
         <div><span class="text-cyan-300">&gt;</span> <span class="terminal-cyan">4 hrs/month</span> to review, <span class="terminal-orange">zero chase 🎯</span></div>
         <div><span class="text-cyan-300">&gt;</span> <span class="terminal-orange">Intel verified by humans 👁️‍🗨️</span></div>
@@ -494,6 +488,7 @@ html, body {
 
   </div>
 </section>
+
 
   
 
