@@ -148,7 +148,160 @@
     animation: blink-block 1.1s step-end infinite;
   }
 
-  @keyframes blink-block {
+  @keyframes blink-block {{% if bids %}
+<div class="bid-page" style="height: 100vh;">
+    <div class="entry-wrapper" style="display: flex; justify-content: center;">
+      <div class="bid-entry first-entry">
+        
+        <!-- 🔓 HEADER -->
+        <div class="intel-banner">
+          // DELTA_WAVE_SYSTEMS :: ALPHA_RECON_REPORT :: ACCESS LEVEL: GRANTED 🔒
+        </div>
+
+        <!-- 🕊️ Agency -->
+        <div class="section">
+          <div class="label">🕊️ Agency:</div>
+          <div class="value">{{ bids[0].agency }}</div>
+        </div>
+
+        <!-- 📁 Bid Name -->
+        <div class="section">
+          <div class="label">📁 Bid Name:</div>
+          <div class="value">{{ bids[0].bid_name }}</div>
+        </div>
+
+        <!-- 📍 Location -->
+        <div class="section">
+          <div class="label">📍 Location:</div>
+          <div class="value">{{ bids[0].location }}</div>
+        </div>
+
+        <!-- 🥾 Job Walk -->
+        <div class="section">
+          <div class="label">🥾 Job Walk:</div>
+          <div class="value">{{ bids[0].job_walk }}</div>
+        </div>
+
+        <!-- 🗓️ Due Date -->
+        <div class="section">
+          <div class="label">🗓️ Due Date:</div>
+          <div class="value">{{ bids[0].due_date }}</div>
+        </div>
+
+        <!-- 📧 Point of Contact -->
+        <div class="section">
+          <div class="label">📧 Point of Contact:</div>
+          <div class="value">
+            {{ bids[0].contact.name }} — <a href="mailto:{{ bids[0].contact.email }}">{{ bids[0].contact.email }}</a>
+          </div>
+        </div>
+
+        <!-- 📂 Documents -->
+        <div class="section">
+          <div class="label">📂 Bid Documents:</div>
+          <ul>
+            {% for doc in bids[0].documents %}
+              <li><a href="{{ doc.url }}" target="_blank">{{ doc.label }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <!-- 🧠 Footer -->
+        <div class="intel-footer">
+          ALPHA_INTEL_AGENT | SHA-256 Encrypted | Node: DWS--01
+        </div>
+
+        <!-- 🎯 Divider -->
+        <div class="divider-wrapper"></div>
+        <div class="tactical-divider"></div>
+
+        <!-- 🛡️ Anti-creep Spacer -->
+        <div class="entry-bottom-spacer"></div>
+
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+
+
+{% for bid in bids[1:] %}
+  <div class="bid-page" style="height: 100vh;">
+    <div class="entry-wrapper" style="display: flex; justify-content: center;">
+      <div class="bid-entry subsequent-entry">
+        
+        <!-- 🔓 HEADER -->
+        <div class="intel-banner">
+          // DELTA_WAVE_SYSTEMS :: ALPHA_RECON_REPORT :: ACCESS LEVEL: GRANTED 🔒
+        </div>
+
+        <!-- 🕊️ Agency -->
+        <div class="section">
+          <div class="label">🕊️ Agency:</div>
+          <div class="value">{{ bid.agency }}</div>
+        </div>
+
+        <!-- 📁 Bid Name -->
+        <div class="section">
+          <div class="label">📁 Bid Name:</div>
+          <div class="value">{{ bid.bid_name }}</div>
+        </div>
+
+        <!-- 📍 Location -->
+        <div class="section">
+          <div class="label">📍 Location:</div>
+          <div class="value">{{ bid.location }}</div>
+        </div>
+
+        <!-- 🥾 Job Walk -->
+        <div class="section">
+          <div class="label">🥾 Job Walk:</div>
+          <div class="value">{{ bid.job_walk }}</div>
+        </div>
+
+        <!-- 🗓️ Due Date -->
+        <div class="section">
+          <div class="label">🗓️ Due Date:</div>
+          <div class="value">{{ bid.due_date }}</div>
+        </div>
+
+        <!-- 📧 Point of Contact -->
+        <div class="section">
+          <div class="label">📧 Point of Contact:</div>
+          <div class="value">
+            {{ bid.contact.name }} — <a href="mailto:{{ bid.contact.email }}">{{ bid.contact.email }}</a>
+          </div>
+        </div>
+
+        <!-- 📂 Documents -->
+        <div class="section">
+          <div class="label">📂 Bid Documents:</div>
+          <ul>
+            {% for doc in bid.documents %}
+              <li><a href="{{ doc.url }}" target="_blank">{{ doc.label }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <!-- 🧠 Footer -->
+        <div class="intel-footer">
+          ALPHA_INTEL_AGENT | SHA-256 Encrypted | Node: DWS--01
+        </div>
+
+        <!-- 🎯 Divider -->
+        <div class="divider-wrapper"></div>
+        <div class="tactical-divider"></div>
+
+        <!-- 🛡️ Anti-creep Spacer -->
+        <div class="entry-bottom-spacer"></div>
+
+      </div>
+    </div>
+  </div>
+{% endfor %}
+
+
+
     0%, 100% { opacity: 0; }
     50% { opacity: 1; }
   }
@@ -437,21 +590,23 @@ html, body {
 
 
 <!-- Terminal Section -->
-<section id="why-terminal" class="relative isolate bg-black px-6 pb-32 pt-[200px] font-mono text-green-300 z-20 overflow-hidden">
+<section id="why-terminal" class="relative bg-black px-6 pt-48 pb-32 font-mono text-green-300 z-10 overflow-hidden">
 
-  <!-- Centered HUD Radar Video (Smaller) -->
-  <div class="absolute top-[48%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[140px] h-[140px] md:w-[180px] md:h-[180px] z-10 pointer-events-none">
-    <video autoplay muted loop playsinline preload="auto"
-      class="w-full h-full object-contain object-center opacity-20 brightness-[1.15] contrast-[1.25]">
-      <source src="hud-radar-loop.mp4" type="video/mp4" />
-    </video>
+  <!-- HUD VIDEO WRAPPER (Fixed Position) -->
+  <div class="relative mx-auto w-full max-w-7xl h-[200px] z-0 pointer-events-none">
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[160px] h-[160px] md:w-[180px] md:h-[180px]">
+      <video autoplay muted loop playsinline preload="auto"
+        class="w-full h-full object-contain opacity-15 brightness-[1.1] contrast-[1.2]">
+        <source src="hud-radar-loop.mp4" type="video/mp4" />
+      </video>
+    </div>
   </div>
 
-  <!-- HUD Scanline Overlay -->
-  <div class="absolute inset-0 z-10 pointer-events-none bg-[url('/images/hud-grid-overlay.png')] opacity-10 mix-blend-soft-light"></div>
+  <!-- GRID OVERLAY (Scanlines) -->
+  <div class="absolute inset-0 z-0 pointer-events-none bg-[url('/images/hud-grid-overlay.png')] opacity-10 mix-blend-soft-light"></div>
 
-  <!-- Terminal Section Title -->
-  <div class="relative z-20 max-w-6xl mx-auto text-center mb-16" data-aos="zoom-in-up" data-aos-delay="250">
+  <!-- Section Title -->
+  <div class="relative z-10 max-w-6xl mx-auto text-center mb-16" data-aos="zoom-in-up" data-aos-delay="250">
     <div class="inline-block border border-cyan-400 bg-[#0b0f13]/90 px-12 py-6 rounded-lg shadow-2xl scanlines text-4xl md:text-5xl font-bold text-cyan-300 tracking-wider uppercase animate-pulse-slow">
       // DELTA_WAVE_SPECIAL_ACCESS_TERMINAL 🔐
     </div>
