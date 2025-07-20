@@ -435,18 +435,19 @@ html, body {
 </section>
 <!-- ▸▸ END HERO ◂◂ -->
 
-<!-- Waveform Video Header -->
-<section id="terminal-waveform" class="relative isolate overflow-hidden bg-black h-[450px] z-30" data-aos="fade-down" data-aos-delay="200">
-  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-30 brightness-[1.2] contrast-[1.25]">
-    <source src="hud-waveform-loop.mp4" type="video/mp4" />
-  </video>
-</section>
 
-<!-- Terminal Section -->
-<section id="why-terminal" class="relative isolate overflow-visible bg-black py-32 px-6 font-mono text-green-300 z-20">
+<!-- Terminal Section with Waveform Embedded -->
+<section id="why-terminal" class="relative isolate overflow-visible bg-black pt-0 pb-32 px-6 font-mono text-green-300 z-20">
+
+  <!-- Waveform Video -->
+  <div class="absolute top-0 left-0 w-full h-[400px] z-10 pointer-events-none" data-aos="fade-down" data-aos-delay="150">
+    <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-25 brightness-[1.2] contrast-[1.25]">
+      <source src="hud-waveform-loop.mp4" type="video/mp4" />
+    </video>
+  </div>
 
   <!-- HUD Radar Video Behind Grid -->
-  <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+  <div class="absolute top-[400px] left-0 w-full h-full z-0 overflow-hidden pointer-events-none">
     <video autoplay muted loop playsinline class="w-full h-full object-contain object-center opacity-25 brightness-[1.15] contrast-[1.2] scale-110">
       <source src="hud-radar-loop.mp4" type="video/mp4" />
     </video>
@@ -456,7 +457,7 @@ html, body {
   <div class="absolute inset-0 z-10 pointer-events-none bg-[url('/images/hud-grid-overlay.png')] opacity-10 mix-blend-soft-light"></div>
 
   <!-- Section Title -->
-  <div class="relative z-20 max-w-6xl mx-auto text-center mb-20" data-aos="zoom-in-up" data-aos-delay="300">
+  <div class="relative z-20 max-w-6xl mx-auto text-center mb-20 pt-[380px]" data-aos="zoom-in-up" data-aos-delay="250">
     <div class="inline-block border border-cyan-400 bg-[#0b0f13]/90 px-10 py-6 rounded-lg shadow-2xl scanlines text-3xl md:text-4xl font-bold text-cyan-300 tracking-wider uppercase animate-pulse-slow">
       // DELTA_WAVE_SPECIAL_ACCESS_TERMINAL 🔐
     </div>
@@ -468,35 +469,32 @@ html, body {
     <!-- LEFT: Office Terminal -->
     <div class="bg-[#0b0f13]/85 backdrop-blur-md border-2 border-red-600 rounded-xl shadow-red-500/40 shadow-xl p-10 scanlines hover:shadow-red-400 transition duration-300 ease-in-out">
       <h3 class="text-red-400 font-bold text-3xl md:text-4xl mb-6 tracking-wide uppercase text-center">[ YOUR OFFICE ]</h3>
-      <div class="space-y-5 text-[1.75rem] md:text-[2.25rem] font-semibold leading-snug text-left">
-        <div>&gt; <span class="terminal-orange">$2,000+/mo overhead ⚠️</span></div>
-        <div>&gt; <span class="terminal-cyan">40+ hrs/month chasing portals ⏳</span></div>
-        <div>&gt; <span class="terminal-red">Human error</span>, fatigue, missed details 😩</div>
-        <div>&gt; <span class="terminal-red">Missed job walks</span> + bids ❌</div>
-        <div>&gt; <span class="terminal-green">432+ hrs/year wasted productivity 💸</span></div>
-        <div>&gt; <span class="terminal-orange">Bids always on back-burner 🔥</span> <span class="blinking-cursor terminal-red">█</span></div>
+      <div class="space-y-5 text-[1.75rem] md:text-[2.25rem] font-semibold leading-snug text-left mx-auto w-fit">
+        <div><span class="text-cyan-300">&gt;</span> <span class="terminal-orange">$2,000+/mo overhead ⚠️</span></div>
+        <div><span class="text-cyan-300">&gt;</span> <span class="terminal-cyan">40+ hrs/month chasing portals ⏳</span></div>
+        <div><span class="text-cyan-300">&gt;</span> <span class="terminal-red">Human error</span>, fatigue, missed details 😩</div>
+        <div><span class="text-cyan-300">&gt;</span> <span class="terminal-red">Missed job walks</span> + bids ❌</div>
+        <div><span class="text-cyan-300">&gt;</span> <span class="terminal-green">432+ hrs/year wasted productivity 💸</span></div>
+        <div><span class="text-cyan-300">&gt;</span> <span class="terminal-orange">Bids always on back-burner 🔥</span> <span class="blinking-cursor terminal-red">█</span></div>
       </div>
     </div>
 
     <!-- RIGHT: Delta Wave Terminal -->
     <div class="bg-[#0b0f13]/85 backdrop-blur-md border-2 border-green-400 rounded-xl shadow-green-500/40 shadow-xl p-10 scanlines hover:shadow-green-300 transition duration-300 ease-in-out">
       <h3 class="text-green-300 font-bold text-3xl md:text-4xl mb-6 tracking-wide uppercase text-center">[ DELTA WAVE ]</h3>
-      <div class="space-y-5 text-[1.75rem] md:text-[2.25rem] font-semibold leading-snug text-left">
-        <div>&gt; <span class="terminal-green">$500/mo flat rate ✅</span></div>
-        <div>&gt; <span class="terminal-cyan">4 hrs/month</span> to review, <span class="terminal-orange">zero chase 🎯</span></div>
-        <div>&gt; <span class="terminal-orange">Intel verified by humans 👁️‍🗨️</span></div>
-        <div>&gt; <span class="terminal-cyan">Nightly targets</span>, auto-delivered 📡</div>
-        <div>&gt; <span class="terminal-green">432+ hrs/year regained productivity 🚀</span></div>
-        <div>&gt; The math is clear. <a href=\"#contact\" class=\"underline terminal-cyan hover:text-cyan-100\">See the proof</a> <span class=\"blinking-cursor terminal-green\">█</span></div>
+      <div class="space-y-5 text-[1.75rem] md:text-[2.25rem] font-semibold leading-snug text-left mx-auto w-fit">
+        <div><span class="text-cyan-300">&gt;</span> <span class="terminal-green">$500/mo flat rate ✅</span></div>
+        <div><span class="text-cyan-300">&gt;</span> <span class="terminal-cyan">4 hrs/month</span> to review, <span class="terminal-orange">zero chase 🎯</span></div>
+        <div><span class="text-cyan-300">&gt;</span> <span class="terminal-orange">Intel verified by humans 👁️‍🗨️</span></div>
+        <div><span class="text-cyan-300">&gt;</span> <span class="terminal-cyan">Nightly targets</span>, auto-delivered 📡</div>
+        <div><span class="text-cyan-300">&gt;</span> <span class="terminal-green">432+ hrs/year regained productivity 🚀</span></div>
+        <div><span class="text-cyan-300">&gt;</span> The math is clear. <a href="#contact" class="underline terminal-cyan hover:text-cyan-100">See the proof</a> <span class="blinking-cursor terminal-green">█</span></div>
       </div>
     </div>
 
   </div>
 </section>
-
   
-
-
 
 
 <!-- ▸▸ VENDOR PLATFORM LOGOS (CYAN GLOW RINGS) ◂◂ -->
