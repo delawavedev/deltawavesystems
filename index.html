@@ -418,35 +418,69 @@ html, body {
 </section>
 <!-- ▸▸ END HERO ◂◂ -->
 
+<!-- Terminal Section -->
+<section id="why-terminal"
+         class="relative isolate overflow-visible bg-black py-32 px-6 font-mono text-green-300 z-20"
+         data-aos="fade-up"
+         data-aos-duration="800"
+         data-aos-delay="100">
 
-  <!-- Terminal Title -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Radar HUD Video Background -->
+  <div class="absolute inset-0 z-0 overflow-hidden">
+    <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-20 brightness-[1.1] contrast-[1.25]">
+      <source src="hud-radar-loop.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
 
-  <section id="why-terminal" class="relative bg-black py-32 px-6 overflow-visible z-20 font-mono text-green-300">
-    
-  <div class="max-w-6xl mx-auto text-center mb-16">
+  <!-- Optional HUD Overlay Grid -->
+  <div class="absolute inset-0 z-10 pointer-events-none bg-[url('/images/hud-grid-overlay.png')] opacity-10 mix-blend-soft-light"></div>
+
+  <!-- Section Title -->
+  <div class="relative z-20 max-w-6xl mx-auto text-center mb-16" data-aos="zoom-in-up" data-aos-duration="1000">
     <div class="inline-block border border-cyan-400 bg-[#0b0f13]/90 px-8 py-6 rounded-lg shadow-2xl scanlines text-2xl md:text-3xl font-bold text-cyan-300 tracking-wider uppercase animate-pulse-slow">
       // Delta_Wave_Special_Access_Terminal 🔐
     </div>
   </div>
 
   <!-- Terminal Grid -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto z-30 relative">
+  <div class="relative z-20 grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
 
-    <!-- Office Terminal -->
-    <div class="bg-[#0b0f13]/90 backdrop-blur-md border-2 border-red-500 rounded-xl shadow-red-500/30 shadow-xl p-8 scanlines" id="office-terminal-box">
-      <h3 class="text-red-400 font-bold text-2xl md:text-3xl mb-4 tracking-wide uppercase">[ Your Office Terminal ]</h3>
-      <div id="office-terminal" class="typed-terminal space-y-6 text-red-300 text-[3rem] md:text-[3.25rem] leading-[3.5] font-bold tracking-wide"></div>
+    <!-- Office Terminal (Red - Problem State) -->
+    <div class="bg-[#0b0f13]/85 backdrop-blur-md border-2 border-red-600 rounded-xl shadow-red-500/40 shadow-xl p-8 scanlines hover:shadow-red-400 transition duration-300 ease-in-out"
+         data-aos="fade-right"
+         data-aos-duration="1000"
+         data-aos-delay="200">
+      <h3 class="text-red-400 font-bold text-2xl md:text-3xl mb-6 tracking-wide uppercase">[ Your Office Terminal ]</h3>
+      <div class="space-y-5 text-[1.8rem] md:text-[2rem] font-bold tracking-tight leading-snug text-red-300">
+        <div>> $2,000+/mo overhead ⚠</div>
+        <div>> 40+ hrs/month chasing portals ⏳</div>
+        <div>> Human error, fatigue, missed details 😩</div>
+        <div>> Missed job walks + bids ❌</div>
+        <div>> 432+ hrs/year wasted productivity 🔋</div>
+        <div>> Bids always on back-burner 🔥 <span class="blinking-cursor text-red-400">█</span></div>
+      </div>
     </div>
 
-    <!-- Delta Wave Terminal -->
-    <div class="bg-[#0b0f13]/90 backdrop-blur-md border-2 border-green-400 rounded-xl shadow-green-500/30 shadow-xl p-8 scanlines" id="delta-terminal-box">
-      <h3 class="text-green-300 font-bold text-2xl md:text-3xl mb-4 tracking-wide uppercase">[ Delta Wave Advantage Terminal ]</h3>
-      <div id="delta-terminal" class="typed-terminal space-y-6 text-green-300 text-[3rem] md:text-[3.25rem] leading-[3.5] font-bold tracking-wide"></div>
+    <!-- Delta Wave Terminal (Green - Solution State) -->
+    <div class="bg-[#0b0f13]/85 backdrop-blur-md border-2 border-green-400 rounded-xl shadow-green-500/40 shadow-xl p-8 scanlines hover:shadow-green-300 transition duration-300 ease-in-out"
+         data-aos="fade-left"
+         data-aos-duration="1000"
+         data-aos-delay="400">
+      <h3 class="text-green-300 font-bold text-2xl md:text-3xl mb-6 tracking-wide uppercase">[ Delta Wave Advantage Terminal ]</h3>
+      <div class="space-y-5 text-[1.8rem] md:text-[2rem] font-bold tracking-tight leading-snug text-green-300">
+        <div>> $500/mo flat rate ✅</div>
+        <div>> 4 hrs/month to review, zero chase 🎯</div>
+        <div>> Intel verified by humans 👁️‍🗨️</div>
+        <div>> Nightly targets, auto-delivered 📡</div>
+        <div>> 432+ hrs/year regained productivity 🚀</div>
+        <div>> The math is clear. <a href="#contact" class="underline text-cyan-300 hover:text-cyan-100">See the proof</a> <span class="blinking-cursor text-green-300">█</span></div>
+      </div>
     </div>
 
   </div>
 </section>
+
 
 
 <!-- ▸▸ VENDOR PLATFORM LOGOS (CYAN GLOW RINGS) ◂◂ -->
@@ -1551,63 +1585,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const officeLines = [
-    "> $2,000+ /Month in payroll+benefits ⚠️",
-    "> 40+ hrs /Month chasing portals ⏳",
-    "> Human error, fatigue, missed details 😵",
-    "> Lost bids & missed Job Walks 🚫",
-    "> 432+ hrs/year lost productivity ❌",
-    "> Bids always on back-burner 🔥"
-  ];
-
-  const deltaLines = [
-    "> $500 /Month flat rate ✅",
-    "> 4 hrs /Month to review, zero chase 🎯",
-    "> Intelligence Recon verified by humans 👁️",
-    "> Daily Intel & bid targets delivered 🛰️",
-    "> 432+ hrs/year gained productivity 🚀",
-    "> The math is clear. <a href='#contact' class='underline text-cyan-300 hover:text-cyan-100'>See the proof.</a>"
-  ];
-
-  function typeLines(lines, container, cursorClass) {
-    let i = 0;
-
-    function nextLine() {
-      if (i >= lines.length) return;
-
-      const p = document.createElement("p");
-      p.classList.add("pulse-terminal"); // glowing effect
-      p.innerHTML = `${lines[i]} <span class="${cursorClass} blinking-cursor">█</span>`;
-      container.appendChild(p);
-
-      i++;
-      setTimeout(nextLine, 500);
-    }
-
-    nextLine();
-  }
-
-  const officeContainer = document.getElementById("office-terminal");
-  const deltaContainer = document.getElementById("delta-terminal");
-
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        typeLines(officeLines, officeContainer, "cursor-office");
-        typeLines(deltaLines, deltaContainer, "cursor-delta");
-        obs.disconnect();
-      }
-    });
-  }, { threshold: 0.4 });
-
-  const target = document.getElementById("why-terminal");
-  if (target) observer.observe(target);
-});
-</script>
-
-
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -1649,6 +1626,16 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <script src="main.js?version=5432"></script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    once: true, // animate only once
+    duration: 1000, // default duration
+    offset: 150,    // trigger offset
+  });
+</script>
+  
 
 
 </body>
