@@ -386,7 +386,7 @@ html, body {
 <!-- －－－－－－ Your hero section starts right below this line －－－－－－ -->
 
 <section id="home"
-  class="relative flex items-center justify-center px-4 sm:px-6 pt-16 pb-10 sm:pt-20 sm:pb-16 bg-cover bg-center"
+  class="relative min-h-screen flex items-center justify-center px-4 sm:px-6 bg-cover bg-center"
   style="
     background-image: url('/img/radar-bg.png');
     background-size: cover;
@@ -396,8 +396,8 @@ html, body {
   <!-- dark overlay -->
   <div class="absolute inset-0 bg-black/60"></div>
 
-  <!-- headline -->
-  <div class="relative z-10 w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10">
+  <!-- Content -->
+  <div class="relative z-10 w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 py-20 sm:py-28">
     <div>
       <h1 class="font-headline text-primary text-4xl sm:text-5xl md:text-6xl leading-tight uppercase drop-shadow-lg">
         Tactical.<br>Intelligence.<br>Delivered.
@@ -413,7 +413,7 @@ html, body {
         Request Recon Briefing
       </a>
 
-      <!-- FOUNDER NOTE (Trimmed + Tight) -->
+      <!-- Founder -->
       <div class="pt-6 sm:pt-8 max-w-full sm:max-w-md space-y-3 text-[1rem] leading-relaxed">
         <h3 class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-gray-300">
           The Founder’s Mission
@@ -430,7 +430,11 @@ html, body {
       </div>
     </div>
   </div>
+
+  <!-- Spacer to push away next section -->
+  <div class="h-[10rem] sm:h-[16rem]"></div>
 </section>
+
 
 
 
