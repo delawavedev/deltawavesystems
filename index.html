@@ -441,19 +441,17 @@ html, body {
 <section id="why-terminal" class="relative bg-black px-6 pt-48 pb-32 font-mono text-green-300 z-10 overflow-hidden">
 
   <!-- Centered and Scaled Radar HUD Video (Fixed) -->
-<!-- Centered and Scaled Radar HUD Video (Upgraded) -->
-<div class="absolute inset-0 flex items-center justify-center z-0 pointer-events-none">
-  <video
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="auto"
-    class="w-[140px] h-[140px] sm:w-[180px] sm:h-[180px] md:w-[240px] md:h-[240px] lg:w-[320px] lg:h-[320px] xl:w-[360px] xl:h-[360px] object-contain object-center opacity-[0.15] brightness-[1.15] contrast-[1.2]">
-    <source src="hud-radar-loop.mp4" type="video/mp4" />
-  </video>
-</div>
-
+  <div class="absolute inset-0 flex items-center justify-center z-0 pointer-events-none">
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      class="w-[140px] h-[140px] sm:w-[180px] sm:h-[180px] md:w-[240px] md:h-[240px] lg:w-[320px] lg:h-[320px] xl:w-[360px] xl:h-[360px] object-contain object-center opacity-[0.15] brightness-[1.15] contrast-[1.2]">
+      <source src="hud-radar-loop.mp4" type="video/mp4" />
+    </video>
+  </div>
 
   <!-- GRID OVERLAY (Scanlines) -->
   <div class="absolute inset-0 z-0 pointer-events-none bg-[url('/images/hud-grid-overlay.png')] opacity-10 mix-blend-soft-light"></div>
@@ -472,12 +470,12 @@ html, body {
     <div class="bg-[#0b0f13]/85 backdrop-blur-md border-2 border-red-600 rounded-xl shadow-red-500/40 shadow-xl px-10 py-12 scanlines hover:shadow-red-400 transition duration-300 ease-in-out">
       <h3 class="text-red-400 font-bold text-4xl md:text-5xl mb-8 tracking-wide uppercase text-center">[ YOUR OFFICE ]</h3>
       <div class="space-y-6 text-[1.9rem] md:text-[2.3rem] font-semibold leading-snug text-left mx-auto w-fit">
-        <div><span class="text-cyan-300">&gt;</span> <span class="terminal-orange">$2,000+/mo overhead ⚠️</span></div>
-        <div><span class="text-cyan-300">&gt;</span> <span class="terminal-cyan">40+ hrs/month chasing portals ⏳</span></div>
-        <div><span class="text-cyan-300">&gt;</span> <span class="terminal-red">Human error</span>, fatigue, missed details 😩</div>
-        <div><span class="text-cyan-300">&gt;</span> <span class="terminal-red">Missed job walks</span> + bids ❌</div>
-        <div><span class="text-cyan-300">&gt;</span> <span class="terminal-green">432+ hrs/year wasted productivity 💸</span></div>
-        <div><span class="text-cyan-300">&gt;</span> <span class="terminal-orange">Bids always on back-burner 🔥</span> <span class="blinking-cursor terminal-red">█</span></div>
+        <div><span class="text-cyan-300">&gt;</span> <span id="typed-office-1" class="terminal-orange"></span></div>
+        <div><span class="text-cyan-300">&gt;</span> <span id="typed-office-2" class="terminal-cyan"></span></div>
+        <div><span class="text-cyan-300">&gt;</span> <span id="typed-office-3" class="terminal-red"></span></div>
+        <div><span class="text-cyan-300">&gt;</span> <span id="typed-office-4" class="terminal-red"></span></div>
+        <div><span class="text-cyan-300">&gt;</span> <span id="typed-office-5" class="terminal-green"></span></div>
+        <div><span class="text-cyan-300">&gt;</span> <span id="typed-office-6" class="terminal-orange"></span></div>
       </div>
     </div>
 
@@ -485,12 +483,12 @@ html, body {
     <div class="bg-[#0b0f13]/85 backdrop-blur-md border-2 border-green-400 rounded-xl shadow-green-500/40 shadow-xl px-10 py-12 scanlines hover:shadow-green-300 transition duration-300 ease-in-out">
       <h3 class="text-green-300 font-bold text-4xl md:text-5xl mb-8 tracking-wide uppercase text-center">[ DELTA WAVE ]</h3>
       <div class="space-y-6 text-[1.9rem] md:text-[2.3rem] font-semibold leading-snug text-left mx-auto w-fit">
-        <div><span class="text-cyan-300">&gt;</span> <span class="terminal-green">$500/mo flat rate ✅</span></div>
-        <div><span class="text-cyan-300">&gt;</span> <span class="terminal-cyan">4 hrs/month</span> to review, <span class="terminal-orange">zero chase 🎯</span></div>
-        <div><span class="text-cyan-300">&gt;</span> <span class="terminal-orange">Intel verified by humans 👁️‍🗨️</span></div>
-        <div><span class="text-cyan-300">&gt;</span> <span class="terminal-cyan">Nightly targets</span>, auto-delivered 📡</div>
-        <div><span class="text-cyan-300">&gt;</span> <span class="terminal-green">432+ hrs/year regained productivity 🚀</span></div>
-        <div><span class="text-cyan-300">&gt;</span> The math is clear. <a href="#contact" class="underline terminal-cyan hover:text-cyan-100">See the proof</a> <span class="blinking-cursor terminal-green">█</span></div>
+        <div><span class="text-cyan-300">&gt;</span> <span id="typed-delta-1" class="terminal-green"></span></div>
+        <div><span class="text-cyan-300">&gt;</span> <span id="typed-delta-2" class="terminal-cyan"></span></div>
+        <div><span class="text-cyan-300">&gt;</span> <span id="typed-delta-3" class="terminal-orange"></span></div>
+        <div><span class="text-cyan-300">&gt;</span> <span id="typed-delta-4" class="terminal-cyan"></span></div>
+        <div><span class="text-cyan-300">&gt;</span> <span id="typed-delta-5" class="terminal-green"></span></div>
+        <div><span class="text-cyan-300">&gt;</span> <span id="typed-delta-6" class="terminal-cyan"></span></div>
       </div>
     </div>
 
@@ -1662,6 +1660,49 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 </script>
 
+<!-- Typed.js -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const lines = [
+    { el: "#typed-office-1", strings: ["$2,000+/mo overhead ⚠️"] },
+    { el: "#typed-office-2", strings: ["40+ hrs/month chasing portals ⏳"] },
+    { el: "#typed-office-3", strings: ["Human error, fatigue, missed details 😩"] },
+    { el: "#typed-office-4", strings: ["Missed job walks + bids ❌"] },
+    { el: "#typed-office-5", strings: ["432+ hrs/year wasted productivity 💸"] },
+    { el: "#typed-office-6", strings: ["Bids always on back-burner 🔥"] },
+    { el: "#typed-delta-1", strings: ["$500/mo flat rate ✅"] },
+    { el: "#typed-delta-2", strings: ["4 hrs/month to review, zero chase 🎯"] },
+    { el: "#typed-delta-3", strings: ["Intel verified by humans 👁️‍🗨️"] },
+    { el: "#typed-delta-4", strings: ["Nightly targets, auto-delivered 📡"] },
+    { el: "#typed-delta-5", strings: ["432+ hrs/year regained productivity 🚀"] },
+    { el: "#typed-delta-6", strings: ["The math is clear. <a href='#contact' class='underline terminal-cyan hover:text-cyan-100'>See the proof</a>"] },
+  ];
+
+  let triggered = false;
+  const observer = new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting && !triggered) {
+      triggered = true;
+      lines.forEach((item, i) => {
+        setTimeout(() => {
+          new Typed(item.el, {
+            strings: item.strings,
+            typeSpeed: 40,
+            showCursor: true,
+            cursorChar: "█",
+            startDelay: 100,
+            smartBackspace: false,
+            contentType: "html",
+          });
+        }, i * 500);
+      });
+    }
+  }, { threshold: 0.5 });
+
+  observer.observe(document.querySelector("#why-terminal"));
+});
+</script>
 
 
 </body>
