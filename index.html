@@ -85,6 +85,24 @@
     border-radius: 9999px;
   }
 
+  .tag-glow {
+  background-color: rgba(0, 255, 255, 0.1);
+  border: 1px solid cyan;
+  color: cyan;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.tag-glow:hover {
+  background-color: rgba(0, 255, 255, 0.3);
+  color: black;
+}
+
+
   /* ────── GLOWING CARD / PRICING / ALPHA / BETA ────── */
   @keyframes pulseGlow {
     0%, 100% {
@@ -500,25 +518,22 @@ html, body {
 
 
 
-<!-- ▸▸ VENDOR PLATFORM LOGOS (CYAN GLOW RINGS) ◂◂ -->
-<section class="bg-[#0b0f13] py-20 text-white" data-aos="fade-up" data-aos-duration="1200" data-aos-easing="ease-out-cubic" data-aos-offset="200">
+<section class="bg-[#0b0f13] py-32 text-white relative z-10 overflow-hidden" data-aos="fade-up" data-aos-duration="1200" data-aos-easing="ease-out-cubic" data-aos-offset="200">
   <div class="max-w-6xl mx-auto px-6 text-center space-y-10">
 
-    <!-- Header -->
-    <h2 class="text-3xl sm:text-4xl font-extrabold text-cyan-400">
-      Tell us what you look for - Consider it done.
-    </h2>
+    <!-- Headline -->
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-cyan-400">We Sweep the Whole Grid.</h2>
     <p class="text-lg text-gray-300 max-w-3xl mx-auto">
-      We deep sweep full coverage.
+      No missed posts. No fragmented dashboards. Just full-spectrum radar coverage.
     </p>
 
-    <!-- Logo Grid -->
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 pt-6">
-      <!-- Vendor Items -->
+    <!-- 4x4 Grid of Glowing Vendor Rings -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 pt-10">
+      <!-- Repeat for all 16 vendors -->
       <div class="flex justify-center items-center">
         <div class="outer-glow-ring">
           <div class="inner-white-circle">
-            <img src="vendors1.png" alt="PlanetBids Logo" class="rounded-full" />
+            <img src="vendors1.png" alt="Vendor 1" class="rounded-full" />
           </div>
         </div>
       </div>
@@ -526,7 +541,7 @@ html, body {
       <div class="flex justify-center items-center">
         <div class="outer-glow-ring">
           <div class="inner-white-circle">
-            <img src="vendors2.png" alt="OpenGov Logo" class="rounded-full" />
+            <img src="vendors2.png" alt="Vendor 2" class="rounded-full" />
           </div>
         </div>
       </div>
@@ -534,7 +549,7 @@ html, body {
       <div class="flex justify-center items-center">
         <div class="outer-glow-ring">
           <div class="inner-white-circle">
-            <img src="vendors3.png" alt="COLBI Logo" class="rounded-full" />
+            <img src="vendors3.png" alt="Vendor 3" class="rounded-full" />
           </div>
         </div>
       </div>
@@ -542,7 +557,7 @@ html, body {
       <div class="flex justify-center items-center">
         <div class="outer-glow-ring">
           <div class="inner-white-circle">
-            <img src="vendors4.png" alt="BidNet Direct Logo" class="rounded-full" />
+            <img src="vendors4.png" alt="Vendor 4" class="rounded-full" />
           </div>
         </div>
       </div>
@@ -550,7 +565,7 @@ html, body {
       <div class="flex justify-center items-center">
         <div class="outer-glow-ring">
           <div class="inner-white-circle">
-            <img src="vendors5.png" alt="Bonfire Logo" class="rounded-full" />
+            <img src="vendors5.png" alt="Vendor 5" class="rounded-full" />
           </div>
         </div>
       </div>
@@ -558,7 +573,7 @@ html, body {
       <div class="flex justify-center items-center">
         <div class="outer-glow-ring">
           <div class="inner-white-circle">
-            <img src="vendors6.png" alt="Vendor Registry Logo" class="rounded-full" />
+            <img src="vendors6.png" alt="Vendor 6" class="rounded-full" />
           </div>
         </div>
       </div>
@@ -566,7 +581,7 @@ html, body {
       <div class="flex justify-center items-center">
         <div class="outer-glow-ring">
           <div class="inner-white-circle">
-            <img src="vendors7.png" alt="California Bids Logo" class="rounded-full" />
+            <img src="vendors7.png" alt="Vendor 7" class="rounded-full" />
           </div>
         </div>
       </div>
@@ -574,7 +589,7 @@ html, body {
       <div class="flex justify-center items-center">
         <div class="outer-glow-ring">
           <div class="inner-white-circle">
-            <img src="vendors8.png" alt="Quality Bidders Logo" class="rounded-full" />
+            <img src="vendors8.png" alt="Vendor 8" class="rounded-full" />
           </div>
         </div>
       </div>
@@ -582,7 +597,7 @@ html, body {
       <div class="flex justify-center items-center">
         <div class="outer-glow-ring">
           <div class="inner-white-circle">
-            <img src="vendors9.png" alt="Public Purchase Logo" class="rounded-full" />
+            <img src="vendors9.png" alt="Vendor 9" class="rounded-full" />
           </div>
         </div>
       </div>
@@ -590,7 +605,7 @@ html, body {
       <div class="flex justify-center items-center">
         <div class="outer-glow-ring">
           <div class="inner-white-circle">
-            <img src="vendors10.png" alt="SAM.gov Logo" class="rounded-full" />
+            <img src="vendors10.png" alt="Vendor 10" class="rounded-full" />
           </div>
         </div>
       </div>
@@ -598,7 +613,7 @@ html, body {
       <div class="flex justify-center items-center">
         <div class="outer-glow-ring">
           <div class="inner-white-circle">
-            <img src="vendors11.png" alt="Dodge Construction Network Logo" class="rounded-full" />
+            <img src="vendors11.png" alt="Vendor 11" class="rounded-full" />
           </div>
         </div>
       </div>
@@ -606,7 +621,7 @@ html, body {
       <div class="flex justify-center items-center">
         <div class="outer-glow-ring">
           <div class="inner-white-circle">
-            <img src="vendors12.png" alt="Cities Logo" class="rounded-full" />
+            <img src="vendors12.png" alt="Vendor 12" class="rounded-full" />
           </div>
         </div>
       </div>
@@ -614,7 +629,7 @@ html, body {
       <div class="flex justify-center items-center">
         <div class="outer-glow-ring">
           <div class="inner-white-circle">
-            <img src="vendors13.png" alt="School Districts Logo" class="rounded-full" />
+            <img src="vendors13.png" alt="Vendor 13" class="rounded-full" />
           </div>
         </div>
       </div>
@@ -622,7 +637,7 @@ html, body {
       <div class="flex justify-center items-center">
         <div class="outer-glow-ring">
           <div class="inner-white-circle">
-            <img src="vendors14.png" alt="Colleges Logo" class="rounded-full" />
+            <img src="vendors14.png" alt="Vendor 14" class="rounded-full" />
           </div>
         </div>
       </div>
@@ -630,7 +645,7 @@ html, body {
       <div class="flex justify-center items-center">
         <div class="outer-glow-ring">
           <div class="inner-white-circle">
-            <img src="vendors15.png" alt="County Portals Logo" class="rounded-full" />
+            <img src="vendors15.png" alt="Vendor 15" class="rounded-full" />
           </div>
         </div>
       </div>
@@ -638,11 +653,15 @@ html, body {
       <div class="flex justify-center items-center">
         <div class="outer-glow-ring">
           <div class="inner-white-circle">
-            <img src="vendors16.png" alt="Many More Logo" class="rounded-full" />
+            <img src="vendors16.png" alt="Vendor 16" class="rounded-full" />
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Trust Footer -->
+    <p class="text-sm text-gray-500 pt-10">If they post it, we catch it. 60+ portals. 100% SoCal coverage.</p>
+  </div>
 </section>
 
 
