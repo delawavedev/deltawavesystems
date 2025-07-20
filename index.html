@@ -439,20 +439,6 @@ html, body {
 <!-- Terminal Section -->
 <section id="why-terminal" class="relative bg-black px-6 pt-48 pb-32 font-mono text-green-300 z-10 overflow-hidden">
 
-  <!-- Centered and Scaled Radar HUD Video -->
-<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[240px] h-[240px] md:w-[280px] md:h-[280px] z-0 pointer-events-none">
-  <video
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="auto"
-    class="w-full h-full object-contain object-center opacity-15 brightness-[1.15] contrast-[1.2] scale-100">
-    <source src="hud-radar-loop.mp4" type="video/mp4" />
-  </video>
-</div>
-
-
   <!-- GRID OVERLAY (Scanlines) -->
   <div class="absolute inset-0 z-0 pointer-events-none bg-[url('/images/hud-grid-overlay.png')] opacity-10 mix-blend-soft-light"></div>
 
@@ -460,6 +446,16 @@ html, body {
   <div class="relative z-10 max-w-6xl mx-auto text-center mb-16" data-aos="zoom-in-up" data-aos-delay="250">
     <div class="inline-block border border-cyan-400 bg-[#0b0f13]/90 px-12 py-6 rounded-lg shadow-2xl scanlines text-4xl md:text-5xl font-bold text-cyan-300 tracking-wider uppercase animate-pulse-slow">
       // DELTA_WAVE_SPECIAL_ACCESS_TERMINAL 🔐
+    </div>
+  </div>
+
+  <!-- Responsive Radar HUD (Centered) -->
+  <div class="relative z-10 flex justify-center items-center mb-16 px-4">
+    <div class="w-full max-w-[300px] md:max-w-[360px] lg:max-w-[400px] aspect-[1/1] overflow-hidden pointer-events-none">
+      <video autoplay muted loop playsinline preload="auto"
+        class="w-full h-full object-contain opacity-20 brightness-[1.15] contrast-[1.2]">
+        <source src="hud-radar-loop.mp4" type="video/mp4" />
+      </video>
     </div>
   </div>
 
@@ -494,6 +490,7 @@ html, body {
 
   </div>
 </section>
+
 
 
   
