@@ -290,15 +290,23 @@ html, body {
   50% { opacity: 0; }
 }
 
-.text-orange-400 {
-  text-shadow: 0 0 4px rgba(255, 165, 0, 0.4);
-}
-.text-green-400 {
-  text-shadow: 0 0 4px rgba(0, 255, 170, 0.4);
-}
-.text-cyan-300 {
-  text-shadow: 0 0 3px rgba(0, 255, 255, 0.3);
-}
+/* Full neon terminal colors */
+ .terminal-orange {
+    color: #fb923c;
+    text-shadow: 0 0 8px #fb923c;
+  }
+  .terminal-cyan {
+    color: #22d3ee;
+    text-shadow: 0 0 8px #22d3ee;
+  }
+  .terminal-green {
+    color: #4ade80;
+    text-shadow: 0 0 8px #4ade80;
+  }
+  .terminal-red {
+    color: #f87171;
+    text-shadow: 0 0 8px #f87171;
+  }
 
 </style>
 
@@ -427,22 +435,20 @@ html, body {
 </section>
 <!-- ▸▸ END HERO ◂◂ -->
 
-<!-- Waveform Video Section (Boots in First) -->
+<!-- Waveform Video Header -->
 <section id="terminal-waveform" class="relative isolate overflow-hidden bg-black h-[450px] z-30" data-aos="fade-down" data-aos-delay="200">
-  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-20 brightness-[1.2] contrast-[1.25]">
+  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-30 brightness-[1.2] contrast-[1.25]">
     <source src="/videos/waveform-loop.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
   </video>
 </section>
 
 <!-- Terminal Section -->
 <section id="why-terminal" class="relative isolate overflow-visible bg-black py-32 px-6 font-mono text-green-300 z-20">
 
-  <!-- Radar HUD Video Background (Inside Terminal Grid) -->
+  <!-- HUD Radar Video Behind Grid -->
   <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-    <video autoplay muted loop playsinline class="w-full h-full object-contain object-center opacity-25 brightness-[1.15] contrast-[1.2] scale-125">
+    <video autoplay muted loop playsinline class="w-full h-full object-contain object-center opacity-25 brightness-[1.15] contrast-[1.2] scale-110">
       <source src="/videos/hud-radar-loop.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
     </video>
   </div>
 
@@ -459,34 +465,36 @@ html, body {
   <!-- Terminal Grid -->
   <div class="relative z-20 grid grid-cols-1 md:grid-cols-2 gap-12 max-w-7xl mx-auto" data-aos="fade-up" data-aos-delay="400">
 
-    <!-- Left: Office Terminal -->
+    <!-- LEFT: Office Terminal -->
     <div class="bg-[#0b0f13]/85 backdrop-blur-md border-2 border-red-600 rounded-xl shadow-red-500/40 shadow-xl p-10 scanlines hover:shadow-red-400 transition duration-300 ease-in-out">
       <h3 class="text-red-400 font-bold text-3xl md:text-4xl mb-6 tracking-wide uppercase text-center">[ YOUR OFFICE TERMINAL ]</h3>
-      <div class="space-y-5 text-[1.75rem] md:text-[2.1rem] font-semibold leading-snug text-left">
-        <div>&gt; <span class="text-orange-300">$2,000+/mo overhead ⚠️</span></div>
-        <div>&gt; <span class="text-cyan-300">40+ hrs/month chasing portals ⏳</span></div>
-        <div>&gt; <span class="text-red-300">Human error</span>, fatigue, missed details 😩</div>
-        <div>&gt; <span class="text-red-500">Missed job walks</span> + bids ❌</div>
-        <div>&gt; <span class="text-green-300">432+ hrs/year wasted productivity 💸</span></div>
-        <div>&gt; <span class="text-orange-500">Bids always on back-burner 🔥</span> <span class="blinking-cursor text-red-400">█</span></div>
+      <div class="space-y-5 text-[1.75rem] md:text-[2.25rem] font-semibold leading-snug text-left">
+        <div>&gt; <span class="terminal-orange">$2,000+/mo overhead ⚠️</span></div>
+        <div>&gt; <span class="terminal-cyan">40+ hrs/month chasing portals ⏳</span></div>
+        <div>&gt; <span class="terminal-red">Human error</span>, fatigue, missed details 😩</div>
+        <div>&gt; <span class="terminal-red">Missed job walks</span> + bids ❌</div>
+        <div>&gt; <span class="terminal-green">432+ hrs/year wasted productivity 💸</span></div>
+        <div>&gt; <span class="terminal-orange">Bids always on back-burner 🔥</span> <span class="blinking-cursor terminal-red">█</span></div>
       </div>
     </div>
 
-    <!-- Right: Delta Wave Terminal -->
+    <!-- RIGHT: Delta Wave Terminal -->
     <div class="bg-[#0b0f13]/85 backdrop-blur-md border-2 border-green-400 rounded-xl shadow-green-500/40 shadow-xl p-10 scanlines hover:shadow-green-300 transition duration-300 ease-in-out">
       <h3 class="text-green-300 font-bold text-3xl md:text-4xl mb-6 tracking-wide uppercase text-center">[ DELTA WAVE ADVANTAGE TERMINAL ]</h3>
-      <div class="space-y-5 text-[1.75rem] md:text-[2.1rem] font-semibold leading-snug text-left">
-        <div>&gt; <span class="text-green-400">$500/mo flat rate ✅</span></div>
-        <div>&gt; <span class="text-cyan-400">4 hrs/month</span> to review, zero chase 🎯</div>
-        <div>&gt; <span class="text-orange-300">Intel verified by humans 👁️‍🗨️</span></div>
-        <div>&gt; <span class="text-cyan-300">Nightly targets</span>, auto-delivered 📡</div>
-        <div>&gt; <span class="text-green-400">432+ hrs/year</span> regained productivity 🚀</div>
-        <div>&gt; The math is clear. <a href="#contact" class="underline text-cyan-300 hover:text-cyan-100">See the proof</a> <span class="blinking-cursor text-green-300">█</span></div>
+      <div class="space-y-5 text-[1.75rem] md:text-[2.25rem] font-semibold leading-snug text-left">
+        <div>&gt; <span class="terminal-green">$500/mo flat rate ✅</span></div>
+        <div>&gt; <span class="terminal-cyan">4 hrs/month</span> to review, <span class="terminal-orange">zero chase 🎯</span></div>
+        <div>&gt; <span class="terminal-orange">Intel verified by humans 👁️‍🗨️</span></div>
+        <div>&gt; <span class="terminal-cyan">Nightly targets</span>, auto-delivered 📡</div>
+        <div>&gt; <span class="terminal-green">432+ hrs/year regained productivity 🚀</span></div>
+        <div>&gt; The math is clear. <a href=\"#contact\" class=\"underline terminal-cyan hover:text-cyan-100\">See the proof</a> <span class=\"blinking-cursor terminal-green\">█</span></div>
       </div>
     </div>
 
   </div>
 </section>
+
+  
 
 
 
