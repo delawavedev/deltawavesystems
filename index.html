@@ -290,6 +290,15 @@ html, body {
   50% { opacity: 0; }
 }
 
+.text-orange-400 {
+  text-shadow: 0 0 4px rgba(255, 165, 0, 0.4);
+}
+.text-green-400 {
+  text-shadow: 0 0 4px rgba(0, 255, 170, 0.4);
+}
+.text-cyan-300 {
+  text-shadow: 0 0 3px rgba(0, 255, 255, 0.3);
+}
 
 </style>
 
@@ -418,69 +427,74 @@ html, body {
 </section>
 <!-- ▸▸ END HERO ◂◂ -->
 
-<!-- Terminal Section -->
 <section id="why-terminal"
-         class="relative isolate overflow-visible bg-black py-32 px-6 font-mono text-green-300 z-20"
+         class="relative isolate overflow-visible bg-black py-48 px-6 font-mono text-green-300 z-20"
          data-aos="fade-up"
          data-aos-duration="800"
          data-aos-delay="100">
 
-  <!-- Radar HUD Video Background -->
+  <!-- HUD Radar Video Background -->
   <div class="absolute inset-0 z-0 overflow-hidden">
-    <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-20 brightness-[1.1] contrast-[1.25]">
+    <video autoplay muted loop playsinline class="w-full h-full object-cover object-top opacity-20 brightness-[1.1] contrast-[1.25]">
       <source src="hud-radar-loop.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
   </div>
 
-  <!-- Optional HUD Overlay Grid -->
+  <!-- Optional HUD Grid Overlay -->
   <div class="absolute inset-0 z-10 pointer-events-none bg-[url('/images/hud-grid-overlay.png')] opacity-10 mix-blend-soft-light"></div>
 
   <!-- Section Title -->
-  <div class="relative z-20 max-w-6xl mx-auto text-center mb-16" data-aos="zoom-in-up" data-aos-duration="1000">
-    <div class="inline-block border border-cyan-400 bg-[#0b0f13]/90 px-8 py-6 rounded-lg shadow-2xl scanlines text-2xl md:text-3xl font-bold text-cyan-300 tracking-wider uppercase animate-pulse-slow">
+  <div class="relative z-20 max-w-7xl mx-auto text-center mb-24" data-aos="zoom-in-up" data-aos-duration="1000">
+    <div class="inline-block border border-cyan-400 bg-[#0b0f13]/90 px-10 py-6 rounded-lg shadow-2xl scanlines text-3xl md:text-4xl font-bold text-cyan-300 tracking-wider uppercase animate-pulse-slow">
       // Delta_Wave_Special_Access_Terminal 🔐
     </div>
   </div>
 
   <!-- Terminal Grid -->
-  <div class="relative z-20 grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+  <div class="relative z-20 grid grid-cols-1 md:grid-cols-2 gap-14 max-w-7xl mx-auto">
 
-    <!-- Office Terminal (Red - Problem State) -->
-    <div class="bg-[#0b0f13]/85 backdrop-blur-md border-2 border-red-600 rounded-xl shadow-red-500/40 shadow-xl p-8 scanlines hover:shadow-red-400 transition duration-300 ease-in-out"
+    <!-- Office Terminal -->
+    <div class="bg-[#0b0f13]/85 backdrop-blur-md border-2 border-red-600 rounded-xl shadow-red-500/40 shadow-xl px-10 py-10 scanlines hover:shadow-red-400 transition duration-300 ease-in-out"
          data-aos="fade-right"
          data-aos-duration="1000"
          data-aos-delay="200">
-      <h3 class="text-red-400 font-bold text-2xl md:text-3xl mb-6 tracking-wide uppercase">[ Your Office Terminal ]</h3>
-      <div class="space-y-5 text-[1.8rem] md:text-[2rem] font-bold tracking-tight leading-snug text-red-300">
-        <div>> $2,000+/mo overhead ⚠</div>
-        <div>> 40+ hrs/month chasing portals ⏳</div>
-        <div>> Human error, fatigue, missed details 😩</div>
-        <div>> Missed job walks + bids ❌</div>
-        <div>> 432+ hrs/year wasted productivity 🔋</div>
-        <div>> Bids always on back-burner 🔥 <span class="blinking-cursor text-red-400">█</span></div>
+      <h3 class="text-red-400 font-bold text-2xl md:text-3xl mb-8 tracking-wide uppercase text-center">[ Your Office Terminal ]</h3>
+      <div class="space-y-6 text-center text-[2rem] md:text-[2.5rem] font-bold tracking-tight leading-snug text-red-300">
+        <div>> <span class="text-orange-400">$2,000+/mo</span> overhead ⚠</div>
+        <div>> <span class="text-orange-300">40+ hrs/month</span> chasing portals ⏳</div>
+        <div>> <span class="text-red-400">Human error</span>, <span class="text-yellow-400">fatigue</span>, missed details 😩</div>
+        <div>> <span class="text-red-500">Missed job walks</span> + bids ❌</div>
+        <div>> <span class="text-orange-400">432+ hrs/year</span> wasted productivity 🔋</div>
+        <div>> <span class="text-orange-300">Bids</span> always on back-burner 🔥 <span class="blinking-cursor text-red-400">█</span></div>
       </div>
     </div>
 
-    <!-- Delta Wave Terminal (Green - Solution State) -->
-    <div class="bg-[#0b0f13]/85 backdrop-blur-md border-2 border-green-400 rounded-xl shadow-green-500/40 shadow-xl p-8 scanlines hover:shadow-green-300 transition duration-300 ease-in-out"
+    <!-- Delta Wave Terminal -->
+    <div class="bg-[#0b0f13]/85 backdrop-blur-md border-2 border-green-400 rounded-xl shadow-green-500/40 shadow-xl px-10 py-10 scanlines hover:shadow-green-300 transition duration-300 ease-in-out"
          data-aos="fade-left"
          data-aos-duration="1000"
          data-aos-delay="400">
-      <h3 class="text-green-300 font-bold text-2xl md:text-3xl mb-6 tracking-wide uppercase">[ Delta Wave Advantage Terminal ]</h3>
-      <div class="space-y-5 text-[1.8rem] md:text-[2rem] font-bold tracking-tight leading-snug text-green-300">
-        <div>> $500/mo flat rate ✅</div>
-        <div>> 4 hrs/month to review, zero chase 🎯</div>
-        <div>> Intel verified by humans 👁️‍🗨️</div>
-        <div>> Nightly targets, auto-delivered 📡</div>
-        <div>> 432+ hrs/year regained productivity 🚀</div>
+      <h3 class="text-green-300 font-bold text-2xl md:text-3xl mb-8 tracking-wide uppercase text-center">[ Delta Wave Advantage Terminal ]</h3>
+      <div class="space-y-6 text-center text-[2rem] md:text-[2.5rem] font-bold tracking-tight leading-snug text-green-300">
+        <div>> <span class="text-green-400">$500/mo flat rate</span> ✅</div>
+        <div>> <span class="text-cyan-300">4 hrs/month</span> to review, <span class="text-orange-400">zero chase</span> 🎯</div>
+        <div>> <span class="text-green-300">Intel verified by humans</span> 👁️‍🗨️</div>
+        <div>> <span class="text-cyan-300">Nightly targets</span>, auto-delivered 📡</div>
+        <div>> <span class="text-green-400">432+ hrs/year</span> regained productivity 🚀</div>
         <div>> The math is clear. <a href="#contact" class="underline text-cyan-300 hover:text-cyan-100">See the proof</a> <span class="blinking-cursor text-green-300">█</span></div>
       </div>
     </div>
 
   </div>
-</section>
 
+  <!-- Optional Waveform Video Slot (Below) -->
+  <div class="relative z-10 mt-24 max-w-7xl mx-auto overflow-hidden rounded-lg shadow-xl">
+    <video autoplay muted loop playsinline class="w-full h-auto object-cover opacity-30 mix-blend-screen">
+      <source src="hud-waveform-loop.mp4" type="video/mp4" />
+    </video>
+  </div>
+</section>
 
 
 <!-- ▸▸ VENDOR PLATFORM LOGOS (CYAN GLOW RINGS) ◂◂ -->
