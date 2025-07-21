@@ -374,7 +374,13 @@ html, body {
   pointer-events: none;
   z-index: 1;
 }
-  
+
+  /* Scoped cursor animation only inside the HOW IT WORKS section */
+#how-it-works .terminal-cursor {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
 
 </style>
 
@@ -1020,7 +1026,8 @@ html, body {
 
 
 
-<section id="how-it-works" class="bg-black py-32 px-6 text-white font-mono relative z-10 overflow-hidden">
+<section id="how-it-works" class="bg-black pt-20 pb-32 px-6 text-white font-mono relative z-10 overflow-hidden">
+
   <div class="max-w-6xl mx-auto text-center space-y-10">
     <h2 class="text-4xl sm:text-5xl font-extrabold text-cyan-400">// MISSION PROTOCOL: HOW IT WORKS</h2>
     <p class="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">Lock onto targets. Sweep the grid. Win the contract.</p>
@@ -1688,6 +1695,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const terminals = [
@@ -1699,7 +1707,6 @@ Tell us your trade, region, and target project types.
 HVAC? GC? Underground?
 
 We align the sensors to your sector.`,
-      cursor: "cyan-300"
     },
     {
       id: "#terminal-step-2",
@@ -1709,7 +1716,6 @@ ALPHA scans 450+ portals in Southern California.
 Filters noise. Flags real targets.
 
 You sleep while intel deploys.`,
-      cursor: "green-300"
     },
     {
       id: "#terminal-step-3",
@@ -1718,7 +1724,6 @@ You sleep while intel deploys.`,
 Receive a tactical PDF recon brief in your inbox before coffee.
 
 You review, deploy, and win.`,
-      cursor: "orange-300"
     },
     {
       id: "#terminal-bonus",
@@ -1737,7 +1742,6 @@ giving your office field-level intel to gain a tactical edge.
 
 No dashboards. No digging.
 Just classified recon — delivered straight to command.`,
-      cursor: "white"
     }
   ];
 
@@ -1748,34 +1752,35 @@ Just classified recon — delivered straight to command.`,
       if (entry.isIntersecting && !hasTyped) {
         hasTyped = true;
 
-        let delay = 0;
-        terminals.forEach((term, i) => {
+        let baseDelay = 0;
+
+        terminals.forEach((term, index) => {
+          // Estimate total typing duration based on text length
+          const estimatedTime = term.text.length * 20 + 1000;
+
           setTimeout(() => {
             new Typed(term.id, {
               strings: [term.text],
-              typeSpeed: 22,
-              showCursor: false,
-              smartBackspace: false,
+              typeSpeed: 20,
+              showCursor: false
             });
+          }, baseDelay);
 
-            // Reveal the cursor span AFTER typing starts
-            setTimeout(() => {
-              const cursor = document.querySelector(`${term.id} + .terminal-cursor`);
-              if (cursor) cursor.style.opacity = 1;
-            }, 500);
-
-          }, delay);
-
-          // Increase delay more aggressively for longer final block
-          delay += (i === terminals.length - 1) ? 6000 : 1500;
+          baseDelay += estimatedTime;
         });
 
-        obs.disconnect(); // Stop observing after animation trigger
+        // Disconnect after final delay + buffer
+        setTimeout(() => {
+          obs.disconnect();
+        }, baseDelay + 1000);
       }
     });
   }, { threshold: 0.5 });
 
-  observer.observe(document.querySelector('#how-it-works'));
+  const howItWorks = document.querySelector('#how-it-works');
+  if (howItWorks) {
+    observer.observe(howItWorks);
+  }
 });
 </script>
 
