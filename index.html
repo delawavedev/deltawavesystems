@@ -993,50 +993,45 @@ html, body {
 
 
 
-<section class="bg-[#0b0f13] py-24 px-6 text-white" data-aos="fade-up" data-aos-duration="1200" data-aos-easing="ease-out-cubic">
-  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
-    
-    <!-- Section Header -->
-    <div class="md:col-span-3 text-center">
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-cyan-400 mb-6">// MISSION PROTOCOL: HOW IT WORKS</h2>
-      <p class="text-gray-300 text-lg">Lock onto targets. Sweep the grid. Win the contract.</p>
-      <div class="border-b-2 border-cyan-500 w-24 mx-auto mt-4 animate-pulse-glow"></div>
+<section id="how-it-works" class="bg-black py-32 px-6 text-white font-mono relative z-10 overflow-hidden">
+  <div class="max-w-6xl mx-auto text-center space-y-10">
+    <h2 class="text-4xl sm:text-5xl font-extrabold text-cyan-400">// MISSION PROTOCOL: HOW IT WORKS</h2>
+    <p class="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">Lock onto targets. Sweep the grid. Win the contract.</p>
+
+    <!-- Row of 3 Terminals -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+      <!-- Terminal 1 -->
+      <div class="terminal-card bg-[#0b0f13] border border-cyan-500 rounded-lg p-6 shadow-lg relative overflow-hidden">
+        <div id="terminal-step-1" class="typed-terminal text-cyan-300 text-left text-sm sm:text-base whitespace-pre-line"></div>
+        <span class="terminal-cursor absolute bottom-4 left-4 text-cyan-300 animate-pulse">▍</span>
+      </div>
+
+      <!-- Terminal 2 -->
+      <div class="terminal-card bg-[#0b0f13] border border-green-400 rounded-lg p-6 shadow-lg relative overflow-hidden">
+        <div id="terminal-step-2" class="typed-terminal text-green-300 text-left text-sm sm:text-base whitespace-pre-line"></div>
+        <span class="terminal-cursor absolute bottom-4 left-4 text-green-300 animate-pulse">▍</span>
+      </div>
+
+      <!-- Terminal 3 -->
+      <div class="terminal-card bg-[#0b0f13] border border-orange-500 rounded-lg p-6 shadow-lg relative overflow-hidden">
+        <div id="terminal-step-3" class="typed-terminal text-orange-300 text-left text-sm sm:text-base whitespace-pre-line"></div>
+        <span class="terminal-cursor absolute bottom-4 left-4 text-orange-300 animate-pulse">▍</span>
+      </div>
     </div>
 
-    <!-- Step 1 -->
-    <div class="bg-[#0e131a] border border-cyan-500 rounded-lg p-6 space-y-3 shadow-lg hover:shadow-cyan-500/20 transition duration-300">
-      <h3 class="text-cyan-400 font-bold text-xl">1. Input Mission Scope</h3>
-      <p class="text-gray-300">Tell us your trade, region, and target project types. HVAC? GC? Underground? We align the sensors to your sector.</p>
+    <!-- Spacer -->
+    <div class="my-20 border-t border-cyan-700 w-3/4 mx-auto opacity-40"></div>
+
+    <!-- Bonus Terminal -->
+    <div class="max-w-4xl mx-auto">
+      <div class="terminal-card bg-[#0b0f13] border border-white rounded-lg p-8 shadow-2xl relative overflow-hidden">
+        <div id="terminal-bonus" class="typed-terminal text-gray-100 text-left text-sm sm:text-base whitespace-pre-line"></div>
+        <span class="terminal-cursor absolute bottom-6 left-6 text-gray-100 animate-pulse">▍</span>
+      </div>
     </div>
-
-    <!-- Step 2 -->
-    <div class="bg-[#0e131a] border border-cyan-500 rounded-lg p-6 space-y-3 shadow-lg hover:shadow-cyan-500/20 transition duration-300">
-      <h3 class="text-cyan-400 font-bold text-xl">2. Reconnaissance Sweep</h3>
-      <p class="text-gray-300">ALPHA sweeps 450+ public portals nightly. Filters noise. Flags actionable targets. You sleep while intel deploys.</p>
-    </div>
-
-    <!-- Step 3 -->
-    <div class="bg-[#0e131a] border border-cyan-500 rounded-lg p-6 space-y-3 shadow-lg hover:shadow-cyan-500/20 transition duration-300">
-      <h3 class="text-cyan-400 font-bold text-xl">3. Intel Delivered</h3>
-      <p class="text-gray-300">Receive a tactical PDF recon brief in your inbox before coffee. You review, deploy, and win.</p>
-    </div>
-
-    <!-- Bonus Intel -->
-<div class="bg-[#0e131a] border border-yellow-400 rounded-lg p-6 space-y-3 shadow-lg hover:shadow-yellow-400/20 transition duration-300">
-  <h3 class="text-yellow-300 font-bold text-xl">4. Bonus Intel: Addenda & Competitive Insight</h3>
-  <p class="text-gray-300">
-    Because our founder has sat in the estimator’s chair, we know what matters. ALPHA includes daily <span class="text-yellow-300 font-semibold">addendum scans</span> to detect critical spec changes — additions, removals, and agency updates — before they blindside your team.
-  </p>
-  <p class="text-gray-300">
-    We also help identify <span class="text-yellow-300 font-semibold">who else might be bidding</span>, giving your office field-level intel to gain a tactical edge.
-  </p>
-  <p class="text-gray-300 italic">
-    No dashboards. No digging. Just classified recon — delivered straight to command.
-  </p>
-</div>
-
   </div>
 </section>
+
 
 
 
@@ -1666,6 +1661,75 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const options = {
+    typeSpeed: 25,
+    showCursor: false,
+    smartBackspace: false,
+  };
+
+  new Typed("#terminal-step-1", {
+    ...options,
+    strings: [
+`1. Input Mission Scope
+
+Tell us your trade, region, and target project types.
+HVAC? GC? Underground?
+
+We align the sensors to your sector.`,
+    ],
+  });
+
+  new Typed("#terminal-step-2", {
+    ...options,
+    strings: [
+`2. Reconnaissance Sweep
+
+ALPHA scans 450+ portals in Southern California.
+Filters noise. Flags real targets.
+
+You sleep while intel deploys.`,
+    ],
+    startDelay: 1000
+  });
+
+  new Typed("#terminal-step-3", {
+    ...options,
+    strings: [
+`3. Intel Delivered
+
+Receive a tactical PDF recon brief in your inbox before coffee.
+
+You review, deploy, and win.`,
+    ],
+    startDelay: 2000
+  });
+
+  new Typed("#terminal-bonus", {
+    ...options,
+    strings: [
+`4. Bonus Intel: Addenda & Competitive Insight
+
+Because our founder has sat in the estimator’s chair,
+we know what matters.
+
+ALPHA includes daily addendum scans
+to detect critical spec changes —
+additions, removals, and agency updates
+— before they blindside your team.
+
+We also help identify who else might be bidding,
+giving your office field-level intel to gain a tactical edge.
+
+No dashboards. No digging.
+Just classified recon — delivered straight to command.`,
+    ],
+    startDelay: 4000
+  });
+});
+</script>
+  
 
 </body>
 </html>
