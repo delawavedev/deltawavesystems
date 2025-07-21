@@ -1699,7 +1699,7 @@ Tell us your trade, region, and target project types.
 HVAC? GC? Underground?
 
 We align the sensors to your sector.`,
-      color: "cyan-300"
+      cursor: "cyan-300"
     },
     {
       id: "#terminal-step-2",
@@ -1709,7 +1709,7 @@ ALPHA scans 450+ portals in Southern California.
 Filters noise. Flags real targets.
 
 You sleep while intel deploys.`,
-      color: "green-300"
+      cursor: "green-300"
     },
     {
       id: "#terminal-step-3",
@@ -1718,7 +1718,7 @@ You sleep while intel deploys.`,
 Receive a tactical PDF recon brief in your inbox before coffee.
 
 You review, deploy, and win.`,
-      color: "orange-300"
+      cursor: "orange-300"
     },
     {
       id: "#terminal-bonus",
@@ -1737,7 +1737,7 @@ giving your office field-level intel to gain a tactical edge.
 
 No dashboards. No digging.
 Just classified recon — delivered straight to command.`,
-      color: "white"
+      cursor: "white"
     }
   ];
 
@@ -1753,20 +1753,24 @@ Just classified recon — delivered straight to command.`,
           setTimeout(() => {
             new Typed(term.id, {
               strings: [term.text],
-              typeSpeed: 25,
+              typeSpeed: 22,
               showCursor: false,
               smartBackspace: false,
             });
 
-            // Show the blinking cursor
-            const cursor = document.querySelector(`${term.id} + .terminal-cursor`);
-            if (cursor) cursor.style.opacity = 1;
+            // Reveal the cursor span AFTER typing starts
+            setTimeout(() => {
+              const cursor = document.querySelector(`${term.id} + .terminal-cursor`);
+              if (cursor) cursor.style.opacity = 1;
+            }, 500);
 
           }, delay);
-          delay += 1000; // stagger each by 1s
+
+          // Increase delay more aggressively for longer final block
+          delay += (i === terminals.length - 1) ? 6000 : 1500;
         });
 
-        obs.disconnect(); // stop observing after triggered once
+        obs.disconnect(); // Stop observing after animation trigger
       }
     });
   }, { threshold: 0.5 });
@@ -1774,6 +1778,7 @@ Just classified recon — delivered straight to command.`,
   observer.observe(document.querySelector('#how-it-works'));
 });
 </script>
+
 
   <style>
 .terminal-cursor {
