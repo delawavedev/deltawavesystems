@@ -336,6 +336,20 @@ html, body {
   animation: neonScan 2.4s ease-in-out infinite;
 }
 
+  @keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0px cyan, 0 0 6px cyan, 0 0 12px rgba(0,255,255,0.4);
+  }
+  50% {
+    box-shadow: 0 0 6px cyan, 0 0 12px cyan, 0 0 24px rgba(0,255,255,0.6);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+
 </style>
 
 
@@ -979,137 +993,51 @@ html, body {
 
 
 
-<!-- ▸▸ SAMPLE REPORT + HOW-IT-WORKS ◂◂ -->
-<section id="how" class="py-24 px-6">   <!-- ← id added here -->
-  <div class="max-w-6xl mx-auto">
-    <!-- Heading -->
-    <h3 class="text-center text-xl md:text-2xl font-semibold text-primary mb-1">
-      BID RECON BRIEF: ACTIVE TARGET INTEL
-    </h3>
-    <!-- …rest of the section unchanged… -->
+<section class="bg-[#0b0f13] py-24 px-6 text-white" data-aos="fade-up" data-aos-duration="1200" data-aos-easing="ease-out-cubic">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
+    
+    <!-- Section Header -->
+    <div class="md:col-span-3 text-center">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-cyan-400 mb-6">// MISSION PROTOCOL: HOW IT WORKS</h2>
+      <p class="text-gray-300 text-lg">Lock onto targets. Sweep the grid. Win the contract.</p>
+      <div class="border-b-2 border-cyan-500 w-24 mx-auto mt-4 animate-pulse-glow"></div>
+    </div>
 
-    <p class="text-center text-sm md:text-base text-gray-400 mb-12">
-      <span class="font-semibold text-primary">17</span> Direct-hit BIDS&nbsp;•&nbsp;
-      <span class="font-semibold text-primary">8</span> Hidden-target BIDS&nbsp;•&nbsp;
-      <span class="font-semibold text-primary">457</span> Sites scanned
-    </p>
+    <!-- Step 1 -->
+    <div class="bg-[#0e131a] border border-cyan-500 rounded-lg p-6 space-y-3 shadow-lg hover:shadow-cyan-500/20 transition duration-300">
+      <h3 class="text-cyan-400 font-bold text-xl">1. Input Mission Scope</h3>
+      <p class="text-gray-300">Tell us your trade, region, and target project types. HVAC? GC? Underground? We align the sensors to your sector.</p>
+    </div>
 
-    <!-- GRID -->
-    <div class="grid gap-16 lg:gap-14 lg:grid-cols-2 items-start">
+    <!-- Step 2 -->
+    <div class="bg-[#0e131a] border border-cyan-500 rounded-lg p-6 space-y-3 shadow-lg hover:shadow-cyan-500/20 transition duration-300">
+      <h3 class="text-cyan-400 font-bold text-xl">2. Reconnaissance Sweep</h3>
+      <p class="text-gray-300">ALPHA sweeps 450+ public portals nightly. Filters noise. Flags actionable targets. You sleep while intel deploys.</p>
+    </div>
 
-      <!-- ─── LEFT COLUMN ─── -->
-      <div class="flex flex-col items-center gap-14">
+    <!-- Step 3 -->
+    <div class="bg-[#0e131a] border border-cyan-500 rounded-lg p-6 space-y-3 shadow-lg hover:shadow-cyan-500/20 transition duration-300">
+      <h3 class="text-cyan-400 font-bold text-xl">3. Intel Delivered</h3>
+      <p class="text-gray-300">Receive a tactical PDF recon brief in your inbox before coffee. You review, deploy, and win.</p>
+    </div>
 
-        <!-- ─── BID-REPORT PREVIEW ────────────────────────── -->
-<div class="flex flex-col items-center">
-
-  <!-- 1. Thumbnail → opens PDF in new tab                -->
-  <a href="/pdfs/alpha-report-sample.pdf"
-     target="_blank" rel="noopener"
-     aria-label="Open full bid-report PDF">
-    <img
-      src="/img/alpha-report-sample.png"
-      alt="Sample bid-report thumbnail"
-      loading="lazy"
-      class="aspect-[4/5] w-[210px] md:w-[260px] rounded-xl
-             border border-primary/70 shadow-xl object-cover
-             bg-surface1/60 animate-pulse hover:animate-none
-             hover:scale-105 transition"
-    />
-  </a>
-
-  <!-- 2. Download CTA  (forces save as .pdf)             -->
-  <a href="/pdfs/alpha-report-sample.pdf"
-     download
-     class="btn-primary mt-4 inline-flex items-center gap-1">
-    <span class="text-xl">📥</span>
-    <span>Download full bid report</span>
-  </a>
-
+    <!-- Bonus Intel -->
+<div class="bg-[#0e131a] border border-yellow-400 rounded-lg p-6 space-y-3 shadow-lg hover:shadow-yellow-400/20 transition duration-300">
+  <h3 class="text-yellow-300 font-bold text-xl">4. Bonus Intel: Addenda & Competitive Insight</h3>
+  <p class="text-gray-300">
+    Because our founder has sat in the estimator’s chair, we know what matters. ALPHA includes daily <span class="text-yellow-300 font-semibold">addendum scans</span> to detect critical spec changes — additions, removals, and agency updates — before they blindside your team.
+  </p>
+  <p class="text-gray-300">
+    We also help identify <span class="text-yellow-300 font-semibold">who else might be bidding</span>, giving your office field-level intel to gain a tactical edge.
+  </p>
+  <p class="text-gray-300 italic">
+    No dashboards. No digging. Just classified recon — delivered straight to command.
+  </p>
 </div>
 
-<!-- Mission-notes preview -->
-<div class="flex flex-col items-center">
-
-  <!-- Thumbnail opens PDF in new tab -->
-  <a href="/pdfs/mission-notes-sample.pdf"
-     target="_blank" rel="noopener"
-     aria-label="Open mission notes PDF">
-    <img
-      src="/img/mission-notes-sample.png"
-      alt="Mission notes thumbnail"
-      loading="lazy"
-      class="aspect-[4/5] w-[210px] md:w-[260px] rounded-xl
-             border border-primary/70 shadow-xl object-cover
-             bg-surface1/60 animate-pulse hover:animate-none
-             hover:scale-105 transition"
-    />
-  </a>
-
-  <!-- Download button -->
-  <a href="/pdfs/mission-notes-sample.pdf"
-     download
-     class="btn-primary mt-4 inline-flex items-center gap-1">
-    <span class="text-xl">🧭</span>
-    <span>Download field-intel notes</span>
-  </a>
-</div>
-
-     
-
-      </div><!-- /LEFT -->
-
-      <!-- ─── RIGHT COLUMN ─── -->
-      <div class="flex flex-col gap-12 max-w-lg mx-auto lg:mx-0">
-
-        <!-- HOW IT WORKS -->
-        <div class="text-center lg:text-left">
-          <h3 class="text-lg md:text-xl font-semibold text-primary mb-6">HOW IT WORKS</h3>
-          <ol class="space-y-6 text-base md:text-lg leading-relaxed">
-            <li>
-              <span class="font-bold text-primary">1.&nbsp;Tell us your trade &amp; scope</span><br>
-              Landscaping? HVAC? General Contractor Construction? We lock onto the portals that matter to you.
-              We know where subcontractor bids hide - we kick the doors down. 
-            </li>
-            <li>
-              <span class="font-bold text-primary">2.&nbsp;We run daily recon</span><br>
-              ALPHA deep sweeps 450+ portals in Southern California, filters noise, flags real targets. 
-              Gain field intelligence while you sleep.
-              
-
-            </li>
-            <li>
-
-<span class="font-bold text-primary">3.&nbsp;Intel lands in your inbox</span><br>
-              Nightly PDF brief. Morning, open, deploy, win — done.
-            </li>
-          </ol>
-        </div>
-
-        <!-- Testimonial -->
-        <figure class="rounded-xl border border-primary/50 bg-surface1/40 p-8 text-gray-300 shadow-lg">
-          <svg aria-hidden="true" class="w-6 h-6 text-primary mb-4" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M7.17 6.02C4.88 7.2 3 10.24 3 13.4c0 2.7 1.64 4.6 4.07 4.6 2.64 0 4.45-2.1 4.45-4.77 0-2.56-1.8-4.51-4.35-4.51-.46 0-.75-.24-.75-.66 0-.35.24-.66.71-.89l.04-.15 2-1.01c.26-.14.45-.33.45-.63 0-.44-.37-.69-.9-.69-.46 0-.9.1-1.55.32zM15.17 6.02C12.88 7.2 11 10.24 11 13.4c0 2.7 1.64 4.6 4.07 4.6 2.64 0 4.45-2.1 4.45-4.77 0-2.56-1.8-4.51-4.35-4.51-.46 0-.75-.24-.75-.66 0-.35.24-.66.71-.89l.04-.15 2-1.01c.26-.14.45-.33.45-.63 0-.44-.37-.69-.9-.69-.46 0-.9.1-1.55.32z"/>
-          </svg>
-          <blockquote class="italic leading-relaxed">
-            “Delta Wave pulled thirteen bids I didn't know existed. Wish I knew about them sooner. Won two of them in the first month — paid for itself ten times over.”
-          </blockquote>
-          <figcaption class="mt-6 flex items-center gap-3">
-            <img src="./img/avatar-carlos.png"
-                 alt="Carlos M."
-                 class="h-10 w-10 rounded-full border border-primary/60 object-cover">
-            <div>
-              <p class="font-semibold text-white">Carlos M.</p>
-              <p class="text-xs text-gray-400">Electrical Contractor • Riverside, CA</p>
-            </div>
-          </figcaption>
-        </figure>
-
-      </div><!-- /RIGHT -->
-
-    </div><!-- /GRID -->
   </div>
 </section>
+
 
 
 <!-- ========================= -->
