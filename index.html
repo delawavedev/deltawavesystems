@@ -517,6 +517,96 @@ html, body {
     50%      { box-shadow: 0 0 30px rgba(0,255,255,0.6); }
   }
 
+  /* Neon glow for headers and terminal text */
+  .glow {
+    text-shadow: 0 0 5px #00ffae, 0 0 15px #00ffae;
+  }
+
+  .typed-cursor {
+    opacity: 1;
+    animation: blink 1s infinite;
+    color: #00ffee;
+    font-weight: bold;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  /* Neon orange for discrepancy highlights */
+  .text-neon-orange {
+    color: #ff6b1f;
+    text-shadow: 0 0 4px #ff6b1f, 0 0 8px #ff6b1f;
+  }
+
+  /* Terminal box appearance */
+  .terminal-box {
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 1px solid #00ffae;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 30px #00ffae33;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+  }
+
+  /* Scanline overlay (optional aesthetic) */
+  .scanlines {
+    background-image: url('/static/img/scanlines.png'); /* Replace with your correct path */
+    background-size: cover;
+    opacity: 0.97;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+
+  /* Button styling to match terminal theme */
+  .btn {
+    background: #00ffae;
+    color: black;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    border-radius: 6px;
+  }
+
+  .btn:hover {
+    background: #00ffaa;
+  }
+
+  /* Optional logo HUD filters */
+  .logo-hud {
+    width: 60px;
+    height: auto;
+    margin-left: 12px;
+    margin-right: 8px;
+  }
+
+  .logo-seal {
+    width: 80px;
+    height: auto;
+    filter: drop-shadow(0 0 6px cyan);
+  }
+
+  /* Audit Table styling */
+  .audit-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  .audit-table th,
+  .audit-table td {
+    border: 1px solid #00ffae;
+    padding: 0.5rem;
+    text-align: left;
+  }
+
+  .audit-table th {
+    background-color: rgba(0, 255, 174, 0.15);
+  }
+
   
 </style>
 
@@ -1048,6 +1138,65 @@ html, body {
       >
         Download a Free Cost-Leak Report
       </a>
+    </div>
+  </div>
+</section>
+
+
+<section id="delta-audit-terminal" class="relative w-full px-4 py-16 bg-[#0b0f13] font-mono text-[#00ffae] overflow-hidden">
+  <!-- Optional scanlines overlay -->
+  <div class="absolute inset-0 pointer-events-none z-0 opacity-10 mix-blend-overlay bg-[url('/static/img/scanlines.png')]"></div>
+
+  <!-- HUD Top -->
+  <div class="absolute top-4 left-4 flex items-center z-10">
+    <img src="/static/img/landscapelogojump.png" alt="" class="w-20 h-auto drop-shadow-[0_0_6px_cyan]" />
+    <span class="text-green-400 text-sm ml-3 glow">System Status: 🔐 Secured – v0.9 BETA</span>
+  </div>
+
+  <!-- HUD Right -->
+  <div class="absolute top-4 right-4 flex items-center gap-3 z-10">
+    <img src="/static/img/landscapelogojump.png" alt="" class="w-14 h-auto" />
+    <button onclick="toggleFullscreen()" class="bg-[#00ffae] text-black font-bold px-3 py-1 rounded text-xs hover:bg-[#00ffaa]">⛶ HUD Mode</button>
+  </div>
+
+  <!-- Terminal Box -->
+  <div class="relative z-10 mx-auto max-w-5xl p-6 border border-[#00ffae] rounded-xl shadow-[0_0_30px_#00ffae33] bg-black/60 backdrop-blur-sm">
+    <h1 class="text-2xl text-center mb-4 glow">🛰️ DELTA WAVE SYSTEMS – INVOICE AUDIT TERMINAL</h1>
+
+    <div class="text-center mb-4 text-green-300 text-sm glow">
+      🔎 Auditing: <span id="client-name">West Coast Turf / July 23rd, 2025</span>
+    </div>
+
+    <!-- File Uploads -->
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-6">
+      <input type="file" id="invoiceUpload" class="text-white border border-cyan-500 rounded px-2 py-1" />
+      <input type="file" id="quoteUpload" class="text-white border border-cyan-500 rounded px-2 py-1" />
+      <button id="runAudit" class="bg-green-400 text-black font-bold px-4 py-2 rounded glow">▶ Run Audit</button>
+    </div>
+
+    <!-- Terminal Output -->
+    <div id="typed-output" class="whitespace-pre-line h-64 overflow-y-auto p-3 text-sm glow border border-cyan-500 rounded bg-black/30 mb-4 scanlines"></div>
+
+    <!-- Output Filename -->
+    <div class="glow text-green-300 hidden" id="filename-display">
+      📂 Output File: <strong class="text-white font-mono">AUDIT_001_RECON.pdf</strong>
+    </div>
+
+    <!-- Audit Summary Table -->
+    <div id="auditPreview" class="hidden">
+      <!-- Table here (same as before, can be copied directly) -->
+    </div>
+
+    <!-- Classification Notes -->
+    <div class="mt-6 text-sm glow space-y-2">
+      <p>🧠 <strong>Classification:</strong> Invoice contains multiple line items not found in original quote. Flagged (Orange).</p>
+      <p>📉 <strong>Delta Engine Verdict:</strong> Possible billing error. Manual review advised.</p>
+      <p>📞 <strong>Supplier Contact:</strong> <span class="text-blue-300">WEST COAST TURF – (888) 893-8873</span></p>
+    </div>
+
+    <!-- PDF Link -->
+    <div class="text-center mt-6">
+      <a href="./static/client_discrepancy_audit.pdf" target="_blank" class="bg-[#00ffae] text-black font-bold px-4 py-2 rounded hover:bg-[#00ffaa]">📥 View Full Audit Report PDF</a>
     </div>
   </div>
 </section>
@@ -1636,6 +1785,43 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+  function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+    } else {
+      if (document.exitFullscreen) document.exitFullscreen();
+    }
+  }
+
+  document.getElementById('runAudit').onclick = () => {
+    const output = document.getElementById("typed-output");
+    output.innerHTML = "";
+
+    const typed = new Typed("#typed-output", {
+      strings: [
+        "- WEST COAST TURF\nINVOICE / QUOTE COMPARISON\n",
+        "+ QUOTE SAYS:\n▶ 1\" cut hybrid bermuda sod\n▶ QTY: 82,000\n▶ UNIT PRICE: $1.30/sf\n",
+        "+ INVOICE SAYS:\n▶ QTY: 30,800\n▶ UNIT PRICE: $1.36\n\n",
+        "TOTAL CHARGED: $41,888.00\nQUOTE EXPECTED: $40,722.50\n",
+        "⚠️ Possible overcharge of $1,165.50\n",
+        "📞 Contact: WEST COAST TURF – (888) 893-8873\n"
+      ],
+      typeSpeed: 25,
+      cursorChar: "_",
+      showCursor: true,
+      loop: false,
+      onStringTyped: () => {
+        output.scrollTop = output.scrollHeight;
+        document.getElementById("auditPreview").classList.remove("hidden");
+        document.getElementById("filename-display").classList.remove("hidden");
+      }
+    });
+  };
+</script>
+
+  
   
 <script>
 document.addEventListener("DOMContentLoaded", () => {
