@@ -71,7 +71,7 @@
   .outer-glow-ring:hover { transform: scale(1.05); }
 
   .inner-white-circle {
-    width: 11rem; height: 11rem;
+    width: 9rem; height: 9rem;
     border-radius: 9999px;
     border: 2px solid cyan;
     display: flex;
@@ -80,7 +80,7 @@
   }
 
   img.rounded-full {
-    width: 10rem; height: 10rem;
+    width: 8rem; height: 8rem;
     object-fit: contain;
     border-radius: 9999px;
   }
@@ -787,14 +787,29 @@ img.rounded-full:hover {
 </div>
 
 
-<section id="why-terminal" class="relative bg-black py-32 px-6 text-cyan-300 font-mono overflow-hidden">
+<section
+  id="why-terminal"
+  class="relative bg-black py-32 px-6 text-cyan-300 font-mono overflow-hidden"
+  data-aos="fade-up"
+  data-aos-delay="200"
+  data-aos-duration="1200"
+  data-aos-easing="ease-out-cubic"
+  data-aos-once="true"
+>
   <!-- Heading -->
-  <h2 class="text-center text-2xl md:text-3xl tracking-widest mb-12 text-cyan-400">// DELTA_WAVE_SPECIAL_ACCESS_TERMINAL 🔐</h2>
+  <h2 class="text-center text-2xl md:text-3xl tracking-widest mb-12 text-cyan-400">
+    // DELTA_WAVE_SPECIAL_ACCESS_TERMINAL 🔐
+  </h2>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto z-10 relative">
-
-    <!-- Left Column -->
-    <div class="space-y-4 text-red-400 text-sm md:text-base">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl mx-auto relative z-10">
+    
+    <!-- LEFT COLUMN -->
+    <div
+      class="space-y-4 text-red-400 text-sm md:text-base"
+      data-aos="fade-right"
+      data-aos-delay="300"
+      data-aos-duration="1000"
+    >
       <h3 class="text-red-500 text-lg font-bold tracking-wider">[ YOUR OFFICE ]</h3>
       <div id="typed-office-1"></div>
       <div id="typed-office-2"></div>
@@ -804,13 +819,43 @@ img.rounded-full:hover {
       <div id="typed-office-6"></div>
     </div>
 
-    <!-- Center Video -->
-    <div class="flex justify-center items-center">
-      <video src="hud-waveform-loop.mp4" autoplay muted loop class="rounded-lg max-h-[250px] border border-cyan-400/40 shadow-xl"></video>
+    <!-- CENTER VIDEO -->
+    <div
+      class="relative flex justify-center items-center"
+      data-aos="zoom-in"
+      data-aos-delay="500"
+      data-aos-duration="1200"
+    >
+      <!-- Optional overlay for terminal glow atmosphere -->
+      <!--
+      <video
+        src="/video/hud-overlay.webm"
+        class="absolute top-0 left-0 w-full h-full object-cover opacity-[0.05] pointer-events-none mix-blend-screen z-0"
+        autoplay
+        muted
+        loop
+        playsinline
+      ></video>
+      -->
+
+      <!-- Foreground waveform -->
+      <video
+        src="hud-waveform-loop.mp4"
+        class="relative z-10 w-full max-w-[600px] md:max-w-[520px] object-contain opacity-90 mix-blend-screen"
+        autoplay
+        muted
+        loop
+        playsinline
+      ></video>
     </div>
 
-    <!-- Right Column -->
-    <div class="space-y-4 text-green-300 text-sm md:text-base">
+    <!-- RIGHT COLUMN -->
+    <div
+      class="space-y-4 text-green-300 text-sm md:text-base"
+      data-aos="fade-left"
+      data-aos-delay="300"
+      data-aos-duration="1000"
+    >
       <h3 class="text-green-400 text-lg font-bold tracking-wider">[ DELTA WAVE ]</h3>
       <div id="typed-delta-1"></div>
       <div id="typed-delta-2"></div>
@@ -820,12 +865,8 @@ img.rounded-full:hover {
       <div id="typed-delta-6"></div>
     </div>
   </div>
-
-  <!-- Terminal Cursor -->
-  <div class="mt-10 text-center text-cyan-400 text-xl">
-    <span class="blinking-cursor">█</span>
-  </div>
 </section>
+
 
 
   
