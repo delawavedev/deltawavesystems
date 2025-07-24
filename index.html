@@ -575,37 +575,97 @@ html, body {
     background: #00ffaa;
   }
 
-  /* Optional logo HUD filters */
-  .logo-hud {
-    width: 60px;
-    height: auto;
-    margin-left: 12px;
-    margin-right: 8px;
-  }
+/* === Vendor Grid Container === */
+#vendor-connector-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background: #0a0a0a; /* Adjust if needed */
+  z-index: 1;
+}
 
-  .logo-seal {
-    width: 80px;
-    height: auto;
-    filter: drop-shadow(0 0 6px cyan);
-  }
+/* === SVG Lines Behind Logos === */
+#connector-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+}
 
-  /* Audit Table styling */
-  .audit-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 1.5rem;
-  }
+/* === Vendor Grid Layout === */
+#vendor-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 4rem;
+  justify-items: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
 
-  .audit-table th,
-  .audit-table td {
-    border: 1px solid #00ffae;
-    padding: 0.5rem;
-    text-align: left;
+@media (max-width: 1024px) {
+  #vendor-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
+}
 
-  .audit-table th {
-    background-color: rgba(0, 255, 174, 0.15);
+/* === Outer Glowing Pulse Ring === */
+.outer-glow-ring {
+  animation: vendorPulse 3.6s ease-in-out infinite;
+  border-radius: 9999px;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 255, 255, 0.12);
+  transition: transform 0.3s ease;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.25);
+}
+
+.outer-glow-ring:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.5);
+}
+
+/* === Inner White Circle === */
+.inner-white-circle {
+  width: 11rem;
+  height: 11rem;
+  border-radius: 9999px;
+  border: 2px solid cyan;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* === Vendor Logos === */
+img.rounded-full {
+  width: 10rem;
+  height: 10rem;
+  object-fit: contain;
+  border-radius: 9999px;
+  transition: transform 0.3s ease;
+}
+
+img.rounded-full:hover {
+  transform: scale(1.05);
+}
+
+/* === Glowing Line Animation === */
+@keyframes vendorPulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
   }
+  50% {
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.7);
+  }
+}
+
 
   
 </style>
@@ -799,6 +859,8 @@ html, body {
   </div>
 </section>
 
+
+
 <section
   id="vendor-grid-section"
   class="relative bg-[#0b0f13] pt-56 pb-44 text-white overflow-hidden"
@@ -830,157 +892,153 @@ html, body {
         id="vendor-grid"
         class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10 pt-10 relative z-10"
       >
-        <!-- Vendor 1 - PlanetBids -->
-        <div id="vendor-1" class="flex justify-center items-center">
-          <div class="outer-glow-ring">
-            <div class="inner-white-circle">
-              <img src="vendors1.png" alt="PlanetBids" class="rounded-full" loading="lazy" />
-            </div>
-          </div>
-        </div>
+<!-- Vendor 1 - PlanetBids -->
+<div id="vendor-1" class="flex justify-center items-center">
+  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
+    <div class="inner-white-circle">
+      <img src="vendors1.png" alt="PlanetBids" class="rounded-full vendor-logo" loading="lazy" />
+    </div>
+  </div>
+</div>
 
-        <!-- Vendor 2 - Vendor Registry -->
-        <div id="vendor-2" class="flex justify-center items-center">
-          <div class="outer-glow-ring">
-            <div class="inner-white-circle">
-              <img src="vendors2.png" alt="Vendor Registry" class="rounded-full" loading="lazy" />
-            </div>
-          </div>
-        </div>
+<!-- Vendor 2 - Vendor Registry -->
+<div id="vendor-2" class="flex justify-center items-center">
+  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
+    <div class="inner-white-circle">
+      <img src="vendors2.png" alt="Vendor Registry" class="rounded-full vendor-logo" loading="lazy" />
+    </div>
+  </div>
+</div>
 
-        <!-- Vendor 3 - SAM.gov -->
-        <div id="vendor-3" class="flex justify-center items-center">
-          <div class="outer-glow-ring">
-            <div class="inner-white-circle">
-              <img src="vendors3.png" alt="SAM.gov" class="rounded-full" loading="lazy" />
-            </div>
-          </div>
-        </div>
+<!-- Vendor 3 - SAM.gov -->
+<div id="vendor-3" class="flex justify-center items-center">
+  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
+    <div class="inner-white-circle">
+      <img src="vendors3.png" alt="SAM.gov" class="rounded-full vendor-logo" loading="lazy" />
+    </div>
+  </div>
+</div>
 
-        <!-- Vendor 4 - School Districts -->
-        <div id="vendor-4" class="flex justify-center items-center">
-          <div class="outer-glow-ring">
-            <div class="inner-white-circle">
-              <img src="vendors4.png" alt="School Districts" class="rounded-full" loading="lazy" />
-            </div>
-          </div>
-        </div>
+<!-- Vendor 4 - School Districts -->
+<div id="vendor-4" class="flex justify-center items-center">
+  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
+    <div class="inner-white-circle">
+      <img src="vendors4.png" alt="School Districts" class="rounded-full vendor-logo" loading="lazy" />
+    </div>
+  </div>
+</div>
 
-        <!-- Vendor 5 - OpenGov -->
-        <div id="vendor-5" class="flex justify-center items-center">
-          <div class="outer-glow-ring">
-            <div class="inner-white-circle">
-              <img src="vendors5.png" alt="OpenGov" class="rounded-full" loading="lazy" />
-            </div>
-          </div>
-        </div>
+<!-- Vendor 5 - OpenGov -->
+<div id="vendor-5" class="flex justify-center items-center">
+  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
+    <div class="inner-white-circle">
+      <img src="vendors5.png" alt="OpenGov" class="rounded-full vendor-logo" loading="lazy" />
+    </div>
+  </div>
+</div>
 
-        <!-- Vendor 6 - CA State -->
-        <div id="vendor-6" class="flex justify-center items-center">
-          <div class="outer-glow-ring">
-            <div class="inner-white-circle">
-              <img src="vendors6.png" alt="California State Portals" class="rounded-full" loading="lazy" />
-            </div>
-          </div>
-        </div>
+<!-- Vendor 6 - California State Portals -->
+<div id="vendor-6" class="flex justify-center items-center">
+  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
+    <div class="inner-white-circle">
+      <img src="vendors6.png" alt="California State Portals" class="rounded-full vendor-logo" loading="lazy" />
+    </div>
+  </div>
+</div>
 
-        <!-- Vendor 7 - Dodge Construction Network -->
-        <div id="vendor-7" class="flex justify-center items-center">
-          <div class="outer-glow-ring">
-            <div class="inner-white-circle">
-              <img src="vendors7.png" alt="Dodge Construction Network" class="rounded-full" loading="lazy" />
-            </div>
-          </div>
-        </div>
+<!-- Vendor 7 - Dodge Construction Network -->
+<div id="vendor-7" class="flex justify-center items-center">
+  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
+    <div class="inner-white-circle">
+      <img src="vendors7.png" alt="Dodge Construction Network" class="rounded-full vendor-logo" loading="lazy" />
+    </div>
+  </div>
+</div>
 
-        <!-- Vendor 8 - Colleges -->
-        <div id="vendor-8" class="flex justify-center items-center">
-          <div class="outer-glow-ring">
-            <div class="inner-white-circle">
-              <img src="vendors8.png" alt="Colleges" class="rounded-full" loading="lazy" />
-            </div>
-          </div>
-        </div>
+<!-- Vendor 8 - Colleges -->
+<div id="vendor-8" class="flex justify-center items-center">
+  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
+    <div class="inner-white-circle">
+      <img src="vendors8.png" alt="Colleges" class="rounded-full vendor-logo" loading="lazy" />
+    </div>
+  </div>
+</div>
 
-        <!-- Vendor 9 - Colbi -->
-        <div id="vendor-9" class="flex justify-center items-center">
-          <div class="outer-glow-ring">
-            <div class="inner-white-circle">
-              <img src="vendors9.png" alt="Colbi" class="rounded-full" loading="lazy" />
-            </div>
-          </div>
-        </div>
+<!-- Vendor 9 - Colbi -->
+<div id="vendor-9" class="flex justify-center items-center">
+  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
+    <div class="inner-white-circle">
+      <img src="vendors9.png" alt="Colbi" class="rounded-full vendor-logo" loading="lazy" />
+    </div>
+  </div>
+</div>
 
-        <!-- Vendor 10 - QualityBidders -->
-        <div id="vendor-10" class="flex justify-center items-center">
-          <div class="outer-glow-ring">
-            <div class="inner-white-circle">
-              <img src="vendors10.png" alt="QualityBidders" class="rounded-full" loading="lazy" />
-            </div>
-          </div>
-        </div>
+<!-- Vendor 10 - QualityBidders -->
+<div id="vendor-10" class="flex justify-center items-center">
+  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
+    <div class="inner-white-circle">
+      <img src="vendors10.png" alt="QualityBidders" class="rounded-full vendor-logo" loading="lazy" />
+    </div>
+  </div>
+</div>
 
-        <!-- Vendor 11 - Bonfire -->
-        <div id="vendor-11" class="flex justify-center items-center">
-          <div class="outer-glow-ring">
-            <div class="inner-white-circle">
-              <img src="vendors11.png" alt="Bonfire" class="rounded-full" loading="lazy" />
-            </div>
-          </div>
-        </div>
+<!-- Vendor 11 - Bonfire -->
+<div id="vendor-11" class="flex justify-center items-center">
+  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
+    <div class="inner-white-circle">
+      <img src="vendors11.png" alt="Bonfire" class="rounded-full vendor-logo" loading="lazy" />
+    </div>
+  </div>
+</div>
 
-        <!-- Vendor 12 - County Portals -->
-        <div id="vendor-12" class="flex justify-center items-center">
-          <div class="outer-glow-ring">
-            <div class="inner-white-circle">
-              <img src="vendors12.png" alt="County Portals" class="rounded-full" loading="lazy" />
-            </div>
-          </div>
-        </div>
+<!-- Vendor 12 - County Portals -->
+<div id="vendor-12" class="flex justify-center items-center">
+  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
+    <div class="inner-white-circle">
+      <img src="vendors12.png" alt="County Portals" class="rounded-full vendor-logo" loading="lazy" />
+    </div>
+  </div>
+</div>
 
-        <!-- Vendor 13 - BidNet Direct -->
-        <div id="vendor-13" class="flex justify-center items-center">
-          <div class="outer-glow-ring">
-            <div class="inner-white-circle">
-              <img src="vendors13.png" alt="BidNet Direct" class="rounded-full" loading="lazy" />
-            </div>
-          </div>
-        </div>
+<!-- Vendor 13 - BidNet Direct -->
+<div id="vendor-13" class="flex justify-center items-center">
+  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
+    <div class="inner-white-circle">
+      <img src="vendors13.png" alt="BidNet Direct" class="rounded-full vendor-logo" loading="lazy" />
+    </div>
+  </div>
+</div>
 
-        <!-- Vendor 14 - Public Purchase -->
-        <div id="vendor-14" class="flex justify-center items-center">
-          <div class="outer-glow-ring">
-            <div class="inner-white-circle">
-              <img src="vendors14.png" alt="Public Purchase" class="rounded-full" loading="lazy" />
-            </div>
-          </div>
-        </div>
+<!-- Vendor 14 - Public Purchase -->
+<div id="vendor-14" class="flex justify-center items-center">
+  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
+    <div class="inner-white-circle">
+      <img src="vendors14.png" alt="Public Purchase" class="rounded-full vendor-logo" loading="lazy" />
+    </div>
+  </div>
+</div>
 
-        <!-- Vendor 15 - Cities -->
-        <div id="vendor-15" class="flex justify-center items-center">
-          <div class="outer-glow-ring">
-            <div class="inner-white-circle">
-              <img src="vendors15.png" alt="Cities" class="rounded-full" loading="lazy" />
-            </div>
-          </div>
-        </div>
+<!-- Vendor 15 - Cities -->
+<div id="vendor-15" class="flex justify-center items-center">
+  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
+    <div class="inner-white-circle">
+      <img src="vendors15.png" alt="Cities" class="rounded-full vendor-logo" loading="lazy" />
+    </div>
+  </div>
+</div>
 
-        <!-- Vendor 16 - +Many More -->
-        <div id="vendor-16" class="flex justify-center items-center">
-          <div class="outer-glow-ring">
-            <div class="inner-white-circle">
-              <img src="vendors16.png" alt="Many More" class="rounded-full" loading="lazy" />
-            </div>
-          </div>
-        </div>
-      </div> <!-- End Grid -->
-    </div> <!-- End Wrapper -->
+<!-- Vendor 16 - Many More -->
+<div id="vendor-16" class="flex justify-center items-center">
+  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
+    <div class="inner-white-circle">
+      <img src="vendors16.png" alt="Many More" class="rounded-full vendor-logo" loading="lazy" />
+    </div>
+  </div>
+</div>
+      </div>
+    </div>
   </div>
 </section>
-
-
-
-
 
 
 
@@ -2038,56 +2096,59 @@ Just classified recon — delivered straight to command.`,
 });
 </script>
 
-
+<!-- Restore DOM-dependent execution delay -->
 <script>
-function connectVendors() {
-  const wrapper = document.getElementById('vendor-connector-wrapper');
-  const grid = document.getElementById('vendor-grid');
-  const svg = document.getElementById('connector-lines');
-  svg.innerHTML = '';
+  function connectVendors() {
+    const wrapper = document.getElementById('vendor-connector-wrapper');
+    const grid = document.getElementById('vendor-grid');
+    const svg = document.getElementById('connector-lines');
+    if (!wrapper || !grid || !svg) return;
 
-  const wrapperRect = wrapper.getBoundingClientRect();
-  const items = Array.from(grid.children);
+    svg.innerHTML = '';
+    const wrapperRect = wrapper.getBoundingClientRect();
+    const items = Array.from(grid.children);
 
-  items.forEach((itemA, i) => {
-    const rectA = itemA.getBoundingClientRect();
-    const centerA = [
-      rectA.left + rectA.width / 2 - wrapperRect.left,
-      rectA.top + rectA.height / 2 - wrapperRect.top
-    ];
+    items.forEach((itemA, i) => {
+      const rectA = itemA.getBoundingClientRect();
+      const centerA = [
+        rectA.left + rectA.width / 2 - wrapperRect.left,
+        rectA.top + rectA.height / 2 - wrapperRect.top
+      ];
 
-    items.forEach((itemB, j) => {
-      if (j > i) {
-        const rectB = itemB.getBoundingClientRect();
-        const centerB = [
-          rectB.left + rectB.width / 2 - wrapperRect.left,
-          rectB.top + rectB.height / 2 - wrapperRect.top
-        ];
+      items.forEach((itemB, j) => {
+        if (j > i) {
+          const rectB = itemB.getBoundingClientRect();
+          const centerB = [
+            rectB.left + rectB.width / 2 - wrapperRect.left,
+            rectB.top + rectB.height / 2 - wrapperRect.top
+          ];
 
-        const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-        line.setAttribute("x1", centerA[0]);
-        line.setAttribute("y1", centerA[1]);
-        line.setAttribute("x2", centerB[0]);
-        line.setAttribute("y2", centerB[1]);
-        line.setAttribute("stroke", "#00ffff");
-        line.setAttribute("stroke-width", "1.5");
-        line.setAttribute("opacity", "0.15");
-        line.setAttribute("class", "glow-line");
-        svg.appendChild(line);
-      }
+          const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+          line.setAttribute("x1", centerA[0]);
+          line.setAttribute("y1", centerA[1]);
+          line.setAttribute("x2", centerB[0]);
+          line.setAttribute("y2", centerB[1]);
+          line.setAttribute("stroke", "#00ffff");
+          line.setAttribute("stroke-width", "1.5");
+          line.setAttribute("opacity", "0.15");
+          line.setAttribute("class", "glow-line");
+          svg.appendChild(line);
+        }
+      });
     });
-  });
 
-  // Resize SVG to match wrapper size
-  svg.setAttribute("width", wrapper.offsetWidth);
-  svg.setAttribute("height", wrapper.offsetHeight);
-}
+    svg.setAttribute("width", wrapper.offsetWidth);
+    svg.setAttribute("height", wrapper.offsetHeight);
+  }
 
-window.addEventListener('resize', () => setTimeout(connectVendors, 100));
-window.addEventListener('DOMContentLoaded', () => setTimeout(connectVendors, 600));
+  window.addEventListener('resize', () => setTimeout(connectVendors, 100));
+  window.addEventListener('DOMContentLoaded', () => setTimeout(connectVendors, 600));
 </script>
 
-  
+  <!-- AOS -->
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
 
 
 </body>
