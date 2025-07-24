@@ -445,11 +445,20 @@ html, body {
 }
 
 .glow-line {
-  opacity: 0.2;
   stroke: #00ffff;
-  filter: drop-shadow(0 0 3px #00ffff);
-  transition: opacity 0.3s ease-in-out;
+  stroke-width: 1.2;
+  opacity: 0.12;
+  vector-effect: non-scaling-stroke;
+  transition: opacity 0.3s ease-in-out, stroke-width 0.3s ease-in-out, filter 0.3s ease-in-out;
+  pointer-events: none; /* Prevents hover conflicts with vendor icons */
 }
+
+.glow-line:hover {
+  opacity: 0.35;
+  stroke-width: 2.2;
+  filter: drop-shadow(0 0 6px #00ffff);
+}
+
 
 @keyframes pulse-lines {
   0%, 100% { opacity: 0.15; }
