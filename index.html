@@ -666,6 +666,13 @@ img.rounded-full:hover {
   }
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn {
+  animation: fadeIn 1.4s ease-out forwards;
+}
 
   
 </style>
@@ -859,11 +866,13 @@ img.rounded-full:hover {
   </div>
 </section>
 
+<!-- Section Divider Fade -->
+<div class="h-[150px] w-full bg-gradient-to-b from-transparent via-[#0b0f13]/60 to-[#0b0f13]"></div>
 
 
 <section
   id="vendor-grid-section"
-  class="relative bg-[#0b0f13] pt-56 pb-44 text-white overflow-hidden"
+  class="relative bg-[#0b0f13] pt-[30rem] pb-44 text-white overflow-hidden opacity-0 animate-fadeIn"
   data-aos="fade-up"
   data-aos-duration="1200"
   data-aos-easing="ease-out-cubic"
@@ -892,7 +901,8 @@ img.rounded-full:hover {
         id="vendor-grid"
         class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10 pt-10 relative z-10"
       >
-<!-- Vendor 1 - PlanetBids -->
+       
+        <!-- Vendor 1 - PlanetBids -->
 <div id="vendor-1" class="flex justify-center items-center">
   <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
     <div class="inner-white-circle">
