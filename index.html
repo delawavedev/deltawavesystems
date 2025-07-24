@@ -381,7 +381,64 @@ html, body {
   transition: opacity 0.3s ease-in-out;
 }
 
+ .neon-scanline {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
 
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 10px rgba(0,255,255,0.3); }
+  50% { box-shadow: 0 0 20px rgba(0,255,255,0.7); }
+}
+
+.glow-line {
+  stroke: rgba(0, 255, 255, 0.35);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 4px rgba(0, 255, 255, 0.7));
+  animation: pulse-line 3s ease-in-out infinite;
+}
+
+@keyframes pulse-line {
+  0%, 100% {
+    stroke: rgba(0, 255, 255, 0.35);
+  }
+  50% {
+    stroke: rgba(0, 255, 255, 0.85);
+  }
+}
+  
+.outer-glow-ring {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #0ff 10%, #0ff2 60%, transparent 90%);
+  animation: pulse-glow 3s infinite ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.inner-white-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: #fff;
+  overflow: hidden;
+}
+.glow-line {
+  filter: drop-shadow(0 0 5px #0ff) drop-shadow(0 0 10px #0ff);
+  transition: all 0.3s ease-in-out;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.75; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+  
+  .terminal-cursor {
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+  
 </style>
 
 
@@ -576,157 +633,79 @@ html, body {
 
 
 
-
-<section class="bg-[#0b0f13] pt-56 pb-44 text-white relative z-10 overflow-hidden"
+<section class="bg-[#0b0f13] pt-56 pb-44 text-white relative z-10 overflow-hidden" id="vendor-grid-section"
          data-aos="fade-up"
          data-aos-duration="1200"
          data-aos-easing="ease-out-cubic"
          data-aos-offset="200">
 
-  <!-- Hacker-style glowing scanline divider -->
- <div class="w-full h-[2px] bg-cyan-400 shadow-[0_0_20px_2px_rgba(0,255,255,0.5)] mb-12 neon-scanline"></div>
+  <!-- Glowing divider -->
+  <div class="w-full h-[2px] bg-cyan-400 shadow-[0_0_20px_2px_rgba(0,255,255,0.5)] mb-12 neon-scanline"></div>
 
-  <div class="max-w-6xl mx-auto px-6 text-center space-y-10">
+  <div class="max-w-6xl mx-auto px-6 text-center space-y-10 relative z-10">
+    <!-- Title -->
+    <h2 class="text-4xl font-extrabold text-cyan-400">We Sweep the Grid.</h2>
 
-    <!-- Headline -->
-    <br>
-    <h2 class="text-3xl sm:text-4xl font-extrabold text-cyan-400"><br>We Sweep the Grid.</h2>
+    <!-- Grid Container -->
+    <div class="relative z-10">
+      <svg class="absolute inset-0 w-full h-full pointer-events-none z-0" id="connector-lines"></svg>
 
-    <!-- 4x4 Grid of Glowing Vendor Rings -->
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 pt-10">
-      <!-- Repeat for all 16 vendors -->
-      <div class="flex justify-center items-center">
-        <div class="outer-glow-ring">
-          <div class="inner-white-circle">
-            <img src="vendors1.png" alt="Vendor 1" class="rounded-full" />
-          </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10 pt-10 relative z-10" id="vendor-grid">
+        <!-- Loop 1–16 -->
+        <div id="vendor-1" class="flex justify-center items-center">
+          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors1.png" alt="Vendor 1" class="rounded-full" /></div></div>
         </div>
-      </div>
-
-      <div class="flex justify-center items-center">
-        <div class="outer-glow-ring">
-          <div class="inner-white-circle">
-            <img src="vendors2.png" alt="Vendor 2" class="rounded-full" />
-          </div>
+        <div id="vendor-2" class="flex justify-center items-center">
+          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors2.png" alt="Vendor 2" class="rounded-full" /></div></div>
         </div>
-      </div>
-
-      <div class="flex justify-center items-center">
-        <div class="outer-glow-ring">
-          <div class="inner-white-circle">
-            <img src="vendors3.png" alt="Vendor 3" class="rounded-full" />
-          </div>
+        <div id="vendor-3" class="flex justify-center items-center">
+          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors3.png" alt="Vendor 3" class="rounded-full" /></div></div>
         </div>
-      </div>
-
-      <div class="flex justify-center items-center">
-        <div class="outer-glow-ring">
-          <div class="inner-white-circle">
-            <img src="vendors4.png" alt="Vendor 4" class="rounded-full" />
-          </div>
+        <div id="vendor-4" class="flex justify-center items-center">
+          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors4.png" alt="Vendor 4" class="rounded-full" /></div></div>
         </div>
-      </div>
-
-      <div class="flex justify-center items-center">
-        <div class="outer-glow-ring">
-          <div class="inner-white-circle">
-            <img src="vendors5.png" alt="Vendor 5" class="rounded-full" />
-          </div>
+        <div id="vendor-5" class="flex justify-center items-center">
+          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors5.png" alt="Vendor 5" class="rounded-full" /></div></div>
         </div>
-      </div>
-
-      <div class="flex justify-center items-center">
-        <div class="outer-glow-ring">
-          <div class="inner-white-circle">
-            <img src="vendors6.png" alt="Vendor 6" class="rounded-full" />
-          </div>
+        <div id="vendor-6" class="flex justify-center items-center">
+          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors6.png" alt="Vendor 6" class="rounded-full" /></div></div>
         </div>
-      </div>
-
-      <div class="flex justify-center items-center">
-        <div class="outer-glow-ring">
-          <div class="inner-white-circle">
-            <img src="vendors7.png" alt="Vendor 7" class="rounded-full" />
-          </div>
+        <div id="vendor-7" class="flex justify-center items-center">
+          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors7.png" alt="Vendor 7" class="rounded-full" /></div></div>
         </div>
-      </div>
-
-      <div class="flex justify-center items-center">
-        <div class="outer-glow-ring">
-          <div class="inner-white-circle">
-            <img src="vendors8.png" alt="Vendor 8" class="rounded-full" />
-          </div>
+        <div id="vendor-8" class="flex justify-center items-center">
+          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors8.png" alt="Vendor 8" class="rounded-full" /></div></div>
         </div>
-      </div>
-
-      <div class="flex justify-center items-center">
-        <div class="outer-glow-ring">
-          <div class="inner-white-circle">
-            <img src="vendors9.png" alt="Vendor 9" class="rounded-full" />
-          </div>
+        <div id="vendor-9" class="flex justify-center items-center">
+          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors9.png" alt="Vendor 9" class="rounded-full" /></div></div>
         </div>
-      </div>
-
-      <div class="flex justify-center items-center">
-        <div class="outer-glow-ring">
-          <div class="inner-white-circle">
-            <img src="vendors10.png" alt="Vendor 10" class="rounded-full" />
-          </div>
+        <div id="vendor-10" class="flex justify-center items-center">
+          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors10.png" alt="Vendor 10" class="rounded-full" /></div></div>
         </div>
-      </div>
-
-      <div class="flex justify-center items-center">
-        <div class="outer-glow-ring">
-          <div class="inner-white-circle">
-            <img src="vendors11.png" alt="Vendor 11" class="rounded-full" />
-          </div>
+        <div id="vendor-11" class="flex justify-center items-center">
+          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors11.png" alt="Vendor 11" class="rounded-full" /></div></div>
         </div>
-      </div>
-
-      <div class="flex justify-center items-center">
-        <div class="outer-glow-ring">
-          <div class="inner-white-circle">
-            <img src="vendors12.png" alt="Vendor 12" class="rounded-full" />
-          </div>
+        <div id="vendor-12" class="flex justify-center items-center">
+          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors12.png" alt="Vendor 12" class="rounded-full" /></div></div>
         </div>
-      </div>
-
-      <div class="flex justify-center items-center">
-        <div class="outer-glow-ring">
-          <div class="inner-white-circle">
-            <img src="vendors13.png" alt="Vendor 13" class="rounded-full" />
-          </div>
+        <div id="vendor-13" class="flex justify-center items-center">
+          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors13.png" alt="Vendor 13" class="rounded-full" /></div></div>
         </div>
-      </div>
-
-      <div class="flex justify-center items-center">
-        <div class="outer-glow-ring">
-          <div class="inner-white-circle">
-            <img src="vendors14.png" alt="Vendor 14" class="rounded-full" />
-          </div>
+        <div id="vendor-14" class="flex justify-center items-center">
+          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors14.png" alt="Vendor 14" class="rounded-full" /></div></div>
         </div>
-      </div>
-
-      <div class="flex justify-center items-center">
-        <div class="outer-glow-ring">
-          <div class="inner-white-circle">
-            <img src="vendors15.png" alt="Vendor 15" class="rounded-full" />
-          </div>
+        <div id="vendor-15" class="flex justify-center items-center">
+          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors15.png" alt="Vendor 15" class="rounded-full" /></div></div>
         </div>
-      </div>
-
-      <div class="flex justify-center items-center">
-        <div class="outer-glow-ring">
-          <div class="inner-white-circle">
-            <img src="vendors16.png" alt="Vendor 16" class="rounded-full" />
-          </div>
+        <div id="vendor-16" class="flex justify-center items-center">
+          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors16.png" alt="Vendor 16" class="rounded-full" /></div></div>
         </div>
       </div>
     </div>
-
-    <!-- Trust Footer -->
   </div>
 </section>
+
+
 
 
 
@@ -1780,13 +1759,43 @@ Just classified recon — delivered straight to command.`,
 </script>
 
 
-  <style>
-.terminal-cursor {
-  opacity: 0;
-  transition: opacity 0.3s ease-in;
-}
-</style>
 
+<script>
+function connectVendors() {
+  const grid = document.getElementById('vendor-grid');
+  const svg = document.getElementById('connector-lines');
+  svg.innerHTML = ''; // Clear old lines
+
+  const items = Array.from(grid.children);
+
+  items.forEach((itemA, i) => {
+    items.forEach((itemB, j) => {
+      if (j > i) {
+        const rectA = itemA.getBoundingClientRect();
+        const rectB = itemB.getBoundingClientRect();
+        const centerA = [rectA.left + rectA.width / 2, rectA.top + rectA.height / 2];
+        const centerB = [rectB.left + rectB.width / 2, rectB.top + rectB.height / 2];
+
+        const svgRect = svg.getBoundingClientRect();
+
+        const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        line.setAttribute("x1", centerA[0] - svgRect.left);
+        line.setAttribute("y1", centerA[1] - svgRect.top);
+        line.setAttribute("x2", centerB[0] - svgRect.left);
+        line.setAttribute("y2", centerB[1] - svgRect.top);
+        line.setAttribute("stroke", "#00ffff");
+        line.setAttribute("stroke-width", "1.5");
+        line.setAttribute("opacity", "0.15");
+        line.setAttribute("class", "glow-line");
+        svg.appendChild(line);
+      }
+    });
+  });
+}
+
+window.addEventListener('resize', connectVendors);
+window.addEventListener('DOMContentLoaded', () => setTimeout(connectVendors, 500));
+</script>
   
 
 </body>
