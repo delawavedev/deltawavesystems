@@ -464,6 +464,59 @@ html, body {
   0%, 100% { opacity: 0.15; }
   50% { opacity: 0.3; }
 }
+
+.outer-glow-ring {
+    animation: vendorPulse 3.6s ease-in-out infinite;
+    border-radius: 9999px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, rgba(0, 255, 255, 0.45), rgba(0, 255, 255, 0.05));
+    box-shadow: 0 0 25px rgba(0,255,255,0.3);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .outer-glow-ring:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 35px rgba(0,255,255,0.6);
+  }
+
+  .inner-white-circle {
+    width: 13rem; height: 13rem;
+    border-radius: 9999px;
+    border: 2px solid cyan;
+    background: rgba(0,0,0,0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: border 0.3s ease;
+  }
+
+  img.rounded-full {
+    width: 11.5rem;
+    height: 11.5rem;
+    object-fit: contain;
+    border-radius: 9999px;
+    transition: transform 0.3s ease;
+  }
+
+  img.rounded-full:hover {
+    transform: scale(1.06);
+  }
+
+  .glow-line {
+    opacity: 0.15;
+    stroke: #00ffff;
+    filter: drop-shadow(0 0 2px #00ffff);
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  @keyframes vendorPulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(0,255,255,0.3); }
+    50%      { box-shadow: 0 0 30px rgba(0,255,255,0.6); }
+  }
+
   
 </style>
 
@@ -657,79 +710,179 @@ html, body {
 </section>
 
 
-
-
 <section class="bg-[#0b0f13] pt-56 pb-44 text-white relative z-10 overflow-hidden" id="vendor-grid-section"
          data-aos="fade-up"
          data-aos-duration="1200"
          data-aos-easing="ease-out-cubic"
          data-aos-offset="200">
 
-  <!-- Glowing divider -->
+  <!-- Glowing Divider -->
   <div class="w-full h-[2px] bg-cyan-400 shadow-[0_0_20px_2px_rgba(0,255,255,0.5)] mb-12 neon-scanline"></div>
 
   <div class="max-w-6xl mx-auto px-6 text-center space-y-10 relative z-10">
-    <!-- Title -->
+    <!-- Section Title -->
     <h2 class="text-4xl font-extrabold text-cyan-400">We Sweep the Grid.</h2>
 
-    <!-- Grid Container -->
+    <!-- Connector Lines SVG -->
     <div class="relative z-10">
-      <svg class="absolute inset-0 w-full h-full pointer-events-none z-0" id="connector-lines"></svg>
+      <svg class="absolute inset-0 w-full h-full pointer-events-none z-0" id="connector-lines" aria-hidden="true"></svg>
 
+      <!-- Vendor Grid -->
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10 pt-10 relative z-10" id="vendor-grid">
-        <!-- Loop 1–16 -->
+        
+        <!-- Vendor 1 -->
         <div id="vendor-1" class="flex justify-center items-center">
-          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors1.png" alt="Vendor 1" class="rounded-full" /></div></div>
+          <div class="outer-glow-ring">
+            <div class="inner-white-circle">
+              <img src="vendors1.png" alt="Vendor 1" class="rounded-full" loading="lazy" />
+            </div>
+          </div>
         </div>
+
+        <!-- Vendor 2 -->
         <div id="vendor-2" class="flex justify-center items-center">
-          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors2.png" alt="Vendor 2" class="rounded-full" /></div></div>
+          <div class="outer-glow-ring">
+            <div class="inner-white-circle">
+              <img src="vendors2.png" alt="Vendor 2" class="rounded-full" loading="lazy" />
+            </div>
+          </div>
         </div>
+
+        <!-- Vendor 3 -->
         <div id="vendor-3" class="flex justify-center items-center">
-          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors3.png" alt="Vendor 3" class="rounded-full" /></div></div>
+          <div class="outer-glow-ring">
+            <div class="inner-white-circle">
+              <img src="vendors3.png" alt="Vendor 3" class="rounded-full" loading="lazy" />
+            </div>
+          </div>
         </div>
+
+        <!-- Vendor 4 -->
         <div id="vendor-4" class="flex justify-center items-center">
-          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors4.png" alt="Vendor 4" class="rounded-full" /></div></div>
+          <div class="outer-glow-ring">
+            <div class="inner-white-circle">
+              <img src="vendors4.png" alt="Vendor 4" class="rounded-full" loading="lazy" />
+            </div>
+          </div>
         </div>
+
+        <!-- Vendor 5 -->
         <div id="vendor-5" class="flex justify-center items-center">
-          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors5.png" alt="Vendor 5" class="rounded-full" /></div></div>
+          <div class="outer-glow-ring">
+            <div class="inner-white-circle">
+              <img src="vendors5.png" alt="Vendor 5" class="rounded-full" loading="lazy" />
+            </div>
+          </div>
         </div>
+
+        <!-- Vendor 6 -->
         <div id="vendor-6" class="flex justify-center items-center">
-          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors6.png" alt="Vendor 6" class="rounded-full" /></div></div>
+          <div class="outer-glow-ring">
+            <div class="inner-white-circle">
+              <img src="vendors6.png" alt="Vendor 6" class="rounded-full" loading="lazy" />
+            </div>
+          </div>
         </div>
+
+        <!-- Vendor 7 -->
         <div id="vendor-7" class="flex justify-center items-center">
-          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors7.png" alt="Vendor 7" class="rounded-full" /></div></div>
+          <div class="outer-glow-ring">
+            <div class="inner-white-circle">
+              <img src="vendors7.png" alt="Vendor 7" class="rounded-full" loading="lazy" />
+            </div>
+          </div>
         </div>
+
+        <!-- Vendor 8 -->
         <div id="vendor-8" class="flex justify-center items-center">
-          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors8.png" alt="Vendor 8" class="rounded-full" /></div></div>
+          <div class="outer-glow-ring">
+            <div class="inner-white-circle">
+              <img src="vendors8.png" alt="Vendor 8" class="rounded-full" loading="lazy" />
+            </div>
+          </div>
         </div>
+
+        <!-- Vendor 9 -->
         <div id="vendor-9" class="flex justify-center items-center">
-          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors9.png" alt="Vendor 9" class="rounded-full" /></div></div>
+          <div class="outer-glow-ring">
+            <div class="inner-white-circle">
+              <img src="vendors9.png" alt="Vendor 9" class="rounded-full" loading="lazy" />
+            </div>
+          </div>
         </div>
+
+        <!-- Vendor 10 -->
         <div id="vendor-10" class="flex justify-center items-center">
-          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors10.png" alt="Vendor 10" class="rounded-full" /></div></div>
+          <div class="outer-glow-ring">
+            <div class="inner-white-circle">
+              <img src="vendors10.png" alt="Vendor 10" class="rounded-full" loading="lazy" />
+            </div>
+          </div>
         </div>
+
+        <!-- Vendor 11 -->
         <div id="vendor-11" class="flex justify-center items-center">
-          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors11.png" alt="Vendor 11" class="rounded-full" /></div></div>
+          <div class="outer-glow-ring">
+            <div class="inner-white-circle">
+              <img src="vendors11.png" alt="Vendor 11" class="rounded-full" loading="lazy" />
+            </div>
+          </div>
         </div>
+
+        <!-- Vendor 12 -->
         <div id="vendor-12" class="flex justify-center items-center">
-          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors12.png" alt="Vendor 12" class="rounded-full" /></div></div>
+          <div class="outer-glow-ring">
+            <div class="inner-white-circle">
+              <img src="vendors12.png" alt="Vendor 12" class="rounded-full" loading="lazy" />
+            </div>
+          </div>
         </div>
+
+        <!-- Vendor 13 -->
         <div id="vendor-13" class="flex justify-center items-center">
-          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors13.png" alt="Vendor 13" class="rounded-full" /></div></div>
+          <div class="outer-glow-ring">
+            <div class="inner-white-circle">
+              <img src="vendors13.png" alt="Vendor 13" class="rounded-full" loading="lazy" />
+            </div>
+          </div>
         </div>
+
+        <!-- Vendor 14 -->
         <div id="vendor-14" class="flex justify-center items-center">
-          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors14.png" alt="Vendor 14" class="rounded-full" /></div></div>
+          <div class="outer-glow-ring">
+            <div class="inner-white-circle">
+              <img src="vendors14.png" alt="Vendor 14" class="rounded-full" loading="lazy" />
+            </div>
+          </div>
         </div>
+
+        <!-- Vendor 15 -->
         <div id="vendor-15" class="flex justify-center items-center">
-          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors15.png" alt="Vendor 15" class="rounded-full" /></div></div>
+          <div class="outer-glow-ring">
+            <div class="inner-white-circle">
+              <img src="vendors15.png" alt="Vendor 15" class="rounded-full" loading="lazy" />
+            </div>
+          </div>
         </div>
+
+        <!-- Vendor 16 -->
         <div id="vendor-16" class="flex justify-center items-center">
-          <div class="outer-glow-ring"><div class="inner-white-circle"><img src="vendors16.png" alt="Vendor 16" class="rounded-full" /></div></div>
+          <div class="outer-glow-ring">
+            <div class="inner-white-circle">
+              <img src="vendors16.png" alt="Vendor 16" class="rounded-full" loading="lazy" />
+            </div>
+          </div>
         </div>
-      </div>
+
+      </div> <!-- End Grid -->
     </div>
   </div>
 </section>
+
+
+
+
+
 
 
 
