@@ -405,117 +405,12 @@ html, body {
     stroke: rgba(0, 255, 255, 0.85);
   }
 }
-  
-.outer-glow-ring {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background: radial-gradient(circle at center, #0ff 10%, #0ff2 60%, transparent 90%);
-  animation: pulse-glow 3s infinite ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.inner-white-circle {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background-color: #fff;
-  overflow: hidden;
-}
-.glow-line {
-  filter: drop-shadow(0 0 5px #0ff) drop-shadow(0 0 10px #0ff);
-  transition: all 0.3s ease-in-out;
-}
-
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.75; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.1); }
-}
 
   
   .terminal-cursor {
   opacity: 0;
   transition: opacity 0.3s ease-in;
 }
-
-.vendor-cell img {
-  width: 80px;   /* Try 80–96px range */
-  height: 80px;
-}
-
-.glow-line {
-  stroke: #00ffff;
-  stroke-width: 1.2;
-  opacity: 0.12;
-  vector-effect: non-scaling-stroke;
-  transition: opacity 0.3s ease-in-out, stroke-width 0.3s ease-in-out, filter 0.3s ease-in-out;
-  pointer-events: none; /* Prevents hover conflicts with vendor icons */
-}
-
-.glow-line:hover {
-  opacity: 0.35;
-  stroke-width: 2.2;
-  filter: drop-shadow(0 0 6px #00ffff);
-}
-
-
-@keyframes pulse-lines {
-  0%, 100% { opacity: 0.15; }
-  50% { opacity: 0.3; }
-}
-
-.outer-glow-ring {
-    animation: vendorPulse 3.6s ease-in-out infinite;
-    border-radius: 9999px;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: radial-gradient(circle at center, rgba(0, 255, 255, 0.45), rgba(0, 255, 255, 0.05));
-    box-shadow: 0 0 25px rgba(0,255,255,0.3);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-
-  .outer-glow-ring:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 35px rgba(0,255,255,0.6);
-  }
-
-  .inner-white-circle {
-    width: 13rem; height: 13rem;
-    border-radius: 9999px;
-    border: 2px solid cyan;
-    background: rgba(0,0,0,0.25);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: border 0.3s ease;
-  }
-
-  img.rounded-full {
-    width: 11.5rem;
-    height: 11.5rem;
-    object-fit: contain;
-    border-radius: 9999px;
-    transition: transform 0.3s ease;
-  }
-
-  img.rounded-full:hover {
-    transform: scale(1.06);
-  }
-
-  .glow-line {
-    opacity: 0.15;
-    stroke: #00ffff;
-    filter: drop-shadow(0 0 2px #00ffff);
-    transition: opacity 0.3s ease-in-out;
-  }
-
-  @keyframes vendorPulse {
-    0%, 100% { box-shadow: 0 0 20px rgba(0,255,255,0.3); }
-    50%      { box-shadow: 0 0 30px rgba(0,255,255,0.6); }
-  }
 
   /* Neon glow for headers and terminal text */
   .glow {
@@ -575,18 +470,37 @@ html, body {
     background: #00ffaa;
   }
 
-/* === Vendor Grid Container === */
+
+
+  .neon-scanline {
+  position: relative;
+}
+
+.neon-scanline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -0.5rem;
+  height: 1rem;
+  background: radial-gradient(circle, rgba(0,255,255,0.3) 0%, transparent 80%);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+
+/* === Vendor Grid Wrapper === */
 #vendor-connector-wrapper {
   position: relative;
   width: 100%;
   overflow: hidden;
   padding-top: 3rem;
   padding-bottom: 3rem;
-  background: #0a0a0a; /* Adjust if needed */
+  background: #0a0a0a;
   z-index: 1;
 }
 
-/* === SVG Lines Behind Logos === */
+/* === Connector SVG Behind Logos === */
 #connector-lines {
   position: absolute;
   top: 0;
@@ -595,7 +509,7 @@ html, body {
   pointer-events: none;
 }
 
-/* === Vendor Grid Layout === */
+/* === Vendor Grid Columns === */
 #vendor-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -614,55 +528,93 @@ html, body {
 
 /* === Outer Glowing Pulse Ring === */
 .outer-glow-ring {
-  animation: vendorPulse 3.6s ease-in-out infinite;
+  position: relative;
   border-radius: 9999px;
-  padding: 8px;
+  padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 255, 255, 0.12);
-  transition: transform 0.3s ease;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.25);
+  background: radial-gradient(circle at center, rgba(0, 255, 255, 0.4), rgba(0, 255, 255, 0.05));
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.25);
+  animation: vendorPulse 3.6s ease-in-out infinite;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .outer-glow-ring:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 35px rgba(0, 255, 255, 0.5);
+  transform: scale(1.08);
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.6);
 }
 
-/* === Inner White Circle === */
+/* === Optional Matrix Green Pulse Layer === */
+.outer-glow-ring::before {
+  content: "";
+  position: absolute;
+  width: 160%;
+  height: 160%;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(0, 255, 0, 0.08) 0%, transparent 80%);
+  animation: pulseMatrix 6s ease-in-out infinite;
+  z-index: -1;
+}
+
+/* === Inner Circle Container === */
 .inner-white-circle {
-  width: 11rem;
-  height: 11rem;
+  width: 13rem;
+  height: 13rem;
   border-radius: 9999px;
   border: 2px solid cyan;
+  background: rgba(0, 0, 0, 0.25);
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(0, 0, 0, 0.5);
+  transition: border 0.3s ease;
 }
 
 /* === Vendor Logos === */
 img.rounded-full {
-  width: 10rem;
-  height: 10rem;
+  width: 11.5rem;
+  height: 11.5rem;
   object-fit: contain;
   border-radius: 9999px;
   transition: transform 0.3s ease;
+  filter: drop-shadow(0 0 4px rgba(0, 255, 255, 0.2));
 }
 
 img.rounded-full:hover {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
-/* === Glowing Line Animation === */
+/* === Glow Line Styling === */
+.glow-line {
+  stroke: #00ffff;
+  stroke-width: 1.2;
+  opacity: 0.15;
+  vector-effect: non-scaling-stroke;
+  transition: opacity 0.3s ease-in-out, stroke-width 0.3s ease-in-out, filter 0.3s ease-in-out;
+  pointer-events: none;
+  filter: drop-shadow(0 0 2px #00ffff);
+}
+
+.glow-line:hover {
+  opacity: 0.35;
+  stroke-width: 2.2;
+  filter: drop-shadow(0 0 6px #00ffff);
+}
+
+/* === Animations === */
 @keyframes vendorPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(0,255,255,0.3); }
+  50%      { box-shadow: 0 0 30px rgba(0,255,255,0.6); }
+}
+
+@keyframes pulseMatrix {
   0%, 100% {
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    transform: scale(1);
+    opacity: 0.08;
   }
   50% {
-    box-shadow: 0 0 25px rgba(0, 255, 255, 0.7);
+    transform: scale(1.2);
+    opacity: 0.18;
   }
 }
 
@@ -672,6 +624,33 @@ img.rounded-full:hover {
 }
 .animate-fadeIn {
   animation: fadeIn 1.4s ease-out forwards;
+}
+
+
+/* Scoped scanline background only for ALPHA terminal */
+#alpha-terminal-section .alpha-scanlines::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 255, 0, 0.07),
+    rgba(0, 255, 0, 0.07) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Blinking Cursor */
+.alpha-blinking-cursor {
+  animation: alpha-blink 1.1s steps(1) infinite;
+}
+
+@keyframes alpha-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
   
@@ -808,71 +787,13 @@ img.rounded-full:hover {
 </div>
 
 
-<!-- Terminal Section -->
-<section id="why-terminal" class="relative bg-black px-6 pt-[60rem] pb-[60rem] font-mono text-green-300 z-10 overflow-hidden">
-
-  <!-- Centered and Scaled Radar HUD Video (Fixed) -->
-  <div class="absolute inset-0 flex items-center justify-center z-0 pointer-events-none">
-    <video
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="auto"
-      class="w-[140px] h-[140px] sm:w-[180px] sm:h-[180px] md:w-[240px] md:h-[240px] lg:w-[320px] lg:h-[320px] xl:w-[360px] xl:h-[360px] object-contain object-center opacity-[0.15] brightness-[1.15] contrast-[1.2]">
-      <source src="hud-radar-loop.mp4" type="video/mp4" />
-    </video>
-  </div>
-
-  <!-- GRID OVERLAY (Scanlines) -->
-  <div class="absolute inset-0 z-0 pointer-events-none bg-[url('/images/hud-grid-overlay.png')] opacity-10 mix-blend-soft-light"></div>
-
-<div class="relative z-10 max-w-2xl mx-auto text-center mb-16 px-4" data-aos="zoom-in-up" data-aos-delay="250">
-  <div class="inline-block border border-cyan-400 bg-[#0b0f13]/90 px-6 py-4 rounded-lg shadow-2xl scanlines text-2xl sm:text-3xl md:text-4xl font-bold text-cyan-300 tracking-wider uppercase animate-pulse-slow break-words overflow-hidden max-w-full">
-    // DELTA_WAVE_ACCESS_TERMINAL 🔐
-  </div>
-</div>
 
 
-  <!-- Terminal Grid -->
-  <div class="relative z-20 grid grid-cols-1 md:grid-cols-2 gap-16 max-w-7xl mx-auto" data-aos="fade-up" data-aos-delay="400">
-
-    <!-- LEFT: Office Terminal -->
-    <div class="bg-[#0b0f13]/85 backdrop-blur-md border-2 border-red-600 rounded-xl shadow-red-500/40 shadow-xl px-10 py-12 scanlines hover:shadow-red-400 transition duration-300 ease-in-out">
-      <h3 class="text-red-400 font-bold text-4xl md:text-5xl mb-8 tracking-wide uppercase text-center">[ YOUR OFFICE ]</h3>
-      <div class="space-y-6 text-[1.9rem] md:text-[2.3rem] font-semibold leading-snug text-left mx-auto w-fit">
-        <div><span class="text-cyan-300">&gt;</span> <span id="typed-office-1" class="terminal-orange"></span></div>
-        <div><span class="text-cyan-300">&gt;</span> <span id="typed-office-2" class="terminal-cyan"></span></div>
-        <div><span class="text-cyan-300">&gt;</span> <span id="typed-office-3" class="terminal-red"></span></div>
-        <div><span class="text-cyan-300">&gt;</span> <span id="typed-office-4" class="terminal-red"></span></div>
-        <div><span class="text-cyan-300">&gt;</span> <span id="typed-office-5" class="terminal-green"></span></div>
-        <div><span class="text-cyan-300">&gt;</span> <span id="typed-office-6" class="terminal-orange"></span></div>
-      </div>
-    </div>
-
-    <!-- RIGHT: Delta Wave Terminal -->
-    <div class="bg-[#0b0f13]/85 backdrop-blur-md border-2 border-green-400 rounded-xl shadow-green-500/40 shadow-xl px-10 py-12 scanlines hover:shadow-green-300 transition duration-300 ease-in-out">
-      <h3 class="text-green-300 font-bold text-4xl md:text-5xl mb-8 tracking-wide uppercase text-center">[ DELTA WAVE ]</h3>
-      <div class="space-y-6 text-[1.9rem] md:text-[2.3rem] font-semibold leading-snug text-left mx-auto w-fit">
-        <div><span class="text-cyan-300">&gt;</span> <span id="typed-delta-1" class="terminal-green"></span></div>
-        <div><span class="text-cyan-300">&gt;</span> <span id="typed-delta-2" class="terminal-cyan"></span></div>
-        <div><span class="text-cyan-300">&gt;</span> <span id="typed-delta-3" class="terminal-orange"></span></div>
-        <div><span class="text-cyan-300">&gt;</span> <span id="typed-delta-4" class="terminal-cyan"></span></div>
-        <div><span class="text-cyan-300">&gt;</span> <span id="typed-delta-5" class="terminal-green"></span></div>
-        <div><span class="text-cyan-300">&gt;</span> <span id="typed-delta-6" class="terminal-cyan"></span></div>
-      </div>
-    </div>
-
-  </div>
+<section aria-hidden="true" class="transition-spacer bg-black z-10 relative">
+  <div class="h-[12rem] opacity-60 w-full"></div>
+  <div class="w-full h-[2px] bg-cyan-400 shadow-[0_0_20px_2px_rgba(0,255,255,0.5)] mb-12 neon-scanline"></div>
+  <div class="h-[150px] w-full bg-gradient-to-b from-transparent via-[#0b0f13]/60 to-[#0b0f13]"></div>
 </section>
-
-<section class="w-full h-[12rem] bg-black opacity-60 z-10 relative">
-  <!-- Visual buffer zone before vendor grid -->
-</section>
-
-  
-<!-- Section Divider Fade -->
-<div class="h-[150px] w-full bg-gradient-to-b from-transparent via-[#0b0f13]/60 to-[#0b0f13]"></div>
 
 
 <section
@@ -1062,12 +983,6 @@ img.rounded-full:hover {
   </div>
 </section>
 
-
-
-
-
-
-
  
 <!-- ============  ALPHA – BID RECON SECTION  ============ -->
 <!-- AOS Animate on Scroll CSS -->
@@ -1121,13 +1036,13 @@ img.rounded-full:hover {
 
 <section id="alpha-terminal-section" class="relative bg-black py-24 px-6 overflow-hidden scroll-mt-32">
   <!-- Terminal Container -->
-  <div class="relative max-w-4xl mx-auto px-6 py-8 text-green-400 text-lg md:text-xl leading-loose font-mono z-10 rounded-lg border border-green-500 shadow-2xl bg-[#0b0f13]/90 backdrop-blur-sm scanlines">
-    
-    <!-- Glow Border Ring -->
+  <div class="relative max-w-4xl mx-auto px-6 py-8 text-lg md:text-xl font-mono z-10 rounded-lg border border-green-500 shadow-2xl bg-[#0b0f13]/90 backdrop-blur-sm alpha-scanlines">
+
+    <!-- Glow Ring -->
     <div class="absolute -inset-1 rounded-lg border border-green-400 opacity-30 blur-md pointer-events-none animate-pulse"></div>
 
     <!-- Terminal Output -->
-    <div id="alpha-terminal-text" class="relative z-20 space-y-1 text-[1.15rem] leading-relaxed">
+    <div id="alpha-terminal-text" class="relative z-20 space-y-1 text-[1.15rem] leading-relaxed text-green-400">
       <p>&gt; <span class="typed-line" data-text="delta_wave@terminal:~$ ./alpha_recon --ts=$(date +%s) --extract --uplink... 🧑‍💻"></span></p>
       <p>&gt; <span class="typed-line" data-text="Initializing Delta_Wave.ALPH4_R3c0n... 🌐"></span></p>
       <p>&gt; <span class="typed-line" data-text="Connection established... 📡"></span></p>
@@ -1140,7 +1055,7 @@ img.rounded-full:hover {
       <p>&gt; <span class="typed-line" data-text="We also help identify who else might be bidding,"></span></p>
       <p>&gt; <span class="typed-line" data-text="giving your office field-level intel to gain a tactical edge."></span></p>
       <p>&gt; <span class="typed-line" data-text="No dashboards. No digging. Just classified recon — delivered to command."></span></p>
-      <p><span class="text-green-400 font-bold">&gt; <span class="blinking-cursor">█</span></span></p>
+      <p><span class="alpha-blinking-cursor">█</span></p>
     </div>
 
     <!-- Input -->
@@ -1168,6 +1083,10 @@ img.rounded-full:hover {
   <div class="hidden lg:block absolute right-12 top-1/2 -translate-y-1/2 w-[300px] h-[300px] z-0">
     <img src="/hud-graphic.png" alt="Recon HUD" class="w-full h-full object-contain opacity-60 pointer-events-none animate-pulse-slow" />
   </div>
+
+  <noscript>
+    <div class="text-red-500 text-center font-mono mt-6">JavaScript is required to run this terminal.</div>
+  </noscript>
 </section>
 
 
