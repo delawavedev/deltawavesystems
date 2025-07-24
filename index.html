@@ -866,13 +866,18 @@ img.rounded-full:hover {
   </div>
 </section>
 
+<section class="w-full h-[12rem] bg-black opacity-60 z-10 relative">
+  <!-- Visual buffer zone before vendor grid -->
+</section>
+
+  
 <!-- Section Divider Fade -->
 <div class="h-[150px] w-full bg-gradient-to-b from-transparent via-[#0b0f13]/60 to-[#0b0f13]"></div>
 
 
 <section
   id="vendor-grid-section"
-  class="relative bg-[#0b0f13] pt-[30rem] pb-44 text-white overflow-hidden opacity-0 animate-fadeIn"
+  class="relative bg-[#0b0f13] pt-[38rem] pb-[18rem] text-white overflow-hidden opacity-0 animate-fadeIn"
   data-aos="fade-up"
   data-aos-duration="1200"
   data-aos-easing="ease-out-cubic"
@@ -884,11 +889,18 @@ img.rounded-full:hover {
   <div class="max-w-7xl mx-auto px-6 text-center space-y-10">
     <!-- Section Title -->
     <h2 class="text-4xl md:text-5xl font-extrabold text-cyan-400 tracking-tight">
-      We Sweep the Bid Matrix 
+      We Sweep the Bid Matrix
     </h2>
 
     <!-- Connector Wrapper -->
     <div id="vendor-connector-wrapper" class="relative w-full">
+
+      <!-- ✨ Gradient Overlay for Atmospheric Depth -->
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#0b0f13]/60 to-black z-[1] pointer-events-none"></div>
+
+      <!-- ✨ Optional Scanline Background Layer -->
+      <div class="absolute inset-0 bg-[url('/img/scanlines.svg')] opacity-[0.05] mix-blend-screen pointer-events-none z-[1]"></div>
+
       <!-- SVG Connector Lines -->
       <svg
         id="connector-lines"
@@ -901,7 +913,7 @@ img.rounded-full:hover {
         id="vendor-grid"
         class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10 pt-10 relative z-10"
       >
-       
+
         <!-- Vendor 1 - PlanetBids -->
 <div id="vendor-1" class="flex justify-center items-center">
   <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
