@@ -438,6 +438,23 @@ html, body {
   opacity: 0;
   transition: opacity 0.3s ease-in;
 }
+
+.vendor-cell img {
+  width: 80px;   /* Try 80–96px range */
+  height: 80px;
+}
+
+.glow-line {
+  opacity: 0.2;
+  stroke: #00ffff;
+  filter: drop-shadow(0 0 3px #00ffff);
+  transition: opacity 0.3s ease-in-out;
+}
+
+@keyframes pulse-lines {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.3; }
+}
   
 </style>
 
@@ -1759,7 +1776,6 @@ Just classified recon — delivered straight to command.`,
 </script>
 
 
-
 <script>
 function connectVendors() {
   const grid = document.getElementById('vendor-grid');
@@ -1797,6 +1813,7 @@ window.addEventListener('resize', connectVendors);
 window.addEventListener('DOMContentLoaded', () => setTimeout(connectVendors, 500));
 </script>
   
+
 
 </body>
 </html>
