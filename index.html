@@ -695,6 +695,7 @@ img.rounded-full:hover {
   animation: flicker 1.6s infinite;
 }
 
+
 .terminal-box {
   background-color: rgba(0, 0, 0, 0.6);
   border-width: 2px;
@@ -712,6 +713,30 @@ img.rounded-full:hover {
 .terminal-cyan { color: #22d3ee; }   /* Tailwind cyan-400 */
 .terminal-white { color: #f1f5f9; }  /* Tailwind slate-100 */
 
+.neon-scanline-title {
+  color: #00ffff;
+  text-shadow:
+    0 0 4px #00ffff,
+    0 0 8px #00ffff,
+    0 0 16px rgba(0, 255, 255, 0.4);
+  position: relative;
+}
+
+.neon-scanline-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #00ffff, transparent);
+  box-shadow: 0 0 12px #00ffff;
+  opacity: 0.6;
+}
+
+
+  
 /* Stronger neon green + glow */
 #beta-terminal .glow,
 #beta-typed {
@@ -760,6 +785,16 @@ img.rounded-full:hover {
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
+}
+
+
+.glow-soft {
+  text-shadow: 0 0 4px #22d3ee, 0 0 8px #22d3ee;
+}
+
+::placeholder {
+  color: #94a3b8; /* Tailwind slate-400 */
+  opacity: 0.5;
 }
 
   
@@ -1454,67 +1489,66 @@ img.rounded-full:hover {
 
 
 
-<!-- UPGRADED PRICING SECTION -->
-<section id="pricing" class="bg-black py-24 px-6 text-white relative overflow-hidden">
-  <!-- Scanline Overlay -->
-  <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.05] mix-blend-screen bg-[url('/static/img/scanlines.png')] bg-cover"></div>
+<section id="pricing" class="bg-black py-28 px-6 text-white font-sans relative overflow-hidden">
+  <!-- Subtle Scanline Overlay -->
+  <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.06] mix-blend-soft-light bg-[url('/static/img/scanlines.png')] bg-cover"></div>
 
   <div class="relative z-10 max-w-7xl mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
 
       <!-- FOUNDING TIER -->
-      <div class="pulse-card bg-[#0e1118] border border-green-400 rounded-2xl px-10 py-12 shadow-xl flex flex-col items-center text-center space-y-6 transition-all hover:scale-[1.02] hover:shadow-cyan-500/40 hover:border-cyan-400 duration-200">
-        <h5 class="text-2xl font-bold text-green-300 glow">
-          Founder's Tier <span class="text-sm text-gray-400 font-normal">(Alpha + Beta)</span>
+      <div class="bg-[#0e1118] border border-green-500 rounded-2xl px-8 py-12 shadow-lg flex flex-col items-center text-center space-y-6 transition-all hover:scale-[1.01] hover:border-cyan-400 hover:shadow-cyan-400/20 duration-200">
+        <h5 class="text-2xl font-semibold text-green-400 tracking-tight">
+          Founder’s Tier <span class="text-sm text-slate-400 font-normal">(Alpha + Beta)</span>
         </h5>
-        <div class="relative">
-          <div class="text-5xl font-extrabold text-white animate-flicker">$500</div>
-          <div class="text-sm text-red-400 mt-1 font-semibold animate-pulse">🔥 Only 6 Spots Left</div>
+        <div>
+          <div class="text-5xl font-extrabold text-white">$500</div>
+          <div class="text-sm text-red-400 mt-1 font-medium">🔥 Only 6 Spots Left</div>
         </div>
-        <div class="text-base text-gray-400 font-medium">/ month (Lifetime)</div>
-        <ul class="space-y-2 text-base text-gray-300 mt-2">
+        <div class="text-sm text-slate-400 font-normal">/ month (Lifetime)</div>
+        <ul class="space-y-2 text-base text-slate-300 mt-2">
           <li>✓ Alpha Bid Recon Access (M/W/F)</li>
           <li>✓ Beta Invoice Audit Reports</li>
           <li>✓ Field-intel & Cost Leak Detection</li>
           <li>✓ Human + AI Hybrid Oversight</li>
         </ul>
-        <a href="#contact" class="mt-6 w-full bg-green-400 hover:bg-green-300 text-black font-bold py-3 rounded-xl transition glow">
-          Lock Founder's Tier
+        <a href="#contact" class="mt-6 w-full bg-green-400 hover:bg-green-300 text-black font-bold py-3 rounded-xl transition duration-150 ring-2 ring-green-300/60 hover:ring-green-200">
+          Lock Founder’s Tier
         </a>
       </div>
 
-      <!-- STANDARD FUTURE TIER -->
-      <div class="pulse-card bg-[#11151d] border border-cyan-400 rounded-2xl px-10 py-12 shadow-xl flex flex-col items-center text-center space-y-6 transition-all">
-        <h5 class="text-2xl font-bold text-cyan-300 glow">
-          Alpha + Beta <span class="text-sm text-gray-400 font-normal">(Post-Launch)</span>
+      <!-- ALPHA + BETA POST-LAUNCH -->
+      <div class="bg-[#10141c] border border-cyan-400 rounded-2xl px-8 py-12 shadow-lg flex flex-col items-center text-center space-y-6 transition-all hover:scale-[1.01] hover:border-white/40 hover:shadow-cyan-300/20 duration-200">
+        <h5 class="text-2xl font-semibold text-cyan-300 tracking-tight">
+          Alpha + Beta <span class="text-sm text-slate-400 font-normal">(Post-Launch)</span>
         </h5>
         <div class="text-5xl font-extrabold text-white">$800</div>
-        <div class="text-base text-gray-400 font-medium">/ month</div>
-        <ul class="space-y-2 text-base text-gray-300 mt-2">
-          <li>✓ All Founder's Features</li>
+        <div class="text-sm text-slate-400 font-normal">/ month</div>
+        <ul class="space-y-2 text-base text-slate-300 mt-2">
+          <li>✓ All Founder’s Features</li>
           <li>✓ Priority Agent Support</li>
           <li>✓ Enhanced Discrepancy Detection</li>
           <li>✓ Auto-tagged Audit History</li>
         </ul>
-        <a href="#contact" class="mt-6 w-full bg-cyan-400 hover:bg-cyan-300 text-black font-semibold py-3 rounded-xl transition glow">
+        <a href="#contact" class="mt-6 w-full bg-cyan-400 hover:bg-cyan-300 text-black font-semibold py-3 rounded-xl transition duration-150 ring-2 ring-cyan-300/60 hover:ring-cyan-200">
           Join After Launch
         </a>
       </div>
 
-      <!-- CUSTOM PLAN -->
-      <div class="pulse-card bg-[#11151d] border border-cyan-400 rounded-2xl px-10 py-12 shadow-xl flex flex-col items-center text-center space-y-6 transition-all">
-        <h5 class="text-2xl font-bold text-cyan-300 glow">
-          Custom Tier <span class="text-sm text-gray-400 font-normal">(By Inquiry)</span>
+      <!-- CUSTOM TIER -->
+      <div class="bg-[#10141c] border border-slate-500 rounded-2xl px-8 py-12 shadow-lg flex flex-col items-center text-center space-y-6 transition-all hover:scale-[1.01] hover:border-white/40 hover:shadow-white/20 duration-200">
+        <h5 class="text-2xl font-semibold text-white tracking-tight">
+          Custom Tier <span class="text-sm text-slate-400 font-normal">(By Inquiry)</span>
         </h5>
-        <div class="text-5xl font-extrabold text-white">TBD</div>
-        <div class="text-base text-gray-400 font-medium">/ custom</div>
-        <ul class="space-y-2 text-base text-gray-300 mt-2">
+        <div class="text-5xl font-extrabold text-slate-200">TBD</div>
+        <div class="text-sm text-slate-400 font-normal">/ custom</div>
+        <ul class="space-y-2 text-base text-slate-300 mt-2">
           <li>✓ Alpha + Beta + Theta + DELTA</li>
           <li>✓ AI-Assisted Blueprint Takeoffs</li>
           <li>✓ Custom Recon + Platform Build</li>
           <li>✓ Private Tool Testing & Early Access</li>
         </ul>
-        <a href="#contact" class="mt-6 w-full bg-cyan-400 hover:bg-cyan-300 text-black font-semibold py-3 rounded-xl transition glow">
+        <a href="#contact" class="mt-6 w-full bg-slate-200 hover:bg-white text-black font-semibold py-3 rounded-xl transition duration-150 ring-2 ring-white/30 hover:ring-white/60">
           Request Access
         </a>
       </div>
@@ -1525,12 +1559,12 @@ img.rounded-full:hover {
 
 
 
+
 <!-- SPACER BLOCK -->
 <section class="bg-[#0b0f13] h-20 sm:h-28 md:h-36"></section>
 
     <!-- SPACER BLOCK -->
 <section class="bg-[#0b0f13] h-20 sm:h-28 md:h-36"></section>
-
 
 
 
@@ -1597,6 +1631,7 @@ img.rounded-full:hover {
     </form>
   </div>
 </section>
+
 
 <!-- ▸▸ FINAL CTA ◂◂ -->
 <section id="contact" class="bg-primary/10 border-t border-primary py-16 px-6 text-center">
@@ -1994,6 +2029,9 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+<script>AOS.init();</script>
 
 
 </body>
