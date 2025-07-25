@@ -660,7 +660,18 @@ img.rounded-full:hover {
 .terminal-green  { color: #00FF99; }  /* Neon Green */
 .terminal-cyan   { color: #00FFFF; }  /* Cyan fallback */
 
-  
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  45% { opacity: 0.4; }
+  55% { opacity: 0.8; }
+  60% { opacity: 0.2; }
+}
+.animate-flicker {
+  animation: flicker 1.6s infinite;
+}
+
+
 </style>
 
 
@@ -1097,23 +1108,26 @@ img.rounded-full:hover {
 
 
 <section id="alpha-terminal-section" class="relative bg-black py-32 px-6 overflow-hidden scroll-mt-32">
-  <!-- HUD Background Video -->
-  <video
-    src="hud-radar-loop.mp4"
-    class="absolute top-0 left-0 w-full h-full object-cover opacity-[0.05] z-0 pointer-events-none mix-blend-screen"
-    autoplay
-    muted
-    loop
-    playsinline
-  ></video>
+  <!-- Smaller Centered HUD Video -->
+  <div class="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
+    <video
+      src="hud-radar-loop.mp4"
+      class="w-[400px] h-[400px] opacity-10 mix-blend-screen object-contain"
+      autoplay
+      muted
+      loop
+      playsinline
+    ></video>
+  </div>
 
   <!-- Terminal Container -->
   <div class="relative max-w-4xl mx-auto px-6 py-10 text-lg md:text-xl font-mono z-10 rounded-lg border border-green-500 shadow-2xl bg-[#0b0f13]/90 backdrop-blur-sm alpha-scanlines">
+    
     <!-- Glow Ring -->
     <div class="absolute -inset-1 rounded-lg border border-green-400 opacity-30 blur-md pointer-events-none animate-pulse"></div>
 
     <!-- Terminal Output -->
-    <div id="alpha-terminal-text" class="relative z-20 space-y-2 text-[1.1rem] leading-relaxed text-green-400">
+    <div id="alpha-terminal-text" class="relative z-20 space-y-3 text-[1.25rem] leading-relaxed text-green-400 font-medium">
       <p>&gt; <span class="typed-line" data-text="delta_wave@terminal:~$ ./alpha_recon --ts=$(date +%s) --extract --uplink... 🧑‍💻"></span></p>
       <p>&gt; <span class="typed-line" data-text="Initializing Delta_Wave.ALPH4_R3c0n... 🌐"></span></p>
       <p>&gt; <span class="typed-line" data-text='Connection established... 📡'></span></p>
@@ -1121,41 +1135,21 @@ img.rounded-full:hover {
       <p>&gt; <span class="typed-line" data-text='ID and extract real targets. Filtering noise. Deploying intel...'></span></p>
       <p>&gt; <span class="typed-line" data-text="──── <span class='text-yellow-300 font-bold'>ADDENDUM & COMPETITIVE INTEL UPLINK 🔍</span>"></span></p>
       <p>&gt; <span class="typed-line" data-text="Because our founder has sat in the estimator’s chair, we know what matters."></span></p>
-      <p>&gt; <span class="typed-line" data-text="<span class='text-orange-400'>ALPHA</span> includes daily addendum scans to detect critical <span class='text-red-400'>spec changes</span> —"></span></p>
+      <p>&gt; <span class="typed-line" data-text='<span class="text-orange-400 font-semibold">ALPHA</span> includes daily addendum scans to detect critical <span class="text-red-400 font-semibold">spec changes</span> —'></span></p>
       <p>&gt; <span class="typed-line" data-text="additions, removals, and agency updates — before they blindside your team."></span></p>
       <p>&gt; <span class="typed-line" data-text="We also identify who else might be bidding."></span></p>
-      <p>&gt; <span class="typed-line" data-text="Giving your office <span class='text-cyan-300 font-bold'>field-level tactical intel</span> with zero digging."></span></p>
+      <p>&gt; <span class="typed-line" data-text='Giving your office <span class="text-cyan-300 font-bold">field-level tactical intel</span> with zero digging.'></span></p>
       <p>&gt; <span class="typed-line" data-text="No dashboards. Just classified recon — delivered direct to command."></span></p>
       <p><span class="alpha-blinking-cursor">█</span></p>
     </div>
 
-    <!-- Terminal Input -->
-    <form id="alpha-terminal-form" class="mt-6">
-      <input
-        id="alpha-terminal-input"
-        type="text"
-        placeholder="type command..."
-        class="terminal-input w-full text-green-300 bg-black border border-green-500 rounded px-4 py-2 font-mono"
-        autocomplete="off"
-        style="box-shadow: 0 0 12px #00ff00;"
-      />
-    </form>
-
-    <!-- Response -->
-    <div id="alpha-terminal-response" class="mt-4 space-y-1 text-green-300 font-mono text-base"></div>
-
-    <!-- Hint -->
-    <div class="mt-6 pt-4 border-t border-green-700 text-sm md:text-base text-green-500 font-semibold tracking-wider">
-      Type <span class="text-cyan-300 font-bold">'bid'</span> and press <span class="text-cyan-300 font-bold">Enter</span> to receive a free recon sample.
-    </div>
-  </div>
+    
 
   <!-- JS Disabled Message -->
   <noscript>
     <div class="text-red-500 text-center font-mono mt-6">JavaScript is required to run this terminal.</div>
   </noscript>
 </section>
-
 
 
 <!-- AOS Animate on Scroll JS -->
@@ -1222,27 +1216,35 @@ img.rounded-full:hover {
 
 <!-- BETA AUDIT TERMINAL SECTION -->
 <section id="beta-terminal" class="relative z-10 py-24 px-4 bg-black bg-opacity-90 border-y border-green-500 overflow-hidden">
+
   <!-- HUD Scanline Overlay -->
-  <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.08] mix-blend-screen bg-[url('/static/img/scanlines.png')] bg-cover"></div>
+  <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.06] mix-blend-screen bg-[url('/static/img/scanlines.png')] bg-cover"></div>
 
   <!-- Terminal Container -->
   <div class="relative z-10 max-w-5xl mx-auto p-6 border border-cyan-400 bg-black/60 rounded-xl shadow-xl terminal-font text-green-300">
 
-    <h2 class="text-2xl md:text-3xl glow text-center mb-6 tracking-wide flex items-center justify-center gap-3">
+    <!-- Video Insert -->
+    <div class="absolute top-4 left-1/2 transform -translate-x-1/2 z-0 opacity-10 w-[220px] h-[220px] pointer-events-none mix-blend-screen">
+      <video src="hud-globe-loop.mp4" autoplay muted loop playsinline class="w-full h-full object-contain"></video>
+    </div>
+
+    <!-- Header -->
+    <h2 class="text-2xl md:text-3xl glow text-center mb-6 tracking-wide flex items-center justify-center gap-3 relative z-10">
       <img src="hudlogo.png" class="h-7 w-auto opacity-70" />
       DELTA WAVE SYSTEMS – AUDIT INTEL INTERFACE
     </h2>
 
-    <!-- Typed Terminal -->
-    <div id="beta-typed" class="text-sm md:text-base whitespace-pre-line leading-relaxed glow border border-cyan-500 rounded-md p-4 min-h-[320px] bg-black bg-opacity-30 scanlines"></div>
+    <!-- Typed Terminal Text -->
+    <div id="beta-typed" class="text-sm md:text-base whitespace-pre-line leading-relaxed glow border border-cyan-500 rounded-md p-4 min-h-[320px] bg-black bg-opacity-40 scanlines font-mono text-green-300"></div>
 
-    <!-- Verdict + Table -->
+    <!-- Verdict Output -->
     <div id="beta-verdict" class="hidden mt-8 space-y-4 text-sm md:text-base text-green-200">
       <div class="glow">
-        🧠 <strong>LLM Verdict:</strong> Secondary classifier triggered on 8+ items. Billing mismatch pattern detected. Overcharge risk = <span class="text-red-400 font-bold">HIGH</span>
+        🧠 <strong class="text-cyan-300">LLM Verdict:</strong>
+        Secondary classifier triggered on <span class="text-yellow-300 font-bold">8+ items</span>. Billing mismatch pattern detected. Overcharge risk = <span class="text-red-400 font-bold">HIGH</span>
       </div>
 
-      <table class="w-full text-left border border-cyan-500 text-white audit-table text-sm table-fixed">
+      <table class="w-full text-left border border-cyan-500 text-white audit-table text-sm table-fixed font-mono">
         <thead class="bg-black bg-opacity-30 text-cyan-300 border-b border-cyan-500">
           <tr>
             <th class="p-2">Line Item</th>
@@ -1251,17 +1253,17 @@ img.rounded-full:hover {
             <th class="p-2">Discrepancy</th>
           </tr>
         </thead>
-        <tbody class="font-mono">
+        <tbody>
           <tr class="border-b border-cyan-800">
             <td class="p-2">1" Hybrid Bermuda Sod</td>
-            <td class="p-2">$1.30 × 82,000 SF</td>
-            <td class="p-2">$1.36 × 30,800 SF</td>
+            <td class="p-2 text-green-300">$1.30 × 82,000 SF</td>
+            <td class="p-2 text-orange-300">$1.36 × 30,800 SF</td>
             <td class="p-2 text-red-400 font-semibold">+ $1,165.50</td>
           </tr>
           <tr class="border-b border-cyan-800">
             <td class="p-2">Line Items 1–15</td>
-            <td class="p-2 text-gray-400 italic">—</td>
-            <td class="p-2">$1.36 (×9)</td>
+            <td class="p-2 text-gray-500 italic">—</td>
+            <td class="p-2 text-yellow-300">$1.36 (×9)</td>
             <td class="p-2 text-yellow-300 font-bold">⚠ Not in Quote</td>
           </tr>
           <tr>
@@ -1273,105 +1275,70 @@ img.rounded-full:hover {
         </tbody>
       </table>
 
-      <div class="text-blue-300 mt-3">📞 Supplier: WEST COAST TURF – (888) 893-8873</div>
+      <div class="text-blue-300 mt-3">📞 Your Supplier: (888) 893-8873</div>
     </div>
   </div>
 </section>
-
 
   
-
-  <!-- ▸▸ THETA  ◂◂ -->
-<section class="py-24 flex justify-center" id="theta">
-  <div
-    data-aos="fade-up"
-    class="w-full max-w-3xl text-center bg-black text-white rounded-xl border border-cyan-400 shadow-lg pulse-card"
+<section id="delta-os-manifesto" class="relative bg-black text-white py-32 px-6 overflow-hidden">
+  <!-- Cinematic Background -->
+  <video
+    autoplay
+    loop
+    muted
+    playsinline
+    class="absolute inset-0 w-full h-full object-cover opacity-10 z-0 pointer-events-none"
   >
-    <div class="py-12 px-6">
-      
-      <!-- Title -->
-      <h2 class="text-4xl font-bold text-cyan-400 tracking-widest mb-2">T H E T A</h2>
-      <p class="text-sm tracking-widest text-gray-400 mb-6">ESTIMATING ASSISTANT</p>
+    <source src="delta_os_hud.mp4" type="video/mp4" />
+  </video>
 
-      <!-- Hook -->
-      <h3 class="card-hook mt-6 text-xl sm:text-2xl font-bold text-white">
-        Legends typed… in five seconds.
-      </h3>
-      <p class="card-body text-base text-gray-300 mt-2">
-        THETA reads blueprint legends, extracts quantities and drops a
-        paste-ready table into PlanSwift®&nbsp;or your estimating tool.
-        Grunt work → gone.
-      </p>
+  <!-- Foreground Content -->
+  <div class="relative z-10 max-w-5xl mx-auto text-center space-y-8">
+    <!-- Hook -->
+    <h2 class="text-3xl md:text-5xl font-bold text-cyan-400 tracking-wide">
+      We didn’t build this for investors.<br />
+      We built it for contractors.
+    </h2>
 
-      <!-- Features -->
-      <ul class="card-list mt-8 space-y-4 text-lg">
-        <li>📄 Auto-builds a clean legend</li>
-        <li>🧮 Counts symbols + quantities</li>
-        <li>🤖 Coming soon: full-sheet AI take-off</li>
-      </ul>
+    <!-- Mission -->
+    <p class="text-lg md:text-xl text-gray-300 leading-relaxed">
+      I grew up in the estimator’s chair. I’ve manually hunted bids, typed out takeoffs, and dissected invoices line-by-line —
+      not in theory, but in the real-world chaos of a contractor’s office.<br /><br />
 
-      <!-- Footnote -->
-      <p class="card-foot mt-8 text-sm text-gray-400">
-        <span class="text-primary font-semibold">* In private beta — ETA&nbsp;Q3</span>
-      </p>
+      Meanwhile, software companies showed up with glossy dashboards and VC-funded smiles, shifting your work into their system
+      — but never reducing it.<br /><br />
 
-      <!-- CTA -->
-      <a
-        href="#contact"
-        class="mt-6 inline-block bg-cyan-400 hover:bg-cyan-300 text-black font-semibold py-2 px-6 rounded-md transition"
-      >
-        Join the Wait-List
-      </a>
+      <span class="text-cyan-300 font-semibold">DELTA OS is different.</span><br />
+      It’s not another platform trying to “disrupt” construction. It’s a tactical system, built for how your office already works.
+    </p>
 
+    <!-- Differentiator Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 text-left text-sm md:text-base text-white">
+      <div class="bg-[#0b0f13]/80 border border-cyan-700 rounded-lg p-6 shadow-md backdrop-blur">
+        <h4 class="font-bold text-cyan-400 mb-2">Tailored to You</h4>
+        <p>We adapt to how your team operates — not the other way around. No new workflow. Just less friction.</p>
+      </div>
+      <div class="bg-[#0b0f13]/80 border border-cyan-700 rounded-lg p-6 shadow-md backdrop-blur">
+        <h4 class="font-bold text-cyan-400 mb-2">No Fluff. No Gimmicks.</h4>
+        <p>No feature bloat. No “per seat” upsells. Just practical systems solving real contractor problems.</p>
+      </div>
+      <div class="bg-[#0b0f13]/80 border border-cyan-700 rounded-lg p-6 shadow-md backdrop-blur">
+        <h4 class="font-bold text-cyan-400 mb-2">Built in the Trenches</h4>
+        <p>Every line of code was written from firsthand pain — not a product manager’s guess.</p>
+      </div>
     </div>
+
+    <!-- CTA -->
+    <a
+      href="#contact"
+      class="mt-10 inline-block bg-cyan-400 hover:bg-cyan-300 text-black font-semibold py-3 px-6 rounded-md transition shadow-md"
+    >
+      Request Access to Private Beta
+    </a>
   </div>
 </section>
 
-<!-- ▸▸ DELTA  ◂◂ -->
-<section class="py-24 flex justify-center" id="delta">
-  <div
-    data-aos="fade-up"
-    class="w-full max-w-3xl text-center bg-black text-white rounded-xl border border-cyan-400 shadow-lg pulse-card"
-  >
-    <div class="py-12 px-6">
-
-      <!-- Title -->
-      <h2 class="text-4xl font-bold text-cyan-400 tracking-widest mb-2">D E L T A</h2>
-      <p class="text-sm tracking-widest text-gray-400 mb-6">OPS AUDIT & CUSTOM BLUEPRINT</p>
-
-      <!-- Hook -->
-      <h3 class="card-hook mt-6 text-xl sm:text-2xl font-bold text-white">
-        Turn back-office drag into firepower.
-      </h3>
-      <p class="card-body text-base text-gray-300 mt-2">
-        One-on-one, special-forces style audit. We map every quote,
-        invoice, dispatch and field app you touch—then deploy targeted
-        automations that save hours and dollars every week.
-      </p>
-
-      <!-- Features -->
-      <ul class="card-list mt-8 space-y-4 text-lg">
-        <li>🗂️ Streamline repetitive tasks</li>
-        <li>🔍 Expose hidden process leaks</li>
-        <li>🛰️ Deploy stealth automations</li>
-      </ul>
-
-      <!-- Footnote -->
-      <p class="card-foot mt-8 text-sm text-gray-400">
-        <span class="text-primary font-semibold">* Limited availability — invitation only</span>
-      </p>
-
-      <!-- CTA -->
-      <a
-        href="#contact"
-        class="mt-6 inline-block bg-cyan-400 hover:bg-cyan-300 text-black font-semibold py-2 px-6 rounded-md transition"
-      >
-        Request an Ops Briefing
-      </a>
-
-    </div>
-  </div>
-</section>
 
 
 
@@ -1399,163 +1366,68 @@ img.rounded-full:hover {
 <section class="bg-[#0b0f13] h-20 sm:h-28 md:h-36"></section>
 
 
-    <!-- SPACER BLOCK -->
-<section class="bg-[#0b0f13] h-20 sm:h-28 md:h-36"></section>
 
-  <!-- ========================= -->
-<!--  SOCIAL PROOF / SLIDER TESTIMONIALS -->
-<!-- ========================= -->
-<section id="testimonials" class="bg-[#0b0f13] text-white pt-32 pb-36 px-6" data-aos="fade-up">
-  <div class="max-w-5xl mx-auto text-center mb-10">
-    <h2 class="text-3xl md:text-4xl font-bold text-cyan-400">// TESTIMONIAL BRIEFINGS</h2>
-  </div>
+<!-- UPGRADED PRICING SECTION -->
+<section id="pricing" class="bg-black py-24 px-6 text-white relative overflow-hidden">
+  <!-- Scanline Overlay -->
+  <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.05] mix-blend-screen bg-[url('/static/img/scanlines.png')] bg-cover"></div>
 
-  <div class="relative overflow-hidden">
-    <div id="testimonial-slider" class="flex transition-transform duration-700 ease-in-out" style="width: 600%; transform: translateX(0);" data-index="0">
-      
-      <!-- Slide 1 -->
-      <div class="w-full flex-shrink-0 px-4 md:px-8">
-        <div class="bg-[#11151d] border border-gray-700 rounded-xl p-8 shadow-md max-w-3xl mx-auto space-y-4">
-          <p class="text-gray-300 leading-relaxed">
-            “This company solved the unsolveable. I didn't even know that this was possible. Delta Wave said they can do it and I honestly believed they were full of it. Closed a 
-            <span class="font-semibold text-white">$420 K landscape job</span> after the second report. Wasn't sure if it was my ability to estimate and bid on projects that was holding back my business, or... something was off. Not sure what it was. Gave it a try and did what I do best and delegated the rest, as they say. Thank you Delta Wave operators.”
-          </p>
-          <p class="text-sm text-cyan-400 font-medium">Marco R. • 2-man landscape crew • Riverside</p>
-        </div>
-      </div>
+  <div class="relative z-10 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
 
-      <!-- Slide 2 -->
-      <div class="w-full flex-shrink-0 px-4 md:px-8">
-        <div class="bg-[#11151d] border border-gray-700 rounded-xl p-8 shadow-md max-w-3xl mx-auto space-y-4">
-          <p class="text-gray-300 leading-relaxed">
-            “We missed zero job-walks last quarter and sold 
-            <span class="font-semibold text-white">2 million</span> in new work. I hate technology and these sort of things usually have no clue how the business actually works. I don't have the stress anymore of knowing I won't have time to look for new bids every day... keeps my boss off my back and now expects me to always have the best bids. I guess it's a good problem to have. Thank you Kennedy and Delta Wave team.”
-          </p>
-          <p class="text-sm text-cyan-400 font-medium">Sarah K. • GC Estimator • Los Angeles</p>
-        </div>
-      </div>
-
-      <!-- Slide 3 -->
-      <div class="w-full flex-shrink-0 px-4 md:px-8">
-        <div class="bg-[#11151d] border border-gray-700 rounded-xl p-8 shadow-md max-w-3xl mx-auto space-y-4">
-          <p class="text-gray-300 leading-relaxed">
-            “Didn’t trust AI dashboards. I've been seeing it all over social media, AI this, AI that... I get flooded with BS advertisement nonsense all day. I was curious and being a veteran myself, I liked the military theme they had, brought me back a little. Gave it a shot and it did the portal clicking for me, probably keep my eyes working longer. 
-            <span class="font-semibold text-white">Awesome company.</span>”
-          </p>
-          <p class="text-sm text-cyan-400 font-medium">J. Wells • Electrical • Orange County</p>
-        </div>
-      </div>
-
-      <!-- Slide 4 -->
-      <div class="w-full flex-shrink-0 px-4 md:px-8">
-        <div class="bg-[#11151d] border border-gray-700 rounded-xl p-8 shadow-md max-w-3xl mx-auto space-y-4">
-          <p class="text-gray-300 leading-relaxed">
-            “They flagged 
-            <span class="font-semibold text-white">$6,480</span> in supplier over-charges with their BETA audit. Got it back as store credit. That's extra profit margin on our next job, we'll use the same supplier. That's our family vacation already saved for next year.”
-          </p>
-          <p class="text-sm text-cyan-400 font-medium">Caleb S. • HVAC • Ventura</p>
-        </div>
-      </div>
-
-      <!-- Slide 5 -->
-      <div class="w-full flex-shrink-0 px-4 md:px-8">
-        <div class="bg-[#11151d] border border-gray-700 rounded-xl p-8 shadow-md max-w-3xl mx-auto space-y-4">
-          <p class="text-gray-300 leading-relaxed">
-            “Went with the beginner or starter package and saved my estimator 
-            <span class="font-semibold text-white">12 hrs a week</span>. Upgraded to Pro the next month. My estimator can now actually focus on estimating and take-offs. Now I can focus on growing my crew.”
-          </p>
-          <p class="text-sm text-cyan-400 font-medium">Brian T. • Mid-size GC • Inland Empire</p>
-        </div>
-      </div>
-
-      <!-- Slide 6 -->
-      <div class="w-full flex-shrink-0 px-4 md:px-8">
-        <div class="bg-[#11151d] border border-gray-700 rounded-xl p-8 shadow-md max-w-3xl mx-auto space-y-4">
-          <p class="text-gray-300 leading-relaxed">
-            “I reached out Sunday night while watching TV. They sent me a report the next Morning. I honestly reached out to just confirm that this was a waste of time, but it was like they were the estimators in my office if they spent 3 days in a row 8 hours a day clicking every bid portal known to man. Later that day made some tweaks to look for exactly my scope and which districts and cities were on my no-fly list. And now we are steam rolling. Thank you. 
-            Feels like a <span class="font-semibold text-white">military operation or special forces team but for my business. Pretty cool.</span>”
-          </p>
-          <p class="text-sm text-cyan-400 font-medium">Luis P. • Concrete • San Diego</p>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Navigation Arrows -->
-    <div class="absolute inset-y-1/2 left-0 transform -translate-y-1/2 z-10">
-      <button onclick="moveSlide(-1)" class="text-cyan-400 hover:text-white text-3xl px-4">&#10094;</button>
-    </div>
-    <div class="absolute inset-y-1/2 right-0 transform -translate-y-1/2 z-10">
-      <button onclick="moveSlide(1)" class="text-cyan-400 hover:text-white text-3xl px-4">&#10095;</button>
-    </div>
-  </div>
-</section>
-
-
-
-    <!-- SPACER BLOCK -->
-<section class="bg-[#0b0f13] h-20 sm:h-28 md:h-36"></section>
-
- 
-  <!--  PRICING PLANS (Standalone Section) -->
-<!-- ============================== -->
-<section id="pricing" class="bg-[#0b0f13] py-24 px-6 text-white">
-  <div class="max-w-7xl mx-auto">
-    <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-10">
-
-
-      <!-- $500 PLAN -->
-      <div class="pulse-card bg-[#11151d] border border-cyan-400 rounded-2xl px-10 py-12 shadow-xl flex flex-col items-center text-center space-y-8 transition-all">
-        <h5 class="text-2xl font-bold text-cyan-300">
-          Alpha <span class="text-sm text-gray-400 font-normal">(Mon–Wed–Fri)</span>
+      <!-- FOUNDING TIER -->
+      <div class="pulse-card bg-[#0e1118] border border-green-400 rounded-2xl px-10 py-12 shadow-xl flex flex-col items-center text-center space-y-6 transition-all hover:scale-[1.02] hover:shadow-cyan-500/40 hover:border-cyan-400 duration-200">
+        <h5 class="text-2xl font-bold text-green-300 glow">
+          Founder's Tier <span class="text-sm text-gray-400 font-normal">(Alpha + Beta)</span>
         </h5>
-        <div class="text-5xl font-extrabold text-white">
-          $500 <span class="text-lg text-gray-400 font-medium">/ month</span>
+        <div class="relative">
+          <div class="text-5xl font-extrabold text-white animate-flicker">$500</div>
+          <div class="text-sm text-red-400 mt-1 font-semibold animate-pulse">🔥 Only 6 Spots Left</div>
         </div>
-        <ul class="space-y-3 text-base text-gray-300">
-          <li>✓ 3× Weekly Recon PDFs</li>
-          <li>✓ Trade & Spec Filters</li>
-          <li>✓ Field-intel Notes</li>
-          <li>✓ Human-verified bids</li>
+        <div class="text-base text-gray-400 font-medium">/ month (Lifetime)</div>
+        <ul class="space-y-2 text-base text-gray-300 mt-2">
+          <li>✓ Alpha Bid Recon Access (M/W/F)</li>
+          <li>✓ Beta Invoice Audit Reports</li>
+          <li>✓ Field-intel & Cost Leak Detection</li>
+          <li>✓ Human + AI Hybrid Oversight</li>
         </ul>
-        <a href="#contact" class="mt-6 w-full bg-cyan-400 hover:bg-cyan-300 text-black font-semibold py-3 rounded-xl transition">
-          Start Recon
+        <a href="#contact" class="mt-6 w-full bg-green-400 hover:bg-green-300 text-black font-bold py-3 rounded-xl transition glow">
+          Lock Founder's Tier
         </a>
       </div>
 
-      <!-- $900 PLAN -->
-      <div class="pulse-card bg-[#11151d] border border-cyan-400 rounded-2xl px-10 py-12 shadow-xl flex flex-col items-center text-center space-y-8 transition-all">
-        <h5 class="text-2xl font-bold text-cyan-300">
-          Alpha + Beta <span class="text-sm text-gray-400 font-normal">(Mon–Wed–Fri)</span>
+      <!-- STANDARD FUTURE TIER -->
+      <div class="pulse-card bg-[#11151d] border border-cyan-400 rounded-2xl px-10 py-12 shadow-xl flex flex-col items-center text-center space-y-6 transition-all">
+        <h5 class="text-2xl font-bold text-cyan-300 glow">
+          Alpha + Beta <span class="text-sm text-gray-400 font-normal">(Post-Launch)</span>
         </h5>
-        <div class="text-5xl font-extrabold text-white">
-          $900 <span class="text-lg text-gray-400 font-medium">/ month</span>
-        </div>
-        <ul class="space-y-3 text-base text-gray-300">
-          <li>✓ All Recon Features</li>
-          <li>✓ Supplier Quote & Invoice Comparison</li>
-          <li>✓ Weekly Cost Leak Reports</li>
-          <li>✓ Dedicated ops audit agent</li>
+        <div class="text-5xl font-extrabold text-white">$800</div>
+        <div class="text-base text-gray-400 font-medium">/ month</div>
+        <ul class="space-y-2 text-base text-gray-300 mt-2">
+          <li>✓ All Founder's Features</li>
+          <li>✓ Priority Agent Support</li>
+          <li>✓ Enhanced Discrepancy Detection</li>
+          <li>✓ Auto-tagged Audit History</li>
         </ul>
-        <a href="#contact" class="mt-6 w-full bg-cyan-400 hover:bg-cyan-300 text-black font-semibold py-3 rounded-xl transition">
-          Join Audit Tier
+        <a href="#contact" class="mt-6 w-full bg-cyan-400 hover:bg-cyan-300 text-black font-semibold py-3 rounded-xl transition glow">
+          Join After Launch
         </a>
       </div>
-      <!-- FUTURE PLAN (or remove) -->
-      <div class="pulse-card bg-[#11151d] border border-cyan-400 rounded-2xl px-10 py-12 shadow-xl flex flex-col items-center text-center space-y-8 transition-all">
-        <h5 class="text-2xl font-bold text-cyan-300">
+
+      <!-- CUSTOM PLAN -->
+      <div class="pulse-card bg-[#11151d] border border-cyan-400 rounded-2xl px-10 py-12 shadow-xl flex flex-col items-center text-center space-y-6 transition-all">
+        <h5 class="text-2xl font-bold text-cyan-300 glow">
           Custom Tier <span class="text-sm text-gray-400 font-normal">(By Inquiry)</span>
         </h5>
-        <div class="text-5xl font-extrabold text-white">
-          TBD <span class="text-lg text-gray-400 font-medium">/ custom</span>
-        </div>
-        <ul class="space-y-3 text-base text-gray-300">
-          <li>✓ Alpha + Beta + Theta + DELTA </li>
-          <li>✓ AI-assisted Takeoffs</li>
-          <li>✓ Custom Built Program Design & APP</li>
-          <li>✓ Private New-Tech Testing Advantage</li>
+        <div class="text-5xl font-extrabold text-white">TBD</div>
+        <div class="text-base text-gray-400 font-medium">/ custom</div>
+        <ul class="space-y-2 text-base text-gray-300 mt-2">
+          <li>✓ Alpha + Beta + Theta + DELTA</li>
+          <li>✓ AI-Assisted Blueprint Takeoffs</li>
+          <li>✓ Custom Recon + Platform Build</li>
+          <li>✓ Private Tool Testing & Early Access</li>
         </ul>
-        <a href="#contact" class="mt-6 w-full bg-cyan-400 hover:bg-cyan-300 text-black font-semibold py-3 rounded-xl transition">
+        <a href="#contact" class="mt-6 w-full bg-cyan-400 hover:bg-cyan-300 text-black font-semibold py-3 rounded-xl transition glow">
           Request Access
         </a>
       </div>
@@ -1563,6 +1435,7 @@ img.rounded-full:hover {
     </div>
   </div>
 </section>
+
 
 
 <!-- SPACER BLOCK -->
@@ -1804,42 +1677,67 @@ document.addEventListener("DOMContentLoaded", () => {
 
   
 
-<!-- Typed.js CDN -->
+<!-- Typed.js -->
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
-<!-- BETA Terminal Scroll Activation + Typing Animation -->
+<!-- BETA Terminal Animation -->
 <script>
   let betaTypedStarted = false;
-
   function startBetaTerminal() {
     if (betaTypedStarted) return;
     betaTypedStarted = true;
 
-    const typed = new Typed("#beta-typed", {
-      strings: [
-        ">> INITIATING DELTA AUDIT NODE...\n",
-        ">> SCANNING INVOICE / QUOTE...\n",
-        ">> MATCH FOUND: '1\" hybrid bermuda' at $1.30/sf\n",
-        ">> INVOICE RATE: $1.36/sf @ 30,800 SF ⚠️\n",
-        ">> MULTIPLE LINES DETECTED – QUOTE REFERENCE MISSING\n",
-        ">> TOTAL CHARGED: $41,888.00\n>> EXPECTED: $40,722.50\n",
-        ">> DIFFERENCE: $1,165.50\n",
-        ">> TRIGGERING SECONDARY CLASSIFIER...\n",
-        "✔️ KEYWORD MATCH: '1\" thick cut', 'bandera OS'\n",
-        "⚠️ 8+ UNQUOTED ITEMS DETECTED\n",
-        "📉 SYSTEM RECOMMENDS MANUAL REVIEW\n",
-        "📥 CLASSIFIED REPORT READY FOR DOWNLOAD\n"
+    const blocks = [
+      [
+        ">> INITIATING DELTA AUDIT NODE...",
+        ">> SCANNING INVOICE / QUOTE...",
+        ">> MATCH FOUND: '1\" hybrid bermuda' at $1.30/sf"
       ],
-      typeSpeed: 25,
-      showCursor: true,
-      cursorChar: "_",
-      onComplete: () => {
+      [
+        ">> INVOICE RATE: $1.36/sf @ 30,800 SF ⚠️",
+        ">> MULTIPLE LINES DETECTED – QUOTE REFERENCE MISSING",
+        ">> TOTAL CHARGED: $41,888.00"
+      ],
+      [
+        ">> EXPECTED: $40,722.50",
+        ">> DIFFERENCE: $1,165.50",
+        ">> TRIGGERING SECONDARY CLASSIFIER..."
+      ],
+      [
+        "✔️ KEYWORD MATCH: '1\" thick cut', 'bandera OS'",
+        "⚠️ 8+ UNQUOTED ITEMS DETECTED",
+        "📉 SYSTEM RECOMMENDS MANUAL REVIEW"
+      ],
+      [
+        "📥 CLASSIFIED REPORT READY FOR DOWNLOAD"
+      ]
+    ];
+
+    const target = document.getElementById("beta-typed");
+    let blockIndex = 0;
+
+    function typeBlock() {
+      if (blockIndex >= blocks.length) {
         document.getElementById("beta-verdict").classList.remove("hidden");
+        return;
       }
-    });
+      const typed = new Typed(target, {
+        strings: [blocks[blockIndex].join("\n")],
+        typeSpeed: 22,
+        showCursor: true,
+        cursorChar: "_",
+        smartBackspace: false,
+        onComplete: () => {
+          blockIndex++;
+          setTimeout(typeBlock, 400);
+        }
+      });
+    }
+
+    typeBlock();
   }
 
-  // Scroll trigger
+  // Scroll Trigger
   document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -1852,6 +1750,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (target) observer.observe(target);
   });
 </script>
+
 
     
 
@@ -1994,16 +1893,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 </script>
 
-<script>
-function moveSlide(direction) {
-  const container = document.getElementById('testimonial-slider');
-  let index = parseInt(container.dataset.index) || 0;
-  const total = container.children.length;
-  index = (index + direction + total) % total;
-  container.style.transform = `translateX(-${index * 100}%)`;
-  container.dataset.index = index;
-}
-</script>
+
 
 
 </body>
