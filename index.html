@@ -557,28 +557,52 @@ html, body {
   z-index: -1;
 }
 
-/* === Inner Circle Container === */
 .inner-white-circle {
-  width: 13rem;
-  height: 13rem;
-  border-radius: 9999px;
-  border: 2px solid cyan;
-  background: rgba(0, 0, 0, 0.25);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: border 0.3s ease;
+  width: 7rem;
+  height: 7rem;
+}
+@media (min-width: 640px) {
+  .inner-white-circle {
+    width: 9rem;
+    height: 9rem;
+  }
+}
+@media (min-width: 768px) {
+  .inner-white-circle {
+    width: 11rem;
+    height: 11rem;
+  }
+}
+@media (min-width: 1024px) {
+  .inner-white-circle {
+    width: 13rem;
+    height: 13rem;
+  }
 }
 
-/* === Vendor Logos === */
 img.rounded-full {
-  width: 11.5rem;
-  height: 11.5rem;
-  object-fit: contain;
-  border-radius: 9999px;
-  transition: transform 0.3s ease;
-  filter: drop-shadow(0 0 4px rgba(0, 255, 255, 0.2));
+  width: 5.5rem;
+  height: 5.5rem;
 }
+@media (min-width: 640px) {
+  img.rounded-full {
+    width: 7.5rem;
+    height: 7.5rem;
+  }
+}
+@media (min-width: 768px) {
+  img.rounded-full {
+    width: 9.5rem;
+    height: 9.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  img.rounded-full {
+    width: 11.5rem;
+    height: 11.5rem;
+  }
+}
+
 
 img.rounded-full:hover {
   transform: scale(1.06);
@@ -671,7 +695,74 @@ img.rounded-full:hover {
   animation: flicker 1.6s infinite;
 }
 
+.terminal-box {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-width: 2px;
+  border-radius: 12px;
+  padding: 24px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
 
+.terminal-orange { color: #f97316; } /* Tailwind orange-500 */
+.terminal-yellow { color: #facc15; } /* Tailwind yellow-400 */
+.terminal-red { color: #ef4444; }    /* Tailwind red-500 */
+.terminal-green { color: #22c55e; }  /* Tailwind green-500 */
+.terminal-cyan { color: #22d3ee; }   /* Tailwind cyan-400 */
+.terminal-white { color: #f1f5f9; }  /* Tailwind slate-100 */
+
+/* Stronger neon green + glow */
+#beta-terminal .glow,
+#beta-typed {
+  color: #00ffcc !important;
+  text-shadow:
+    0 0 5px #00ffcc,
+    0 0 10px #00ffcc,
+    0 0 20px #00ffcc;
+}
+
+/* Verdict section colors upgraded too */
+#beta-verdict strong {
+  text-shadow: 0 0 4px #0ff;
+}
+
+/* Optional: Blinking cursor enhancement */
+.typed-cursor {
+  animation: blink 1s infinite;
+  color: #00ffcc;
+  font-weight: bold;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+
+/* Stronger neon glow */
+#beta-typed,
+#beta-terminal .glow {
+  color: #00ffcc !important;
+  text-shadow:
+    0 0 5px #00ffcc,
+    0 0 10px #00ffcc,
+    0 0 20px #00ffcc;
+}
+
+/* Blinking underscore cursor */
+.typed-cursor {
+  animation: blink 1s infinite;
+  color: #00ffcc;
+  font-weight: bold;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+  
 </style>
 
 
@@ -806,7 +897,7 @@ img.rounded-full:hover {
 
 
 
-<section id="why-terminal" class="relative bg-black py-32 px-6 text-cyan-300 font-mono overflow-hidden">
+<section id="why-terminal" class="relative bg-black py-32 px-6 text-white font-mono overflow-hidden">
   <!-- Video Background -->
   <video
     src="hud-waveform-loop.mp4"
@@ -814,51 +905,47 @@ img.rounded-full:hover {
     muted
     loop
     playsinline
-    class="absolute inset-0 w-full h-full object-cover opacity-10 z-0 pointer-events-none mix-blend-screen"
+    class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none mix-blend-screen"
   ></video>
 
-  <!-- Terminal Section Title -->
+  <!-- Dark Overlay -->
+  <div class="absolute inset-0 bg-black opacity-70 z-0"></div>
+
+  <!-- Section Title -->
   <h2
-    class="text-center text-2xl md:text-3xl tracking-widest mb-12 text-cyan-400 z-10 relative"
+    class="text-center text-3xl md:text-4xl tracking-widest mb-16 text-cyan-400 z-10 relative font-extrabold"
     data-aos="fade-up"
     data-aos-delay="100"
   >
     // DELTA_WAVE_SPECIAL_ACCESS_TERMINAL 🔐
   </h2>
 
-  <!-- Terminal Grid -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto z-10 relative items-start text-sm md:text-base">
-    <!-- LEFT: Your Office -->
-    <div class="space-y-4 text-red-400" data-aos="fade-right" data-aos-delay="200">
-      <h3 class="text-red-500 text-lg font-bold tracking-wider">[ YOUR OFFICE ]</h3>
-      <div id="typed-office-1" class="terminal-orange"></div>
-      <div id="typed-office-2" class="terminal-yellow"></div>
-      <div id="typed-office-3" class="terminal-red"></div>
-      <div id="typed-office-4" class="terminal-orange"></div>
-      <div id="typed-office-5" class="terminal-green"></div>
-      <div id="typed-office-6" class="terminal-red"></div>
+  <!-- Flexbox Container -->
+  <div class="relative z-10 flex flex-col md:flex-row justify-center items-start gap-12 max-w-6xl mx-auto px-4">
+    
+    <!-- LEFT TERMINAL -->
+    <div class="terminal-box border-red-500 text-red-400">
+      <h3 class="text-red-500 text-2xl font-extrabold tracking-wider mb-4">[ YOUR OFFICE ]</h3>
+      <div id="typed-office-1" class="terminal-orange text-xl font-bold"></div>
+      <div id="typed-office-2" class="terminal-yellow text-xl font-bold"></div>
+      <div id="typed-office-3" class="terminal-red text-xl font-bold"></div>
+      <div id="typed-office-4" class="terminal-orange text-xl font-bold"></div>
+      <div id="typed-office-5" class="terminal-yellow text-xl font-bold"></div>
+      <div id="typed-office-6" class="terminal-red text-xl font-bold"></div>
     </div>
 
-    <!-- CENTER: Spacer / Invisible terminal for symmetry -->
-    <div class="hidden md:flex justify-center items-center min-h-[300px]" data-aos="zoom-in" data-aos-delay="400">
-      <!-- Transparent placeholder to align left and right symmetrically -->
-    </div>
-
-    <!-- RIGHT: Delta Wave -->
-    <div class="space-y-4 text-green-300" data-aos="fade-left" data-aos-delay="200">
-      <h3 class="text-green-400 text-lg font-bold tracking-wider">[ DELTA WAVE ]</h3>
-      <div id="typed-delta-1" class="terminal-green"></div>
-      <div id="typed-delta-2" class="terminal-yellow"></div>
-      <div id="typed-delta-3" class="terminal-orange"></div>
-      <div id="typed-delta-4" class="terminal-cyan"></div>
-      <div id="typed-delta-5" class="terminal-red"></div>
-      <div id="typed-delta-6" class="terminal-green"></div>
+    <!-- RIGHT TERMINAL -->
+    <div class="terminal-box border-cyan-400 text-white">
+      <h3 class="text-cyan-300 text-2xl font-extrabold tracking-wider mb-4">[ DELTA WAVE ]</h3>
+      <div id="typed-delta-1" class="terminal-white text-xl font-bold"></div>
+      <div id="typed-delta-2" class="terminal-cyan text-xl font-bold"></div>
+      <div id="typed-delta-3" class="terminal-green text-xl font-bold"></div>
+      <div id="typed-delta-4" class="terminal-cyan text-xl font-bold"></div>
+      <div id="typed-delta-5" class="terminal-white text-xl font-bold"></div>
+      <div id="typed-delta-6" class="terminal-white text-xl font-bold"></div>
     </div>
   </div>
 </section>
-
-
-
 
   
 
@@ -1674,15 +1761,20 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 300);
 });
 </script>
+        
 
   
 
 <!-- Typed.js -->
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
+<!-- Typed.js CDN (required) -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
 <!-- BETA Terminal Animation -->
 <script>
   let betaTypedStarted = false;
+
   function startBetaTerminal() {
     if (betaTypedStarted) return;
     betaTypedStarted = true;
@@ -1714,14 +1806,18 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     const target = document.getElementById("beta-typed");
+    const verdict = document.getElementById("beta-verdict");
     let blockIndex = 0;
 
     function typeBlock() {
       if (blockIndex >= blocks.length) {
-        document.getElementById("beta-verdict").classList.remove("hidden");
+        if (verdict) verdict.classList.remove("hidden");
         return;
       }
-      const typed = new Typed(target, {
+
+      target.innerHTML = ""; // Clear previous text block
+
+      new Typed(target, {
         strings: [blocks[blockIndex].join("\n")],
         typeSpeed: 22,
         showCursor: true,
@@ -1729,7 +1825,7 @@ document.addEventListener("DOMContentLoaded", () => {
         smartBackspace: false,
         onComplete: () => {
           blockIndex++;
-          setTimeout(typeBlock, 400);
+          setTimeout(typeBlock, 500);
         }
       });
     }
@@ -1737,19 +1833,23 @@ document.addEventListener("DOMContentLoaded", () => {
     typeBlock();
   }
 
-  // Scroll Trigger
+  // Scroll trigger to launch animation once
   document.addEventListener("DOMContentLoaded", () => {
+    const terminal = document.getElementById("beta-terminal");
+    if (!terminal) return;
+
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           startBetaTerminal();
         }
       });
-    });
-    const target = document.getElementById("beta-terminal");
-    if (target) observer.observe(target);
+    }, { threshold: 0.5 });
+
+    observer.observe(terminal);
   });
 </script>
+
 
 
     
