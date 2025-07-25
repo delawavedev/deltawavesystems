@@ -653,6 +653,13 @@ img.rounded-full:hover {
   50% { opacity: 0; }
 }
 
+
+.terminal-orange { color: #FFA500; }  /* Neon Orange */
+.terminal-yellow { color: #FFFF66; }  /* Neon Yellow */
+.terminal-red    { color: #FF4C4C; }  /* Neon Red */
+.terminal-green  { color: #00FF99; }  /* Neon Green */
+.terminal-cyan   { color: #00FFFF; }  /* Cyan fallback */
+
   
 </style>
 
@@ -787,85 +794,58 @@ img.rounded-full:hover {
 </div>
 
 
-<section
-  id="why-terminal"
-  class="relative bg-black py-32 px-6 text-cyan-300 font-mono overflow-hidden"
-  data-aos="fade-up"
-  data-aos-delay="200"
-  data-aos-duration="1200"
-  data-aos-easing="ease-out-cubic"
-  data-aos-once="true"
->
-  <!-- Heading -->
-  <h2 class="text-center text-2xl md:text-3xl tracking-widest mb-12 text-cyan-400">
+
+<section id="why-terminal" class="relative bg-black py-32 px-6 text-cyan-300 font-mono overflow-hidden">
+  <!-- Video Background -->
+  <video
+    src="hud-waveform-loop.mp4"
+    autoplay
+    muted
+    loop
+    playsinline
+    class="absolute inset-0 w-full h-full object-cover opacity-10 z-0 pointer-events-none mix-blend-screen"
+  ></video>
+
+  <!-- Terminal Section Title -->
+  <h2
+    class="text-center text-2xl md:text-3xl tracking-widest mb-12 text-cyan-400 z-10 relative"
+    data-aos="fade-up"
+    data-aos-delay="100"
+  >
     // DELTA_WAVE_SPECIAL_ACCESS_TERMINAL 🔐
   </h2>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl mx-auto relative z-10">
-    
-    <!-- LEFT COLUMN -->
-    <div
-      class="space-y-4 text-red-400 text-sm md:text-base"
-      data-aos="fade-right"
-      data-aos-delay="300"
-      data-aos-duration="1000"
-    >
+  <!-- Terminal Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto z-10 relative items-start text-sm md:text-base">
+    <!-- LEFT: Your Office -->
+    <div class="space-y-4 text-red-400" data-aos="fade-right" data-aos-delay="200">
       <h3 class="text-red-500 text-lg font-bold tracking-wider">[ YOUR OFFICE ]</h3>
-      <div id="typed-office-1"></div>
-      <div id="typed-office-2"></div>
-      <div id="typed-office-3"></div>
-      <div id="typed-office-4"></div>
-      <div id="typed-office-5"></div>
-      <div id="typed-office-6"></div>
+      <div id="typed-office-1" class="terminal-orange"></div>
+      <div id="typed-office-2" class="terminal-yellow"></div>
+      <div id="typed-office-3" class="terminal-red"></div>
+      <div id="typed-office-4" class="terminal-orange"></div>
+      <div id="typed-office-5" class="terminal-green"></div>
+      <div id="typed-office-6" class="terminal-red"></div>
     </div>
 
-    <!-- CENTER VIDEO -->
-    <div
-      class="relative flex justify-center items-center"
-      data-aos="zoom-in"
-      data-aos-delay="500"
-      data-aos-duration="1200"
-    >
-      <!-- Optional overlay for terminal glow atmosphere -->
-      <!--
-      <video
-        src="/video/hud-overlay.webm"
-        class="absolute top-0 left-0 w-full h-full object-cover opacity-[0.05] pointer-events-none mix-blend-screen z-0"
-        autoplay
-        muted
-        loop
-        playsinline
-      ></video>
-      -->
-
-      <!-- Foreground waveform -->
-      <video
-        src="hud-waveform-loop.mp4"
-        class="relative z-10 w-full max-w-[600px] md:max-w-[520px] object-contain opacity-90 mix-blend-screen"
-        autoplay
-        muted
-        loop
-        playsinline
-      ></video>
+    <!-- CENTER: Spacer / Invisible terminal for symmetry -->
+    <div class="hidden md:flex justify-center items-center min-h-[300px]" data-aos="zoom-in" data-aos-delay="400">
+      <!-- Transparent placeholder to align left and right symmetrically -->
     </div>
 
-    <!-- RIGHT COLUMN -->
-    <div
-      class="space-y-4 text-green-300 text-sm md:text-base"
-      data-aos="fade-left"
-      data-aos-delay="300"
-      data-aos-duration="1000"
-    >
+    <!-- RIGHT: Delta Wave -->
+    <div class="space-y-4 text-green-300" data-aos="fade-left" data-aos-delay="200">
       <h3 class="text-green-400 text-lg font-bold tracking-wider">[ DELTA WAVE ]</h3>
-      <div id="typed-delta-1"></div>
-      <div id="typed-delta-2"></div>
-      <div id="typed-delta-3"></div>
-      <div id="typed-delta-4"></div>
-      <div id="typed-delta-5"></div>
-      <div id="typed-delta-6"></div>
+      <div id="typed-delta-1" class="terminal-green"></div>
+      <div id="typed-delta-2" class="terminal-yellow"></div>
+      <div id="typed-delta-3" class="terminal-orange"></div>
+      <div id="typed-delta-4" class="terminal-cyan"></div>
+      <div id="typed-delta-5" class="terminal-red"></div>
+      <div id="typed-delta-6" class="terminal-green"></div>
     </div>
   </div>
 </section>
+
 
 
 
@@ -892,7 +872,7 @@ img.rounded-full:hover {
   <div class="max-w-7xl mx-auto px-6 text-center space-y-10">
     <!-- Section Title -->
     <h2 class="text-4xl md:text-5xl font-extrabold text-cyan-400 tracking-tight">
-      We Sweep the Bid Matrix
+      <br>We Operate the Bid Matrix
     </h2>
 
     <!-- Connector Wrapper -->
@@ -1116,31 +1096,40 @@ img.rounded-full:hover {
 </section>
 
 
-<section id="alpha-terminal-section" class="relative bg-black py-24 px-6 overflow-hidden scroll-mt-32">
-  <!-- Terminal Container -->
-  <div class="relative max-w-4xl mx-auto px-6 py-8 text-lg md:text-xl font-mono z-10 rounded-lg border border-green-500 shadow-2xl bg-[#0b0f13]/90 backdrop-blur-sm alpha-scanlines">
+<section id="alpha-terminal-section" class="relative bg-black py-32 px-6 overflow-hidden scroll-mt-32">
+  <!-- HUD Background Video -->
+  <video
+    src="hud-radar-loop.mp4"
+    class="absolute top-0 left-0 w-full h-full object-cover opacity-[0.05] z-0 pointer-events-none mix-blend-screen"
+    autoplay
+    muted
+    loop
+    playsinline
+  ></video>
 
+  <!-- Terminal Container -->
+  <div class="relative max-w-4xl mx-auto px-6 py-10 text-lg md:text-xl font-mono z-10 rounded-lg border border-green-500 shadow-2xl bg-[#0b0f13]/90 backdrop-blur-sm alpha-scanlines">
     <!-- Glow Ring -->
     <div class="absolute -inset-1 rounded-lg border border-green-400 opacity-30 blur-md pointer-events-none animate-pulse"></div>
 
     <!-- Terminal Output -->
-    <div id="alpha-terminal-text" class="relative z-20 space-y-1 text-[1.15rem] leading-relaxed text-green-400">
+    <div id="alpha-terminal-text" class="relative z-20 space-y-2 text-[1.1rem] leading-relaxed text-green-400">
       <p>&gt; <span class="typed-line" data-text="delta_wave@terminal:~$ ./alpha_recon --ts=$(date +%s) --extract --uplink... 🧑‍💻"></span></p>
       <p>&gt; <span class="typed-line" data-text="Initializing Delta_Wave.ALPH4_R3c0n... 🌐"></span></p>
-      <p>&gt; <span class="typed-line" data-text="Connection established... 📡"></span></p>
-      <p>&gt; <span class="typed-line" data-text="Beginning sweep of 450+ Southern California portals..."></span></p>
-      <p>&gt; <span class="typed-line" data-text="ID and extract real targets. Filtering noise. Deploying intel..."></span></p>
-      <p>&gt; <span class="typed-line" data-text="──── ADDENDUM & COMPETITIVE INTEL UPLINK 🔍"></span></p>
+      <p>&gt; <span class="typed-line" data-text='Connection established... 📡'></span></p>
+      <p>&gt; <span class="typed-line" data-text='Beginning sweep of 450+ Southern California portals...'></span></p>
+      <p>&gt; <span class="typed-line" data-text='ID and extract real targets. Filtering noise. Deploying intel...'></span></p>
+      <p>&gt; <span class="typed-line" data-text="──── <span class='text-yellow-300 font-bold'>ADDENDUM & COMPETITIVE INTEL UPLINK 🔍</span>"></span></p>
       <p>&gt; <span class="typed-line" data-text="Because our founder has sat in the estimator’s chair, we know what matters."></span></p>
-      <p>&gt; <span class="typed-line" data-text="ALPHA includes daily addendum scans to detect critical spec changes —"></span></p>
+      <p>&gt; <span class="typed-line" data-text="<span class='text-orange-400'>ALPHA</span> includes daily addendum scans to detect critical <span class='text-red-400'>spec changes</span> —"></span></p>
       <p>&gt; <span class="typed-line" data-text="additions, removals, and agency updates — before they blindside your team."></span></p>
-      <p>&gt; <span class="typed-line" data-text="We also help identify who else might be bidding,"></span></p>
-      <p>&gt; <span class="typed-line" data-text="giving your office field-level intel to gain a tactical edge."></span></p>
-      <p>&gt; <span class="typed-line" data-text="No dashboards. No digging. Just classified recon — delivered to command."></span></p>
+      <p>&gt; <span class="typed-line" data-text="We also identify who else might be bidding."></span></p>
+      <p>&gt; <span class="typed-line" data-text="Giving your office <span class='text-cyan-300 font-bold'>field-level tactical intel</span> with zero digging."></span></p>
+      <p>&gt; <span class="typed-line" data-text="No dashboards. Just classified recon — delivered direct to command."></span></p>
       <p><span class="alpha-blinking-cursor">█</span></p>
     </div>
 
-    <!-- Input -->
+    <!-- Terminal Input -->
     <form id="alpha-terminal-form" class="mt-6">
       <input
         id="alpha-terminal-input"
@@ -1152,7 +1141,7 @@ img.rounded-full:hover {
       />
     </form>
 
-    <!-- Output -->
+    <!-- Response -->
     <div id="alpha-terminal-response" class="mt-4 space-y-1 text-green-300 font-mono text-base"></div>
 
     <!-- Hint -->
@@ -1161,15 +1150,12 @@ img.rounded-full:hover {
     </div>
   </div>
 
-  <!-- HUD Graphic -->
-  <div class="hidden lg:block absolute right-12 top-1/2 -translate-y-1/2 w-[300px] h-[300px] z-0">
-    <img src="/hud-graphic.png" alt="Recon HUD" class="w-full h-full object-contain opacity-60 pointer-events-none animate-pulse-slow" />
-  </div>
-
+  <!-- JS Disabled Message -->
   <noscript>
     <div class="text-red-500 text-center font-mono mt-6">JavaScript is required to run this terminal.</div>
   </noscript>
 </section>
+
 
 
 <!-- AOS Animate on Scroll JS -->
@@ -1234,43 +1220,61 @@ img.rounded-full:hover {
 </section>
 
 
+<!-- BETA AUDIT TERMINAL SECTION -->
+<section id="beta-terminal" class="relative z-10 py-24 px-4 bg-black bg-opacity-90 border-y border-green-500 overflow-hidden">
+  <!-- HUD Scanline Overlay -->
+  <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.08] mix-blend-screen bg-[url('/static/img/scanlines.png')] bg-cover"></div>
 
- <section id="beta-terminal" class="relative bg-black text-green-400 font-mono py-20 px-4 md:px-16 overflow-hidden">
-  <div class="absolute -inset-2 border border-cyan-400 rounded-xl opacity-20 blur-md pointer-events-none z-0 animate-pulse"></div>
+  <!-- Terminal Container -->
+  <div class="relative z-10 max-w-5xl mx-auto p-6 border border-cyan-400 bg-black/60 rounded-xl shadow-xl terminal-font text-green-300">
 
-  <!-- Grid -->
-  <div id="terminal-wrapper" class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 opacity-0 transition-opacity duration-700">
-    <!-- QUOTE -->
-    <div class="terminal-box scanlines">
-      <h2 class="terminal-title">[ Supplier Quote ]</h2>
-      <div id="quote-feed" class="typed-feed text-sm space-y-1"></div>
+    <h2 class="text-2xl md:text-3xl glow text-center mb-6 tracking-wide flex items-center justify-center gap-3">
+      <img src="hudlogo.png" class="h-7 w-auto opacity-70" />
+      DELTA WAVE SYSTEMS – AUDIT INTEL INTERFACE
+    </h2>
+
+    <!-- Typed Terminal -->
+    <div id="beta-typed" class="text-sm md:text-base whitespace-pre-line leading-relaxed glow border border-cyan-500 rounded-md p-4 min-h-[320px] bg-black bg-opacity-30 scanlines"></div>
+
+    <!-- Verdict + Table -->
+    <div id="beta-verdict" class="hidden mt-8 space-y-4 text-sm md:text-base text-green-200">
+      <div class="glow">
+        🧠 <strong>LLM Verdict:</strong> Secondary classifier triggered on 8+ items. Billing mismatch pattern detected. Overcharge risk = <span class="text-red-400 font-bold">HIGH</span>
+      </div>
+
+      <table class="w-full text-left border border-cyan-500 text-white audit-table text-sm table-fixed">
+        <thead class="bg-black bg-opacity-30 text-cyan-300 border-b border-cyan-500">
+          <tr>
+            <th class="p-2">Line Item</th>
+            <th class="p-2">Quote</th>
+            <th class="p-2">Invoice</th>
+            <th class="p-2">Discrepancy</th>
+          </tr>
+        </thead>
+        <tbody class="font-mono">
+          <tr class="border-b border-cyan-800">
+            <td class="p-2">1" Hybrid Bermuda Sod</td>
+            <td class="p-2">$1.30 × 82,000 SF</td>
+            <td class="p-2">$1.36 × 30,800 SF</td>
+            <td class="p-2 text-red-400 font-semibold">+ $1,165.50</td>
+          </tr>
+          <tr class="border-b border-cyan-800">
+            <td class="p-2">Line Items 1–15</td>
+            <td class="p-2 text-gray-400 italic">—</td>
+            <td class="p-2">$1.36 (×9)</td>
+            <td class="p-2 text-yellow-300 font-bold">⚠ Not in Quote</td>
+          </tr>
+          <tr>
+            <td class="p-2 font-bold text-cyan-300">TOTAL</td>
+            <td class="p-2 font-bold">$40,722.50</td>
+            <td class="p-2 font-bold">$41,888.00</td>
+            <td class="p-2 text-red-400 font-extrabold">🧨 Overcharged $1,165.50</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="text-blue-300 mt-3">📞 Supplier: WEST COAST TURF – (888) 893-8873</div>
     </div>
-
-    <!-- SUMMARY -->
-    <div class="terminal-box scanlines">
-      <h2 class="terminal-title">[ Audit Summary ]</h2>
-      <div id="summary-feed" class="typed-feed text-sm space-y-1"></div>
-    </div>
-
-    <!-- INVOICE -->
-    <div class="terminal-box scanlines">
-      <h2 class="terminal-title">[ Invoice Feed ]</h2>
-      <div id="invoice-feed" class="typed-feed text-sm space-y-1"></div>
-    </div>
-  </div>
-
-  <!-- TERMINAL COMMAND -->
-  <div class="relative z-10 mt-12 border-t border-green-700 pt-6 px-2 text-sm">
-    <p class="text-green-300 mb-2">Please type <code class="text-cyan-400 font-bold">report</code> and press <span class="text-white font-semibold">Enter</span> to receive a classified BETA audit comparison.</p>
-    
-    <div class="flex items-center gap-2">
-      <label for="terminal-input" class="text-green-300 text-lg">&gt;</label>
-      <input id="terminal-input" type="text" autocomplete="off"
-        class="terminal-input glow-input text-green-100 placeholder-green-300 border-none"
-        placeholder="type command...">
-    </div>
-
-    <p id="cmd-status" class="text-yellow-400 mt-3 text-xs hidden"></p>
   </div>
 </section>
 
@@ -1371,39 +1375,6 @@ img.rounded-full:hover {
 
 
 
-
-
-<section id="how-it-works" class="bg-black pt-20 pb-32 px-6 text-white font-mono relative z-10 overflow-hidden">
-
-  <div class="max-w-6xl mx-auto text-center space-y-10">
-    <h2 class="text-4xl sm:text-5xl font-extrabold text-cyan-400"><br>// MISSION PROTOCOL: HOW IT WORKS</h2>
-    <p class="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">Lock onto targets. Sweep the grid. Win the contract.</p>
-
-    <!-- Row of 3 Terminals -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
-      <!-- Terminal 1 -->
-      <div class="terminal-box bg-[#0b0f13] border border-cyan-500 shadow-xl p-6 text-left rounded-lg relative overflow-hidden">
-        <div id="terminal-step-1" class="typed-terminal text-cyan-300 text-sm whitespace-pre-line leading-relaxed"></div>
-        <span class="terminal-cursor absolute bottom-4 left-4 text-cyan-300 animate-pulse">▍</span>
-      </div>
-
-      <!-- Terminal 2 -->
-      <div class="terminal-box bg-[#0b0f13] border border-green-400 shadow-xl p-6 text-left rounded-lg relative overflow-hidden">
-        <div id="terminal-step-2" class="typed-terminal text-green-300 text-sm whitespace-pre-line leading-relaxed"></div>
-        <span class="terminal-cursor absolute bottom-4 left-4 text-green-300 animate-pulse">▍</span>
-      </div>
-
-      <!-- Terminal 3 -->
-      <div class="terminal-box bg-[#0b0f13] border border-orange-500 shadow-xl p-6 text-left rounded-lg relative overflow-hidden">
-        <div id="terminal-step-3" class="typed-terminal text-orange-300 text-sm whitespace-pre-line leading-relaxed"></div>
-        <span class="terminal-cursor absolute bottom-4 left-4 text-orange-300 animate-pulse">▍</span>
-      </div>
-    </div>
-</section>
-
-
-
-
 <!-- ========================= -->
 <!-- Team Access + Communication Promise -->
 <!-- ========================= -->
@@ -1431,66 +1402,95 @@ img.rounded-full:hover {
     <!-- SPACER BLOCK -->
 <section class="bg-[#0b0f13] h-20 sm:h-28 md:h-36"></section>
 
-  
   <!-- ========================= -->
-<!--  SOCIAL PROOF  / TESTIMONIALS -->
+<!--  SOCIAL PROOF / SLIDER TESTIMONIALS -->
 <!-- ========================= -->
-<section id="testimonials" class="bg-[#0b0f13] text-white pt-32 pb-36 px-6">
-  <!-- Section Heading -->
-  <!-- Testimonial Grid -->
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+<section id="testimonials" class="bg-[#0b0f13] text-white pt-32 pb-36 px-6" data-aos="fade-up">
+  <div class="max-w-5xl mx-auto text-center mb-10">
+    <h2 class="text-3xl md:text-4xl font-bold text-cyan-400">// TESTIMONIAL BRIEFINGS</h2>
+  </div>
 
-    <!-- Testimonial Card -->
-    <div class="bg-[#11151d] border border-gray-700 rounded-xl p-8 shadow-md space-y-4">
-      <p class="text-gray-300 leading-relaxed">
-        “This company solved the unsolveable. I didn't even know that this was possible. Delta Wave said they can do it and I honestly believed they were full of it. Closed a <span class="font-semibold text-white">$420 K landscape job</span> after the second report.
-         Wasn't sure if it was my ability to estimate and bid on projects that was holding back my business, or... something was off. Not sure what it was. Gave it a try and did what I do best and delegated the rest, as they say. Thank you Delta Wave operators. ” 
-      </p>
-      <p class="text-sm text-cyan-400 font-medium">Marco R. • 2-man landscape crew • Riverside</p>
+  <div class="relative overflow-hidden">
+    <div id="testimonial-slider" class="flex transition-transform duration-700 ease-in-out" style="width: 600%; transform: translateX(0);" data-index="0">
+      
+      <!-- Slide 1 -->
+      <div class="w-full flex-shrink-0 px-4 md:px-8">
+        <div class="bg-[#11151d] border border-gray-700 rounded-xl p-8 shadow-md max-w-3xl mx-auto space-y-4">
+          <p class="text-gray-300 leading-relaxed">
+            “This company solved the unsolveable. I didn't even know that this was possible. Delta Wave said they can do it and I honestly believed they were full of it. Closed a 
+            <span class="font-semibold text-white">$420 K landscape job</span> after the second report. Wasn't sure if it was my ability to estimate and bid on projects that was holding back my business, or... something was off. Not sure what it was. Gave it a try and did what I do best and delegated the rest, as they say. Thank you Delta Wave operators.”
+          </p>
+          <p class="text-sm text-cyan-400 font-medium">Marco R. • 2-man landscape crew • Riverside</p>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="w-full flex-shrink-0 px-4 md:px-8">
+        <div class="bg-[#11151d] border border-gray-700 rounded-xl p-8 shadow-md max-w-3xl mx-auto space-y-4">
+          <p class="text-gray-300 leading-relaxed">
+            “We missed zero job-walks last quarter and sold 
+            <span class="font-semibold text-white">2 million</span> in new work. I hate technology and these sort of things usually have no clue how the business actually works. I don't have the stress anymore of knowing I won't have time to look for new bids every day... keeps my boss off my back and now expects me to always have the best bids. I guess it's a good problem to have. Thank you Kennedy and Delta Wave team.”
+          </p>
+          <p class="text-sm text-cyan-400 font-medium">Sarah K. • GC Estimator • Los Angeles</p>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="w-full flex-shrink-0 px-4 md:px-8">
+        <div class="bg-[#11151d] border border-gray-700 rounded-xl p-8 shadow-md max-w-3xl mx-auto space-y-4">
+          <p class="text-gray-300 leading-relaxed">
+            “Didn’t trust AI dashboards. I've been seeing it all over social media, AI this, AI that... I get flooded with BS advertisement nonsense all day. I was curious and being a veteran myself, I liked the military theme they had, brought me back a little. Gave it a shot and it did the portal clicking for me, probably keep my eyes working longer. 
+            <span class="font-semibold text-white">Awesome company.</span>”
+          </p>
+          <p class="text-sm text-cyan-400 font-medium">J. Wells • Electrical • Orange County</p>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="w-full flex-shrink-0 px-4 md:px-8">
+        <div class="bg-[#11151d] border border-gray-700 rounded-xl p-8 shadow-md max-w-3xl mx-auto space-y-4">
+          <p class="text-gray-300 leading-relaxed">
+            “They flagged 
+            <span class="font-semibold text-white">$6,480</span> in supplier over-charges with their BETA audit. Got it back as store credit. That's extra profit margin on our next job, we'll use the same supplier. That's our family vacation already saved for next year.”
+          </p>
+          <p class="text-sm text-cyan-400 font-medium">Caleb S. • HVAC • Ventura</p>
+        </div>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="w-full flex-shrink-0 px-4 md:px-8">
+        <div class="bg-[#11151d] border border-gray-700 rounded-xl p-8 shadow-md max-w-3xl mx-auto space-y-4">
+          <p class="text-gray-300 leading-relaxed">
+            “Went with the beginner or starter package and saved my estimator 
+            <span class="font-semibold text-white">12 hrs a week</span>. Upgraded to Pro the next month. My estimator can now actually focus on estimating and take-offs. Now I can focus on growing my crew.”
+          </p>
+          <p class="text-sm text-cyan-400 font-medium">Brian T. • Mid-size GC • Inland Empire</p>
+        </div>
+      </div>
+
+      <!-- Slide 6 -->
+      <div class="w-full flex-shrink-0 px-4 md:px-8">
+        <div class="bg-[#11151d] border border-gray-700 rounded-xl p-8 shadow-md max-w-3xl mx-auto space-y-4">
+          <p class="text-gray-300 leading-relaxed">
+            “I reached out Sunday night while watching TV. They sent me a report the next Morning. I honestly reached out to just confirm that this was a waste of time, but it was like they were the estimators in my office if they spent 3 days in a row 8 hours a day clicking every bid portal known to man. Later that day made some tweaks to look for exactly my scope and which districts and cities were on my no-fly list. And now we are steam rolling. Thank you. 
+            Feels like a <span class="font-semibold text-white">military operation or special forces team but for my business. Pretty cool.</span>”
+          </p>
+          <p class="text-sm text-cyan-400 font-medium">Luis P. • Concrete • San Diego</p>
+        </div>
+      </div>
+
     </div>
 
-    <div class="bg-[#11151d] border border-gray-700 rounded-xl p-8 shadow-md space-y-4">
-      <p class="text-gray-300 leading-relaxed">
-        “We missed zero job-walks last quarter and sold
-        <span class="font-semibold text-white">2 million</span> in new work. I hate technology and these sort of things usually have no clue how the business actually works. I don't have the stress anymore of knowing I won't have time to look for new bids every day... keeps my boss off my back and now expects me to always have the best bids. I guess it's a good problem to have. Thank you Kennedy and Delta Wave team.”
-      </p>
-      <p class="text-sm text-cyan-400 font-medium">Sarah K. • GC Estimator • Los Angeles</p>
+    <!-- Navigation Arrows -->
+    <div class="absolute inset-y-1/2 left-0 transform -translate-y-1/2 z-10">
+      <button onclick="moveSlide(-1)" class="text-cyan-400 hover:text-white text-3xl px-4">&#10094;</button>
     </div>
-
-    <div class="bg-[#11151d] border border-gray-700 rounded-xl p-8 shadow-md space-y-4">
-      <p class="text-gray-300 leading-relaxed">
-        “Didn’t trust AI dashboards. I've been seeing it all over social media, AI this, AI that... I get flooded with BS advertisement nonsense all day. I was curious and being a veteran myself, I liked the military theme they had, brought me back a little. Gave it a shot and it did the portal clicking for me, probably keep my eyes working longer. 
-        <span class="font-semibold text-white">Awesome company.</span>”
-      </p>
-      <p class="text-sm text-cyan-400 font-medium">J. Wells • Electrical • Orange County</p>
+    <div class="absolute inset-y-1/2 right-0 transform -translate-y-1/2 z-10">
+      <button onclick="moveSlide(1)" class="text-cyan-400 hover:text-white text-3xl px-4">&#10095;</button>
     </div>
-
-    <div class="bg-[#11151d] border border-gray-700 rounded-xl p-8 shadow-md space-y-4">
-      <p class="text-gray-300 leading-relaxed">
-        “They flagged <span class="font-semibold text-white">$6,480</span> in supplier over-charges
-        with their BETA audit. Got it back as store credit. Thats extra profit margin on our next job, we'll use the same supplier. That's our family vacation already saved for next year.”
-      </p>
-      <p class="text-sm text-cyan-400 font-medium">Caleb S. • HVAC • Ventura</p>
-    </div>
-
-    <div class="bg-[#11151d] border border-gray-700 rounded-xl p-8 shadow-md space-y-4">
-      <p class="text-gray-300 leading-relaxed">
-        “Went with the beginner or starter package and saved my estimator <span class="font-semibold text-white">12 hrs a week</span>.
-        Upgraded to Pro the next month. My estimator can now actually focus on estimating and take-offs. Now I can focus on growing my crew.”
-      </p>
-      <p class="text-sm text-cyan-400 font-medium">Brian T. • Mid-size GC • Inland Empire</p>
-    </div>
-
-    <div class="bg-[#11151d] border border-gray-700 rounded-xl p-8 shadow-md space-y-4">
-      <p class="text-gray-300 leading-relaxed">
-        “I reached out Sunday night while watching TV. They sent me a report the next Morning. I honestly reached out to just confirm that this was a waste of time, but it was like they were the estimators in my office if they spent 3 days in a row 8 hours a day clicking every bid portal known to man. Later that day made some tweaks to look for exactly my scope and which districts and cities were on my no-fly list. And now we are steam rolling. Thank you. 
-        Feels like a <span class="font-semibold text-white">military operation or special forces team but for my business. Pretty cool.</span>.”
-      </p>
-      <p class="text-sm text-cyan-400 font-medium">Luis P. • Concrete • San Diego</p>
-    </div>
-
-  </div><!-- /grid -->
+  </div>
 </section>
+
 
 
     <!-- SPACER BLOCK -->
@@ -1572,22 +1572,6 @@ img.rounded-full:hover {
 <section class="bg-[#0b0f13] h-20 sm:h-28 md:h-36"></section>
 
 
-
-<section id="faq-terminal" class="relative bg-[#0b0f17] pt-36 pb-48 px-6 text-green-400 font-mono overflow-visible z-30 scroll-mt-36">
-  <div class="max-w-4xl mx-auto text-center">
-
-    <!-- FAQ Terminal Container -->
-    <div class="border border-green-500 rounded-lg p-8 md:p-10 backdrop-blur-md bg-black/80 shadow-2xl scanlines">
-      <div id="terminal-faq-feed" class="space-y-4 text-left text-green-300 text-sm md:text-base min-h-[300px]"></div>
-
-      <!-- Blinking Cursor Line -->
-      <div class="mt-6 text-left">
-        <span class="text-green-400">&gt; <span class="blinking-cursor">█</span></span>
-      </div>
-    </div>
-    
-  </div>
-</section>
 
 
 <!-- ▸▸ REQUEST RECON PLAN ◂◂ -->
@@ -1819,100 +1803,57 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
   
+
+<!-- Typed.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+<!-- BETA Terminal Scroll Activation + Typing Animation -->
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const quoteLines = [
-    "> EMT Conduit - 1\" - $4.50/ft",
-    "> Pull Box - 12x12 - $65.00",
-    "> MC Cable - 250ft - $210.00",
-    "> Coupling Connectors - 10pcs - $14.00",
-    "> LED High Bay - $120.00",
-    "> Load Center 200A - $240.00",
-    "> Copper Wire #8 - 500ft - $180.00",
-    "> Split Bolts - 2/0 - $3.20",
-    "> GFCI Outlets - 4pcs - $52.00",
-    "> Conduit Straps - 25pcs - $11.00",
-    "> ✓ Quote parsed"
-  ];
+  let betaTypedStarted = false;
 
-  const invoiceLines = [
-    "> EMT Conduit - 1\" - $6.30/ft ⚠️",
-    "> Pull Box - 12x12 - $65.00",
-    "> MC Cable - 250ft - $210.00",
-    "> Coupling Connectors - 10pcs - $22.00 ⚠️",
-    "> LED High Bay - $149.99 ⚠️",
-    "> Load Center 200A - $240.00",
-    "> Copper Wire #8 - 500ft - $180.00",
-    "> Split Bolts - 2/0 - $4.90 ⚠️",
-    "> GFCI Outlets - 4pcs - $52.00",
-    "> Conduit Straps - 25pcs - $15.00 ⚠️",
-    "> ✓ Invoice parsed"
-  ];
+  function startBetaTerminal() {
+    if (betaTypedStarted) return;
+    betaTypedStarted = true;
 
-  const summaryLines = [
-    "> 🧑‍💻 delta_wave@terminal:~$ cd ~/ops && ./run_audit",
-    "> Discrepancies detected: 4",
-    "> Overbilled total: $76.29",
-    "> Status: VIOLATION FLAGGED 🚩",
-    "> Audit Trail: Secured 🔒",
-    "> Integrity: VERIFIED ✅",
-    "> ✓ Audit Ready"
-  ];
-
-  const quoteFeed = document.getElementById("quote-feed");
-  const invoiceFeed = document.getElementById("invoice-feed");
-  const summaryFeed = document.getElementById("summary-feed");
-
-  function typeLines(lines, container, delay = 550, onDone = () => {}) {
-    let i = 0;
-    function next() {
-      if (i >= lines.length) return onDone();
-      const p = document.createElement("p");
-      p.innerHTML = lines[i].replace(/^> /, '') + ' <span class="animate-cursor"></span>';
-      p.className = lines[i].includes("⚠️") ? "text-red-400" : "text-green-400";
-      container.appendChild(p);
-      i++;
-      setTimeout(next, delay);
-    }
-    next();
-  }
-
-  // Scroll Trigger
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        document.getElementById("terminal-wrapper").classList.remove("opacity-0");
-        typeLines(quoteLines, quoteFeed);
-        typeLines(invoiceLines, invoiceFeed);
-        typeLines(summaryLines, summaryFeed);
-        obs.unobserve(entry.target);
+    const typed = new Typed("#beta-typed", {
+      strings: [
+        ">> INITIATING DELTA AUDIT NODE...\n",
+        ">> SCANNING INVOICE / QUOTE...\n",
+        ">> MATCH FOUND: '1\" hybrid bermuda' at $1.30/sf\n",
+        ">> INVOICE RATE: $1.36/sf @ 30,800 SF ⚠️\n",
+        ">> MULTIPLE LINES DETECTED – QUOTE REFERENCE MISSING\n",
+        ">> TOTAL CHARGED: $41,888.00\n>> EXPECTED: $40,722.50\n",
+        ">> DIFFERENCE: $1,165.50\n",
+        ">> TRIGGERING SECONDARY CLASSIFIER...\n",
+        "✔️ KEYWORD MATCH: '1\" thick cut', 'bandera OS'\n",
+        "⚠️ 8+ UNQUOTED ITEMS DETECTED\n",
+        "📉 SYSTEM RECOMMENDS MANUAL REVIEW\n",
+        "📥 CLASSIFIED REPORT READY FOR DOWNLOAD\n"
+      ],
+      typeSpeed: 25,
+      showCursor: true,
+      cursorChar: "_",
+      onComplete: () => {
+        document.getElementById("beta-verdict").classList.remove("hidden");
       }
     });
-  }, { threshold: 0.4 });
-  observer.observe(document.getElementById("beta-terminal"));
+  }
 
-  // Command Trigger (Easter Egg)
-  const input = document.getElementById("terminal-input");
-  const status = document.getElementById("cmd-status");
-
-  input.addEventListener("keydown", e => {
-    if (e.key === "Enter") {
-      const cmd = input.value.trim().toLowerCase();
-      if (cmd === "report") {
-        status.classList.remove("hidden");
-        status.textContent = "> Dispatching classified report...";
-        setTimeout(() => {
-          window.open("/mnt/data/beta-comparison.pdf", "_blank");
-          status.innerHTML = "> Download complete. Terminal locked.";
-        }, 1200);
-      } else {
-        status.classList.remove("hidden");
-        status.textContent = "> Unknown command.";
-      }
-    }
+  // Scroll trigger
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          startBetaTerminal();
+        }
+      });
+    });
+    const target = document.getElementById("beta-terminal");
+    if (target) observer.observe(target);
   });
-});
 </script>
+
+    
 
 
 <script>
@@ -1927,45 +1868,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const faqFeed = document.getElementById("terminal-faq-feed");
-  const faqs = [
-    { q: "📅 How often do I get reports?", a: "You’ll receive recon briefs 3x a week - Monday, Wednesday, Friday (You can request for more frequency). No fluff — just filtered, verified bid intel. Tell us what you look for and we'll acquire the targets at a cheaper cost for you." },
-    { q: "🚫 Can I cancel or pause anytime?", a: "Yes. Although it is extremely rare, you can cancel or pause any time — no lock-in. One of our team members can go more in depth about particulars of different cancelling or pausing situations." },
-    { q: "🔐 Do I need to log into bid portals?", a: "We handle all the searching. Some plans/specs require login depending on the portal, but we’ll guide you." },
-    { q: "🛠️ What trades do you support?", a: "Landscape, electrical, plumbing, HVAC, and more — if it's public, we can get it - just reach out and tell us what you look for and consider it done." },
-    { q: "💰 What's the price?", a: "Alpha: $500/mo | Alpha + Beta: $900 | Custom: $TBD — all flat rate. Start with a free trial." },
-    { q: "🤖 Is this AI or human?", a: "Both. Advanced AI assistsance, but every recon is verified by humans before delivery." },
-    { q: "🧾 What is BETA?", a: "Our quote-vs-invoice audit system. Finds billing errors and overcharges. Many clients recover $2k–$10k/mo." },
-    { q: "📜 How did we get your information?", a: "From job walk sign-ins, CUPCCA listings, the California contractor site, and public agency databases. We’ve walked the same job sites." },
-    { q: "📟 Need to talk to a human?", a: "🧑‍💻 delta_wave@terminal:~$ ./connect --founder\nCall or text (949) 630-6300 anytime. The founder picks up." }
-
-  ];
-
-  let current = 0;
-  function cycleFAQ() {
-    faqFeed.innerHTML = "";
-    const qEl = document.createElement("p");
-    const aEl = document.createElement("p");
-
-    qEl.innerHTML = `> <span class="hover-highlight">${faqs[current].q}</span>`;
-    aEl.innerHTML = `> <span class="text-green-200">${faqs[current].a}</span>`;
-
-    faqFeed.appendChild(qEl);
-    faqFeed.appendChild(aEl);
-
-    current = (current + 1) % faqs.length;
-  }
-
-  // Animate first immediately
-  cycleFAQ();
-
-  // Cycle every 7.5 seconds
-  setInterval(cycleFAQ, 7500);
-});
-</script>
 
 <script src="main.js?version=5432"></script>
 
@@ -2031,95 +1933,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const terminals = [
-    {
-      id: "#terminal-step-1",
-      text: `1. Input Mission Scope
-
-Tell us your trade, region, and target project types.
-HVAC? GC? Underground?
-
-We align the sensors to your sector.`,
-    },
-    {
-      id: "#terminal-step-2",
-      text: `2. Reconnaissance Sweep
-
-ALPHA scans 450+ portals in Southern California.
-Filters noise. Flags real targets.
-
-You sleep while intel deploys.`,
-    },
-    {
-      id: "#terminal-step-3",
-      text: `3. Intel Delivered
-
-Receive a tactical PDF recon brief in your inbox before coffee.
-
-You review, deploy, and win.`,
-    },
-    {
-      id: "#terminal-bonus",
-      text: `4. Bonus Intel: Addenda & Competitive Insight
-
-Because our founder has sat in the estimator’s chair,
-we know what matters.
-
-ALPHA includes daily addendum scans
-to detect critical spec changes —
-additions, removals, and agency updates
-— before they blindside your team.
-
-We also help identify who else might be bidding,
-giving your office field-level intel to gain a tactical edge.
-
-No dashboards. No digging.
-Just classified recon — delivered straight to command.`,
-    }
-  ];
-
-  let hasTyped = false;
-
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !hasTyped) {
-        hasTyped = true;
-
-        let baseDelay = 0;
-
-        terminals.forEach((term, index) => {
-          // Estimate total typing duration based on text length
-          const estimatedTime = term.text.length * 20 + 1000;
-
-          setTimeout(() => {
-            new Typed(term.id, {
-              strings: [term.text],
-              typeSpeed: 20,
-              showCursor: false
-            });
-          }, baseDelay);
-
-          baseDelay += estimatedTime;
-        });
-
-        // Disconnect after final delay + buffer
-        setTimeout(() => {
-          obs.disconnect();
-        }, baseDelay + 1000);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  const howItWorks = document.querySelector('#how-it-works');
-  if (howItWorks) {
-    observer.observe(howItWorks);
-  }
-});
-</script>
-
-<!-- Restore DOM-dependent execution delay -->
+<!-- ✨ Vendor Connector Script -->
 <script>
   function connectVendors() {
     const wrapper = document.getElementById('vendor-connector-wrapper');
@@ -2165,13 +1979,31 @@ Just classified recon — delivered straight to command.`,
   }
 
   window.addEventListener('resize', () => setTimeout(connectVendors, 100));
-  window.addEventListener('DOMContentLoaded', () => setTimeout(connectVendors, 600));
+  window.addEventListener('load', () => setTimeout(connectVendors, 800));
 </script>
 
-  <!-- AOS -->
-<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init();</script>
+<!-- ✅ AOS Animate On Scroll -->
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    once: true, // only animate once
+    offset: 200, // when to trigger
+    duration: 1000, // animation duration
+    easing: 'ease-out-cubic'
+  });
+</script>
+
+<script>
+function moveSlide(direction) {
+  const container = document.getElementById('testimonial-slider');
+  let index = parseInt(container.dataset.index) || 0;
+  const total = container.children.length;
+  index = (index + direction + total) % total;
+  container.style.transform = `translateX(-${index * 100}%)`;
+  container.dataset.index = index;
+}
+</script>
 
 
 </body>
