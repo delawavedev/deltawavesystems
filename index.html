@@ -884,6 +884,18 @@ img.rounded-full:hover {
 }
 
 
+  .text-shadow-cyan {
+    text-shadow: 0 0 6px rgba(0, 255, 255, 0.6), 0 0 15px rgba(0, 255, 255, 0.3);
+  }
+  .animate-slow-scan {
+    background-size: 100% 300%;
+    animation: slow-scan 12s ease-in-out infinite;
+  }
+  @keyframes slow-scan {
+    0%, 100% { background-position: top; }
+    50% { background-position: bottom; }
+  }
+
 </style>
 
   
@@ -1085,189 +1097,6 @@ img.rounded-full:hover {
   class="w-2/3 h-[2px] mx-auto my-24 bg-cyan-400 opacity-50 shadow-[0_0_20px_3px_rgba(0,255,255,0.4)] rounded-full">
 </div>
 
-
-<section
-  id="vendor-grid-section"
-  class="relative bg-[#0b0f13] pt-[38rem] pb-[18rem] text-white overflow-hidden opacity-0 animate-fadeIn"
-  data-aos="fade-up"
-  data-aos-duration="1200"
-  data-aos-easing="ease-out-cubic"
-  data-aos-offset="200"
->
-  <!-- Divider -->
-  <div class="w-full h-[2px] bg-cyan-400 shadow-[0_0_20px_2px_rgba(0,255,255,0.5)] mb-12 neon-scanline"></div>
-
-
-    <!-- Connector Wrapper -->
-    <div id="vendor-connector-wrapper" class="relative w-full">
-
-      <!-- ✨ Gradient Overlay for Atmospheric Depth -->
-      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#0b0f13]/60 to-black z-[1] pointer-events-none"></div>
-
-      <!-- ✨ Optional Scanline Background Layer -->
-      <div class="absolute inset-0 bg-[url('/img/scanlines.svg')] opacity-[0.05] mix-blend-screen pointer-events-none z-[1]"></div>
-
-      <!-- SVG Connector Lines -->
-      <svg
-        id="connector-lines"
-        class="absolute top-0 left-0 w-full h-full pointer-events-none z-0"
-        aria-hidden="true"
-      ></svg>
-
-      <!-- Vendor Grid -->
-      <div
-        id="vendor-grid"
-        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10 pt-10 relative z-10"
-      >
-
-        <!-- Vendor 1 - PlanetBids -->
-<div id="vendor-1" class="flex justify-center items-center">
-  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
-    <div class="inner-white-circle">
-      <img src="vendors1.png" alt="PlanetBids" class="rounded-full vendor-logo" loading="lazy" />
-    </div>
-  </div>
-</div>
-
-<!-- Vendor 2 - Vendor Registry -->
-<div id="vendor-2" class="flex justify-center items-center">
-  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
-    <div class="inner-white-circle">
-      <img src="vendors2.png" alt="Vendor Registry" class="rounded-full vendor-logo" loading="lazy" />
-    </div>
-  </div>
-</div>
-
-<!-- Vendor 3 - SAM.gov -->
-<div id="vendor-3" class="flex justify-center items-center">
-  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
-    <div class="inner-white-circle">
-      <img src="vendors3.png" alt="SAM.gov" class="rounded-full vendor-logo" loading="lazy" />
-    </div>
-  </div>
-</div>
-
-<!-- Vendor 4 - School Districts -->
-<div id="vendor-4" class="flex justify-center items-center">
-  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
-    <div class="inner-white-circle">
-      <img src="vendors4.png" alt="School Districts" class="rounded-full vendor-logo" loading="lazy" />
-    </div>
-  </div>
-</div>
-
-<!-- Vendor 5 - OpenGov -->
-<div id="vendor-5" class="flex justify-center items-center">
-  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
-    <div class="inner-white-circle">
-      <img src="vendors5.png" alt="OpenGov" class="rounded-full vendor-logo" loading="lazy" />
-    </div>
-  </div>
-</div>
-
-<!-- Vendor 6 - California State Portals -->
-<div id="vendor-6" class="flex justify-center items-center">
-  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
-    <div class="inner-white-circle">
-      <img src="vendors6.png" alt="California State Portals" class="rounded-full vendor-logo" loading="lazy" />
-    </div>
-  </div>
-</div>
-
-<!-- Vendor 7 - Dodge Construction Network -->
-<div id="vendor-7" class="flex justify-center items-center">
-  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
-    <div class="inner-white-circle">
-      <img src="vendors7.png" alt="Dodge Construction Network" class="rounded-full vendor-logo" loading="lazy" />
-    </div>
-  </div>
-</div>
-
-<!-- Vendor 8 - Colleges -->
-<div id="vendor-8" class="flex justify-center items-center">
-  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
-    <div class="inner-white-circle">
-      <img src="vendors8.png" alt="Colleges" class="rounded-full vendor-logo" loading="lazy" />
-    </div>
-  </div>
-</div>
-
-<!-- Vendor 9 - Colbi -->
-<div id="vendor-9" class="flex justify-center items-center">
-  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
-    <div class="inner-white-circle">
-      <img src="vendors9.png" alt="Colbi" class="rounded-full vendor-logo" loading="lazy" />
-    </div>
-  </div>
-</div>
-
-<!-- Vendor 10 - QualityBidders -->
-<div id="vendor-10" class="flex justify-center items-center">
-  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
-    <div class="inner-white-circle">
-      <img src="vendors10.png" alt="QualityBidders" class="rounded-full vendor-logo" loading="lazy" />
-    </div>
-  </div>
-</div>
-
-<!-- Vendor 11 - Bonfire -->
-<div id="vendor-11" class="flex justify-center items-center">
-  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
-    <div class="inner-white-circle">
-      <img src="vendors11.png" alt="Bonfire" class="rounded-full vendor-logo" loading="lazy" />
-    </div>
-  </div>
-</div>
-
-<!-- Vendor 12 - County Portals -->
-<div id="vendor-12" class="flex justify-center items-center">
-  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
-    <div class="inner-white-circle">
-      <img src="vendors12.png" alt="County Portals" class="rounded-full vendor-logo" loading="lazy" />
-    </div>
-  </div>
-</div>
-
-<!-- Vendor 13 - BidNet Direct -->
-<div id="vendor-13" class="flex justify-center items-center">
-  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
-    <div class="inner-white-circle">
-      <img src="vendors13.png" alt="BidNet Direct" class="rounded-full vendor-logo" loading="lazy" />
-    </div>
-  </div>
-</div>
-
-<!-- Vendor 14 - Public Purchase -->
-<div id="vendor-14" class="flex justify-center items-center">
-  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
-    <div class="inner-white-circle">
-      <img src="vendors14.png" alt="Public Purchase" class="rounded-full vendor-logo" loading="lazy" />
-    </div>
-  </div>
-</div>
-
-<!-- Vendor 15 - Cities -->
-<div id="vendor-15" class="flex justify-center items-center">
-  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
-    <div class="inner-white-circle">
-      <img src="vendors15.png" alt="Cities" class="rounded-full vendor-logo" loading="lazy" />
-    </div>
-  </div>
-</div>
-
-<!-- Vendor 16 - Many More -->
-<div id="vendor-16" class="flex justify-center items-center">
-  <div class="outer-glow-ring hover:scale-105 transition-transform duration-300">
-    <div class="inner-white-circle">
-      <img src="vendors16.png" alt="Many More" class="rounded-full vendor-logo" loading="lazy" />
-    </div>
-  </div>
-</div>
-      </div>
-    </div>
-  </div>
-</section>
-
  
 <!-- ============  ALPHA – BID RECON SECTION  ============ -->
 <!-- AOS Animate on Scroll CSS -->
@@ -1329,11 +1158,11 @@ img.rounded-full:hover {
 
 
 <section id="alpha-terminal-section" class="relative bg-black py-32 px-6 overflow-hidden scroll-mt-32">
-  <!-- Centered Larger HUD Video -->
+  <!-- Centered Cinematic HUD Radar -->
   <div class="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
     <video
       src="hud-radar-loop.mp4"
-      class="w-[600px] h-[600px] opacity-10 mix-blend-screen object-contain"
+      class="w-[400px] h-[400px] md:w-[500px] md:h-[500px] opacity-10 mix-blend-screen object-contain"
       autoplay
       muted
       loop
@@ -1505,64 +1334,6 @@ img.rounded-full:hover {
 </section>
 
   
-<section id="delta-os-manifesto" class="relative bg-black text-white py-36 px-6 overflow-hidden">
-  <!-- Cinematic Animated HUD Background -->
-  <video
-    autoplay
-    loop
-    muted
-    playsinline
-    class="absolute inset-0 w-full h-full object-cover opacity-20 z-0 pointer-events-none"
-  >
-    <source src="delta_os_globe.mp4" type="video/mp4" />
-  </video>
-
-  <!-- Optional Vertical Scanline -->
-  <div class="absolute inset-0 z-10 pointer-events-none bg-gradient-to-b from-transparent via-cyan-500/10 to-transparent animate-slow-scan"></div>
-
-  <!-- Foreground Content -->
-  <div class="relative z-20 max-w-6xl mx-auto text-center space-y-10" data-aos="fade-up" data-aos-delay="200">
-    <!-- Hook Headline -->
-    <h2 class="text-3xl md:text-5xl font-bold text-cyan-400 tracking-wider glow-text leading-tight">
-      We didn’t build this for investors.<br />
-      We built it for contractors.
-    </h2>
-
-    <!-- Founder’s Mission -->
-    <p class="text-lg md:text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto">
-      I grew up in the estimator’s chair. I’ve manually hunted bids, typed out takeoffs, and dissected invoices line-by-line —
-      not in theory, but in the real-world chaos of a contractor’s office.<br /><br />
-      Meanwhile, software companies showed up with glossy dashboards and VC-funded smiles, shifting your work into their system —
-      but never reducing it.<br /><br />
-      <span class="text-cyan-300 font-semibold">DELTA OS is different.</span><br />
-      It’s not another platform trying to “disrupt” construction. It’s a tactical system, built for how your office already works.
-    </p>
-
-    <!-- Tactical Feature Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-14 text-left text-sm md:text-base">
-      <div class="bg-[#0b0f13]/90 border border-cyan-600 rounded-lg p-6 shadow-xl backdrop-blur-md hover:scale-[1.015] transition duration-300">
-        <h4 class="font-bold text-cyan-400 mb-2">// Tailored to You</h4>
-        <p>No forced workflows. No friction. Just smooth alignment with how your team already operates.</p>
-      </div>
-      <div class="bg-[#0b0f13]/90 border border-cyan-600 rounded-lg p-6 shadow-xl backdrop-blur-md hover:scale-[1.015] transition duration-300">
-        <h4 class="font-bold text-cyan-400 mb-2">// No Fluff. No Gimmicks.</h4>
-        <p>No per-seat pricing. No bloat. Only practical systems solving real contractor problems.</p>
-      </div>
-      <div class="bg-[#0b0f13]/90 border border-cyan-600 rounded-lg p-6 shadow-xl backdrop-blur-md hover:scale-[1.015] transition duration-300">
-        <h4 class="font-bold text-cyan-400 mb-2">// Built in the Trenches</h4>
-        <p>Every line of code was written from firsthand pain — not a product manager’s guess.</p>
-      </div>
-    </div>
-
-    <!-- Call to Action Button -->
-    <a
-      href="#contact"
-      class="mt-12 inline-block bg-cyan-400 hover:bg-cyan-300 text-black font-semibold py-3 px-6 rounded-md transition shadow-md shadow-cyan-500/30"
-    >
-      Request Access to Private Beta
-    </a>
-  </div>
-</section>
 
 
 
@@ -1610,68 +1381,89 @@ img.rounded-full:hover {
 </div>
 
 
-<section id="pricing" class="bg-[#0b0f13] py-32 px-6 text-white">
-  <div class="max-w-7xl mx-auto text-center mb-20">
-    <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-cyan-400 glow-text">
+<section id="pricing" class="relative bg-[#0b0f13] py-32 px-6 text-white overflow-hidden scroll-mt-32">
+  <!-- Neon Grid & Vertical Scanline -->
+  <div class="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(circle_at_center,_rgba(0,255,255,0.04)_1px,_transparent_1px)] bg-[size:30px_30px]"></div>
+  <div class="absolute inset-0 z-0 bg-gradient-to-b from-transparent via-cyan-400/5 to-transparent animate-slow-scan pointer-events-none"></div>
+
+  <!-- Centered HUD Radar (Optional) -->
+  <div class="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
+    <video
+      src="hud-radar-loop.mp4"
+      class="w-[400px] h-[400px] md:w-[500px] md:h-[500px] opacity-10 mix-blend-screen object-contain"
+      autoplay muted loop playsinline
+    ></video>
+  </div>
+
+  <!-- Header -->
+  <div class="relative z-10 max-w-7xl mx-auto text-center mb-20">
+    <h2 class="text-4xl md:text-5xl font-extrabold tracking-wide text-cyan-400 text-shadow-cyan glow-text">
       Tactical Access Tiers
     </h2>
-    <p class="mt-4 text-gray-400 text-lg max-w-2xl mx-auto">
+    <p class="mt-4 text-cyan-200/80 text-base md:text-lg italic font-mono tracking-wide">
       Choose your access level. Every tier includes classified bid recon and AI audit intel.
     </p>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto text-left">
-
-    <!-- Founder's Tier -->
-    <div class="relative rounded-xl border border-green-400/70 p-8 shadow-[0_0_15px_3px_rgba(0,255,100,0.15)] backdrop-blur-md bg-[#101418]/80 hover:scale-[1.02] transition-transform duration-300"
-         data-aos="fade-up" data-aos-delay="50">
-      <h3 id="founder-typed" class="text-xl font-semibold text-green-300 h-6 mb-4"></h3>
-      <div class="mt-4 text-4xl font-extrabold text-white">$500 <span class="text-base font-light text-gray-400">/ month</span></div>
-      <p class="text-sm text-red-400 mt-1">🔥 Only 6 Spots Left</p>
-      <p class="text-sm text-gray-500 mb-6">(Lifetime Rate)</p>
-      <ul class="space-y-2 text-[15px] text-white/90">
-        <li>✓ Alpha Bid Recon Access (M/W/F)</li>
-        <li>✓ Beta Invoice Audit Reports</li>
-        <li>✓ Field-Intel & Cost Leak Detection</li>
-        <li>✓ Human + AI Hybrid Oversight</li>
-      </ul>
-      <a href="#contact" class="block mt-6 w-full text-center bg-green-500 text-black font-bold py-2 rounded-lg hover:bg-green-400 transition">
-        Secure Founder's Access
-      </a>
+  <!-- Pricing Grid -->
+  <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto text-left">
+    
+    <!-- Card: Founder's Tier -->
+    <div class="relative group">
+      <div class="absolute -inset-1 rounded-xl bg-gradient-to-br from-green-500/10 to-transparent blur-lg opacity-0 group-hover:opacity-100 transition duration-500"></div>
+      <div class="relative rounded-xl ring-1 ring-green-400/30 hover:ring-green-400/50 p-8 bg-[#101418]/80 shadow-[0_0_20px_rgba(0,255,100,0.15)] backdrop-blur-md transition-transform duration-300 hover:scale-[1.02]">
+        <h3 class="text-xl font-semibold text-green-300 font-mono">// Founder's Tier</h3>
+        <div class="mt-4 text-4xl font-extrabold text-white">$500 <span class="text-base font-light text-gray-400">/ month</span></div>
+        <p class="text-sm text-red-400 mt-1">🔥 Only 6 Spots Left</p>
+        <p class="text-sm text-gray-500 mb-6">(Lifetime Rate)</p>
+        <ul class="space-y-2 text-[15px] text-white/90 font-mono leading-snug">
+          <li>✓ Alpha Bid Recon Access (M/W/F)</li>
+          <li>✓ Beta Invoice Audit Reports</li>
+          <li>✓ Field-Intel & Cost Leak Detection</li>
+          <li>✓ Human + AI Hybrid Oversight</li>
+        </ul>
+        <a href="#contact" class="block mt-6 w-full text-center bg-green-500 text-black font-bold py-2 rounded-lg hover:bg-green-400 transition">
+          Secure Founder's Access
+        </a>
+      </div>
     </div>
 
-    <!-- Alpha + Beta -->
-    <div class="relative rounded-xl border border-cyan-400/70 p-8 shadow-[0_0_15px_3px_rgba(0,255,255,0.15)] backdrop-blur-md bg-[#101418]/80 hover:scale-[1.02] transition-transform duration-300"
-         data-aos="fade-up" data-aos-delay="150">
-      <h3 id="postlaunch-typed" class="text-xl font-semibold text-cyan-300 h-6 mb-4"></h3>
-      <div class="mt-4 text-4xl font-extrabold text-white">$800 <span class="text-base font-light text-gray-400">/ month</span></div>
-      <div class="h-6 mb-6"></div>
-      <ul class="space-y-2 text-[15px] text-white/90">
-        <li>✓ All Founder's Features</li>
-        <li>✓ Priority Agent Support</li>
-        <li>✓ Enhanced Discrepancy Detection</li>
-        <li>✓ Auto-tagged Audit History</li>
-      </ul>
-      <a href="#contact" class="block mt-6 w-full text-center bg-cyan-500 text-black font-bold py-2 rounded-lg hover:bg-cyan-400 transition">
-        Join After Launch
-      </a>
+    <!-- Card: Alpha + Beta -->
+    <div class="relative group">
+      <div class="absolute -inset-1 rounded-xl bg-gradient-to-br from-cyan-500/10 to-transparent blur-lg opacity-0 group-hover:opacity-100 transition duration-500"></div>
+      <div class="relative rounded-xl ring-1 ring-cyan-400/30 hover:ring-cyan-400/50 p-8 bg-[#101418]/80 shadow-[0_0_20px_rgba(0,255,255,0.15)] backdrop-blur-md transition-transform duration-300 hover:scale-[1.02]">
+        <h3 class="text-xl font-semibold text-cyan-300 font-mono">// Alpha + Beta</h3>
+        <div class="mt-4 text-4xl font-extrabold text-white">$800 <span class="text-base font-light text-gray-400">/ month</span></div>
+        <div class="h-6 mb-6"></div>
+        <ul class="space-y-2 text-[15px] text-white/90 font-mono leading-snug">
+          <li>✓ All Founder's Features</li>
+          <li>✓ Priority Agent Support</li>
+          <li>✓ Enhanced Discrepancy Detection</li>
+          <li>✓ Auto-tagged Audit History</li>
+        </ul>
+        <a href="#contact" class="block mt-6 w-full text-center bg-cyan-500 text-black font-bold py-2 rounded-lg hover:bg-cyan-400 transition">
+          Join After Launch
+        </a>
+      </div>
     </div>
 
-    <!-- Custom Tier -->
-    <div class="relative rounded-xl border border-white/30 p-8 shadow-[0_0_15px_3px_rgba(255,255,255,0.1)] backdrop-blur-md bg-[#101418]/80 hover:scale-[1.02] transition-transform duration-300"
-         data-aos="fade-up" data-aos-delay="250">
-      <h3 id="custom-typed" class="text-xl font-semibold text-white h-6 mb-4"></h3>
-      <div class="mt-4 text-4xl font-extrabold text-white">TBD <span class="text-base font-light text-gray-400">/ custom</span></div>
-      <div class="h-6 mb-6"></div>
-      <ul class="space-y-2 text-[15px] text-white/90">
-        <li>✓ Alpha + Beta + Theta + DELTA</li>
-        <li>✓ AI-Assisted Blueprint Takeoffs</li>
-        <li>✓ Custom Recon + Platform Build</li>
-        <li>✓ Private Tool Testing & Early Access</li>
-      </ul>
-      <a href="#contact" class="block mt-6 w-full text-center bg-white/10 text-white font-bold py-2 rounded-lg hover:bg-white/20 transition">
-        Request Access
-      </a>
+    <!-- Card: Custom Tier -->
+    <div class="relative group">
+      <div class="absolute -inset-1 rounded-xl bg-gradient-to-br from-white/10 to-transparent blur-lg opacity-0 group-hover:opacity-100 transition duration-500"></div>
+      <div class="relative rounded-xl ring-1 ring-white/20 hover:ring-white/40 p-8 bg-[#101418]/80 shadow-[0_0_20px_rgba(255,255,255,0.1)] backdrop-blur-md transition-transform duration-300 hover:scale-[1.02]">
+        <h3 class="text-xl font-semibold text-white font-mono">// Custom Tier</h3>
+        <div class="mt-4 text-4xl font-extrabold text-white">TBD <span class="text-base font-light text-gray-400">/ custom</span></div>
+        <div class="h-6 mb-6"></div>
+        <ul class="space-y-2 text-[15px] text-white/90 font-mono leading-snug">
+          <li>✓ Alpha + Beta + Theta + DELTA</li>
+          <li>✓ AI-Assisted Blueprint Takeoffs</li>
+          <li>✓ Custom Recon + Platform Build</li>
+          <li>✓ Private Tool Testing & Early Access</li>
+        </ul>
+        <a href="#contact" class="block mt-6 w-full text-center bg-white/10 text-white font-bold py-2 rounded-lg hover:bg-white/20 transition">
+          Request Access
+        </a>
+      </div>
     </div>
 
   </div>
