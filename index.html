@@ -896,6 +896,19 @@ img.rounded-full:hover {
     50% { background-position: bottom; }
   }
 
+.glow-text {
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+}
+
+.glow-button {
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.2);
+}
+
+.glow-button:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+}
+
+
 </style>
 
   
@@ -1004,18 +1017,42 @@ img.rounded-full:hover {
         Request Recon Briefing
       </a>
 
-      <!-- Founder -->
-      <div class="pt-6 sm:pt-8 max-w-full sm:max-w-md space-y-3 text-[1rem] leading-relaxed">
-        <h3 class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-gray-300">
-          The Founder’s Mission
-        </h3>
+<!-- Founder -->
+<div class="pt-6 sm:pt-8 max-w-full sm:max-w-md space-y-3 text-[1rem] leading-relaxed">
+  <h3 class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-gray-300">
+    The Founder’s Mission
+  </h3>
 
-        <p class="text-gray-200 font-medium leading-snug">
-          "Crews missed million-dollar jobs because nobody had time to chase portals. Delta Wave fixes that:
-          <span class="text-white font-semibold">no dashboards, no software noise, no sales reps.</span>
-          Just clean, tactical intel dropped nightly. If you build infrastructure, you deserve a
-          <span class="underline text-white">radar</span>, not another SaaS trap."
-        </p>
+  <p class="text-gray-200 font-medium leading-snug">
+    I grew up in the estimator’s chair—spending countless hours scouring hundreds of portals a day for a public works contractor.
+    Working from a contractor’s home office meant long days analyzing every item, every dollar, and every penny.
+  </p>
+
+  <p class="text-gray-200 font-medium leading-snug">
+    I’ve manually completed thousands of estimating takeoffs: typing line by line, counting legend icons, mapping pipes, calculating yard coverage, and tracing wire runs.
+  </p>
+
+  <p class="text-gray-200 font-medium leading-snug">
+    And through it all, I watched the office get bombarded by slick software sales reps—promising the world but only shifting the workload from one place to another.
+  </p>
+
+  <p class="text-gray-200 font-medium leading-snug">
+    These tools aren’t built for you—they’re built for their investors. Expensive, bloated platforms that force your team to change how you work, just to fit their pre-baked systems.
+  </p>
+
+  <p class="text-gray-200 font-medium leading-snug">
+    That’s why I built <span class="text-white font-semibold">Delta Wave Systems</span>—born out of the pain I experienced in both the office and the field. A system built <span class="underline text-white">for contractors, not for investors</span>.
+  </p>
+
+  <p class="text-gray-200 font-medium leading-snug">
+    No gimmicks. No overselling. Just clean, tactical software that fits the way you and your crew actually operate.
+  </p>
+
+  <p class="text-gray-400 font-medium italic leading-snug">
+    Thank you for visiting our homebase. We built this for you.
+  </p>
+</div>
+
 
         <p class="text-sm italic text-gray-400">— Kennedy Andrews, Founder</p>
       </div>
@@ -1158,6 +1195,11 @@ img.rounded-full:hover {
 
 
 <section id="alpha-terminal-section" class="relative bg-black py-32 px-6 overflow-hidden scroll-mt-32">
+ <div 
+    data-aos="fade-up" 
+    data-aos-duration="1000" 
+    class="w-full max-w-3xl rounded-xl bg-black shadow-lg text-center relative pulse-card"
+  >
   <!-- Centered Cinematic HUD Radar -->
   <div class="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
     <video
@@ -1182,22 +1224,16 @@ img.rounded-full:hover {
       <p>&gt; <span class="typed-line" data-text='Beginning sweep of 450+ Southern California portals...'></span></p>
       <p>&gt; <span class="typed-line" data-text='ID and extract real targets. Filtering noise. Deploying intel...'></span></p>
       <p>&gt; <span class="typed-line" data-text='──── <span class="text-yellow-300 font-bold">ADDENDUM & COMPETITIVE INTEL UPLINK 🔍</span>'></span></p>
-      <p>&gt; <span class="typed-line" data-text='Because our founder has sat in the estimator’s chair, we know what matters.'></span></p>
       <p>&gt; <span class="typed-line" data-text='<span class="text-orange-400 font-semibold">ALPHA</span> includes daily addendum scans to detect critical <span class="text-red-400 font-semibold">spec changes</span> —'></span></p>
-      <p>&gt; <span class="typed-line" data-text='additions, removals, and agency updates — before they blindside your team.'></span></p>
+      <p>&gt; <span class="typed-line" data-text='Additions, removals, and agency updates — before they blindside your team.'></span></p>
       <p>&gt; <span class="typed-line" data-text='We also identify who else might be bidding.'></span></p>
       <p>&gt; <span class="typed-line" data-text='Giving your office <span class="text-cyan-300 font-bold">field-level tactical intel</span> with zero digging.'></span></p>
-      <p>&gt; <span class="typed-line" data-text='No dashboards. Just classified recon — delivered direct to command.'></span></p>
+      <p>&gt; <span class="typed-line" data-text='No dashboards. Just classified recon — delivered directlt to your command.'></span></p>
       <p><span class="alpha-blinking-cursor">█</span></p>
     </div>
   </div>
 </section>
 
-
-<!-- AOS Animate on Scroll JS -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init();</script>
-  
 
 
 <!-- ▸▸ BETA – QUOTE / INVOICE AUDIT ◂◂ -->
@@ -1269,7 +1305,11 @@ img.rounded-full:hover {
 
 <!-- BETA AUDIT TERMINAL SECTION -->
 <section id="beta-terminal" class="relative z-10 py-24 px-4 bg-black bg-opacity-90 border-y border-green-500 overflow-hidden">
-
+<div 
+    data-aos="fade-up" 
+    data-aos-duration="1000" 
+    class="w-full max-w-3xl rounded-xl bg-black shadow-lg text-center relative pulse-card"
+  >
   <!-- HUD Scanline Overlay -->
   <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.06] mix-blend-screen bg-[url('/static/img/scanlines.png')] bg-cover"></div>
 
@@ -1352,6 +1392,11 @@ img.rounded-full:hover {
 <!-- Team Access + Communication Promise -->
 <!-- ========================= -->
 <section class="py-24 bg-[#0b0f13] text-center px-6">
+  <div 
+    data-aos="fade-up" 
+    data-aos-duration="1000" 
+    class="w-full max-w-3xl rounded-xl bg-black shadow-lg text-center relative pulse-card"
+  >
   <div class="max-w-4xl mx-auto border border-cyan-400 rounded-2xl p-10 shadow-xl bg-[#11151d]">
     <h2 class="text-3xl sm:text-4xl font-bold text-cyan-400 mb-6 tracking-wide">
       🪖 Every Plan Comes With <br>Direct Mission Support 📡
@@ -1371,97 +1416,80 @@ img.rounded-full:hover {
   <!-- SPACER BLOCK -->
 <section class="bg-[#0b0f13] h-20 sm:h-28 md:h-36"></section>
 
-<!-- Animated AOS Divider Between Sections -->
-<div 
-  data-aos="fade-up"
-  data-aos-delay="150"
-  data-aos-duration="1000"
-  data-aos-easing="ease-in-out"
-  class="w-2/3 h-[2px] mx-auto my-24 bg-cyan-400 opacity-50 shadow-[0_0_20px_3px_rgba(0,255,255,0.4)] rounded-full">
-</div>
 
 
-<section id="pricing" class="relative bg-[#0b0f13] py-32 px-6 text-white overflow-hidden scroll-mt-32">
+<!-- Tactical Access Section -->
+<section id="pricing" class="flex flex-col items-center justify-center px-4 py-20 bg-[#0a0e17] text-white">
+  <div 
+    data-aos="fade-up" 
+    data-aos-duration="1000" 
+    class="w-full max-w-4xl rounded-xl bg-black shadow-lg text-center relative pulse-card"
+  >
+    <div class="py-12 px-6">
 
-  <!-- ⚡️ Subtle HUD Glow -->
-  <div class="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(circle,_rgba(0,255,255,0.03)_0%,_transparent_70%)]"></div>
+      <!-- Title -->
+      <h2 class="text-4xl font-bold text-cyan-400 tracking-widest mb-2">Tactical Access Tiers</h2>
+      <p class="text-sm tracking-widest text-gray-400 mb-6 italic font-mono">
+        Choose your access level. Every tier includes classified bid recon and AI audit intel.
+      </p>
 
-  <!-- 🧠 Neon Dot Grid -->
-  <div class="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(circle_at_center,_rgba(0,255,255,0.04)_1px,_transparent_1px)] bg-[size:30px_30px]"></div>
+      <!-- Pricing Cards -->
+      <div class="grid grid-cols-1 gap-10 text-left mt-10">
 
-  <!-- 🧬 Section Header -->
-  <div class="relative z-10 max-w-7xl mx-auto text-center mb-20">
-    <h2 class="text-4xl md:text-5xl font-extrabold tracking-wide text-cyan-400 text-shadow-cyan glow-text">
-      Tactical Access Tiers
-    </h2>
-    <p class="mt-4 text-cyan-200/80 text-base md:text-lg italic font-mono tracking-wide">
-      Choose your access level. Every tier includes classified bid recon and AI audit intel.
-    </p>
-  </div>
+        <!-- Founder's Tier -->
+        <div class="rounded-xl ring-1 ring-green-400/30 p-6 bg-[#101418]/90 backdrop-blur-md shadow-[0_0_25px_rgba(0,255,100,0.15)]">
+          <h3 class="text-lg font-semibold text-green-300 font-mono">// Founder's Tier</h3>
+          <div class="mt-2 text-3xl font-extrabold text-white">$500 <span class="text-base font-light text-gray-400">/ month</span></div>
+          <p class="text-sm text-red-400 mt-1">🔥 Only 6 Spots Left</p>
+          <p class="text-sm text-gray-500 mb-4">(Lifetime Rate)</p>
+          <ul class="space-y-2 text-sm text-white/90 font-mono leading-snug">
+            <li>✓ Alpha Bid Recon Access (M/W/F)</li>
+            <li>✓ Beta Invoice Audit Reports</li>
+            <li>✓ Field-Intel & Cost Leak Detection</li>
+            <li>✓ Human + AI Hybrid Oversight</li>
+          </ul>
+          <a href="#contact" class="block mt-6 text-center bg-green-500 text-black font-bold py-2 rounded-lg hover:bg-green-400 transition">
+            Secure Founder's Access
+          </a>
+        </div>
 
-  <!-- 🧱 Pricing Grid -->
-  <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto text-left">
+        <!-- Alpha + Beta -->
+        <div class="rounded-xl ring-1 ring-cyan-400/30 p-6 bg-[#101418]/90 backdrop-blur-md shadow-[0_0_25px_rgba(0,255,255,0.15)]">
+          <h3 class="text-lg font-semibold text-cyan-300 font-mono">// Alpha + Beta</h3>
+          <div class="mt-2 text-3xl font-extrabold text-white">$800 <span class="text-base font-light text-gray-400">/ month</span></div>
+          <div class="h-4 mb-4"></div>
+          <ul class="space-y-2 text-sm text-white/90 font-mono leading-snug">
+            <li>✓ All Founder's Features</li>
+            <li>✓ Priority Agent Support</li>
+            <li>✓ Enhanced Discrepancy Detection</li>
+            <li>✓ Auto-tagged Audit History</li>
+          </ul>
+          <a href="#contact" class="block mt-6 text-center bg-cyan-500 text-black font-bold py-2 rounded-lg hover:bg-cyan-400 transition">
+            Join After Launch
+          </a>
+        </div>
 
-    <!-- 🟢 Founder's Tier -->
-    <div class="relative group">
-      <div class="absolute -inset-1 rounded-xl bg-gradient-to-br from-green-500/10 to-transparent blur-lg opacity-0 group-hover:opacity-100 transition duration-500"></div>
-      <div class="relative rounded-xl ring-1 ring-green-400/30 hover:ring-green-400/50 p-8 bg-[#101418]/90 shadow-[0_0_25px_rgba(0,255,100,0.15)] backdrop-blur-md transition-transform duration-300 hover:scale-[1.02]">
-        <h3 class="text-xl font-semibold text-green-300 font-mono">// Founder's Tier</h3>
-        <div class="mt-4 text-4xl font-extrabold text-white">$500 <span class="text-base font-light text-gray-400">/ month</span></div>
-        <p class="text-sm text-red-400 mt-1">🔥 Only 6 Spots Left</p>
-        <p class="text-sm text-gray-500 mb-6">(Lifetime Rate)</p>
-        <ul class="space-y-2 text-[15px] text-white/90 font-mono leading-snug">
-          <li>✓ Alpha Bid Recon Access (M/W/F)</li>
-          <li>✓ Beta Invoice Audit Reports</li>
-          <li>✓ Field-Intel & Cost Leak Detection</li>
-          <li>✓ Human + AI Hybrid Oversight</li>
-        </ul>
-        <a href="#contact" class="block mt-6 w-full text-center bg-green-500 text-black font-bold py-2 rounded-lg hover:bg-green-400 transition">
-          Secure Founder's Access
-        </a>
+        <!-- Custom Tier -->
+        <div class="rounded-xl ring-1 ring-white/20 p-6 bg-[#101418]/90 backdrop-blur-md shadow-[0_0_25px_rgba(255,255,255,0.12)]">
+          <h3 class="text-lg font-semibold text-white font-mono">// Custom Tier</h3>
+          <div class="mt-2 text-3xl font-extrabold text-white">TBD <span class="text-base font-light text-gray-400">/ custom</span></div>
+          <div class="h-4 mb-4"></div>
+          <ul class="space-y-2 text-sm text-white/90 font-mono leading-snug">
+            <li>✓ Alpha + Beta + Theta + DELTA</li>
+            <li>✓ AI-Assisted Blueprint Takeoffs</li>
+            <li>✓ Custom Recon + Platform Build</li>
+            <li>✓ Private Tool Testing & Early Access</li>
+          </ul>
+          <a href="#contact" class="block mt-6 text-center bg-white/10 text-white font-bold py-2 rounded-lg hover:bg-white/20 transition">
+            Request Access
+          </a>
+        </div>
+
       </div>
     </div>
-
-    <!-- 🔵 Alpha + Beta Tier -->
-    <div class="relative group">
-      <div class="absolute -inset-1 rounded-xl bg-gradient-to-br from-cyan-500/10 to-transparent blur-lg opacity-0 group-hover:opacity-100 transition duration-500"></div>
-      <div class="relative rounded-xl ring-1 ring-cyan-400/30 hover:ring-cyan-400/50 p-8 bg-[#101418]/90 shadow-[0_0_25px_rgba(0,255,255,0.15)] backdrop-blur-md transition-transform duration-300 hover:scale-[1.02]">
-        <h3 class="text-xl font-semibold text-cyan-300 font-mono">// Alpha + Beta</h3>
-        <div class="mt-4 text-4xl font-extrabold text-white">$800 <span class="text-base font-light text-gray-400">/ month</span></div>
-        <div class="h-6 mb-6"></div>
-        <ul class="space-y-2 text-[15px] text-white/90 font-mono leading-snug">
-          <li>✓ All Founder's Features</li>
-          <li>✓ Priority Agent Support</li>
-          <li>✓ Enhanced Discrepancy Detection</li>
-          <li>✓ Auto-tagged Audit History</li>
-        </ul>
-        <a href="#contact" class="block mt-6 w-full text-center bg-cyan-500 text-black font-bold py-2 rounded-lg hover:bg-cyan-400 transition">
-          Join After Launch
-        </a>
-      </div>
-    </div>
-
-    <!-- ⚪️ Custom Tier -->
-    <div class="relative group">
-      <div class="absolute -inset-1 rounded-xl bg-gradient-to-br from-white/10 to-transparent blur-lg opacity-0 group-hover:opacity-100 transition duration-500"></div>
-      <div class="relative rounded-xl ring-1 ring-white/20 hover:ring-white/40 p-8 bg-[#101418]/90 shadow-[0_0_25px_rgba(255,255,255,0.12)] backdrop-blur-md transition-transform duration-300 hover:scale-[1.02]">
-        <h3 class="text-xl font-semibold text-white font-mono">// Custom Tier</h3>
-        <div class="mt-4 text-4xl font-extrabold text-white">TBD <span class="text-base font-light text-gray-400">/ custom</span></div>
-        <div class="h-6 mb-6"></div>
-        <ul class="space-y-2 text-[15px] text-white/90 font-mono leading-snug">
-          <li>✓ Alpha + Beta + Theta + DELTA</li>
-          <li>✓ AI-Assisted Blueprint Takeoffs</li>
-          <li>✓ Custom Recon + Platform Build</li>
-          <li>✓ Private Tool Testing & Early Access</li>
-        </ul>
-        <a href="#contact" class="block mt-6 w-full text-center bg-white/10 text-white font-bold py-2 rounded-lg hover:bg-white/20 transition">
-          Request Access
-        </a>
-      </div>
-    </div>
-
   </div>
 </section>
+
 
    
 
@@ -1485,6 +1513,11 @@ img.rounded-full:hover {
 
 <!-- ▸▸ REQUEST RECON PLAN ◂◂ -->
 <section class="bg-[#0d1117] text-white py-24 px-6">
+  <div 
+    data-aos="fade-up" 
+    data-aos-duration="1000" 
+    class="w-full max-w-3xl rounded-xl bg-black shadow-lg text-center relative pulse-card"
+  >
   <div class="max-w-3xl mx-auto text-center">
     <h2 class="text-3xl md:text-4xl font-bold text-cyan-400 mb-4">
       Request Your Custom Recon Plan
