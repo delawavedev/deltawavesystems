@@ -1382,11 +1382,14 @@ img.rounded-full:hover {
 
 
 <section id="pricing" class="relative bg-[#0b0f13] py-32 px-6 text-white overflow-hidden scroll-mt-32">
-  <!-- Neon Grid & Vertical Scanline -->
-  <div class="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(circle_at_center,_rgba(0,255,255,0.04)_1px,_transparent_1px)] bg-[size:30px_30px]"></div>
-  <div class="absolute inset-0 z-0 bg-gradient-to-b from-transparent via-cyan-400/5 to-transparent animate-slow-scan pointer-events-none"></div>
 
-  <!-- Header -->
+  <!-- ⚡️ Subtle HUD Glow -->
+  <div class="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(circle,_rgba(0,255,255,0.03)_0%,_transparent_70%)]"></div>
+
+  <!-- 🧠 Neon Dot Grid -->
+  <div class="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(circle_at_center,_rgba(0,255,255,0.04)_1px,_transparent_1px)] bg-[size:30px_30px]"></div>
+
+  <!-- 🧬 Section Header -->
   <div class="relative z-10 max-w-7xl mx-auto text-center mb-20">
     <h2 class="text-4xl md:text-5xl font-extrabold tracking-wide text-cyan-400 text-shadow-cyan glow-text">
       Tactical Access Tiers
@@ -1396,13 +1399,13 @@ img.rounded-full:hover {
     </p>
   </div>
 
-  <!-- Pricing Grid -->
+  <!-- 🧱 Pricing Grid -->
   <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto text-left">
-    
-    <!-- Card: Founder's Tier -->
+
+    <!-- 🟢 Founder's Tier -->
     <div class="relative group">
       <div class="absolute -inset-1 rounded-xl bg-gradient-to-br from-green-500/10 to-transparent blur-lg opacity-0 group-hover:opacity-100 transition duration-500"></div>
-      <div class="relative rounded-xl ring-1 ring-green-400/30 hover:ring-green-400/50 p-8 bg-[#101418]/80 shadow-[0_0_20px_rgba(0,255,100,0.15)] backdrop-blur-md transition-transform duration-300 hover:scale-[1.02]">
+      <div class="relative rounded-xl ring-1 ring-green-400/30 hover:ring-green-400/50 p-8 bg-[#101418]/90 shadow-[0_0_25px_rgba(0,255,100,0.15)] backdrop-blur-md transition-transform duration-300 hover:scale-[1.02]">
         <h3 class="text-xl font-semibold text-green-300 font-mono">// Founder's Tier</h3>
         <div class="mt-4 text-4xl font-extrabold text-white">$500 <span class="text-base font-light text-gray-400">/ month</span></div>
         <p class="text-sm text-red-400 mt-1">🔥 Only 6 Spots Left</p>
@@ -1419,10 +1422,10 @@ img.rounded-full:hover {
       </div>
     </div>
 
-    <!-- Card: Alpha + Beta -->
+    <!-- 🔵 Alpha + Beta Tier -->
     <div class="relative group">
       <div class="absolute -inset-1 rounded-xl bg-gradient-to-br from-cyan-500/10 to-transparent blur-lg opacity-0 group-hover:opacity-100 transition duration-500"></div>
-      <div class="relative rounded-xl ring-1 ring-cyan-400/30 hover:ring-cyan-400/50 p-8 bg-[#101418]/80 shadow-[0_0_20px_rgba(0,255,255,0.15)] backdrop-blur-md transition-transform duration-300 hover:scale-[1.02]">
+      <div class="relative rounded-xl ring-1 ring-cyan-400/30 hover:ring-cyan-400/50 p-8 bg-[#101418]/90 shadow-[0_0_25px_rgba(0,255,255,0.15)] backdrop-blur-md transition-transform duration-300 hover:scale-[1.02]">
         <h3 class="text-xl font-semibold text-cyan-300 font-mono">// Alpha + Beta</h3>
         <div class="mt-4 text-4xl font-extrabold text-white">$800 <span class="text-base font-light text-gray-400">/ month</span></div>
         <div class="h-6 mb-6"></div>
@@ -1438,10 +1441,10 @@ img.rounded-full:hover {
       </div>
     </div>
 
-    <!-- Card: Custom Tier -->
+    <!-- ⚪️ Custom Tier -->
     <div class="relative group">
       <div class="absolute -inset-1 rounded-xl bg-gradient-to-br from-white/10 to-transparent blur-lg opacity-0 group-hover:opacity-100 transition duration-500"></div>
-      <div class="relative rounded-xl ring-1 ring-white/20 hover:ring-white/40 p-8 bg-[#101418]/80 shadow-[0_0_20px_rgba(255,255,255,0.1)] backdrop-blur-md transition-transform duration-300 hover:scale-[1.02]">
+      <div class="relative rounded-xl ring-1 ring-white/20 hover:ring-white/40 p-8 bg-[#101418]/90 shadow-[0_0_25px_rgba(255,255,255,0.12)] backdrop-blur-md transition-transform duration-300 hover:scale-[1.02]">
         <h3 class="text-xl font-semibold text-white font-mono">// Custom Tier</h3>
         <div class="mt-4 text-4xl font-extrabold text-white">TBD <span class="text-base font-light text-gray-400">/ custom</span></div>
         <div class="h-6 mb-6"></div>
@@ -1459,7 +1462,6 @@ img.rounded-full:hover {
 
   </div>
 </section>
-
 
    
 
