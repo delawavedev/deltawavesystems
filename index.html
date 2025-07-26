@@ -931,58 +931,63 @@ img.rounded-full:hover {
 </div>
 
 
-
 <section id="why-terminal" class="relative bg-black py-32 px-6 text-white font-mono overflow-hidden">
-  <!-- Video Background -->
+
+  <!-- VIDEO BACKGROUND -->
   <video
     src="hud-waveform-loop.mp4"
     autoplay
     muted
     loop
     playsinline
-    class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none mix-blend-screen"
+    class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
   ></video>
 
-  <!-- Dark Overlay -->
-  <div class="absolute inset-0 bg-black opacity-70 z-0"></div>
+  <!-- OPTIONAL DARK OVERLAY (remove or tune opacity if needed) -->
+  <div class="absolute inset-0 bg-black/30 backdrop-blur-sm z-0"></div>
 
-  <!-- Section Title -->
+  <!-- SECTION TITLE -->
   <h2
-    class="text-center text-3xl md:text-4xl tracking-widest mb-16 text-cyan-400 z-10 relative font-extrabold"
+    class="text-center text-3xl md:text-4xl tracking-widest mb-20 text-cyan-300 z-10 relative font-extrabold glow-text"
     data-aos="fade-up"
     data-aos-delay="100"
   >
-    // DELTA_WAVE_SPECIAL_ACCESS_TERMINAL 🔐
+    // Our Direct Impact 🔐
   </h2>
 
-  <!-- Flexbox Container -->
-  <div class="relative z-10 flex flex-col md:flex-row justify-center items-start gap-12 max-w-6xl mx-auto px-4">
-    
+  <!-- TERMINAL FLEX WRAPPER -->
+  <div class="relative z-10 flex flex-col md:flex-row justify-center items-start gap-10 max-w-6xl mx-auto px-4">
+
     <!-- LEFT TERMINAL -->
-    <div class="terminal-box border-red-500 text-red-400">
-      <h3 class="text-red-500 text-2xl font-extrabold tracking-wider mb-4">[ YOUR OFFICE ]</h3>
-      <div id="typed-office-1" class="terminal-orange text-xl font-bold"></div>
-      <div id="typed-office-2" class="terminal-yellow text-xl font-bold"></div>
-      <div id="typed-office-3" class="terminal-red text-xl font-bold"></div>
-      <div id="typed-office-4" class="terminal-orange text-xl font-bold"></div>
-      <div id="typed-office-5" class="terminal-yellow text-xl font-bold"></div>
-      <div id="typed-office-6" class="terminal-red text-xl font-bold"></div>
+    <div class="w-full md:w-1/2 fade-in-left" data-aos="fade-right" data-aos-delay="200">
+      <div class="terminal-box border border-red-500 bg-black/60 backdrop-blur-sm p-6 rounded-xl shadow-xl">
+        <h3 class="text-red-400 text-2xl font-extrabold tracking-wider mb-4">[ YOUR OFFICE ]</h3>
+        <div id="typed-office-1" class="terminal-orange text-lg font-bold"></div>
+        <div id="typed-office-2" class="terminal-yellow text-lg font-bold"></div>
+        <div id="typed-office-3" class="terminal-red text-lg font-bold"></div>
+        <div id="typed-office-4" class="terminal-orange text-lg font-bold"></div>
+        <div id="typed-office-5" class="terminal-yellow text-lg font-bold"></div>
+        <div id="typed-office-6" class="terminal-red text-lg font-bold"></div>
+      </div>
     </div>
 
     <!-- RIGHT TERMINAL -->
-    <div class="terminal-box border-cyan-400 text-white">
-      <h3 class="text-cyan-300 text-2xl font-extrabold tracking-wider mb-4">[ DELTA WAVE ]</h3>
-      <div id="typed-delta-1" class="terminal-white text-xl font-bold"></div>
-      <div id="typed-delta-2" class="terminal-cyan text-xl font-bold"></div>
-      <div id="typed-delta-3" class="terminal-green text-xl font-bold"></div>
-      <div id="typed-delta-4" class="terminal-cyan text-xl font-bold"></div>
-      <div id="typed-delta-5" class="terminal-white text-xl font-bold"></div>
-      <div id="typed-delta-6" class="terminal-white text-xl font-bold"></div>
+    <div class="w-full md:w-1/2 fade-in-right" data-aos="fade-left" data-aos-delay="200">
+      <div class="terminal-box border border-cyan-400 bg-black/60 backdrop-blur-sm p-6 rounded-xl shadow-xl">
+        <h3 class="text-cyan-300 text-2xl font-extrabold tracking-wider mb-4">[ DELTA WAVE ]</h3>
+        <div id="typed-delta-1" class="terminal-white text-lg font-bold"></div>
+        <div id="typed-delta-2" class="terminal-cyan text-lg font-bold"></div>
+        <div id="typed-delta-3" class="terminal-green text-lg font-bold"></div>
+        <div id="typed-delta-4" class="terminal-cyan text-lg font-bold"></div>
+        <div id="typed-delta-5" class="terminal-white text-lg font-bold"></div>
+        <div id="typed-delta-6" class="terminal-white text-lg font-bold"></div>
+      </div>
     </div>
+
   </div>
 </section>
 
-  
+
 
 <section aria-hidden="true" class="transition-spacer bg-black z-10 relative">
   <div class="h-[12rem] opacity-60 w-full"></div>
@@ -1488,76 +1493,71 @@ img.rounded-full:hover {
 <section class="bg-[#0b0f13] h-20 sm:h-28 md:h-36"></section>
 
 
+<section id="pricing" class="bg-[#0b0f13] py-32 px-6 text-white">
+  <div class="max-w-7xl mx-auto text-center mb-20">
+    <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-cyan-400">
+      Tactical Access Tiers
+    </h2>
+    <p class="mt-4 text-gray-400 text-lg max-w-2xl mx-auto">
+      Choose your access level. Every tier includes classified bid recon and AI audit intel. 
+    </p>
+  </div>
 
-<section id="pricing" class="bg-black py-28 px-6 text-white font-sans relative overflow-hidden">
-  <!-- Subtle Scanline Overlay -->
-  <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.06] mix-blend-soft-light bg-[url('/static/img/scanlines.png')] bg-cover"></div>
-
-  <div class="relative z-10 max-w-7xl mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-
-      <!-- FOUNDING TIER -->
-      <div class="bg-[#0e1118] border border-green-500 rounded-2xl px-8 py-12 shadow-lg flex flex-col items-center text-center space-y-6 transition-all hover:scale-[1.01] hover:border-cyan-400 hover:shadow-cyan-400/20 duration-200">
-        <h5 class="text-2xl font-semibold text-green-400 tracking-tight">
-          Founder’s Tier <span class="text-sm text-slate-400 font-normal">(Alpha + Beta)</span>
-        </h5>
-        <div>
-          <div class="text-5xl font-extrabold text-white">$500</div>
-          <div class="text-sm text-red-400 mt-1 font-medium">🔥 Only 6 Spots Left</div>
-        </div>
-        <div class="text-sm text-slate-400 font-normal">/ month (Lifetime)</div>
-        <ul class="space-y-2 text-base text-slate-300 mt-2">
-          <li>✓ Alpha Bid Recon Access (M/W/F)</li>
-          <li>✓ Beta Invoice Audit Reports</li>
-          <li>✓ Field-intel & Cost Leak Detection</li>
-          <li>✓ Human + AI Hybrid Oversight</li>
-        </ul>
-        <a href="#contact" class="mt-6 w-full bg-green-400 hover:bg-green-300 text-black font-bold py-3 rounded-xl transition duration-150 ring-2 ring-green-300/60 hover:ring-green-200">
-          Lock Founder’s Tier
-        </a>
-      </div>
-
-      <!-- ALPHA + BETA POST-LAUNCH -->
-      <div class="bg-[#10141c] border border-cyan-400 rounded-2xl px-8 py-12 shadow-lg flex flex-col items-center text-center space-y-6 transition-all hover:scale-[1.01] hover:border-white/40 hover:shadow-cyan-300/20 duration-200">
-        <h5 class="text-2xl font-semibold text-cyan-300 tracking-tight">
-          Alpha + Beta <span class="text-sm text-slate-400 font-normal">(Post-Launch)</span>
-        </h5>
-        <div class="text-5xl font-extrabold text-white">$800</div>
-        <div class="text-sm text-slate-400 font-normal">/ month</div>
-        <ul class="space-y-2 text-base text-slate-300 mt-2">
-          <li>✓ All Founder’s Features</li>
-          <li>✓ Priority Agent Support</li>
-          <li>✓ Enhanced Discrepancy Detection</li>
-          <li>✓ Auto-tagged Audit History</li>
-        </ul>
-        <a href="#contact" class="mt-6 w-full bg-cyan-400 hover:bg-cyan-300 text-black font-semibold py-3 rounded-xl transition duration-150 ring-2 ring-cyan-300/60 hover:ring-cyan-200">
-          Join After Launch
-        </a>
-      </div>
-
-      <!-- CUSTOM TIER -->
-      <div class="bg-[#10141c] border border-slate-500 rounded-2xl px-8 py-12 shadow-lg flex flex-col items-center text-center space-y-6 transition-all hover:scale-[1.01] hover:border-white/40 hover:shadow-white/20 duration-200">
-        <h5 class="text-2xl font-semibold text-white tracking-tight">
-          Custom Tier <span class="text-sm text-slate-400 font-normal">(By Inquiry)</span>
-        </h5>
-        <div class="text-5xl font-extrabold text-slate-200">TBD</div>
-        <div class="text-sm text-slate-400 font-normal">/ custom</div>
-        <ul class="space-y-2 text-base text-slate-300 mt-2">
-          <li>✓ Alpha + Beta + Theta + DELTA</li>
-          <li>✓ AI-Assisted Blueprint Takeoffs</li>
-          <li>✓ Custom Recon + Platform Build</li>
-          <li>✓ Private Tool Testing & Early Access</li>
-        </ul>
-        <a href="#contact" class="mt-6 w-full bg-slate-200 hover:bg-white text-black font-semibold py-3 rounded-xl transition duration-150 ring-2 ring-white/30 hover:ring-white/60">
-          Request Access
-        </a>
-      </div>
-
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto text-left">
+    
+    <!-- Founder Tier -->
+    <div class="relative bg-[#101418] border border-green-500/40 rounded-2xl p-8 shadow-xl hover:scale-[1.02] transition-transform duration-300 backdrop-blur-sm">
+      <h3 class="text-xl font-semibold text-green-400">Founder's Tier <span class="text-sm text-green-300">(Alpha + Beta)</span></h3>
+      <div class="mt-4 text-4xl font-extrabold">$500 <span class="text-base font-light text-gray-400">/ month</span></div>
+      <p class="text-sm text-red-400 mt-1">🔥 Only 6 Spots Left</p>
+      <p class="text-sm text-gray-500 mb-6">(Lifetime Rate)</p>
+      <ul class="space-y-2 text-[15px] text-white/90">
+        <li>✓ Alpha Bid Recon Access (M/W/F)</li>
+        <li>✓ Beta Invoice Audit Reports</li>
+        <li>✓ Field-Intel & Cost Leak Detection</li>
+        <li>✓ Human + AI Hybrid Oversight</li>
+      </ul>
+      <a href="#contact" class="block mt-6 w-full text-center bg-green-500 text-black font-bold py-2 rounded-lg hover:bg-green-400 transition">
+        Secure Founder's Access
+      </a>
     </div>
+
+    <!-- Post-Launch Alpha + Beta -->
+    <div class="relative bg-[#101418] border border-cyan-500/40 rounded-2xl p-8 shadow-xl hover:scale-[1.02] transition-transform duration-300 backdrop-blur-sm">
+      <h3 class="text-xl font-semibold text-cyan-400">Alpha + Beta <span class="text-sm text-cyan-300">(Post-Launch)</span></h3>
+      <div class="mt-4 text-4xl font-extrabold">$800 <span class="text-base font-light text-gray-400">/ month</span></div>
+      <div class="h-6 mb-6"></div>
+      <ul class="space-y-2 text-[15px] text-white/90">
+        <li>✓ All Founder's Features</li>
+        <li>✓ Priority Agent Support</li>
+        <li>✓ Enhanced Discrepancy Detection</li>
+        <li>✓ Auto-tagged Audit History</li>
+      </ul>
+      <a href="#contact" class="block mt-6 w-full text-center bg-cyan-500 text-black font-bold py-2 rounded-lg hover:bg-cyan-400 transition">
+        Join After Launch
+      </a>
+    </div>
+
+    <!-- Custom Tier -->
+    <div class="relative bg-[#101418] border border-gray-600/40 rounded-2xl p-8 shadow-xl hover:scale-[1.02] transition-transform duration-300 backdrop-blur-sm">
+      <h3 class="text-xl font-semibold text-white">Custom Tier <span class="text-sm text-gray-400">(By Inquiry)</span></h3>
+      <div class="mt-4 text-4xl font-extrabold">TBD <span class="text-base font-light text-gray-400">/ custom</span></div>
+      <div class="h-6 mb-6"></div>
+      <ul class="space-y-2 text-[15px] text-white/90">
+        <li>✓ Alpha + Beta + Theta + DELTA</li>
+        <li>✓ AI-Assisted Blueprint Takeoffs</li>
+        <li>✓ Custom Recon + Platform Build</li>
+        <li>✓ Private Tool Testing & Early Access</li>
+      </ul>
+      <a href="#contact" class="block mt-6 w-full text-center bg-white/10 text-white font-bold py-2 rounded-lg hover:bg-white/20 transition">
+        Request Access
+      </a>
+    </div>
+
   </div>
 </section>
 
-
+   
 
 
 <!-- SPACER BLOCK -->
@@ -1676,18 +1676,16 @@ img.rounded-full:hover {
 
 <div id="cursor" style="position: fixed; top: 0; left: 0; width: 20px; height: 20px; border: 2px solid cyan; border-radius: 50%; pointer-events: none; z-index: 9999; transition: transform 0.1s ease;"></div>
 
-<!-- Alpha Terminal Script (Fixed) -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const section = document.querySelector("#alpha-terminal-section");
-  const lines = document.querySelectorAll("#alpha-terminal-text .typed-line");
   const form = document.getElementById("alpha-terminal-form");
   const input = document.getElementById("alpha-terminal-input");
   const output = document.getElementById("alpha-terminal-response");
 
   let hasTyped = false;
 
-  function isElementInViewport(el) {
+  function isInViewport(el) {
     const rect = el.getBoundingClientRect();
     return (
       rect.top >= 0 &&
@@ -1699,111 +1697,96 @@ document.addEventListener("DOMContentLoaded", () => {
     if (hasTyped) return;
     hasTyped = true;
 
+    const lines = document.querySelectorAll("#alpha-terminal-text .typed-line");
     lines.forEach((el, i) => {
       const text = el.dataset.text || "";
       el.textContent = "";
-      let index = 0;
-      const delay = 20 + Math.random() * 20;
+      let idx = 0;
+      const delay = 16 + Math.random() * 14;
 
       setTimeout(function typeChar() {
-        if (index < text.length) {
-          el.textContent += text.charAt(index);
-          index++;
+        if (idx < text.length) {
+          el.innerHTML += text.charAt(idx);
+          idx++;
           setTimeout(typeChar, delay);
-        } else if (i === lines.length - 1) {
-          setTimeout(() => {
-            if (isElementInViewport(input)) input.focus({ preventScroll: true });
-          }, 300);
         }
-      }, i * 700);
+      }, i * 550);
     });
   }
 
-  function scrollLock() {
-    if ("scrollRestoration" in history) {
-      history.scrollRestoration = "manual";
-    }
-    window.scrollTo(0, 0);
-  }
-
-  function observeAndTrigger() {
+  function setupObserver() {
     if (!section || hasTyped) return;
 
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !hasTyped) {
-          setTimeout(() => startTyping(), 300);
-          obs.disconnect();
-        }
-      });
+    const observer = new IntersectionObserver(([entry], obs) => {
+      if (entry.isIntersecting && !hasTyped) {
+        startTyping();
+        obs.disconnect();
+      }
     }, {
-      threshold: 0.6,
+      threshold: 0.5,
       rootMargin: "0px 0px -120px 0px"
     });
 
     observer.observe(section);
   }
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const command = input.value.trim().toLowerCase();
-    output.innerHTML = "";
+  function handleForm() {
+    if (!form) return;
 
-    console.log("[ALPHA] Command submitted:", command);
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const command = input.value.trim().toLowerCase();
+      output.innerHTML = "";
 
-    if (command === "bid") {
-      output.innerHTML = `
-        <p>&gt; bid</p>
-        <p>&gt; Deploying Recon Sample...</p>
-        <p>&gt; Transmission confirmed. 📤 PDF recon dispatched.</p>
-      `;
-      setTimeout(() => {
-        window.open("/sample-bid-report.pdf", "_blank");
-      }, 1200);
-    } else {
-      output.innerHTML = `<p>&gt; Unknown command: '${command}'</p>`;
-    }
-
-    input.value = "";
-
-    if (isElementInViewport(input)) {
-      setTimeout(() => input.focus({ preventScroll: true }), 300);
-    }
-  });
-
-  input.addEventListener("blur", () => {
-    setTimeout(() => {
-      if (document.activeElement !== document.getElementById("beta-terminal-input")) {
-        if (isElementInViewport(input)) input.focus({ preventScroll: true });
+      if (command === "bid") {
+        output.innerHTML = `
+          <p>&gt; bid</p>
+          <p>&gt; Deploying Recon Sample...</p>
+          <p>&gt; Transmission confirmed. 📤 PDF recon dispatched.</p>
+        `;
+        setTimeout(() => {
+          window.open("/sample-bid-report.pdf", "_blank");
+        }, 1200);
+      } else {
+        output.innerHTML = `<p>&gt; Unknown command: '${command}'</p>`;
       }
-    }, 500);
-  });
 
-  // Prevent hash scroll on load
+      input.value = "";
+    });
+
+    input.addEventListener("blur", () => {
+      setTimeout(() => {
+        if (document.activeElement !== input && isInViewport(input)) {
+          input.focus({ preventScroll: true });
+        }
+      }, 400);
+    });
+  }
+
+  // Safety: Prevent anchor hash scrolling
   if (window.location.hash) {
     history.replaceState(null, null, ' ');
     window.scrollTo(0, 0);
   }
 
-  scrollLock();
-
+  // Init after DOM + fonts are ready
   setTimeout(() => {
     if (document.fonts?.ready) {
-      document.fonts.ready.then(observeAndTrigger);
+      document.fonts.ready.then(setupObserver);
     } else {
-      observeAndTrigger();
+      setupObserver();
     }
-  }, 300);
+  }, 200);
+
+  handleForm();
 });
 </script>
+
         
 
   
 
 <!-- Typed.js -->
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
-<!-- Typed.js CDN (required) -->
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
 <!-- BETA Terminal Animation -->
@@ -1943,6 +1926,10 @@ document.addEventListener("DOMContentLoaded", function () {
   ];
 
   let triggered = false;
+  const target = document.querySelector("#why-terminal");
+
+  if (!target) return;
+
   const observer = new IntersectionObserver(([entry]) => {
     if (entry.isIntersecting && !triggered) {
       triggered = true;
@@ -1950,21 +1937,22 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => {
           new Typed(item.el, {
             strings: item.strings,
-            typeSpeed: 40,
+            typeSpeed: 38,
+            startDelay: 100,
             showCursor: true,
             cursorChar: "█",
-            startDelay: 100,
             smartBackspace: false,
-            contentType: "html",
+            contentType: "html"
           });
-        }, i * 500);
+        }, i * 420); // staggered for cinematic effect
       });
     }
-  }, { threshold: 0.5 });
+  }, { threshold: 0.4 });
 
-  observer.observe(document.querySelector("#why-terminal"));
+  observer.observe(target);
 });
 </script>
+
 
 
 <!-- ✨ Vendor Connector Script -->
